@@ -1,0 +1,48 @@
+<?xml version="1.0"?>
+<UserCombinePreferences filename="/home/dem/drapes/drapes.mds">
+  <Files>
+    <File filename="Welcome" />
+    <File filename="./drapes/ConfigMenu.cs" />
+    <File filename="./drapes/Wallpaper.cs" />
+    <File filename="./drapes/WpList.cs" />
+    <File filename="./drapes/Settings.cs" />
+    <File filename="./drapes/Traylib.cs" />
+    <File filename="./drapes/Main.cs" />
+  </Files>
+  <Views>
+    <ViewMemento Id="MonoDevelop.Ide.Gui.Pads.ProjectPad">
+      <TreeView>
+        <Node expanded="True">
+          <Node name="drapes" expanded="True">
+            <Node name="References" expanded="True" />
+            <Node name="Resources" expanded="True" />
+            <Node name="ConfigMenu.cs" expanded="False" selected="True" />
+          </Node>
+        </Node>
+      </TreeView>
+    </ViewMemento>
+    <ViewMemento Id="MonoDevelop.Ide.Gui.Pads.ClassPad">
+      <TreeView>
+        <Node expanded="True">
+          <Node name="drapes" expanded="True" />
+        </Node>
+      </TreeView>
+    </ViewMemento>
+    <ViewMemento Id="MonoQuery.DatabasePad">
+      <TreeView>
+        <Node expanded="False" />
+      </TreeView>
+    </ViewMemento>
+    <ViewMemento Id="MonoDevelop.NUnit.TestPad">
+      <TreeView>
+        <Node expanded="False" />
+      </TreeView>
+    </ViewMemento>
+  </Views>
+  <Properties>
+    <Properties>
+      <Property key="ActiveConfiguration" value="Release" />
+      <Property key="ActiveWindow" value="/home/dem/drapes/drapes/ConfigMenu.cs" />
+    </Properties>
+  </Properties>
+</UserCombinePreferences>
