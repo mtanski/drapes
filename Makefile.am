@@ -1,0 +1,4 @@
+SUBDIRS = \
+	drapes			\
+	scripts			\
+	docs

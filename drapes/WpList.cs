@@ -143,7 +143,9 @@ namespace Drapes
 				}
 			} catch (System.Xml.XmlException e) {
 				Console.WriteLine("Something bad happened lastime, opening as far as we can");
-			} 
+			}
+
+			xml.Close();	
 		
 			return true;
 		}
