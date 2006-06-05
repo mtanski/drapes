@@ -1,0 +1,14 @@
+#!/bin/bash
+
+prefix=@prefix@
+libdir=@libdir@
+exec_asm="drapes.exe"
+
+APP_EXE="$prefix/$libdir/drapes/$exec_asm"
+
+if [ "x$1" = "x--debug" ]; then
+  MONO_OPTIONS="--debug"
+  echo "** Running drapes in Debug Mode **"
+fi
+
+exec -a drapes mono $MONO_OPTIONS $APP_EXE "$@"

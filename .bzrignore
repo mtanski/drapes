@@ -1,4 +1,5 @@
 bin
+bin/
 gui.glade.bak
 gui.gladep
 gui.gladep.bak
