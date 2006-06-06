@@ -1,0 +1,65 @@
+<gconfschemafile>
+  <schemalist>
+
+    <schema>
+      <key>/schemas/apps/drapes/timedelay</key>
+      <applyto>/schemas/apps/drapes/timedelay</applyto>
+      <owner>drapes</owner>
+      <type>int</type>
+      <default>2</default>
+      <locale name="C">
+        <short>Time delay between wallpaper changes</short>
+        <long>Possible values are 0: 5 min, 1: 10 min, 2: 15 min, 3: 20 min, 4: 30 min, 5: 45 min, 6: 60 min, 7: 90 min, 8: 120min, 10: never.</long>
+      </locale>
+    </schema>
+
+    <schema>
+      <key>/schemas/apps/drapes/monitor</key>
+      <applyto>/schemas/apps/drapes/monitor</applyto>
+      <owner>drapes</owner>
+      <type>bool</type>
+      <default>false</default>
+      <locale name="C">
+        <short>Monitor directory for new wallapers</short>
+        <long>Monitor the specified directory using inotify for new wallpapers and changes.</long>
+      </locale>
+    </schema>
+
+    <schema>
+      <key>/schemas/apps/drapes/monitor_directory</key>
+      <applyto>/schemas/apps/drapes/monitor_directory</applyto>
+      <owner>drapes</owner>
+      <type>string</type>
+      <default></default>
+      <locale name="C">
+        <short>Directory to monitor</short>
+        <long>The directory that is to be monitored for changes using inotify.</long>
+      </locale>
+    </schema>
+
+    <schema>
+      <key>/schemas/apps/drapes/on_startup</key>
+      <applyto>/schemas/apps/drapes/on_startup</applyto>
+      <owner>drapes</owner>
+      <type>bool</type>
+      <default>false</default>
+      <locale name="C">
+        <short>Launch Desktop Drapes on login</short>
+        <long>Launch Desktop Drapes on login (only applies to the tray applet).</long>
+      </locale>
+    </schema>
+
+    <schema>
+      <key>/schemas/apps/drapes/enable_timed_shuffle</key>
+      <applyto>/schemas/apps/drapes/enable_timed_shuffle</applyto>
+      <owner>drapes</owner>
+      <type>bool</type>
+      <default>true</default>
+      <locale name="C">
+        <short>Allow drapes to periodicaly shuffle the wallpapers</short>
+        <long>This setting is used to tempoarly disable wallpaper switching</long>
+      </locale>
+    </schema>
+
+  </schemalist>
+</gconfschemafile>

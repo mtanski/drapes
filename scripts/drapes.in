@@ -11,4 +11,4 @@ if [ "x$1" = "x--debug" ]; then
   echo "** Running drapes in Debug Mode **"
 fi
 
-exec -a drapes mono $MONO_OPTIONS $APP_EXE "$@"
+exec -a drapes @RUNTIME@ $MONO_OPTIONS $APP_EXE "$@"

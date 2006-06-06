@@ -1,7 +1,6 @@
 <?xml version="1.0"?>
 <UserCombinePreferences filename="/home/dem/drapes/drapes.mds">
   <Files>
-    <File filename="Welcome" />
     <File filename="./drapes/ConfigMenu.cs" />
     <File filename="./drapes/Wallpaper.cs" />
     <File filename="./drapes/WpList.cs" />

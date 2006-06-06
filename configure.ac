@@ -1,13 +1,15 @@
 AC_INIT(drapes/Main.cs)
 AC_CANONICAL_SYSTEM
 
-VERSION="0.4.90"
+VERSION="0.4.91"
 ASM_VERSION="$VERSION.*"
 
 AM_INIT_AUTOMAKE(drapes, $VERSION)
 AC_SUBST(ASM_VERSION)
 
 AM_MAINTAINER_MODE
+
+AC_PROG_INTLTOOL([0.21])
 
 AC_PROG_INSTALL
 
@@ -17,22 +19,10 @@ if test "x$PKG_CONFIG" = "xno"; then
         AC_MSG_ERROR([You need to install pkg-config])
 fi
 
-MONO_REQUIRED_VERSION=1.1.15
+dnl Mono
+MONO_REQUIRED_VERSION=1.1.13
 PKG_CHECK_MODULES(UNMANAGED_DEPENDENCIES_MONO,mono >= $MONO_REQUIRED_VERSION, has_mono=true, has_mono=false)
 PKG_CHECK_MODULES(UNMANAGED_DEPENDENCIES_MINT,mint >= $MONO_REQUIRED_VERSION, has_mint=true, has_mint=false)
-
-AC_PATH_PROG(MONO, mono)
-AC_PATH_PROG(MCS, mcs)
-
-if test "x$MONO" = "x" ; then
-  AC_PATH_PROG(MINT, mint)
-  if test "x$MINT" = "x" ; then
-	AC_MSG_ERROR([Can't find "mono" or "mint" in your PATH])
-  fi
-fi
-
-AC_SUBST(PATH)
-AC_SUBST(LD_LIBRARY_PATH)
 
 if test "x$has_mono" = "xtrue"; then
     AC_PATH_PROG(RUNTIME, mono, no)
@@ -45,8 +35,20 @@ else
 	AC_PATH_PROG(CSC, gmcs, no)
 	LIB_PREFIX=.so
 	LIB_SUFFIX=
+    else
+      AC_MSG_ERROR([You need to install mono])
     fi
 fi
+
+CS="C#"
+if test "x$CSC" = "xno" ; then
+    AC_MSG_ERROR([No $CS compiler found])
+fi
+
+AC_SUBST(RUNTIME)
+AC_SUBST(CSC)
+
+dnl Gtk#
 
 GTKSHARP_REQUIRED=2.8
 PKG_CHECK_MODULES(GTKSHARP,
@@ -57,13 +59,20 @@ PKG_CHECK_MODULES(GTKSHARP,
 	gconf-sharp-2.0 >= $GTKSHARP_REQUIRED)
 AC_SUBST(GTKSHARP_LIBS)
 
+dnl Gconf
+AC_PATH_PROG(GCONFTOOL, gconftool-2, no)
+AM_GCONF_SOURCE_2
+
 AC_OUTPUT([
 Makefile
-drapes/Makefile
 drapes/AssemblyInfo.cs
+drapes/Makefile
 scripts/drapes
 scripts/Makefile
 docs/Makefile
+data/drapes.desktop
+data/drapes.schemas
+data/Makefile
 ])
 
 echo ""

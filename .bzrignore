@@ -22,3 +22,17 @@ drapes.mdp
 drapes.exe.mdb
 drapes.pidb
 drapes.exe.mdb
+omf.make
+xmldocs.make
+drapes.schemas
+Makefile
+Makefile.in
+drapes.desktop
+Makefile.in.in
+POTFILES
+configure
+mkinstalldirs
+intltool-*
+Makefile.in
+drapes/drapes.pidb
+docs/Makefile.in
