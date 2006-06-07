@@ -14,9 +14,6 @@ config.log
 config.sub
 drapes
 Makefile
-Makefile.in
-Makefile.am
-Makefile
 AssemblyInfo.cs
 drapes.mdp
 drapes.exe.mdb
