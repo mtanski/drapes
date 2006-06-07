@@ -36,3 +36,7 @@ intltool-*
 Makefile.in
 drapes/drapes.pidb
 docs/Makefile.in
+drapes.desktop.in
+drapes.desktop
+po/.intltool-merge-cache
+po/stamp-it

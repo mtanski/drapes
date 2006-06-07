@@ -2,4 +2,5 @@ SUBDIRS = \
 	drapes			\
 	scripts			\
 	data			\
-	docs
+	docs			\
+	po

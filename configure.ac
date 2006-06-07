@@ -63,6 +63,15 @@ dnl Gconf
 AC_PATH_PROG(GCONFTOOL, gconftool-2, no)
 AM_GCONF_SOURCE_2
 
+dnl internatilization
+ALL_LINGUAS="`cat "$srcdir/po/LINGUAS" | grep -v '^#'`"
+GETTEXT_PACKAGE=drapes
+AC_SUBST(GETTEXT_PACKAGE)
+AC_DEFINE_UNQUOTED(GETTEXT_PACKAGE, "$GETTEXT_PACKAGE", [Gettext Package])
+AM_GLIB_GNU_GETTEXT
+AC_SUBST([CONFIG_STATUS_DEPENDENCIES],['$(top_srcdir)/po/LINGUAS'])
+
+
 AC_OUTPUT([
 Makefile
 drapes/AssemblyInfo.cs
@@ -70,9 +79,9 @@ drapes/Makefile
 scripts/drapes
 scripts/Makefile
 docs/Makefile
-data/drapes.desktop
 data/drapes.schemas
 data/Makefile
+po/Makefile.in
 ])
 
 echo ""
