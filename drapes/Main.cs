@@ -131,6 +131,22 @@ public class DrapesApp
 	private void DrawTrayMenu(object o, ButtonPressEventArgs args)
 	{
 		switch (args.Event.Button) {
+			// left click
+			case 1:
+				Wallpaper w = WpList.Random(Cfg.Wallpaper);
+				if (w != null) {
+					Cfg.Wallpaper = w.File;
+									
+					// Update the timer too
+					LastSwitch = (DateTime) DateTime.Now;
+					
+					Console.WriteLine("On demand switch to: {0}", w.File);
+				} else {
+					Console.WriteLine("On demand switch failed, no wallpapers?");
+				}
+
+				break;
+			// right click
 			case 3:
 				// Menu
 				Menu popup = new Menu();
@@ -202,8 +218,11 @@ public class DrapesApp
 			return true;
 		
 		Wallpaper w = WpList.Random(Cfg.Wallpaper);
-		if (w != null)
+		if (w != null) {
 			Cfg.Wallpaper = w.File;
+			Console.WriteLine("Shuffle switched to: {0}", w.File);
+		} else
+			Console.WriteLine("Shuffle switch failed, no wallpapers?");
 		
 		LastSwitch = (DateTime) DateTime.Now;
 	
@@ -216,8 +235,12 @@ public class DrapesApp
 			return false;
 
 		Wallpaper w = WpList.Random(Cfg.Wallpaper);
-		if (w != null)
+		if (w != null) {
 			Cfg.Wallpaper = w.File;
+
+			Console.WriteLine("On start switch: {0}", w.File);
+		} else
+			Console.WriteLine("On start failed, no wallpapers?");
 	
 		LastSwitch = (DateTime) DateTime.Now;
 		return false;
