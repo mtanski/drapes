@@ -71,8 +71,6 @@ AC_DEFINE_UNQUOTED(GETTEXT_PACKAGE, "$GETTEXT_PACKAGE", [Gettext Package])
 AM_GLIB_GNU_GETTEXT
 AC_SUBST([CONFIG_STATUS_DEPENDENCIES],['$(top_srcdir)/po/LINGUAS'])
 
-dnl where does the exe file go (for use in the launcher script)
-
 AC_OUTPUT([
 Makefile
 drapes/AssemblyInfo.cs

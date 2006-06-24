@@ -1,0 +1,8 @@
+[Desktop Entry]
+Encoding=UTF-8
+_Name=Configuration Editor
+_Comment=Directly edit your entire configuration database
+Exec=drapes --tray
+Type=Application
+StartupNotify=true
+Categories=GNOME;Applications;Graphics
