@@ -1,8 +1,8 @@
 [Desktop Entry]
 Encoding=UTF-8
-_Name=Configuration Editor
-_Comment=Directly edit your entire configuration database
+_Name=Desktop Drapes
+_Comment=Manage your desktop wallpapers
 Exec=drapes --tray
 Type=Application
-StartupNotify=true
+StartupNotify=false
 Categories=GNOME;Applications;Graphics
