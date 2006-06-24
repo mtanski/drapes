@@ -39,7 +39,7 @@ namespace Drapes
 			this.WpList = WpList;
 		
 			// Glade autoconnect magic
-			Glade.XML gxml = new Glade.XML (null, "gui.glade", "winPref", null);
+			Glade.XML gxml = new Glade.XML (null, "drapes.glade", "winPref", null);
 			gxml.Autoconnect (this);
 			
 			// the window it self
@@ -85,7 +85,7 @@ namespace Drapes
 			fcbDir.SetCurrentFolderUri(DrapesApp.Cfg.MonitorDirectory);
 			fcbDir.CurrentFolderChanged += OnMonitorDirChanged;
 			DrapesApp.Cfg.MonitorDirectoryWidget(fcbDir);
-			
+
 			// E: General Tab
 			// B: Treeview wallpaper list
 			

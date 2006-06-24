@@ -1,9 +1,8 @@
-
 desktopdir = $(datadir)/applications
 desktop_in_files=drapes.desktop.in.in
 desktop_DATA=$(desktop_in_files:.desktop.in.in=.desktop)
 
-%.desktop.in: %.desktop.in.in
+%desktop.in: %.desktop.in
 	sed -e "s/\@VERSION\@/$(VERSION)/" < $< > $@
 
 @INTLTOOL_DESKTOP_RULE@
@@ -23,5 +22,6 @@ endif
 
 EXTRA_DIST = \
 	$(schema_in_files)	\
-	$(desktop_in_files)
+	$(desktop_in_files)	\
+	$(gladedir_data)
 
