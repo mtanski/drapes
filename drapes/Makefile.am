@@ -14,7 +14,6 @@ RESOURCES = \
 
 drapes_sources_in = AssemblyInfo.cs.in
 drapes_sources = \
-	AssemblyInfo.cs			\
 	ConfigMenu.cs 			\
 	Main.cs					\
 	Settings.cs				\
@@ -32,3 +31,4 @@ $(TARGET): $(drapes_build_sources) $(top_srcdir)/data/drapes.glade
 	-target:exe -out:"$@" \
 	$(drapes_build_sources)
 
+EXTRA_DIST = $(drapes_build_sources)
