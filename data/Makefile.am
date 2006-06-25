@@ -1,5 +1,5 @@
 desktopdir = $(datadir)/applications
-desktop_in_files=drapes.desktop.in.in
+desktop_in_files=drapes.desktop.in
 desktop_DATA=$(desktop_in_files:.desktop.in.in=.desktop)
 
 %desktop.in: %.desktop.in
