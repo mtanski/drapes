@@ -46,6 +46,16 @@ namespace Drapes
 				return false;
 			}
 			
+			// We got it open it our selfs because we need to close the stream explicitly,
+			// mono dosen't close the stream on a XmlReader.Close, we Sharing Violation exception
+			FileStream fs;
+			try {	
+				fs = new FileStream(file, FileMode.Open, FileAccess.Read);
+			} catch (Exception e) {
+				Console.WriteLine("Unable to open file {0} because:", file, e.Message);
+				return false;
+			}
+			
 			// Gadzilion settings
 			XmlReaderSettings s = new XmlReaderSettings();
 			s.IgnoreComments = true;
@@ -142,16 +152,20 @@ namespace Drapes
 					}
 				}
 			} catch (System.Xml.XmlException e) {
-				Console.WriteLine("Something bad happened lastime, opening as far as we can");
+				Console.WriteLine("Something bad happened las time, opening as far as we can...");
 			}
 
-			xml.Close();	
+			// Cleanup on isle 5
+			xml.Close();
+			fs.Close();
 		
 			return true;
 		}
 		
 		public bool SaveList(string file)
 		{
+            Console.WriteLine(file);
+            
 			XmlTextWriter xml = new XmlTextWriter(file, null);
 			xml.Formatting = Formatting.Indented;
 			xml.Namespaces = false;
@@ -176,11 +190,16 @@ namespace Drapes
 				// values
 				xml.WriteElementString("name", w.Name.ToString());
 				xml.WriteElementString("filename", w.File.ToString());
+				
 				// style TODO
 				xml.WriteElementString("x", w.Width.ToString());
 				xml.WriteElementString("y", w.Height.ToString());
-				long time = w.Mtime.ToFileTimeUtc();
-				xml.WriteElementString("mtime", time.ToString());
+				
+				// correr case where this may not yet be loaded (importing old gnome wp settings), and quiting right away
+				if (w.Mtime != DateTime.MinValue) {
+					long time = w.Mtime.ToFileTimeUtc();
+					xml.WriteElementString("mtime", time.ToString());
+				}
 						
 				xml.WriteEndElement();
 			}
@@ -188,6 +207,8 @@ namespace Drapes
 			// End
 			xml.WriteEndElement();
 			xml.WriteEndDocument();
+			
+			//
 			xml.Close();
 			
 			Console.WriteLine("Wallpaper list file {0} saved", file);

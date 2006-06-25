@@ -65,6 +65,9 @@ public class DrapesApp
 		if (!cfg.Exists) {
 			Console.WriteLine("Importing Gnome's background list");
 			WpList = new WallPaperList(Config.Defaults.Gnome.WallpaperListFile);
+            
+            // Lets save it in our own format
+            WpList.SaveList(Config.Defaults.DrapesWallpaperList);
 		} else {
 			Console.WriteLine("Opening wallpaper list");
 			WpList = new WallPaperList(Config.Defaults.DrapesWallpaperList);
@@ -270,7 +273,7 @@ public class DrapesApp
 	
 		// Save changes to the list
 		if (WpList != null)
-			WpList.SaveList(Config.Defaults.DrapesWallpaperList);
+            WpList.SaveList(Config.Defaults.DrapesWallpaperList);
 		
 		// Shutdown the vfs subsystem
 		Vfs.Vfs.Shutdown();
