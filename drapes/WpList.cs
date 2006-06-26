@@ -63,7 +63,8 @@ namespace Drapes
 			s.IgnoreWhitespace = true;
 			s.ProhibitDtd = false;
 			// the XmlReader object 
-			XmlReader xml = XmlReader.Create(file, s);
+			XmlReader xml = XmlReader.Create(fs, s);
+
 		
 			try {
 				// Proces the Xml document
