@@ -1,7 +1,7 @@
 <?xml version="1.0"?>
-<UserCombinePreferences filename="/home/dem/drapes/drapes.mds">
+<UserCombinePreferences filename="/home/dem/Projects/drapes/drapes.mds">
   <Files>
-    <File filename="./drapes/ConfigMenu.cs" />
+    <File filename="Welcome" />
     <File filename="./drapes/Wallpaper.cs" />
     <File filename="./drapes/WpList.cs" />
     <File filename="./drapes/Settings.cs" />
@@ -15,7 +15,7 @@
           <Node name="drapes" expanded="True">
             <Node name="References" expanded="True" />
             <Node name="Resources" expanded="True" />
-            <Node name="ConfigMenu.cs" expanded="False" selected="True" />
+            <Node name="WpList.cs" expanded="False" selected="True" />
           </Node>
         </Node>
       </TreeView>
@@ -41,7 +41,7 @@
   <Properties>
     <Properties>
       <Property key="ActiveConfiguration" value="Release" />
-      <Property key="ActiveWindow" value="/home/dem/drapes/drapes/ConfigMenu.cs" />
+      <Property key="ActiveWindow" value="/home/dem/Projects/drapes/drapes/WpList.cs" />
     </Properties>
   </Properties>
 </UserCombinePreferences>
