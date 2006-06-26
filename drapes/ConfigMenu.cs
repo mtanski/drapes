@@ -56,6 +56,7 @@ namespace Drapes
 			cmbStyle.InsertText(3, "Zoom");
 			cmbStyle.InsertText(4, "Tiled");
 			cmbStyle.Active = (int) DrapesApp.Cfg.Style;
+			cmbStyle.Changed += onStyleChanged;
 		
 			// Bottom butons
 			btnClose.Clicked += onCloseButtonClick;
@@ -205,6 +206,12 @@ namespace Drapes
 		Gtk.TreeIter				tiAsp43;
 		Gtk.TreeIter				tiAspWide;
 		Gtk.TreeIter				tiAspMisc;
+
+		// Update the gnome 
+		private void onStyleChanged(object sender, EventArgs args)
+		{
+			DrapesApp.Cfg.Style = (Config.Style) (sender as Gtk.ComboBox).Active; 
+		}
 		
 		// Add more wallpapers
 		private void onAddButtonClick (object sender, EventArgs args)

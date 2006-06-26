@@ -117,6 +117,7 @@ namespace Drapes.Config
 		HScale				scaleTimer;
 		ToggleButton		cbtMonitor;
 		FileChooserButton	fcbDir;
+		ComboBox			cmbStyle;
 		
 		// Constructor
 		public Settings()
@@ -128,6 +129,7 @@ namespace Drapes.Config
 			client.AddNotify(GCONF_KEY_TIMER, GConfKeyChange);
 			client.AddNotify(GCONF_KEY_MONITOR, GConfKeyChange);
 			client.AddNotify(GCONF_KEY_MONITOR_DIR, GConfKeyChange);
+			client.AddNotify(Defaults.Gnome.PictureOptionsKey, GConfKeyChange);
 		}
 		
 		// For setting up GConf key monitoring
@@ -149,6 +151,11 @@ namespace Drapes.Config
 		public void SwitchDelayWidget(HScale s)
 		{
 			scaleTimer = s;
+		}
+
+		public void SwitchStyleWidget(ComboBox c)
+		{
+			cmbStyle = c;
 		}
 		
 		// Load a randomwallaper on start
@@ -342,7 +349,11 @@ namespace Drapes.Config
 				case GCONF_KEY_MONITOR_DIR:
 					if (fcbDir != null)
 						fcbDir.SetCurrentFolderUri((string) args.Value);
-					break;				
+					break;
+				case Defaults.GCONF_STYLE_OPTIONS:
+					if (cmbStyle != null)
+						cmbStyle.Active = Convert.ToInt32(Style);
+					break;
 				default:
 					Console.WriteLine("Unknown GConf key: {0}", args.Key);
 					break;
@@ -354,6 +365,7 @@ namespace Drapes.Config
 	public static class Defaults
 	{
 		private static string monDir = "Documents/Wallpapers";
+		internal const string GCONF_STYLE_OPTIONS = "/desktop/gnome/background/picture_options";
 	
 		// Incase we ever want to change it, I guess.
 		static public string ApplicationName
@@ -428,7 +440,7 @@ namespace Drapes.Config
 			static public string PictureOptionsKey
 			{
 				get {
-					return "/desktop/gnome/background/picture_options";
+					return GCONF_STYLE_OPTIONS;
 				}
 			}
 		}
