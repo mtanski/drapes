@@ -330,6 +330,50 @@ namespace Drapes.Config
 				client.Set(GCONF_KEY_SHUFFLE, value);
 			}
 		}
+
+		// This functions needs to be cleaned up... right now it's lame
+		public bool AutoStart
+		{
+			get
+			{
+				string as_file = Path.Combine(Defaults.Gnome.AutoStartDir, "drapes.desktop");
+				return File.Exists(as_file);
+			}
+
+			set
+			{
+				string as_file = Path.Combine(Defaults.Gnome.AutoStartDir, "drapes.desktop");
+
+				try {
+					// only bother if needed 
+					if (AutoStart != value) {
+
+						if (value == true) {
+							// Create path need be
+							if (!Directory.Exists(Defaults.Gnome.AutoStartDir))
+								Directory.CreateDirectory(Defaults.Gnome.AutoStartDir);
+							
+							StreamWriter sr = new StreamWriter(as_file);
+						
+							// content of the .desktop file
+							sr.WriteLine("[Desktop Entry]");
+							sr.WriteLine("Name=Drapes");
+							sr.WriteLine("Encoding=UTF-8");
+							sr.WriteLine("Version=1.0");
+							sr.WriteLine("Exec=drapes");
+							sr.WriteLine("X-GNOME-Autostart-enabled=true");
+							
+							sr.Close();
+							
+						} else {
+							File.Delete(as_file);
+						}
+					}
+				} catch (Exception e) {
+					Console.WriteLine("Cannot toggle autostart, reason: {0}", e.Message);
+				}
+			}
+		}
 		
 		public void GConfKeyChange (object sender, NotifyEventArgs args)
 		{
@@ -417,6 +461,14 @@ namespace Drapes.Config
 			{
 				get {
 					return Path.Combine(Environment.GetEnvironmentVariable("HOME"), ".gnome2/backgrounds.xml");
+				}
+			}
+
+			// The user autostart path (i think it's a freedesktop spec path)
+			static public string AutoStartDir
+			{
+				get {
+					return Path.Combine(Environment.GetEnvironmentVariable("HOME"), ".config/autostart");
 				}
 			}
 		

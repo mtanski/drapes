@@ -57,6 +57,10 @@ namespace Drapes
 			cmbStyle.InsertText(4, "Tiled");
 			cmbStyle.Active = (int) DrapesApp.Cfg.Style;
 			cmbStyle.Changed += onStyleChanged;
+
+			// start on login button
+			cbtAutoStart.Active = DrapesApp.Cfg.AutoStart;
+			cbtAutoStart.Toggled += onAutoStartToggled;
 		
 			// Bottom butons
 			btnClose.Clicked += onCloseButtonClick;
@@ -189,6 +193,7 @@ namespace Drapes
 		// Things in the general tab
 		[Widget] HScale				scaleTimer;
 		[Widget] Button				btnClose;
+		[Widget] CheckButton		cbtAutoStart;
 		[Widget] CheckButton		cbtStartSwitch;
 		[Widget] CheckButton		cbtMonitor;
 		[Widget] FileChooserButton	fcbDir;
@@ -207,10 +212,15 @@ namespace Drapes
 		Gtk.TreeIter				tiAspWide;
 		Gtk.TreeIter				tiAspMisc;
 
-		// Update the gnome 
+		// Update gnome wallaper style
 		private void onStyleChanged(object sender, EventArgs args)
 		{
 			DrapesApp.Cfg.Style = (Config.Style) (sender as Gtk.ComboBox).Active; 
+		}
+
+		private void onAutoStartToggled(object sender, EventArgs args)
+		{
+			DrapesApp.Cfg.AutoStart = (sender as Gtk.ToggleButton).Active;
 		}
 		
 		// Add more wallpapers
