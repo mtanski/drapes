@@ -1,7 +1,7 @@
 AC_INIT(drapes/Main.cs)
 AC_CANONICAL_SYSTEM
 
-VERSION="0.4.92"
+VERSION="0.4.93"
 ASM_VERSION="$VERSION.*"
 
 AM_INIT_AUTOMAKE(drapes, $VERSION)
@@ -75,7 +75,6 @@ AC_OUTPUT([
 Makefile
 drapes/AssemblyInfo.cs
 drapes/Makefile
-scripts/drapes
 scripts/Makefile
 docs/Makefile
 data/drapes.schemas

@@ -23,5 +23,5 @@ endif
 EXTRA_DIST = \
 	$(schema_in_files)	\
 	$(desktop_in_files)	\
-	$(gladedir_data)
+	drapes.glade
 

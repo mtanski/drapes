@@ -37,3 +37,13 @@ drapes.desktop.in
 drapes.desktop
 po/.intltool-merge-cache
 po/stamp-it
+*.gladep
+drapes.vpwhistu
+drapes.vtg
+*.cdbs-orig
+*.debhelper
+debian/compat
+debian/drapes.substvars
+debian/files
+debian/stamp-autotools-files
+debian/stamp-makefile-build

@@ -10,16 +10,16 @@ ASSEMBLIES = \
 	-pkg:gnome-vfs-sharp-2.0
 
 RESOURCES = \
-	-resource:$(top_srcdir)/data/drapes.glade
+	-resource:$(top_srcdir)/data/drapes.glade,drapes.glade
 
 drapes_sources_in = AssemblyInfo.cs.in
 drapes_sources = \
-	ConfigMenu.cs 			\
-	Main.cs					\
-	Settings.cs				\
-	Traylib.cs				\
-	Wallpaper.cs			\
-	WpList.cs
+	$(srcdir)/ConfigMenu.cs 			\
+	$(srcdir)/Main.cs					\
+	$(srcdir)/Settings.cs				\
+	$(srcdir)/Traylib.cs				\
+	$(srcdir)/Wallpaper.cs				\
+	$(srcdir)/WpList.cs
 
 drapes_build_sources = $(drapes_sources)
 
@@ -32,3 +32,7 @@ $(TARGET): $(drapes_build_sources) $(top_srcdir)/data/drapes.glade
 	$(drapes_build_sources)
 
 EXTRA_DIST = $(drapes_build_sources)
+
+CLEANFILES =	\
+	$(TARGET)	\
+	*.mdb
