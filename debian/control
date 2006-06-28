@@ -1,0 +1,17 @@
+Source: drapes
+Section: gnome
+Priority: optional
+Maintainer: Milosz Tanski <mtanski@gmail.com>
+Build-Depends: libmono-dev (>= 1.1.13), mono-gmcs (>= 1.1.13), libgnome2.0-cil (>= 2.8)
+Standards-Version: 0.4.92
+
+Package: drapes
+Architecture: any
+Depends: mono-jit (>= 1.1.13), mono-classlib-2.0 (>= 1.1.13), libgnome2.0-cil (>= 2.8)
+Suggests: mono
+Description: a desktop wallpaper managment application for the GNOME desktop
+ the aim of drapes is to compliment (replace) the built in GNOME desktop
+ wallpaper selection tool. It can be configured as a tray application or as a
+ panel applet. The bigest selling point of drapes is ability to roate wallapers
+ on a timely basis. It strives to be as simple as possible and fit in the rest
+ of the GNOME 2 desktop.
