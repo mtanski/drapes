@@ -1,0 +1,65 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2006-06-27 23:27-0400\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=CHARSET\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#: data/drapes.glade:10
+msgid "Desktop Drapes"
+msgstr ""
+
+#: data/drapes.glade:157
+msgid "Style: "
+msgstr ""
+
+#: data/drapes.glade:281
+msgid "Display"
+msgstr ""
+
+#: data/drapes.glade:351
+msgid "<b>Startup options</b>"
+msgstr ""
+
+#: data/drapes.glade:402
+msgid "Start Desktop Drapes on start"
+msgstr ""
+
+#: data/drapes.glade:421
+msgid "Switch wallpaper on start"
+msgstr ""
+
+#: data/drapes.glade:485
+msgid "<b>Timing selection</b>"
+msgstr ""
+
+#: data/drapes.glade:585
+msgid "<b>Wallpaper search directory</b>"
+msgstr ""
+
+#: data/drapes.glade:636
+msgid "Monitor this directory for new wallpapers"
+msgstr ""
+
+#: data/drapes.glade:666
+msgid "Select A File"
+msgstr ""
+
+#: data/drapes.glade:709
+msgid "General"
+msgstr ""
+
+#: data/drapes.glade:802
+msgid "Close"
+msgstr ""
