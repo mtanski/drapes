@@ -1,3 +1,9 @@
+drapes (0.4.93) UNRELEASED; urgency=low
+
+  *  New testing version.
+
+ -- Milosz Tanski <mtanski@gmail.com>  Wed, 28 Jun 2006 16:18:13 -0400
+
 drapes (0.4.92) UNRELEASED; urgency=low
 
   * Adding adding debian foo. 
