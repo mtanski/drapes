@@ -77,7 +77,6 @@ drapes/AssemblyInfo.cs
 drapes/Makefile
 scripts/Makefile
 docs/Makefile
-data/drapes.schemas
 data/Makefile
 po/Makefile.in
 ])
