@@ -408,10 +408,13 @@ namespace Drapes
 					tv.CollapseRow(args.Path);
 				else
 					tv.ExpandRow(args.Path, false);
-			} else {
-				// Activate wallpaper
-				DrapesApp.Cfg.Wallpaper = WpList[index].File;
-				Console.WriteLine("Switching wallpaper to: {0}", WpList[index].File);
+			} else {	// Activate wallaper
+				// Only switch if enabled
+				if (WpList[index].Enabled == true) {
+					DrapesApp.Cfg.Wallpaper = WpList[index].File;
+					Console.WriteLine("Switching wallpaper to: {0}", WpList[index].File);
+				} else
+					Console.WriteLine("Not activating {0}, disabled", WpList[index].File);
 			}
 		}
 		
