@@ -391,9 +391,11 @@ namespace Drapes
 			}
 		}
 		
-		// Use double clicked a row in the TreeView
+		// User double clicked a row in the TreeView
 		private void onRowDoubleClick (object sender, RowActivatedArgs args)
 		{
+			Console.WriteLine(sender);
+			
 			TreeView		tv = (TreeView) sender;
 			TreeModelFilter	model = (TreeModelFilter) tv.Model;
 			TreeIter		iter;
@@ -421,15 +423,15 @@ namespace Drapes
 		// User toggles a wallpaper in the list
 		private void OnWallPaperToggle (object sender, ToggledArgs args)
 		{
-			TreeIter iter;
+			TreeModelFilter	model = (Gtk.TreeModelFilter) tvBgList.Model;
+			TreeIter		iter;
 			
-			if (tsEntries.GetIter (out iter, new TreePath(args.Path))) {
-				// Retrive our wallpaper 
-				int index = (int)  tsEntries.GetValue(iter, 0);
-			 	
-			 	// Switch the Wallpaper enabled
-			 	WpList.SetEnabled(index, !WpList[index].Enabled);
-			}
+			model.GetIter(out iter, new Gtk.TreePath(args.Path));
+			
+			int	index = (int) model.GetValue(iter, 0);
+
+			// Switch the Wallpaper enabled
+			WpList.SetEnabled(index, !WpList[index].Enabled);
 		}
 		
 		// Clicked on cbtMonitor
