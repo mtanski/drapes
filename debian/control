@@ -2,7 +2,7 @@ Source: drapes
 Section: gnome
 Priority: optional
 Maintainer: Milosz Tanski <mtanski@gmail.com>
-Build-Depends: libmono-dev (>= 1.1.13), mono-gmcs (>= 1.1.13), libgnome2.0-cil (>= 2.8)
+Build-Depends: cdbs, debhelper, intltool, libmono-dev (>= 1.1.13), mono-gmcs (>= 1.1.13), libgnome2.0-cil (>= 2.8)
 Standards-Version: 0.4.92
 
 Package: drapes
