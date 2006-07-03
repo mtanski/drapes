@@ -2,7 +2,7 @@
 
 desktopdir = $(datadir)/applications
 desktop_in_files=drapes.desktop.in
-desktop_DATA=$(desktop_in_files:.desktop.in.in=.desktop)
+desktop_DATA=$(desktop_in_files:.desktop.in=.desktop)
 
 schemadir = @GCONF_SCHEMA_FILE_DIR@
 schema_DATA = drapes.schemas
