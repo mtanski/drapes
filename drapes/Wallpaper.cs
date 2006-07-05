@@ -168,8 +168,6 @@ namespace Drapes
 			if (!removed) {
 	
 				Vfs.Uri uri = new Vfs.Uri(Gnome.Vfs.Uri.GetUriFromLocalPath(filename));
-				Vfs.FileInfo fi = new Vfs.FileInfo(uri);
-				
 				if (!uri.Exists) {
 					// mark it as removed so it dosen't get listed as an option, ever
 					removed = true;
@@ -180,6 +178,8 @@ namespace Drapes
 					// No sence doing anything else
 					return false;
 				}
+
+				Vfs.FileInfo fi = new Vfs.FileInfo(uri);
 				
 				if (mtime != DateTime.MinValue) {
 					// We got info we need, save our selves sometime
