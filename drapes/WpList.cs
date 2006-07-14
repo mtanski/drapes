@@ -173,8 +173,7 @@ namespace Drapes
 			xml.WriteStartElement(null, "wallpapers", null);
 			
 			// process the wallpaer list
-			foreach(DictionaryEntry item in list) {
-				Wallpaper w = (Wallpaper) item.Value;
+			foreach(Wallpaper w in this) {
 					
 				// don't save non existing wallpapers
 				if (w.Name.Length < 1)
