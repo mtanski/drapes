@@ -77,7 +77,7 @@ public class DrapesApp
 		CreateTrayIcon();
 		
 		// Idle load the files
-		GLib.Idle.Add(LazyFileLoader);
+		GLib.Idle.Add(WpList.DelayedLoader);
 		
 		// Wallpaper switcher (check every 10 seconds or so)
 		GLib.Timeout.Add(20000, TimerSwitcher);
@@ -268,7 +268,7 @@ public class DrapesApp
 	private void OnClickClose(object o, EventArgs args)
 	{
 		// Stop any idle handlers
-		GLib.Idle.Remove(LazyFileLoader);
+		GLib.Idle.Remove(WpList.DelayedLoader);
 		GLib.Idle.Remove(WpList.ThumbCleanup);
 	
 		// Save changes to the list
@@ -280,32 +280,6 @@ public class DrapesApp
 		
 		// Exit
 		Application.Quit();
-	}
-	
-	internal static int LastLoad = 0;
-	public bool LazyFileLoader()
-	{
-		// Are we done loading
-		if (LastLoad >= WpList.NumberBackgrounds) {
-			Console.WriteLine("Done loading image info");
-			return false;
-		}
-		
-		// If it's already done (dunno how) skip it
-		if (WpList[LastLoad].Initlized)
-			return true;
-		
-		// Load more info about the image
-		WpList[LastLoad].ForceLoadAttr();
-		
-		// Add it to the config window if open
-		if (ConfigWindow != null)
-			ConfigWindow.AddWallpaper(LastLoad);
-		
-		// Do the next one later
-		LastLoad++;
-		
-		return true;
 	}
 }
 

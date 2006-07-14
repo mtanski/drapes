@@ -22,6 +22,7 @@ using System;
 using System.IO;
 using System.Collections;
 using System.Collections.Generic;
+using System.Collections.Specialized;
 using System.Xml;
 using Drapes;
 
@@ -30,8 +31,10 @@ namespace Drapes
 
 	public class WallPaperList : IEnumerable <Wallpaper>
 	{	
-		private ArrayList	list = new ArrayList();
-		private Hashtable	elist = new Hashtable();
+		private OrderedDictionary list = new OrderedDictionary();
+		private Hashtable enabled = new Hashtable();
+		// For "later" processing
+		private Queue processing = new Queue();
 		
 		public WallPaperList(string file)
 		{
@@ -64,7 +67,6 @@ namespace Drapes
 			s.ProhibitDtd = false;
 			// the XmlReader object 
 			XmlReader xml = XmlReader.Create(fs, s);
-
 		
 			try {
 				// Proces the Xml document
@@ -75,20 +77,18 @@ namespace Drapes
 							Wallpaper Cur = new Wallpaper();
 							
 							string tmp;
-							bool deleted, enabled;
-							
 							// deleted from the list
 							tmp = xml.GetAttribute("deleted");
 							if (tmp != null)
-								deleted = Convert.ToBoolean(tmp);
+								Cur.Deleted = Convert.ToBoolean(tmp);
 							else
-								deleted = false;
+								Cur.Deleted = false;
 									
 							tmp = xml.GetAttribute("enabled");
 							if (tmp != null)
-								enabled = Convert.ToBoolean(tmp);
+								Cur.Enabled = Convert.ToBoolean(tmp);
 							else
-								enabled = true;
+								Cur.Enabled = true;
 							
 							// Process subtree
 							string node = null;
@@ -142,13 +142,9 @@ namespace Drapes
 							}
 							
 							// ignore non image wallpapers (eg. color and gradient crap)
-							if (Cur.File.Length > 0) {
-								list.Add(Cur);
-								
-								// set some properties thought wrappers
-								SetDeleted(list.Count-1, deleted);
-								SetEnabled(list.Count-1, enabled);
-							}
+							if (Cur.File.Length > 0)
+								Append(Cur);
+							
 						}
 					}
 				}
@@ -177,7 +173,9 @@ namespace Drapes
 			xml.WriteStartElement(null, "wallpapers", null);
 			
 			// process the wallpaer list
-			foreach(Wallpaper w in list) {
+			foreach(DictionaryEntry item in list) {
+				Wallpaper w = (Wallpaper) item.Value;
+					
 				// don't save non existing wallpapers
 				if (w.Name.Length < 1)
 					continue;
@@ -233,7 +231,15 @@ namespace Drapes
 				}
 			}
 		}
-		
+
+		public Wallpaper this[string key]
+		{
+			get {
+				return (Wallpaper) list[key];
+			}
+		}
+
+		// This is the worst part of the app
 		Random r = new Random();
 		public Wallpaper Random(string old)
 		{
@@ -242,28 +248,26 @@ namespace Drapes
 				return null;
 			
 			// save ourselves a lot of voodoo	
-			if (list.Count == 1)
+			if (enabled.Count == 1)
 				return (Wallpaper) list[0];
-		
-			int i;
+
 			Wallpaper w;
 			
 			do {
-				double scale = r.NextDouble();
 				// what if all of them are deselected
-				if (elist.Count == 0) {
-					// just pick any enabled one
-					i = list.Count - 1;
-					i = (int) Math.Round(i * scale);
+				if (enabled.Count == 0) {
+					// just pick any one
+					int i = list.Count - 1;
+					i = (int) Math.Round(i * r.NextDouble());
+					w = (Wallpaper) list[i];
 				} else {
-					ICollection keys = elist.Keys;
-					// this is beyond ghey
-					int[] l = new int[keys.Count];
-					i = elist.Count - 1;
-					keys.CopyTo(l, 0);
-					i = l[(int) Math.Round(scale * i)];
+					string[] keys = new string[enabled.Count];
+					enabled.Keys.CopyTo(keys, 0);
+					
+					int i = enabled.Count - 1;
+					i = Convert.ToInt32(r.NextDouble() * i);
+					w = (Wallpaper) list[keys[i]];
 				}
-				w = (Wallpaper) list[i];
 			// Make sure we always get a diffrent one
 			} while (old == w.File);
 			
@@ -271,47 +275,81 @@ namespace Drapes
 		}
 		
 		// Wrapper for the enabled propery of Wallaper
-		public void SetEnabled(int index, bool val)
+		public void SetEnabled(string file, bool val)
 		{
-			// Deleted entries have no rights
-			if ((list[index] as Wallpaper).Deleted)
+			Wallpaper w = (Wallpaper) list[file];
+
+			// deleted wallpapers have no rights
+			if (w.Deleted)
 				return;
-		
-			(list[index] as Wallpaper).Enabled = val;
 			
-			if (val == true) {
-				try {
-					elist.Add(index, null);
-				} catch(System.ArgumentException e) {}
-			} else {
-				try {
-					elist.Remove(index);
-				} catch (System.ArgumentException e) {}
-			}
+			if (val)
+				enabled.Add(w.File, w);
+			else
+				enabled.Remove(w.File);
+			
+			w.Enabled = val;
 		}
-		
-		public void SetDeleted(int index, bool val)
+
+		public void SetDelete(string file)
 		{
-			// bring it back to life
-			(list[index] as Wallpaper).Deleted = val;
-		
-			if (val == true) {
-				try {
-					elist.Remove(index);
-				} catch (System.ArgumentException e) {}
-			} else {
-				// if undeleted, make it enabled
-				(list[index] as Wallpaper).Enabled = true;
+			if (file == null)
+				return;
+			
+			Wallpaper w = (Wallpaper) enabled[file];
+			w.Deleted = true;
 				
-				try {
-					elist.Add(index, null);
-				} catch (System.ArgumentException e) {}
-			}
+			// Remove from rotation
+			enabled.Remove(file);
 		}
-		
+				
 		public void Append(Wallpaper w)
 		{
-			list.Add(w);
+			// add for later processing
+			processing.Enqueue(w);
+		}
+
+		public bool DelayedLoader()
+		{
+			// do we have anything to do
+			if (processing.Count == 0)
+				return true;
+
+			// Add it to the list of wallpapers
+			Wallpaper w = (Wallpaper) processing.Dequeue();
+
+			// Load attributes if not deleted
+			if (w.Deleted == false)
+				w.ForceLoadAttr();
+
+			// Readded a file
+			if (list.Contains(w.File)) {
+				Wallpaper old = (Wallpaper) list[w.File];
+				list[w.File] = w;
+
+				// When adding a wallpaper a second time make it enabled
+				if (enabled.ContainsKey(w.File) == false)
+					enabled.Add(w.File, w);
+
+				// Add it the list of wallpapers if it was previously removed
+				if (old.Deleted == true && DrapesApp.ConfigWindow != null)
+					DrapesApp.ConfigWindow.AddWallpaper(w.File);
+				
+			} else {
+				list.Add(w.File, w);
+
+				if (w.Deleted == false) {
+					// add it to the rotation
+					if (w.Enabled == true)
+						enabled.Add(w.File, w);
+					
+					// Should we add it to the window
+					if (DrapesApp.ConfigWindow != null)
+						DrapesApp.ConfigWindow.AddWallpaper(w.File);
+				}
+			}
+
+			return true;
 		}
 		
 		// Thumb cleanup for some memory saving hotness (eg. not leaking)
@@ -325,7 +363,7 @@ namespace Drapes
 				return false;
 			}
 				
-			// Don't atempt to cleanup when
+			// Halt cleanup when config window is brought up
 			if (DrapesApp.ConfigWindow != null) {
 				Console.WriteLine("Cleanup halted");
 				LastClean = 0;
@@ -342,9 +380,9 @@ namespace Drapes
 		// Enumeration magic
 		public IEnumerator <Wallpaper> GetEnumerator()
 		{
-			foreach (Wallpaper w in list)
+			foreach (DictionaryEntry entry in list)
 			{
-				yield return w;
+				yield return (entry.Value as Wallpaper);
 			}
 		}
 		

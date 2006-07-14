@@ -123,18 +123,20 @@ namespace Drapes
 			// Just one column that everything is shoved into
 			tvBgList.AppendColumn(tvc);
 			
-			// Tree store, store the index of the wallpaper or the category name
-			tsEntries = new Gtk.TreeStore(typeof(int), typeof(string));
+			// Tree store
+			// 1st we store the key of the wallpaper
+			// 2nd we store the section name (if needed)
+			tsEntries = new Gtk.TreeStore(typeof(string), typeof(string));
 			
 			// The various "sorters"
-			tiMatch = tsEntries.AppendValues(-1, "Perfect fit");
-			tiAsp43 = tsEntries.AppendValues(-1, "Regular 4:3");
-			tiAspWide = tsEntries.AppendValues(-1, "Widescreen");
-			tiAspMisc = tsEntries.AppendValues(-1, "Other");
+			tiMatch = tsEntries.AppendValues(null, "Perfect fit");
+			tiAsp43 = tsEntries.AppendValues(null, "Regular 4:3");
+			tiAspWide = tsEntries.AppendValues(null, "Widescreen");
+			tiAspMisc = tsEntries.AppendValues(null, "Other");
 			
 			// Add wallpapers to the Config window
-			for (int index=0; index < WpList.NumberBackgrounds; index++)
-				AddWallpaper(index);
+			foreach (Wallpaper w in WpList)
+				AddWallpaper(w.File);
 
 			// We need a filter to get rid of all the empty sections
 			tmfFilter = new Gtk.TreeModelFilter(tsEntries, null);
@@ -152,34 +154,33 @@ namespace Drapes
 			// E: Treeview wallpaper list
 		}
 		
-		public void AddWallpaper(int index)
+		public void AddWallpaper(string key)
 		{
-			// what the hell?
-			if (WpList[index] == null)
+			if (key == null)
 				return;
 				
 			// skip non-intilized files
-			if (WpList[index].Initlized == false)
+			if (WpList[key].Initlized == false)
 				return;
 				
 			// don't show deleted files
-			if (WpList[index].Deleted)
+			if (WpList[key].Deleted)
 				return;
 			
 			// Perfectly matching resolution
-			if (WpList[index].MatchScreen()) {
-				tsEntries.AppendValues(tiMatch, index, null);
+			if (WpList[key].MatchScreen()) {
+				tsEntries.AppendValues(tiMatch, key, null);
 			} else {
-				switch (WpList[index].Aspect) {
+				switch (WpList[key].Aspect) {
 				case Res.Aspect.ASPECT_43:
-					tsEntries.AppendValues(tiAsp43, index, null);
+					tsEntries.AppendValues(tiAsp43, key, null);
 					break;
 				case Res.Aspect.ASPECT_WIDE:
-					tsEntries.AppendValues(tiAspWide, index, null);
+					tsEntries.AppendValues(tiAspWide, key, null);
 					break;
 				case Res.Aspect.ASPECT_OTHER:
 				default:
-					tsEntries.AppendValues(tiAspMisc, index, null);
+					tsEntries.AppendValues(tiAspMisc, key, null);
 					break;
 				}
 			}
@@ -229,9 +230,8 @@ namespace Drapes
 			FileChooserDialog fc = new FileChooserDialog("Add wallpaper", winPref, FileChooserAction.Open);
 			
 			// Setup image file filtering
-			FileFilter filter = new FileFilter();
-			filter.AddPixbufFormats();
-			fc.Filter = filter;
+			fc.Filter = new FileFilter();
+			fc.Filter.AddPixbufFormats();
 			
 			// Add buttons
 			fc.AddButton(Stock.Cancel, ResponseType.Cancel);
@@ -247,26 +247,15 @@ namespace Drapes
 			if ((ResponseType) r == ResponseType.Ok) {
 				Wallpaper w = new Wallpaper();
 				
-				// Delay loading
+				// Delay loading, it'll get picked up automaticaly anyways
 				w.LoadFileDelayed(fc.Filename);
 				
 				Console.WriteLine("Opening new file: {0}", fc.Filename);
-				// Check if we have a worker already processing the list
-				if (DrapesApp.LastLoad >= WpList.NumberBackgrounds) {
-					WpList.Append(w);
-					// process it ourselves
-					WpList[WpList.NumberBackgrounds - 1].ForceLoadAttr();
-					AddWallpaper(WpList.NumberBackgrounds - 1);
-					
-					// increment it, cause we depend on it
-					DrapesApp.LastLoad++;
-				} else {
-					WpList.Append(w);
-				}
-				
-				// Start enabled & not deleted by default
-				WpList.SetEnabled(WpList.NumberBackgrounds-1, true);
-				WpList.SetDeleted(WpList.NumberBackgrounds-1, false);
+
+				// Add with enabled by defaults
+				w.Enabled = true;
+				w.Deleted = false;
+				WpList.Append(w);
 			}
 		
 			// Get rid of the window
@@ -289,8 +278,8 @@ namespace Drapes
 				// Real TreeStore entities
 				TreePath		rPath;
 				TreeStore		rModel;
-				// wallpaper index
-				int index;
+				// wallpaper key
+				string			key;
 	
 				// Get the real TreeStore path from TreeFilter
 				rModel = (TreeStore) (model as TreeModelFilter).Model;
@@ -300,14 +289,14 @@ namespace Drapes
 				rModel.GetIter(out iter, rPath);
 				
 				// Get index
-				index = (int) rModel.GetValue(iter, 0);
+				key = (string) rModel.GetValue(iter, 0);
 
 				// Cannot remove a section
-				if (index < 0)
+				if (key == null)
 					return;
 					
-				// Mark as delete in WallpaperList
-				WpList.SetDeleted(index, true);
+				// Delete the wallpaper
+				WpList.SetDelete(key);
 				
 				// Remove the node from the acctual TreeStore
 				rModel.Remove(ref iter);
@@ -320,10 +309,10 @@ namespace Drapes
 		// If a user dosen't have any wallpaper to display in a section, don't show it
 		private bool FilterEmptySections(TreeModel model, TreeIter iter)
 		{
-			int index = (int) model.GetValue(iter, 0);
+			string key = (string) model.GetValue(iter, 0);
 			
-			// we only want to fileter out "sections" not individual wallpapers 
-			if (index < 0)
+			// we only want to filter out "sections" not individual wallpapers 
+			if (key == null)
 				return model.IterHasChild(iter);
 
 			return true;
@@ -332,11 +321,11 @@ namespace Drapes
 		// This basicaly performs the rendering of each row (on a cell by cell basis)
 		private void RenderList (TreeViewColumn column, CellRenderer cell, TreeModel model, TreeIter iter)
 		{
-			int	index = (int) model.GetValue(iter, 0);
+			string	key = (string) model.GetValue(iter, 0);
 			string	h = (string) model.GetValue(iter, 1);
 		
 			// Root nodes
-			if (index < 0) {			
+			if (key == null) {			
 				if (cell is Gtk.CellRendererToggle) {
 					(cell as Gtk.CellRendererToggle).Visible = false;
 				} else if (cell is Gtk.CellRendererPixbuf) {
@@ -355,7 +344,7 @@ namespace Drapes
 					
 					c.Activatable = true;
 					c.Visible = true;
-					c.Active = WpList[index].Enabled;
+					c.Active = WpList[key].Enabled;
 				} else if (cell is CellRendererPixbuf) {
 					CellRendererPixbuf p = (CellRendererPixbuf) cell; 
 					
@@ -363,10 +352,10 @@ namespace Drapes
 					p.Mode = CellRendererMode.Activatable;
 					
 					p.Visible = true;
-					p.Pixbuf = WpList[index].Thumbnail();
+					p.Pixbuf = WpList[key].Thumbnail();
 					
 					// Gray it out if the user diabled it
-					p.Sensitive = WpList[index].Enabled;
+					p.Sensitive = WpList[key].Enabled;
 					
 				} else if (cell is CellRendererText) {
 					CellRendererText t = (CellRendererText) cell;
@@ -374,9 +363,9 @@ namespace Drapes
 					string TextDesc;
 					
 					// Format the description text next to the image
-					TextDesc = String.Format("<b>{0}</b>\n", WpList[index].Name );
-					TextDesc += String.Format("{0}\n", WpList[index].Mime);
-					TextDesc += String.Format("{0} x {1} pixels", WpList[index].Width, WpList[index].Height);
+					TextDesc = String.Format("<b>{0}</b>\n", WpList[key].Name );
+					TextDesc += String.Format("{0}\n", WpList[key].Mime);
+					TextDesc += String.Format("{0} x {1} pixels", WpList[key].Width, WpList[key].Height);
 						
 					t.Markup = TextDesc;
 						
@@ -384,7 +373,7 @@ namespace Drapes
 					t.Ellipsize = Pango.EllipsizeMode.End;
 					
 					// Gray it out if the user disabled it
-					t.Sensitive = WpList[index].Enabled;
+					t.Sensitive = WpList[key].Enabled;
 				} else {
 					Console.WriteLine("Unknow column");
 				}
@@ -402,9 +391,9 @@ namespace Drapes
 			
 			model.GetIter(out iter, args.Path);
 			
-			int	index = (int) model.GetValue(iter, 0);
+			string	key = (string) model.GetValue(iter, 0);
 			
-			if (index < 0) {
+			if (key == null) {
 				// Expand or collapse a row
 				if (tv.GetRowExpanded(args.Path))
 					tv.CollapseRow(args.Path);
@@ -412,11 +401,11 @@ namespace Drapes
 					tv.ExpandRow(args.Path, false);
 			} else {	// Activate wallaper
 				// Only switch if enabled
-				if (WpList[index].Enabled == true) {
-					DrapesApp.Cfg.Wallpaper = WpList[index].File;
-					Console.WriteLine("Switching wallpaper to: {0}", WpList[index].File);
+				if (WpList[key].Enabled == true) {
+					DrapesApp.Cfg.Wallpaper = WpList[key].File;
+					Console.WriteLine("Switching wallpaper to: {0}", WpList[key].File);
 				} else
-					Console.WriteLine("Not activating {0}, disabled", WpList[index].File);
+					Console.WriteLine("Not activating {0}, disabled", WpList[key].File);
 			}
 		}
 		
@@ -428,10 +417,10 @@ namespace Drapes
 			
 			model.GetIter(out iter, new Gtk.TreePath(args.Path));
 			
-			int	index = (int) model.GetValue(iter, 0);
+			string key = (string) model.GetValue(iter, 0);
 
 			// Switch the Wallpaper enabled
-			WpList.SetEnabled(index, !WpList[index].Enabled);
+			WpList.SetEnabled(key, !WpList[key].Enabled);
 		}
 		
 		// Clicked on cbtMonitor

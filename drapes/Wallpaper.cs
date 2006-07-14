@@ -136,17 +136,14 @@ namespace Drapes
 		
 		public Wallpaper(string file)
 		{
-			LoadFile(file);
-		}
-		
-		public bool LoadFile(string file)
-		{			
 			filename = file;
-			// Load all the file settings
-			ForceLoadAttr();
+
+			// default of enabled and not removed
+			enabled = true;
+			removed = false;
 			
+			ForceLoadAttr();
 			init = true;
-			return true;
 		}
 		
 		// Dosen't really load a file just stores it's filename;
