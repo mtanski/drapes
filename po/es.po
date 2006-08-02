@@ -1,19 +1,19 @@
-# SOME DESCRIPTIVE TITLE.
-# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
-# This file is distributed under the same license as the PACKAGE package.
-# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+# Spanish translation for drapes
+# Copyright (c) (c) 2006 Canonical Ltd, and Rosetta Contributors 2006
+# This file is distributed under the same license as the drapes package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2006.
 #
 #, fuzzy
 msgid ""
 msgstr ""
-"Project-Id-Version: PACKAGE VERSION\n"
-"Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2006-06-27 23:27-0400\n"
-"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
-"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
-"Language-Team: LANGUAGE <LL@li.org>\n"
+"Project-Id-Version: drapes\n"
+"Report-Msgid-Bugs-To: FULL NAME <EMAIL@ADDRESS>\n"
+"POT-Creation-Date: 2006-06-28 23:07-0400\n"
+"PO-Revision-Date: 2006-07-24 15:20+0000\n"
+"Last-Translator: AlejandroLeon <alejandroleonvega@gmail.com>\n"
+"Language-Team: Spanish <es@li.org>\n"
 "MIME-Version: 1.0\n"
-"Content-Type: text/plain; charset=CHARSET\n"
+"Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 
 #: data/drapes.glade:10
@@ -22,15 +22,15 @@ msgstr ""
 
 #: data/drapes.glade:157
 msgid "Style: "
-msgstr ""
+msgstr "Estilo: "
 
 #: data/drapes.glade:281
 msgid "Display"
-msgstr ""
+msgstr "Demostración"
 
 #: data/drapes.glade:351
 msgid "<b>Startup options</b>"
-msgstr ""
+msgstr "<b>Opciones de arranque</b>"
 
 #: data/drapes.glade:402
 msgid "Start Desktop Drapes on start"
@@ -38,28 +38,28 @@ msgstr ""
 
 #: data/drapes.glade:421
 msgid "Switch wallpaper on start"
-msgstr ""
+msgstr "Poner el fondo de escritorio en inicio"
 
 #: data/drapes.glade:485
 msgid "<b>Timing selection</b>"
-msgstr ""
+msgstr "<b>Selección de cronometraje</b>"
 
 #: data/drapes.glade:585
 msgid "<b>Wallpaper search directory</b>"
-msgstr ""
+msgstr "<b>Directorio de búsqueda de fondos de escritorio</b>"
 
 #: data/drapes.glade:636
 msgid "Monitor this directory for new wallpapers"
-msgstr ""
+msgstr "Supervise este directorio para nuevas imágenes"
 
 #: data/drapes.glade:666
 msgid "Select A File"
-msgstr ""
+msgstr "Seleccionar un archivo"
 
 #: data/drapes.glade:709
 msgid "General"
-msgstr ""
+msgstr "General"
 
 #: data/drapes.glade:802
 msgid "Close"
-msgstr ""
+msgstr "Cerrar"
