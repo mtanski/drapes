@@ -70,16 +70,6 @@ namespace Drapes
 			SetupMenuFromFile (XmlFile, MenuVerbs);
 		}
 
-		void SetupMenuFromFile(string FileName, BonoboUIVerb[] verbs)
-		{		
-			// Open the xml file describing the menu
-			IO.StreamReader menufile = new IO.StreamReader(FileName);
-			string xml = menufile.ReadToEnd();
-			menufile.Close();
-
-			SetupMenu(xml, verbs);
-		}
-
 		protected override void OnChangeBackground(PanelAppletBackgroundType type, Gdk.Color color, Gdk.Pixmap pixmap)
 		{
 			
