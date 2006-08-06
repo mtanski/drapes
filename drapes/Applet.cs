@@ -74,10 +74,10 @@ namespace Drapes
 		{		
 			// Open the xml file describing the menu
 			IO.StreamReader menufile = new IO.StreamReader(FileName);
-			string content = menufile.ReadToEnd();
+			string xml = menufile.ReadToEnd();
 			menufile.Close();
 
-			SetupMenu(content, verbs);
+			SetupMenu(xml, verbs);
 		}
 
 		protected override void OnChangeBackground(PanelAppletBackgroundType type, Gdk.Color color, Gdk.Pixmap pixmap)

@@ -44,12 +44,11 @@ namespace Drapes {
 		internal static		Drapes.ConfigWindow		ConfigWindow;
 		// Panel/Tray applet
 		private				AppletStyle				AppletStyle;
+		private				Gnome.Program			Program;
 		
 		private DrapesApp(string[] args)
 		{
-			// Gtk init
-			Application.Init();
-			Vfs.Vfs.Initialize();
+			this.Program = new Gnome.Program("Drapes", CompileOptions.Version, Gnome.Modules.UI, args);
 			
 			// Load settings for us
 			Cfg = new Config.Settings();
@@ -141,12 +140,12 @@ namespace Drapes {
 			}
 		}
 		
-		public void Quit()
+		public static void Quit()
 		{
 			// Stop any idle handlers
 			GLib.Idle.Remove(WpList.DelayedLoader);
 			GLib.Idle.Remove(WpList.ThumbCleanup);
-		
+					
 			// Save changes to the list
 			if (WpList != null)
 				WpList.SaveList(Config.Defaults.DrapesWallpaperList);
