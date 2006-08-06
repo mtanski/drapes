@@ -84,7 +84,7 @@ namespace Drapes
 
 		public void ToggleSwitch()
 		{
-
+			DrapesApp.SwitchWallpaper();
 		}
 
 		public void ToggleShuffleCheck()
@@ -157,7 +157,7 @@ namespace Drapes
 			quit.Image = new Image(Stock.Quit, IconSize.Menu);
 			quit.Activated += delegate (object sender, EventArgs args)
 				{
-					
+					DrapesApp.Quit();
 				};
 			
 			// Add the items to the menu (separators for easy distinctions)

@@ -89,12 +89,12 @@ namespace Drapes {
 			// tray Icon
 			if (this.AppletStyle == AppletStyle.APPLET_TRAY) {
 				new AppletWidget(this.AppletStyle);
-				Application.Run();
+				this.Program.Run();
 			} else
 				_Gnome.PanelAppletFactory.Register(typeof (DrapesApplet));
 		}
 		
-		DateTime LastSwitch = DateTime.Now;
+		static DateTime LastSwitch = DateTime.Now;
 		private bool TimerSwitcher()
 		{
 			// Autoswitching tempoarly disabled
@@ -125,7 +125,7 @@ namespace Drapes {
 			return false;
 		}
 
-		public void SwitchWallpaper()
+		public static void SwitchWallpaper()
 		{
 			Wallpaper w = WpList.Random(Cfg.Wallpaper);
 			if (w != null) {

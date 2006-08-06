@@ -36,11 +36,17 @@ using System.Runtime.CompilerServices;
 namespace Drapes
 {
 	public class CompileOptions {
-		private static string data_dir = "@datadir/@/drapes"; 
+		private static string data_dir = "@datadir/@/drapes";
+		private static string version = "@version/@";
 		
 		public static string DataDir
 		{	
 			get { return data_dir; }
+		}
+		
+		public static string Version
+		{
+			get { return version; }
 		}
 	}
 
