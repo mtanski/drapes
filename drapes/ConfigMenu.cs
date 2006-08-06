@@ -31,13 +31,9 @@ namespace Drapes
 
 	public class ConfigWindow
 	{
-		private WallPaperList	WpList;
 	
-		public ConfigWindow(ref WallPaperList WpList)
+		public ConfigWindow()
 		{
-			// reference?
-			this.WpList = WpList;
-		
 			// Glade autoconnect magic
 			Glade.XML gxml = new Glade.XML (null, "drapes.glade", "winPref", null);
 			gxml.Autoconnect (this);
@@ -135,7 +131,7 @@ namespace Drapes
 			tiAspMisc = tsEntries.AppendValues(null, "Other");
 			
 			// Add wallpapers to the Config window
-			foreach (Wallpaper w in WpList)
+			foreach (Wallpaper w in DrapesApp.WpList)
 				AddWallpaper(w.File);
 
 			// We need a filter to get rid of all the empty sections
@@ -160,18 +156,18 @@ namespace Drapes
 				return;
 				
 			// skip non-intilized files
-			if (WpList[key].Initlized == false)
+			if (DrapesApp.WpList[key].Initlized == false)
 				return;
 				
 			// don't show deleted files
-			if (WpList[key].Deleted)
+			if (DrapesApp.WpList[key].Deleted)
 				return;
 			
 			// Perfectly matching resolution
-			if (WpList[key].MatchScreen()) {
+			if (DrapesApp.WpList[key].MatchScreen()) {
 				tsEntries.AppendValues(tiMatch, key, null);
 			} else {
-				switch (WpList[key].Aspect) {
+				switch (DrapesApp.WpList[key].Aspect) {
 				case Res.Aspect.ASPECT_43:
 					tsEntries.AppendValues(tiAsp43, key, null);
 					break;
@@ -223,15 +219,37 @@ namespace Drapes
 		{
 			DrapesApp.Cfg.AutoStart = (sender as Gtk.ToggleButton).Active;
 		}
+
+		private void ImportDirectory(string dir)
+		{
+			
+		}
+
+		private void ImportFiles(string[] inpfiles)
+		{
+			foreach (string file in inpfiles) {
+				Wallpaper w = new Wallpaper();
+
+				Console.WriteLine("Adding wallpaper file: {0}", file);
+				
+				// Delay load it, it'll get picked up automaticaly anywas
+				w.LoadFileDelayed(file);
+				w.Enabled = true;
+
+				DrapesApp.WpList.Append(w);
+			}
+		}
 		
 		// Add more wallpapers
 		private void onAddButtonClick (object sender, EventArgs args)
 		{
 			FileChooserDialog fc = new FileChooserDialog("Add wallpaper", winPref, FileChooserAction.Open);
-			
-			// Setup image file filtering
-			fc.Filter = new FileFilter();
-			fc.Filter.AddPixbufFormats();
+
+			// Settings
+//			fc.LocalOnly = true;				// Only local files
+			fc.SelectMultiple = true;			// Users can select multiple images at a time
+			fc.Filter = new FileFilter();		// Filter
+			fc.Filter.AddPixbufFormats();		// Add pixmaps
 			
 			// Add buttons
 			fc.AddButton(Stock.Cancel, ResponseType.Cancel);
@@ -244,19 +262,8 @@ namespace Drapes
 			int r = fc.Run();
 		
 			// Process file
-			if ((ResponseType) r == ResponseType.Ok) {
-				Wallpaper w = new Wallpaper();
-				
-				// Delay loading, it'll get picked up automaticaly anyways
-				w.LoadFileDelayed(fc.Filename);
-				
-				Console.WriteLine("Opening new file: {0}", fc.Filename);
-
-				// Add with enabled by defaults
-				w.Enabled = true;
-				w.Deleted = false;
-				WpList.Append(w);
-			}
+			if ((ResponseType) r == ResponseType.Ok)
+				ImportFiles(fc.Filenames);
 		
 			// Get rid of the window
 			fc.Destroy();
@@ -296,7 +303,7 @@ namespace Drapes
 					return;
 					
 				// Delete the wallpaper
-				WpList.SetDelete(key);
+				DrapesApp.WpList.SetDelete(key);
 				
 				// Remove the node from the acctual TreeStore
 				rModel.Remove(ref iter);
@@ -344,7 +351,7 @@ namespace Drapes
 					
 					c.Activatable = true;
 					c.Visible = true;
-					c.Active = WpList[key].Enabled;
+					c.Active = DrapesApp.WpList[key].Enabled;
 				} else if (cell is CellRendererPixbuf) {
 					CellRendererPixbuf p = (CellRendererPixbuf) cell; 
 					
@@ -352,10 +359,10 @@ namespace Drapes
 					p.Mode = CellRendererMode.Activatable;
 					
 					p.Visible = true;
-					p.Pixbuf = WpList[key].Thumbnail();
+					p.Pixbuf = DrapesApp.WpList[key].Thumbnail();
 					
 					// Gray it out if the user diabled it
-					p.Sensitive = WpList[key].Enabled;
+					p.Sensitive = DrapesApp.WpList[key].Enabled;
 					
 				} else if (cell is CellRendererText) {
 					CellRendererText t = (CellRendererText) cell;
@@ -363,9 +370,9 @@ namespace Drapes
 					string TextDesc;
 					
 					// Format the description text next to the image
-					TextDesc = String.Format("<b>{0}</b>\n", WpList[key].Name );
-					TextDesc += String.Format("{0}\n", WpList[key].Mime);
-					TextDesc += String.Format("{0} x {1} pixels", WpList[key].Width, WpList[key].Height);
+					TextDesc = String.Format("<b>{0}</b>\n", DrapesApp.WpList[key].Name );
+					TextDesc += String.Format("{0}\n", DrapesApp.WpList[key].Mime);
+					TextDesc += String.Format("{0} x {1} pixels", DrapesApp.WpList[key].Width, DrapesApp.WpList[key].Height);
 						
 					t.Markup = TextDesc;
 						
@@ -373,7 +380,7 @@ namespace Drapes
 					t.Ellipsize = Pango.EllipsizeMode.End;
 					
 					// Gray it out if the user disabled it
-					t.Sensitive = WpList[key].Enabled;
+					t.Sensitive = DrapesApp.WpList[key].Enabled;
 				} else {
 					Console.WriteLine("Unknow column");
 				}
@@ -401,11 +408,11 @@ namespace Drapes
 					tv.ExpandRow(args.Path, false);
 			} else {	// Activate wallaper
 				// Only switch if enabled
-				if (WpList[key].Enabled == true) {
-					DrapesApp.Cfg.Wallpaper = WpList[key].File;
-					Console.WriteLine("Switching wallpaper to: {0}", WpList[key].File);
+				if (DrapesApp.WpList[key].Enabled == true) {
+					DrapesApp.Cfg.Wallpaper = DrapesApp.WpList[key].File;
+					Console.WriteLine("Switching wallpaper to: {0}", DrapesApp.WpList[key].File);
 				} else
-					Console.WriteLine("Not activating {0}, disabled", WpList[key].File);
+					Console.WriteLine("Not activating {0}, disabled", DrapesApp.WpList[key].File);
 			}
 		}
 		
@@ -420,7 +427,7 @@ namespace Drapes
 			string key = (string) model.GetValue(iter, 0);
 
 			// Switch the Wallpaper enabled
-			WpList.SetEnabled(key, !WpList[key].Enabled);
+			DrapesApp.WpList.SetEnabled(key, !DrapesApp.WpList[key].Enabled);
 		}
 		
 		// Clicked on cbtMonitor
@@ -479,13 +486,13 @@ namespace Drapes
 		{
 			DrapesApp.ConfigWindow  = null;
 			winPref.Destroy();
-			GLib.Idle.Add(WpList.ThumbCleanup);
+			GLib.Idle.Add(DrapesApp.WpList.ThumbCleanup);
 		}
 		
 		void OnWindowDelete (object o, DeleteEventArgs args)
 		{
 			DrapesApp.ConfigWindow  = null;
-			GLib.Idle.Add(WpList.ThumbCleanup);
+			GLib.Idle.Add(DrapesApp.WpList.ThumbCleanup);
 		}
 	}
 }

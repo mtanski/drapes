@@ -1,0 +1,11 @@
+<Root>
+  <popups>
+    <popup name="button3">
+	  <menuitem name="Switch" verb="Switch" _label="_Switch" />
+      
+      <separator/>
+      <menuitem name="Preferences" verb="Preferences" _label="_Preferences" />
+
+    </popup>
+  </popups>
+</Root>

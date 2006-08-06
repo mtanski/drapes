@@ -73,7 +73,6 @@ AC_SUBST([CONFIG_STATUS_DEPENDENCIES],['$(top_srcdir)/po/LINGUAS'])
 
 AC_OUTPUT([
 Makefile
-drapes/AssemblyInfo.cs
 drapes/Makefile
 scripts/Makefile
 docs/Makefile

@@ -27,9 +27,21 @@ using System.Runtime.CompilerServices;
 // change them to the information which is associated with the assembly
 // you compile.
 
-[assembly: AssemblyVersion("@ASM_VERSION@")]
+[assembly: AssemblyVersion("@ASM_VERSION/@")]
 [assembly: AssemblyTitle("Drapes")]
 [assembly: AssemblyDescription("Desktop Drapes wallpaper manager")]
 [assembly: AssemblyProduct("Drapes")]
 [assembly: AssemblyCopyright("Copyright (C) Milosz Tanski")]
 
+namespace Drapes
+{
+	public class CompileOptions {
+		private static string data_dir = "@datadir/@/drapes"; 
+		
+		public static string DataDir
+		{	
+			get { return data_dir; }
+		}
+	}
+
+}

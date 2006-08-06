@@ -53,6 +53,23 @@
 		<Folder
 			Name="Source Files"
 			Filters="*.c;*.C;*.cc;*.cpp;*.cp;*.cxx;*.prg;*.pas;*.dpr;*.asm;*.s;*.bas;*.java;*.cs;*.sc;*.e;*.cob;*.html;*.rc;*.tcl;*.py;*.pl">
+			<Folder
+				Name="PanelApplet"
+				Filters="">
+				<F N="drapes/panelapplet/BonoboUIVerb.cs"/>
+				<F N="drapes/panelapplet/ChangeBackgroundHandler.cs"/>
+				<F N="drapes/panelapplet/ChangeSizeHandler.cs"/>
+				<F N="drapes/panelapplet/GnomeSharp.PanelAppletFactoryCallbackNative.cs"/>
+				<F N="drapes/panelapplet/MoveFocusOutOfAppletHandler.cs"/>
+				<F N="drapes/panelapplet/ObjectManager.cs"/>
+				<F N="drapes/panelapplet/PanelApplet.cs"/>
+				<F N="drapes/panelapplet/PanelAppletBackgroundType.cs"/>
+				<F N="drapes/panelapplet/PanelAppletFactory.cs"/>
+				<F N="drapes/panelapplet/PanelAppletFactoryCallback.cs"/>
+				<F N="drapes/panelapplet/PanelAppletFlags.cs"/>
+			</Folder>
+			<F N="drapes/Applet.cs"/>
+			<F N="drapes/AppletWidget.cs"/>
 			<F N="drapes/AssemblyInfo.cs.in"/>
 			<F N="drapes/ConfigMenu.cs"/>
 			<F N="drapes/Display.cs"/>

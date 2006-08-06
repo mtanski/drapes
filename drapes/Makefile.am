@@ -1,5 +1,4 @@
 TARGET = drapes.exe
-CLEANFILES = drapes.exe 
 
 MCS_FLAGS = -debug 
 ASSEMBLIES = \
@@ -12,8 +11,16 @@ ASSEMBLIES = \
 RESOURCES = \
 	-resource:$(top_srcdir)/data/drapes.glade,drapes.glade
 
-drapes_sources_in = AssemblyInfo.cs.in
+AssemblyInfo.cs: $(srcdir)/AssemblyInfo.cs.in Makefile
+	sed -e "s,[@]ASM_VERSION/[@],$(ASM_VERSION),"		\
+	    -e "s,[@]datadir/[@],$(datadir),"				\
+	    < $< > $@
+
+drapes_sources_in = $(srcdir)/AssemblyInfo.cs.in
 drapes_sources = \
+	$(srcdir)/panelapplet/*.cs			\
+	$(srcdir)/Applet.cs					\
+	$(srcdir)/AppletWidget.cs			\
 	$(srcdir)/ConfigMenu.cs 			\
 	$(srcdir)/Main.cs					\
 	$(srcdir)/Settings.cs				\
@@ -21,14 +28,14 @@ drapes_sources = \
 	$(srcdir)/Wallpaper.cs				\
 	$(srcdir)/WpList.cs
 
-drapes_build_sources = $(drapes_sources)
+drapes_build_sources = $(drapes_sources_in:.cs.in=.cs) $(drapes_sources)
 
 drapeslibdir = $(libdir)/drapes
 drapeslib_DATA = drapes.exe
 
 $(TARGET): $(drapes_build_sources) $(top_srcdir)/data/drapes.glade
 	$(CSC) $(MCS_FLAGS) $(ASSEMBLIES) $(RESOURCES)  \
-	-target:exe -out:"$@" \
+	-unsafe+ -target:exe -out:"$@" \
 	$(drapes_build_sources)
 
 EXTRA_DIST = $(drapes_build_sources)
@@ -36,3 +43,6 @@ EXTRA_DIST = $(drapes_build_sources)
 CLEANFILES =	\
 	$(TARGET)	\
 	*.mdb
+
+DISTCLEANFILES = \
+	AssemblyInfo.cs

@@ -1,3 +1,9 @@
+drapes (0.4.93-bzr0) UNRELEASED; urgency=low
+
+  * Some fixes, pushing out for testing.
+
+ -- Milosz Tanski <mtanski@gmail.com>  Fri, 30 Jun 2006 20:23:56 -0400
+
 drapes (0.4.93) UNRELEASED; urgency=low
 
   *  New testing version.

@@ -1,5 +1,14 @@
-@INTLTOOL_DESKTOP_RULE@
+bonobodir = $(libdir)/bonobo/servers
+bonobo_DATA = DrapesApplet.server 
 
+DrapesApplet.server: $(srcdir)/DrapesApplet.server.in Makefile
+	sed -e 's,[@]bindir/[@],$(bindir),'       \
+	    < $< > $@
+
+menuxmldir = $(datadir)/drapes
+menuxml_DATA=DrapesApplet.xml
+
+@INTLTOOL_DESKTOP_RULE@
 desktopdir = $(datadir)/applications
 desktop_in_files=drapes.desktop.in
 desktop_DATA=$(desktop_in_files:.desktop.in=.desktop)
@@ -16,6 +25,8 @@ endif
 
 EXTRA_DIST = \
 	drapes.schemas		\
+	$(bonobo_in_files)	\
+	$(menuxml_DATA)		\
 	$(desktop_in_files)	\
 	drapes.glade
 
@@ -24,4 +35,5 @@ CLEANFILES = \
 
 DISTCLEANFILES = \
 	*.gladep			\
+	DrapesApplet.server	\
 	drapes.desktop
