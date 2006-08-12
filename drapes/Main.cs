@@ -144,7 +144,6 @@ namespace Drapes {
 		{
 			// Stop any idle handlers
 			GLib.Idle.Remove(WpList.DelayedLoader);
-			GLib.Idle.Remove(WpList.ThumbCleanup);
 					
 			// Save changes to the list
 			if (WpList != null)

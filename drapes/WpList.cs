@@ -432,29 +432,10 @@ namespace Drapes
 			return true;
 		}
 		
-		// Thumb cleanup for some memory saving hotness (eg. not leaking)
-		private int LastClean = 0;
-		public bool ThumbCleanup()
+		public void ThumbCleanup()
 		{
-			// clean up done?
-			if (NumberBackgrounds <= LastClean) {
-				Console.WriteLine("Cleanup complete");
-				LastClean = 0;
-				return false;
-			}
-				
-			// Halt cleanup when config window is brought up
-			if (DrapesApp.ConfigWindow != null) {
-				Console.WriteLine("Cleanup halted");
-				LastClean = 0;
-				return false; 
-			}
-			
-			// Perform the cleanup
-			(list[LastClean] as Wallpaper).DisposeThumb();
-			
-			LastClean++;
-			return true;
+			for (int i=0; i < list.Count ; i++)
+				(list[i] as Wallpaper).DisposeThumb();
 		}
 
 		// Enumeration magic

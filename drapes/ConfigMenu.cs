@@ -256,8 +256,8 @@ namespace Drapes
 			fc.AddButton(Stock.Open , ResponseType.Ok);
 			
 			// Try to goto the monitor dir if monitoring is enabled, else goto documents
-			if (DrapesApp.Cfg.MonitorEnabled == true) {
-				fs.SetUri(DrapesApp.Cfg.MonitorDirectory);
+			if (DrapesApp.Cfg.MonitorEnabled == true)
+				fc.SetUri(DrapesApp.Cfg.MonitorDirectory);
 			else
 				fc.SetUri(Environment.GetEnvironmentVariable("HOME") + "/Documents");
 			
@@ -489,13 +489,13 @@ namespace Drapes
 		{
 			DrapesApp.ConfigWindow  = null;
 			winPref.Destroy();
-			GLib.Idle.Add(DrapesApp.WpList.ThumbCleanup);
+			DrapesApp.WpList.ThumbCleanup();
 		}
 		
 		void OnWindowDelete (object o, DeleteEventArgs args)
 		{
 			DrapesApp.ConfigWindow  = null;
-			GLib.Idle.Add(DrapesApp.WpList.ThumbCleanup);
+			DrapesApp.WpList.ThumbCleanup();
 		}
 	}
 }
