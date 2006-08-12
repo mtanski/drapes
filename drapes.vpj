@@ -72,7 +72,6 @@
 			<F N="drapes/AppletWidget.cs"/>
 			<F N="drapes/AssemblyInfo.cs.in"/>
 			<F N="drapes/ConfigMenu.cs"/>
-			<F N="drapes/Display.cs"/>
 			<F N="drapes/Main.cs"/>
 			<F N="drapes/Settings.cs"/>
 			<F N="drapes/Traylib.cs"/>

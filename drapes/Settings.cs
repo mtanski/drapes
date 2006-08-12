@@ -20,7 +20,7 @@ Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA  02110-1301  USA
 
 using System;
 using System.IO;
-using Mono.Posix;
+using Mono.Unix;
 using GConf;
 using Gtk;
 using Config = Drapes.Config;
@@ -33,26 +33,26 @@ namespace Drapes.Config
 		{
 			switch (d) {
 				case Delay.MIN_5:
-					return "5 minutes";
+					return Catalog.GetString("5 minutes");
 				case Delay.MIN_10:
-					return "10 minutes";
+					return Catalog.GetString("10 minutes");
 				case Delay.MIN_15:
-					return "15 minutes";
+					return Catalog.GetString("15 minutes");
 				case Delay.MIN_20:
-					return "20 minutes";
+					return Catalog.GetString("20 minutes");
 				case Delay.MIN_30:
-					return "30 minutes";
+					return Catalog.GetString("30 minutes");
 				case Delay.MIN_45:
-					return "45 minutes";
+					return Catalog.GetString("45 minutes");
 				case Delay.MIN_60:
-					return "1 hour";
+					return Catalog.GetString("1 hour");
 				case Delay.MIN_90:
-					return "1 hour 30 minutes";
+					return Catalog.GetString("1 hour 30 minutes");
 				case Delay.MIN_120:
-					return "2 hours";
+					return Catalog.GetString("2 hours");
 				case Delay.MIN_NEVER:
 				default:
-					return "Never";
+					return Catalog.GetString("Never");
 			}
 		} 
 	
@@ -370,7 +370,7 @@ namespace Drapes.Config
 						}
 					}
 				} catch (Exception e) {
-					Console.WriteLine("Cannot toggle autostart, reason: {0}", e.Message);
+					Console.WriteLine(Catalog.GetString("Cannot toggle autostart, reason: {0}"), e.Message);
 				}
 			}
 		}
@@ -401,7 +401,7 @@ namespace Drapes.Config
 						cmbStyle.Active = Convert.ToInt32(Style);
 					break;
 				default:
-					Console.WriteLine("Unknown GConf key: {0}", args.Key);
+					Console.WriteLine(Catalog.GetString("Unknown GConf key: {0}"), args.Key);
 					break;
 			}
 		}

@@ -20,6 +20,7 @@ Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA  02110-1301  USA
 
 // project created on 4/26/2006 at 8:40 PM
 using System;
+using Mono.Unix;
 using Gtk;
 using Vfs = Gnome.Vfs;
 using Egg;
@@ -48,6 +49,10 @@ namespace Drapes {
 		
 		private DrapesApp(string[] args)
 		{
+			// Initialize the interntionalization bits
+			Catalog.Init("drapes", CompileOptions.GnomeLocaleDir);
+			
+			// 
 			this.Program = new Gnome.Program("Drapes", CompileOptions.Version, Gnome.Modules.UI, args);
 			
 			// Load settings for us
@@ -68,13 +73,13 @@ namespace Drapes {
 			// Check if we already have file with wallpapers, else assume first start
 			Vfs.Uri cfg = new Vfs.Uri(Config.Defaults.DrapesWallpaperList);
 			if (!cfg.Exists) {
-				Console.WriteLine("Importing Gnome's background list");
+				Console.WriteLine(Catalog.GetString("Importing Gnome's background list"));
 				WpList = new WallPaperList(Config.Defaults.Gnome.WallpaperListFile);
 				
 				// Lets save it in our own format
 				WpList.SaveList(Config.Defaults.DrapesWallpaperList);
 			} else {
-				Console.WriteLine("Opening wallpaper list");
+				Console.WriteLine(Catalog.GetString("Opening wallpaper list"));
 				WpList = new WallPaperList(Config.Defaults.DrapesWallpaperList);
 			}
 			
@@ -134,9 +139,9 @@ namespace Drapes {
 				// Update the timer too
 				LastSwitch = (DateTime) DateTime.Now;
 				
-				Console.WriteLine("Wallpaper switch to: {0}", w.File);
+				Console.WriteLine(Catalog.GetString("Wallpaper switch to: {0}"), w.File);
 			} else {
-				Console.WriteLine("Wallpaper switch failed; No wallpapers?");
+				Console.WriteLine(Catalog.GetString("Wallpaper switch failed; No wallpapers?"));
 			}
 		}
 		
@@ -164,7 +169,7 @@ namespace Drapes {
 					this.AppletStyle = AppletStyle.APPLET_PANEL;
 					break;
 				default:
-					Console.WriteLine("Sorry dunno: {0}", cur);
+					Console.WriteLine(Catalog.GetString("Sorry unknow argument: {0}"), cur);
 					break;
 				}
 			}

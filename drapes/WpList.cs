@@ -20,6 +20,7 @@ Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA  02110-1301  USA
 
 using System;
 using System.IO;
+using Mono.Unix;
 using System.Collections;
 using System.Collections.Generic;
 using System.Collections.Specialized;
@@ -50,11 +51,11 @@ namespace Drapes
 		{
 			// Check if the directory exists
 			if (System.IO.Directory.Exists(DrapesApp.Cfg.MonitorDirectory) == false) {
-				Console.WriteLine("Monitor Directory: {0} dosen't exist", DrapesApp.Cfg.MonitorDirectory);
+				Console.WriteLine(Catalog.GetString("Monitor Directory: {0} dosen't exist"), DrapesApp.Cfg.MonitorDirectory);
 				return;
 			}
 
-			Console.WriteLine("Filesystem monitor on: {0} enabled", DrapesApp.Cfg.MonitorDirectory);
+			Console.WriteLine(Catalog.GetString("Filesystem monitor on: {0} enabled"), DrapesApp.Cfg.MonitorDirectory);
 			
 			FileNotify = new FileSystemWatcher(DrapesApp.Cfg.MonitorDirectory);
 			FileNotify.IncludeSubdirectories = true;
@@ -80,16 +81,16 @@ namespace Drapes
 					w.CheckMtime();
 				break;
 			case WatcherChangeTypes.Created:
-				Console.WriteLine("File {0}, created", e.FullPath);
+				Console.WriteLine(Catalog.GetString("File {0}, created"), e.FullPath);
 				w = new Wallpaper(e.FullPath);
 				Append(w);
 				break;
 			case WatcherChangeTypes.Deleted:
-				Console.WriteLine("File {0}, deleted", e.FullPath);
+				Console.WriteLine(Catalog.GetString("File {0}, deleted"), e.FullPath);
 				SetDelete(e.FullPath);
 				break;
 			default:
-				Console.WriteLine("Unknow file event {0}", e.ChangeType);
+				Console.WriteLine(Catalog.GetString("Unknow file event {0}"), e.ChangeType);
 				break;
 			}
 		}
@@ -103,7 +104,7 @@ namespace Drapes
 					FileNotify.EnableRaisingEvents = false;
 					FileNotify = null;
 
-					Console.WriteLine("Filesystem monitor disabled");
+					Console.WriteLine(Catalog.GetString("Filesystem monitor disabled"));
 				}
 			}		
 		}
@@ -112,12 +113,12 @@ namespace Drapes
 		{
 			// Check if the directory exists
 			if (System.IO.Directory.Exists(DrapesApp.Cfg.MonitorDirectory) == false) {
-				Console.WriteLine("Monitor Directory: {0} dosen't exist", DrapesApp.Cfg.MonitorDirectory);
+				Console.WriteLine(Catalog.GetString("Monitor Directory: {0} dosen't exist"), DrapesApp.Cfg.MonitorDirectory);
 				return;
 			}
 
 			if (FileNotify != null) {
-				Console.WriteLine("Changing monitor directory to: {0}", DrapesApp.Cfg.MonitorDirectory);
+				Console.WriteLine(Catalog.GetString("Changing monitor directory to: {0}"), DrapesApp.Cfg.MonitorDirectory);
 				FileNotify.Path = DrapesApp.Cfg.MonitorDirectory;
 			}
 		}
@@ -126,7 +127,7 @@ namespace Drapes
 		{
 			// Our file went MIA
 			if (!File.Exists(file)) {
-				Console.WriteLine("No such file: {0}", file);
+				Console.WriteLine(Catalog.GetString("No such file: {0}"), file);
 				return false;
 			}
 			
@@ -136,7 +137,7 @@ namespace Drapes
 			try {	
 				fs = new FileStream(file, FileMode.Open, FileAccess.Read);
 			} catch (Exception e) {
-				Console.WriteLine("Unable to open file {0} because:", file, e.Message);
+				Console.WriteLine(Catalog.GetString("Unable to open file {0} because:"), file, e.Message);
 				return false;
 			}
 			
@@ -189,7 +190,7 @@ namespace Drapes
 											break;
 										default:
 											node = null;
-											Console.WriteLine("Unknow element: {0}", SubTree.Name);
+											Console.WriteLine(Catalog.GetString("Unknow element: {0}"), SubTree.Name);
 											break;
 									}
 								}
@@ -230,7 +231,7 @@ namespace Drapes
 					}
 				}
 			} catch (System.Xml.XmlException e) {
-				Console.WriteLine("Something bad happened las time, opening as far as we can...");
+				Console.WriteLine(Catalog.GetString("Something bad happened last time, opening as far as we can..."));
 			}
 
 			// Cleanup on isle 5
@@ -290,7 +291,7 @@ namespace Drapes
 			//
 			xml.Close();
 			
-			Console.WriteLine("Wallpaper list file {0} saved", file);
+			Console.WriteLine(Catalog.GetString("Wallpaper list file {0} saved"), file);
 			return true;
 		}
 		

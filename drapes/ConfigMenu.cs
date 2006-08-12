@@ -19,7 +19,7 @@ Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA  02110-1301  USA
 */
 
 using System;
-using Mono.Posix;
+using Mono.Unix;
 using Gtk;
 using Glade;
 using Drapes;
@@ -46,11 +46,11 @@ namespace Drapes
 			btnAdd.Clicked += onAddButtonClick;
 			
 			// style selection
-			cmbStyle.InsertText(0, "Centered");
-			cmbStyle.InsertText(1, "Fill Screen");
-			cmbStyle.InsertText(2, "Scaled");
-			cmbStyle.InsertText(3, "Zoom");
-			cmbStyle.InsertText(4, "Tiled");
+			cmbStyle.InsertText(0, Catalog.GetString("Centered"));
+			cmbStyle.InsertText(1, Catalog.GetString("Fill Screen"));
+			cmbStyle.InsertText(2, Catalog.GetString("Scaled"));
+			cmbStyle.InsertText(3, Catalog.GetString("Zoom"));
+			cmbStyle.InsertText(4, Catalog.GetString("Tiled"));
 			cmbStyle.Active = (int) DrapesApp.Cfg.Style;
 			cmbStyle.Changed += onStyleChanged;
 
@@ -92,7 +92,7 @@ namespace Drapes
 			
 			// The one cell we'll be using
 			Gtk.TreeViewColumn tvc = new Gtk.TreeViewColumn();
-			tvc.Title = "selection";
+			tvc.Title = Catalog.GetString("selection");
 
 			// Toggle cell renderer needs some special setup, it dosen't handle the toggle it self, it needs a call back
 			Gtk.CellRendererToggle tg = new Gtk.CellRendererToggle();
@@ -125,10 +125,10 @@ namespace Drapes
 			tsEntries = new Gtk.TreeStore(typeof(string), typeof(string));
 			
 			// The various "sorters"
-			tiMatch = tsEntries.AppendValues(null, "Perfect fit");
-			tiAsp43 = tsEntries.AppendValues(null, "Regular 4:3");
-			tiAspWide = tsEntries.AppendValues(null, "Widescreen");
-			tiAspMisc = tsEntries.AppendValues(null, "Other");
+			tiMatch = tsEntries.AppendValues(null, Catalog.GetString("Perfect fit"));
+			tiAsp43 = tsEntries.AppendValues(null, Catalog.GetString("Regular 4:3"));
+			tiAspWide = tsEntries.AppendValues(null, Catalog.GetString("Widescreen"));
+			tiAspMisc = tsEntries.AppendValues(null, Catalog.GetString("Other"));
 			
 			// Add wallpapers to the Config window
 			foreach (Wallpaper w in DrapesApp.WpList)
@@ -230,7 +230,7 @@ namespace Drapes
 			foreach (string file in inpfiles) {
 				Wallpaper w = new Wallpaper();
 
-				Console.WriteLine("Adding wallpaper file: {0}", file);
+				Console.WriteLine(Catalog.GetString("Adding wallpaper file: {0}"), file);
 				
 				// Delay load it, it'll get picked up automaticaly anywas
 				w.LoadFileDelayed(file);
@@ -243,7 +243,7 @@ namespace Drapes
 		// Add more wallpapers
 		private void onAddButtonClick (object sender, EventArgs args)
 		{
-			FileChooserDialog fc = new FileChooserDialog("Add wallpaper", winPref, FileChooserAction.Open);
+			FileChooserDialog fc = new FileChooserDialog(Catalog.GetString("Add wallpaper"), winPref, FileChooserAction.Open);
 
 			// Settings
 			fc.LocalOnly = true;				// Only local files
@@ -344,7 +344,7 @@ namespace Drapes
 					(cell as Gtk.CellRendererText).Text = h;
 					(cell as Gtk.CellRendererText).Sensitive = true;
 				} else {
-					Console.WriteLine("Unknown column");
+					Console.WriteLine(Catalog.GetString("Unknown column"));
 				}
 				
 			// Sub nodes
@@ -375,7 +375,7 @@ namespace Drapes
 					// Format the description text next to the image
 					TextDesc = String.Format("<b>{0}</b>\n", DrapesApp.WpList[key].Name );
 					TextDesc += String.Format("{0}\n", DrapesApp.WpList[key].Mime);
-					TextDesc += String.Format("{0} x {1} pixels", DrapesApp.WpList[key].Width, DrapesApp.WpList[key].Height);
+					TextDesc += String.Format(Catalog.GetString("{0} x {1} pixels"), DrapesApp.WpList[key].Width, DrapesApp.WpList[key].Height);
 						
 					t.Markup = TextDesc;
 						
@@ -385,7 +385,7 @@ namespace Drapes
 					// Gray it out if the user disabled it
 					t.Sensitive = DrapesApp.WpList[key].Enabled;
 				} else {
-					Console.WriteLine("Unknow column");
+					Console.WriteLine(Catalog.GetString("Unknow column"));
 				}
 			}
 		}

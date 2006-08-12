@@ -18,6 +18,7 @@ along with Drapes; if not, write to the Free Software
 Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA  02110-1301  USA
 */
 using System;
+using Mono.Unix;
 using Gtk;
 using Egg;
 
@@ -89,8 +90,6 @@ namespace Drapes
 
 		public void ToggleShuffleCheck()
 		{
-			Console.WriteLine("Am Hai");
-			
 			DrapesApp.Cfg.ShuffleEnabled = !DrapesApp.Cfg.ShuffleEnabled;
 			Enabled = DrapesApp.Cfg.ShuffleEnabled;
 		}
@@ -130,7 +129,7 @@ namespace Drapes
 			Menu popup = new Menu();
 
 			// Switch to another wallpaper
-			ImageMenuItem next = new ImageMenuItem("_Switch");
+			ImageMenuItem next = new ImageMenuItem(Catalog.GetString("_Switch"));
 			next.Image = new Image(Stock.GoForward, IconSize.Menu);
 			next.Activated += delegate (object sender, EventArgs args)
 				{
@@ -138,7 +137,7 @@ namespace Drapes
 				};
 			
 			// Enabled
-			CheckMenuItem enabled = new Gtk.CheckMenuItem("Shuffle periodicaly");
+			CheckMenuItem enabled = new Gtk.CheckMenuItem(Catalog.GetString("Shuffle periodicaly"));
 			enabled.Active = DrapesApp.Cfg.ShuffleEnabled;
 			enabled.Toggled += delegate (object sender, EventArgs args)
 				{
@@ -147,7 +146,7 @@ namespace Drapes
 					
 			
 			// Configuration
-			ImageMenuItem config = new ImageMenuItem("Prefrences");
+			ImageMenuItem config = new ImageMenuItem(Catalog.GetString("Prefrences"));
 			config.Image = new Image(Stock.Preferences, IconSize.Menu);
 			config.Activated += delegate (object sender, EventArgs args)
 				{
@@ -155,7 +154,7 @@ namespace Drapes
 				};
 			
 			// Quit
-			ImageMenuItem quit = new ImageMenuItem("_Quit");
+			ImageMenuItem quit = new ImageMenuItem(Catalog.GetString("_Quit"));
 			quit.Image = new Image(Stock.Quit, IconSize.Menu);
 			quit.Activated += delegate (object sender, EventArgs args)
 				{

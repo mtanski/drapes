@@ -20,10 +20,10 @@ Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA  02110-1301  USA
 
 using System;
 using IO = System.IO;
+using Mono.Unix;
 using Gdk;
 using Gnome;
 using Vfs = Gnome.Vfs;
-using Mono.Posix;
 using Res = Drapes.ResolutionProperties;
 using Config = Drapes.Config;
 
@@ -169,7 +169,7 @@ namespace Drapes
 					// set filename to null, so it dosen't get saved on quit
 					filename = null;
 					
-					Console.WriteLine("Cannot find file: {0}", filename);
+					Console.WriteLine(Catalog.GetString("Cannot find file: {0}"), filename);
 					// No sence doing anything else
 					return false;
 				}
@@ -345,7 +345,7 @@ namespace Drapes
 			
 			// can we attempt to create it?
 			if (!t.CanThumbnail(filename, uri.MimeType.ToString(), mtime)) {
-				Console.WriteLine("Cannot create thumbnail for: {0}", filename);
+				Console.WriteLine(Catalog.GetString("Cannot create thumbnail for: {0}"), filename);
 				return false;
 			}
 			
