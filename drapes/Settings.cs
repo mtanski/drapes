@@ -389,10 +389,12 @@ namespace Drapes.Config
 				case GCONF_KEY_MONITOR:
 					if (cbtMonitor != null)
 						cbtMonitor.Active = (bool) args.Value;
+					DrapesApp.WpList.FileSystemMonitor = (bool) args.Value;
 					break;
 				case GCONF_KEY_MONITOR_DIR:
 					if (fcbDir != null)
 						fcbDir.SetCurrentFolderUri((string) args.Value);
+					DrapesApp.WpList.ChangeMonitorDir();
 					break;
 				case Defaults.GCONF_STYLE_OPTIONS:
 					if (cmbStyle != null)
@@ -408,7 +410,7 @@ namespace Drapes.Config
 	// The default settings
 	public static class Defaults
 	{
-		private static string monDir = "Documents/Wallpapers";
+		private static string monDir = "Documents";
 		internal const string GCONF_STYLE_OPTIONS = "/desktop/gnome/background/picture_options";
 	
 		// Incase we ever want to change it, I guess.

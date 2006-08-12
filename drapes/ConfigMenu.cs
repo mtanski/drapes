@@ -246,10 +246,14 @@ namespace Drapes
 			FileChooserDialog fc = new FileChooserDialog("Add wallpaper", winPref, FileChooserAction.Open);
 
 			// Settings
-//			fc.LocalOnly = true;				// Only local files
+			fc.LocalOnly = true;				// Only local files
 			fc.SelectMultiple = true;			// Users can select multiple images at a time
 			fc.Filter = new FileFilter();		// Filter
 			fc.Filter.AddPixbufFormats();		// Add pixmaps
+
+			// If we are monitoring a directory send the user there as the default dir
+			if (DrapesApp.Cfg.MonitorEnabled == true)
+				fc.SetCurrentFolder(DrapesApp.Cfg.MonitorDirectory);
 			
 			// Add buttons
 			fc.AddButton(Stock.Cancel, ResponseType.Cancel);
@@ -445,9 +449,9 @@ namespace Drapes
 		private void OnMonitorDirChanged (object sender, EventArgs args)
 		{
 			Gtk.FileChooserButton d = (Gtk.FileChooserButton) sender;
-			
+
 			// Update GConf settings
-			DrapesApp.Cfg.MonitorDirectory = d.Uri;
+			DrapesApp.Cfg.MonitorDirectory = d.Filename;
 		}
 		
 		// Clicked on cbtStartSwitch

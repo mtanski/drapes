@@ -19,7 +19,7 @@ Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA  02110-1301  USA
 */
 
 using System;
-using System.IO;
+using IO = System.IO;
 using Gdk;
 using Gnome;
 using Vfs = Gnome.Vfs;
@@ -162,31 +162,29 @@ namespace Drapes
 		public bool ForceLoadAttr()
 		{
 			// Don't waste our resources if it has been removed from the list
-			if (!removed) {
-	
-				Vfs.Uri uri = new Vfs.Uri(Gnome.Vfs.Uri.GetUriFromLocalPath(filename));
-				if (!uri.Exists) {
+			if (!removed) {	
+				if (!IO.File.Exists(filename)) {
 					// mark it as removed so it dosen't get listed as an option, ever
 					removed = true;
 					// set filename to null, so it dosen't get saved on quit
 					filename = null;
 					
-					Console.WriteLine("Cannot find file: {0}", uri.ToString());
+					Console.WriteLine("Cannot find file: {0}", filename);
 					// No sence doing anything else
 					return false;
 				}
 
-				Vfs.FileInfo fi = new Vfs.FileInfo(uri);
+				IO.FileInfo fp = new IO.FileInfo(filename);
 				
 				if (mtime != DateTime.MinValue) {
 					// We got info we need, save our selves sometime
-					if (mtime == fi.Mtime && w == 0 && h == 0)
+					if (mtime == fp.LastAccessTime)
 						return true; 
 				} else	// save mtime
-					mtime = fi.Mtime;
+					mtime = fp.LastWriteTime;
 				
 				// Get mimetype
-				mime = uri.MimeType.Description;	//	Gtk# bug
+				mime = Vfs.MimeType.GetMimeTypeForUri(filename);
 				
 				// Not loaded
 				if (w == 0 || h == 0) { 
@@ -305,7 +303,12 @@ namespace Drapes
 				return mime;
 			}
 		}
-		
+
+		public void CheckMtime()
+		{
+			mtime = IO.File.GetLastAccessTime(filename);
+		}
+			
 		public bool MatchScreen()
 		{
 			if (Gdk.Screen.Default.Width == w && Gdk.Screen.Default.Height == h)
@@ -331,7 +334,7 @@ namespace Drapes
 			return false;
 		}
 		
-		private bool CreateThumnail()
+		public bool CreateThumnail()
 		{
 			// don't waste time if one exists
 			if (HasCurrentThumbnail() == true)
@@ -379,7 +382,7 @@ namespace Drapes
 				return thumb;
 			
 			if (HasCurrentThumbnail() == false)
-				return null;
+				CreateThumnail();
 			
 			ThumbnailFactory t = new ThumbnailFactory(ThumbnailSize.Normal);
 			

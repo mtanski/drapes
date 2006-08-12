@@ -35,12 +35,93 @@ namespace Drapes
 		private Hashtable enabled = new Hashtable();
 		// For "later" processing
 		private Queue processing = new Queue();
+		private FileSystemWatcher FileNotify;
 		
 		public WallPaperList(string file)
 		{
 			LoadList(file);
+
+			// Automatic filesystem scanning
+			if (DrapesApp.Cfg.MonitorEnabled)
+				EnableNotify();
 		}
-		
+
+		private void EnableNotify()
+		{
+			// Check if the directory exists
+			if (System.IO.Directory.Exists(DrapesApp.Cfg.MonitorDirectory) == false) {
+				Console.WriteLine("Monitor Directory: {0} dosen't exist", DrapesApp.Cfg.MonitorDirectory);
+				return;
+			}
+
+			Console.WriteLine("Filesystem monitor on: {0} enabled", DrapesApp.Cfg.MonitorDirectory);
+			
+			FileNotify = new FileSystemWatcher(DrapesApp.Cfg.MonitorDirectory);
+			FileNotify.IncludeSubdirectories = true;
+			FileNotify.EnableRaisingEvents = true;
+
+			// Events
+			FileNotify.Changed += FileNotifyEvent;
+			FileNotify.Created += FileNotifyEvent;
+			FileNotify.Deleted += FileNotifyEvent;
+			FileNotify.Renamed += FileNotifyEvent;
+		}
+
+		private void FileNotifyEvent (object sender, FileSystemEventArgs e)
+		{
+			Wallpaper w;
+			
+			switch (e.ChangeType) {
+			case WatcherChangeTypes.Changed:
+//				Console.WriteLine("File {0}, changed", e.FullPath);	this causes a lot of spam
+				// Redo the thumbnail
+				w = this[e.FullPath];
+				if (w != null)
+					w.CheckMtime();
+				break;
+			case WatcherChangeTypes.Created:
+				Console.WriteLine("File {0}, created", e.FullPath);
+				w = new Wallpaper(e.FullPath);
+				Append(w);
+				break;
+			case WatcherChangeTypes.Deleted:
+				Console.WriteLine("File {0}, deleted", e.FullPath);
+				SetDelete(e.FullPath);
+				break;
+			default:
+				Console.WriteLine("Unknow file event {0}", e.ChangeType);
+				break;
+			}
+		}
+
+		public bool FileSystemMonitor
+		{
+			set {
+				if (value == true && FileNotify == null)
+					EnableNotify();	
+				else if (value == false && FileNotify != null) {
+					FileNotify.EnableRaisingEvents = false;
+					FileNotify = null;
+
+					Console.WriteLine("Filesystem monitor disabled");
+				}
+			}		
+		}
+
+		public void ChangeMonitorDir()
+		{
+			// Check if the directory exists
+			if (System.IO.Directory.Exists(DrapesApp.Cfg.MonitorDirectory) == false) {
+				Console.WriteLine("Monitor Directory: {0} dosen't exist", DrapesApp.Cfg.MonitorDirectory);
+				return;
+			}
+
+			if (FileNotify != null) {
+				Console.WriteLine("Changing monitor directory to: {0}", DrapesApp.Cfg.MonitorDirectory);
+				FileNotify.Path = DrapesApp.Cfg.MonitorDirectory;
+			}
+		}
+			
 		public bool LoadList(string file)
 		{
 			// Our file went MIA
