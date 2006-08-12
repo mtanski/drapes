@@ -250,17 +250,16 @@ namespace Drapes
 			fc.SelectMultiple = true;			// Users can select multiple images at a time
 			fc.Filter = new FileFilter();		// Filter
 			fc.Filter.AddPixbufFormats();		// Add pixmaps
-
-			// If we are monitoring a directory send the user there as the default dir
-			if (DrapesApp.Cfg.MonitorEnabled == true)
-				fc.SetCurrentFolder(DrapesApp.Cfg.MonitorDirectory);
 			
 			// Add buttons
 			fc.AddButton(Stock.Cancel, ResponseType.Cancel);
 			fc.AddButton(Stock.Open , ResponseType.Ok);
 			
-			// Make the default directory Documents (if it's missing it'll go to home)
-			fc.SetUri(Environment.GetEnvironmentVariable("HOME") + "/Documents");
+			// Try to goto the monitor dir if monitoring is enabled, else goto documents
+			if (DrapesApp.Cfg.MonitorEnabled == true) {
+				fs.SetUri(DrapesApp.Cfg.MonitorDirectory);
+			else
+				fc.SetUri(Environment.GetEnvironmentVariable("HOME") + "/Documents");
 			
 			// Show the dialog
 			int r = fc.Run();
