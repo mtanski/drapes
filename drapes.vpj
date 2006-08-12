@@ -30,7 +30,7 @@
 				CaptureOutputWith="ProcessBuffer"
 				SaveOption="SaveWorkspaceFiles"
 				RunFromDir="%rp">
-				<Exec CmdLine="make clean"/>
+				<Exec CmdLine="make clean all"/>
 			</Target>
 			<Target
 				Name="Debug"

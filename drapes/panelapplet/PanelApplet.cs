@@ -451,7 +451,6 @@ namespace _Gnome {
 
 		public void SetupMenuFromFile(string FileName, BonoboUIVerb[] verbs)
 		{		
-			// Open the xml file describing the menu
 			StreamReader menufile = new StreamReader(FileName);
 			string xml = menufile.ReadToEnd();
 			menufile.Close();

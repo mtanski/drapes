@@ -5,7 +5,7 @@ DrapesApplet.server: $(srcdir)/DrapesApplet.server.in Makefile
 	sed -e 's,[@]bindir/[@],$(bindir),'       \
 	    < $< > $@
 
-menuxmldir = $(datadir)/drapes
+menuxmldir = $(datadir)/gnome-2.0/ui
 menuxml_DATA=DrapesApplet.xml
 
 @INTLTOOL_DESKTOP_RULE@

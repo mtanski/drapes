@@ -1,11 +1,9 @@
-<Root>
-  <popups>
-    <popup name="button3">
-	  <menuitem name="Switch" verb="Switch" _label="_Switch" />
-      
-      <separator/>
-      <menuitem name="Preferences" verb="Preferences" _label="_Preferences" />
-
-    </popup>
-  </popups>
-</Root>
+<popup name="button3">
+  <menuitem name="Switch" verb="Switch" _label="_Switch"
+    pixtype="stock" pixname="gtk-go-forward"/>
+  <separator/>
+  <menuitem name="Shuffle" verb="Shuffle" _label="_Shuffle Periodicaly"
+    type="toggle"/>
+  <menuitem name="Preferences" verb="Preferences" _label="_Preferences"
+    pixtype="stock" pixname="gtk-preferences" />
+</popup>

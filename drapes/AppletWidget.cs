@@ -31,7 +31,7 @@ namespace Drapes
 
 	public class AppletWidget : Gtk.EventBox
 	{
-		private TrayIcon			NotificationIcon;
+		private Egg.TrayIcon		NotificationIcon;
 		private AppletStyle			AppletStyle;
 		private Gtk.Image			Icon;
 		
@@ -59,7 +59,7 @@ namespace Drapes
 
 		private void CreateNotifyIcon()
 		{
-			NotificationIcon = new TrayIcon(Config.Defaults.ApplicationName);
+			NotificationIcon = new Egg.TrayIcon(Config.Defaults.ApplicationName);
 			NotificationIcon.Add(this);
 			NotificationIcon.ShowAll();
 		}
@@ -89,6 +89,8 @@ namespace Drapes
 
 		public void ToggleShuffleCheck()
 		{
+			Console.WriteLine("Am Hai");
+			
 			DrapesApp.Cfg.ShuffleEnabled = !DrapesApp.Cfg.ShuffleEnabled;
 			Enabled = DrapesApp.Cfg.ShuffleEnabled;
 		}

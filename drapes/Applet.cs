@@ -53,7 +53,7 @@ namespace Drapes
 		public override void Creation()
 		{
 			// Filename of the menu xml file
-			string XmlFile = IO.Path.Combine(CompileOptions.DataDir, "DrapesApplet.xml");
+			string XmlFile = IO.Path.Combine(CompileOptions.GnomeXmlUiDir, "DrapesApplet.xml");
 
 			// Create the applet icon
 			AppletIcon = new AppletWidget(AppletStyle.APPLET_PANEL);
@@ -62,12 +62,22 @@ namespace Drapes
 			
 			MenuVerbs = new BonoboUIVerb []
 			{
-				new BonoboUIVerb("Switch", AppletIcon.ToggleSwitch), 
-				new BonoboUIVerb("Shuffle Periodicaly", AppletIcon.ToggleShuffleCheck),
-				new BonoboUIVerb("Preferences", AppletIcon.ShowPrefrences)
+				new BonoboUIVerb("Switch", SwitchWallpaper), 
+				new BonoboUIVerb("Shuffle", null),
+				new BonoboUIVerb("Preferences", ShowPreferences)
 			};
 
 			SetupMenuFromFile (XmlFile, MenuVerbs);
+		}
+
+		private void SwitchWallpaper()
+		{
+			AppletIcon.ToggleSwitch();
+		}
+
+		private void ShowPreferences()
+		{
+			AppletIcon.ShowPrefrences();
 		}
 
 		protected override void OnChangeBackground(PanelAppletBackgroundType type, Gdk.Color color, Gdk.Pixmap pixmap)

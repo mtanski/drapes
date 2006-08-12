@@ -38,6 +38,12 @@ namespace Drapes
 	public class CompileOptions {
 		private static string data_dir = "@datadir/@/drapes";
 		private static string version = "@version/@";
+		private static string gnome_ui_dir = "@datadir/@/gnome-2.0/ui";
+		
+		public static string GnomeXmlUiDir
+		{
+			get { return gnome_ui_dir; }
+		}
 		
 		public static string DataDir
 		{	
