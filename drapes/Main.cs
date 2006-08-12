@@ -44,7 +44,7 @@ namespace Drapes {
 		// Configuration window
 		internal static		Drapes.ConfigWindow		ConfigWindow;
 		// Panel/Tray applet
-		private				AppletStyle				AppletStyle;
+		internal static		AppletStyle				AppletStyle;
 		private				Gnome.Program			Program;
 		
 		private DrapesApp(string[] args)
@@ -92,8 +92,8 @@ namespace Drapes {
 			GLib.Timeout.Add(5000, OnstartSwitch);
 			
 			// tray Icon
-			if (this.AppletStyle == AppletStyle.APPLET_TRAY) {
-				new AppletWidget(this.AppletStyle);
+			if (AppletStyle == AppletStyle.APPLET_TRAY) {
+				new AppletWidget(AppletStyle);
 				this.Program.Run();
 			} else
 				_Gnome.PanelAppletFactory.Register(typeof (DrapesApplet));
@@ -166,7 +166,7 @@ namespace Drapes {
 			foreach (string cur in Args) {
 				switch (cur) {
 				case "--panel-applet":
-					this.AppletStyle = AppletStyle.APPLET_PANEL;
+					AppletStyle = AppletStyle.APPLET_PANEL;
 					break;
 				default:
 					Console.WriteLine(Catalog.GetString("Sorry unknow argument: {0}"), cur);

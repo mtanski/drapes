@@ -35,9 +35,14 @@ namespace Drapes
 		private Egg.TrayIcon		NotificationIcon;
 		private AppletStyle			AppletStyle;
 		private Gtk.Image			Icon;
+		private Tooltips			Tooltips;
 		
 		public AppletWidget(AppletStyle style)
 		{
+			// Tooltips
+			Tooltips = new Tooltips();
+			Tooltips.SetTip(this, Catalog.GetString("Deskop Drapes, click to switch wallpaper"), null);
+			
 			// Create the icon
 			Icon = new Image((string) null, IconSize.Menu);
 			Add(Icon);

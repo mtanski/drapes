@@ -37,6 +37,9 @@ namespace Drapes
 			// Glade autoconnect magic
 			Glade.XML gxml = new Glade.XML (null, "drapes.glade", "winPref", null);
 			gxml.Autoconnect (this);
+
+			// Tooltips
+			tooltips = new Tooltips();
 			
 			// the window it self
 			winPref.DeleteEvent += OnWindowDelete;
@@ -57,6 +60,10 @@ namespace Drapes
 			// start on login button
 			cbtAutoStart.Active = DrapesApp.Cfg.AutoStart;
 			cbtAutoStart.Toggled += onAutoStartToggled;
+			if (DrapesApp.AppletStyle == AppletStyle.APPLET_PANEL) {
+				cbtAutoStart.Sensitive = false;
+				tooltips.SetTip(cbtAutoStart, Catalog.GetString("This is only valid when using the notification tray"), null);
+			}
 		
 			// Bottom butons
 			btnClose.Clicked += onCloseButtonClick;
@@ -184,6 +191,9 @@ namespace Drapes
 			if (tmfFilter != null)
 				tmfFilter.Refilter();
 		}
+
+		// Tooltips
+		Tooltips 					tooltips;
 		
 		// The main window
 		[Widget] Window				winPref;
