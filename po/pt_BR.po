@@ -1,0 +1,65 @@
+# Portuguese (Brazil) translation for drapes
+# Copyright (c) (c) 2006 Canonical Ltd, and Rosetta Contributors 2006
+# This file is distributed under the same license as the drapes package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2006.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: drapes\n"
+"Report-Msgid-Bugs-To: FULL NAME <EMAIL@ADDRESS>\n"
+"POT-Creation-Date: 2006-06-28 23:07-0400\n"
+"PO-Revision-Date: 2006-07-28 22:22+0000\n"
+"Last-Translator: Luiz Augusto <lugusto@gmail.com>\n"
+"Language-Team: Portuguese (Brazil) <pt_BR@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#: data/drapes.glade:10
+msgid "Desktop Drapes"
+msgstr "Desktop Drapes"
+
+#: data/drapes.glade:157
+msgid "Style: "
+msgstr "Estilo: "
+
+#: data/drapes.glade:281
+msgid "Display"
+msgstr "Exibir"
+
+#: data/drapes.glade:351
+msgid "<b>Startup options</b>"
+msgstr "<b>Opções de inicialização</b>"
+
+#: data/drapes.glade:402
+msgid "Start Desktop Drapes on start"
+msgstr "Abrir Desktop Drapes ao iniciar o sistema"
+
+#: data/drapes.glade:421
+msgid "Switch wallpaper on start"
+msgstr "Trocar o papel de parede ao iniciar"
+
+#: data/drapes.glade:485
+msgid "<b>Timing selection</b>"
+msgstr ""
+
+#: data/drapes.glade:585
+msgid "<b>Wallpaper search directory</b>"
+msgstr "<b>Diretório de busca por papéis de parede</b>"
+
+#: data/drapes.glade:636
+msgid "Monitor this directory for new wallpapers"
+msgstr "Monitore este diretório para novos papéis de parede"
+
+#: data/drapes.glade:666
+msgid "Select A File"
+msgstr "Selecione um arquivo"
+
+#: data/drapes.glade:709
+msgid "General"
+msgstr "Geral"
+
+#: data/drapes.glade:802
+msgid "Close"
+msgstr "Fechar"
