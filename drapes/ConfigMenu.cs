@@ -316,7 +316,7 @@ namespace Drapes
 					return;
 					
 				// Delete the wallpaper
-				DrapesApp.WpList.SetDelete(key);
+				DrapesApp.WpList.RemoveFromList(key);
 				
 				// Remove the node from the acctual TreeStore
 				rModel.Remove(ref iter);
@@ -325,7 +325,33 @@ namespace Drapes
 				tmfFilter.Refilter();
 			}
 		}
-		
+
+		public void onWallpaperFileRemoved(string file)
+		{
+			TreeModelForeachFunc DelFunc = delegate(TreeModel model, TreePath path, TreeIter iter)
+			{
+				string key = (string) model.GetValue(iter, 0);
+				
+				// found our key
+				if (key == file) {
+					(model as TreeStore).Remove(ref iter);
+					return true;
+				}
+
+				// didn't find our key
+				return false;
+			};
+			
+			if (file == null)
+				return;
+
+			// Find the wallpaper and remove it
+			tsEntries.Foreach(DelFunc);
+			
+			// refilter the list
+			tmfFilter.Refilter();				  
+		}
+
 		// If a user dosen't have any wallpaper to display in a section, don't show it
 		private bool FilterEmptySections(TreeModel model, TreeIter iter)
 		{

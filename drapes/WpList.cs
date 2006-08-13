@@ -82,12 +82,14 @@ namespace Drapes
 				break;
 			case WatcherChangeTypes.Created:
 				Console.WriteLine(Catalog.GetString("File {0}, created"), e.FullPath);
-				w = new Wallpaper(e.FullPath);
+				w = new Wallpaper();
+				w.LoadFileDelayed(e.FullPath);
+				w.Enabled = true;
 				Append(w);
 				break;
 			case WatcherChangeTypes.Deleted:
 				Console.WriteLine(Catalog.GetString("File {0}, deleted"), e.FullPath);
-				SetDelete(e.FullPath);
+				WallpaperDeleted(e.FullPath);
 				break;
 			default:
 				Console.WriteLine(Catalog.GetString("Unknow file event {0}"), e.ChangeType);
@@ -372,7 +374,7 @@ namespace Drapes
 			w.Enabled = val;
 		}
 
-		public void SetDelete(string file)
+		public void RemoveFromList(string file)
 		{
 			if (file == null)
 				return;
@@ -382,6 +384,20 @@ namespace Drapes
 				
 			// Remove from rotation
 			enabled.Remove(file);
+		}
+
+		public void WallpaperDeleted(string file)
+		{
+			Wallpaper w;
+			
+			// needbe remove it from the window displaying the wallpaper
+			if (DrapesApp.ConfigWindow != null)
+				DrapesApp.ConfigWindow.onWallpaperFileRemoved(file);
+
+			// remove it from the enabled list
+			enabled.Remove(file);
+			// remove it from the list period
+			list.Remove(file);
 		}
 				
 		public void Append(Wallpaper w)
