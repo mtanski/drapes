@@ -330,29 +330,21 @@ namespace Drapes
 			if (list.Count == 0)
 				return null;
 			
-			// save ourselves a lot of voodoo	
-			if (enabled.Count == 1)
-				return (Wallpaper) list[0];
+			// am hu?
+			if (enabled.Count < 1)
+				return null;
 
 			Wallpaper w;
 			
 			do {
-				// what if all of them are deselected
-				if (enabled.Count == 0) {
-					// just pick any one
-					int i = list.Count - 1;
-					i = (int) Math.Round(i * r.NextDouble());
-					w = (Wallpaper) list[i];
-				} else {
-					string[] keys = new string[enabled.Count];
-					enabled.Keys.CopyTo(keys, 0);
+				string[] keys = new string[enabled.Count];
+				enabled.Keys.CopyTo(keys, 0);
 					
-					int i = enabled.Count - 1;
-					i = Convert.ToInt32(r.NextDouble() * i);
-					w = (Wallpaper) list[keys[i]];
-				}
+				int i = enabled.Count - 1;
+				i = Convert.ToInt32(r.NextDouble() * i);
+				w = (Wallpaper) list[keys[i]];
 			// Make sure we always get a diffrent one
-			} while (old == w.File);
+			} while (enabled.Count != 1 && old == w.File);
 			
 			return w;
 		}
