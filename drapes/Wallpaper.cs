@@ -118,8 +118,6 @@ namespace Drapes
 		internal	int					w,h;
 		private		bool				removed;
 		private		bool				enabled;
-		// thumbnail
-		internal	Pixbuf				thumb;
 		// initlized
 		private		bool				init;
 		//
@@ -306,7 +304,7 @@ namespace Drapes
 
 		public void CheckMtime()
 		{
-			mtime = IO.File.GetLastAccessTime(filename);
+			mtime = IO.File.GetLastWriteTime(filename);
 		}
 			
 		public bool MatchScreen()
@@ -336,10 +334,9 @@ namespace Drapes
 		
 		public bool CreateThumnail()
 		{
-			// don't waste time if one exists
 			if (HasCurrentThumbnail() == true)
 				return true;
-
+			
 			ThumbnailFactory t = new ThumbnailFactory(ThumbnailSize.Normal);
 			Vfs.Uri uri = new Vfs.Uri(filename);
 			
@@ -353,19 +350,7 @@ namespace Drapes
 			Pixbuf tmp = t.GenerateThumbnail(filename, uri.MimeType.ToString());
 			t.SaveThumbnail(tmp, filename, mtime);
 			
-			// get rid of the tempoary thumb
-			tmp.Dispose();
-			
 			return true;
-		}
-		
-		// For some memory saving goodness
-		public void DisposeThumb()
-		{
-			if (thumb != null)
-				thumb.Dispose();
-
-			thumb = null;
 		}
 		
 		// Grab thumbnail
@@ -376,19 +361,16 @@ namespace Drapes
 			// Totaly ignore removed wps
 			if (removed)
 				return null;
-			
-			// we got a cashed thumbnail
-			if (thumb != null)
-				return thumb;
-			
-			if (HasCurrentThumbnail() == false)
-				CreateThumnail();
+
+			// Attempt to create a new thumbnail (or at least check if there is an old valid one)
+			if (CreateThumnail() == false)
+				return null;
 			
 			ThumbnailFactory t = new ThumbnailFactory(ThumbnailSize.Normal);
 			
 			// Grab the thumb
 			existing = t.Lookup(filename,  mtime);
-			thumb = new Pixbuf(existing);
+			Pixbuf thumb = new Pixbuf(existing);
 				
 			// Figure out the scale for previews
 			int x, y;

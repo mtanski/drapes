@@ -525,13 +525,11 @@ namespace Drapes
 		{
 			DrapesApp.ConfigWindow  = null;
 			winPref.Destroy();
-			DrapesApp.WpList.ThumbCleanup();
 		}
 		
 		void OnWindowDelete (object o, DeleteEventArgs args)
 		{
 			DrapesApp.ConfigWindow  = null;
-			DrapesApp.WpList.ThumbCleanup();
 		}
 	}
 }

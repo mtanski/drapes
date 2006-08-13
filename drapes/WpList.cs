@@ -25,6 +25,7 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Collections.Specialized;
 using System.Xml;
+using Vfs = Gnome.Vfs;
 using Drapes;
 
 namespace Drapes
@@ -71,6 +72,11 @@ namespace Drapes
 		private void FileNotifyEvent (object sender, FileSystemEventArgs e)
 		{
 			Wallpaper w;
+
+			// Ignore non image files
+			string mime = Vfs.Mime.TypeFromName(e.FullPath);
+			if (mime.StartsWith("image") == false)
+				return;
 			
 			switch (e.ChangeType) {
 			case WatcherChangeTypes.Changed:
@@ -439,12 +445,6 @@ namespace Drapes
 			}
 
 			return true;
-		}
-		
-		public void ThumbCleanup()
-		{
-			for (int i=0; i < list.Count ; i++)
-				(list[i] as Wallpaper).DisposeThumb();
 		}
 
 		// Enumeration magic
