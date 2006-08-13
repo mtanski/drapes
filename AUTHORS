@@ -1,8 +1,12 @@
-Milosz Tanski - Original idea, application, maintainer.
+Milosz Tanski - Idea, application, maintainer.
+Andrew J. Forgue - Panel applet idea, and original panel applet code.
+Alex Graveley - Custom (non-broken) panelapplet bindings.
 
 The TrayLib was taken from the www.mono-project.org wiki. Thanks!
+The custom panelapplet bindings where taken from the Tomboy project, Alex Graveley.
 
 Translators:
 * Pierre Slamich - pierre.slamich@gmail.com (fr)
+* Alejandro Leon Vega - alejandroleonvega@gmail.com (es)
 
-Thanks guys!
+Thanks, to everyone who contributed knowingly, and unknowingly :) 

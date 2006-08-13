@@ -21,4 +21,5 @@ EXTRA_DIST =			\
 DISTCLEANFILES =		\
 	intltool-extract	\
 	intltool-update		\
-	intltool-merge
+	intltool-merge		\
+	*cdbs*

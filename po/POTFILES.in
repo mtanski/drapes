@@ -1,1 +1,7 @@
 data/drapes.glade
+drapes/AppletWidget.cs
+drapes/ConfigMenu.cs
+drapes/Main.cs
+drapes/Settings.cs
+drapes/Wallpaper.cs
+drapes/WpList.cs

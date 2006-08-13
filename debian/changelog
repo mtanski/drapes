@@ -1,3 +1,9 @@
+drapes (0.4.94) UNRELEASED; urgency=low
+
+  * New upstream testing version.
+
+ -- Milosz Tanski <dem@gmail.com>  Sun, 13 Aug 2006 12:14:36 -0400
+
 drapes (0.4.93-bzr0) UNRELEASED; urgency=low
 
   * Some fixes, pushing out for testing.
