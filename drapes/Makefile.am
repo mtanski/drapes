@@ -39,7 +39,7 @@ $(TARGET): $(drapes_build_sources) $(top_srcdir)/data/drapes.glade
 	-unsafe+ -target:exe -out:"$@" \
 	$(drapes_build_sources)
 
-EXTRA_DIST = $(drapes_build_sources)
+EXTRA_DIST = $(drapes_build_sources) $(srcdir)/AssemblyInfo.cs.in
 
 CLEANFILES =	\
 	$(TARGET)	\
