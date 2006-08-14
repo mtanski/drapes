@@ -136,16 +136,26 @@ namespace Drapes
 			tiAsp43 = tsEntries.AppendValues(null, Catalog.GetString("Regular 4:3"));
 			tiAspWide = tsEntries.AppendValues(null, Catalog.GetString("Widescreen"));
 			tiAspMisc = tsEntries.AppendValues(null, Catalog.GetString("Other"));
+
+			tsEntries.AppendValues(tiMatch, null, Catalog.GetString("<i>No wallpapers present</i>"));
+			tsEntries.AppendValues(tiAsp43, null, Catalog.GetString("<i>No wallpapers present</i>"));
+			tsEntries.AppendValues(tiAspWide, null, Catalog.GetString("<i>No wallpapers present</i>"));
+			tsEntries.AppendValues(tiAspMisc, null, Catalog.GetString("<i>No wallpapers present</i>"));
 			
 			// Add wallpapers to the Config window
 			foreach (Wallpaper w in DrapesApp.WpList)
 				AddWallpaper(w.File);
+
+			// We need a filter to get rid of all the empty sections
+			tmfFilter = new Gtk.TreeModelFilter(tsEntries, null);
+			tmfFilter.VisibleFunc = FilterEmptySections;
 			
 			// Double click on a row (switch wallpaper, or expand collapse category)
 			tvBgList.RowActivated += onRowDoubleClick;
 
-			tvBgList.Model = tsEntries;
-			
+			// The filter is the "proxy" for the TreeView model 
+			tvBgList.Model = tmfFilter;
+
 			// Show everything
 			tvBgList.ExpandAll();
 			
@@ -182,10 +192,14 @@ namespace Drapes
 					break;
 				}
 			}
+			
+			if (tmfFilter != null)
+				tmfFilter.Refilter();
 		}
 
 		// Tooltips
 		Tooltips 					tooltips;
+		
 		// The main window
 		[Widget] Window				winPref;
 		// Things in the general tab
@@ -202,6 +216,8 @@ namespace Drapes
 		// The Treeview
 		[Widget] TreeView			tvBgList;
 		Gtk.TreeStore				tsEntries;
+		// the filter
+		Gtk.TreeModelFilter			tmfFilter;
 		// Diffrent "sections" of the treeview
 		Gtk.TreeIter				tiMatch;
 		Gtk.TreeIter				tiAsp43;
@@ -276,28 +292,43 @@ namespace Drapes
 		{
 			// First we need to get a TreeSelection representing selected nodes
 			TreeSelection 	sel = tvBgList.Selection;
+			TreeModel		model;
 			TreePath[]		paths;
 			
-			paths = sel.GetSelectedRows();
+			paths = sel.GetSelectedRows(out model);
 			
 			foreach (TreePath p in paths)
 			{
 				TreeIter		iter;
+				// Real TreeStore entities
+				TreePath		rPath;
+				TreeStore		rModel;
+				// wallpaper key
 				string			key;
+	
+				// Get the real TreeStore path from TreeFilter
+				rModel = (TreeStore) (model as TreeModelFilter).Model;
+				rPath = (model as TreeModelFilter).ConvertPathToChildPath(p);
 				
 				// Retrive the TreeStore out of TreeFilter
-				tsEntries.GetIter(out iter, p);
+				rModel.GetIter(out iter, rPath);
 				
-				key = (string) tsEntries.GetValue(iter, 0);
+				// Get index
+				key = (string) rModel.GetValue(iter, 0);
+
+				// Cannot remove a section
 				if (key == null)
 					return;
 					
 				// Delete the wallpaper
 				DrapesApp.WpList.RemoveFromList(key);
-
-				// Remove the entry from the 
-				tsEntries.Remove(ref iter);
+				
+				// Remove the node from the acctual TreeStore
+				rModel.Remove(ref iter);
 			}
+
+			// Update our filter
+			tmfFilter.Refilter();
 		}
 
 		public void onWallpaperFileRemoved(string file)
@@ -320,7 +351,30 @@ namespace Drapes
 				return;
 
 			// Find the wallpaper and remove it
-			tsEntries.Foreach(DelFunc);				  
+			tsEntries.Foreach(DelFunc);
+			
+			// refilter the list
+			tmfFilter.Refilter();				  
+		}
+
+		// Don't display the the "no wallpapers" if there are wallpapers present
+		private bool FilterEmptySections(TreeModel model, TreeIter iter)
+		{
+			TreeIter	parent;
+			string key = (string) model.GetValue(iter, 0);
+
+			// Always draw all wallpapers
+			if (key != null)
+				return true;
+			
+			if (model.IterParent(out parent, iter)) {
+				Console.WriteLine(model.IterNChildren(parent));
+				if (model.IterNChildren(parent) >= 2)
+					return false;
+
+			}
+
+			return true;
 		}
 		
 		// This basicaly performs the rendering of each row (on a cell by cell basis)
@@ -329,15 +383,16 @@ namespace Drapes
 			string	key = (string) model.GetValue(iter, 0);
 			string	h = (string) model.GetValue(iter, 1);
 		
-			// Root nodes
+			// Root nodes and empty messages
 			if (key == null) {			
 				if (cell is Gtk.CellRendererToggle) {
 					(cell as Gtk.CellRendererToggle).Visible = false;
 				} else if (cell is Gtk.CellRendererPixbuf) {
 					(cell as Gtk.CellRendererPixbuf).Visible = false;
 				} else if (cell is Gtk.CellRendererText) {
-					(cell as Gtk.CellRendererText).Text = h;
+//					(cell as Gtk.CellRendererText).Text = h;
 					(cell as Gtk.CellRendererText).Sensitive = true;
+					(cell as Gtk.CellRendererText).Markup = h;
 				} else {
 					Console.WriteLine(Catalog.GetString("Unknown column"));
 				}
