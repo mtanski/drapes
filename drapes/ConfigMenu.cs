@@ -140,17 +140,12 @@ namespace Drapes
 			// Add wallpapers to the Config window
 			foreach (Wallpaper w in DrapesApp.WpList)
 				AddWallpaper(w.File);
-
-			// We need a filter to get rid of all the empty sections
-			tmfFilter = new Gtk.TreeModelFilter(tsEntries, null);
-			tmfFilter.VisibleFunc = FilterEmptySections;
 			
 			// Double click on a row (switch wallpaper, or expand collapse category)
 			tvBgList.RowActivated += onRowDoubleClick;
 
-			// The filter is the "proxy" for the TreeView model 
-			tvBgList.Model = tmfFilter;
-				
+			tvBgList.Model = tsEntries;
+			
 			// Show everything
 			tvBgList.ExpandAll();
 			
@@ -187,14 +182,10 @@ namespace Drapes
 					break;
 				}
 			}
-			
-			if (tmfFilter != null)
-				tmfFilter.Refilter();
 		}
 
 		// Tooltips
 		Tooltips 					tooltips;
-		
 		// The main window
 		[Widget] Window				winPref;
 		// Things in the general tab
@@ -211,8 +202,6 @@ namespace Drapes
 		// The Treeview
 		[Widget] TreeView			tvBgList;
 		Gtk.TreeStore				tsEntries;
-		// the filter
-		Gtk.TreeModelFilter			tmfFilter;
 		// Diffrent "sections" of the treeview
 		Gtk.TreeIter				tiMatch;
 		Gtk.TreeIter				tiAsp43;
@@ -287,42 +276,27 @@ namespace Drapes
 		{
 			// First we need to get a TreeSelection representing selected nodes
 			TreeSelection 	sel = tvBgList.Selection;
-			TreeModel		model;
 			TreePath[]		paths;
 			
-			paths = sel.GetSelectedRows(out model);
+			paths = sel.GetSelectedRows();
 			
 			foreach (TreePath p in paths)
 			{
 				TreeIter		iter;
-				// Real TreeStore entities
-				TreePath		rPath;
-				TreeStore		rModel;
-				// wallpaper key
 				string			key;
-	
-				// Get the real TreeStore path from TreeFilter
-				rModel = (TreeStore) (model as TreeModelFilter).Model;
-				rPath = (model as TreeModelFilter).ConvertPathToChildPath(p);
 				
 				// Retrive the TreeStore out of TreeFilter
-				rModel.GetIter(out iter, rPath);
+				tsEntries.GetIter(out iter, p);
 				
-				// Get index
-				key = (string) rModel.GetValue(iter, 0);
-
-				// Cannot remove a section
+				key = (string) tsEntries.GetValue(iter, 0);
 				if (key == null)
 					return;
 					
 				// Delete the wallpaper
 				DrapesApp.WpList.RemoveFromList(key);
-				
-				// Remove the node from the acctual TreeStore
-				rModel.Remove(ref iter);
-	
-				// Update our filter
-				tmfFilter.Refilter();
+
+				// Remove the entry from the 
+				tsEntries.Remove(ref iter);
 			}
 		}
 
@@ -346,22 +320,7 @@ namespace Drapes
 				return;
 
 			// Find the wallpaper and remove it
-			tsEntries.Foreach(DelFunc);
-			
-			// refilter the list
-			tmfFilter.Refilter();				  
-		}
-
-		// If a user dosen't have any wallpaper to display in a section, don't show it
-		private bool FilterEmptySections(TreeModel model, TreeIter iter)
-		{
-			string key = (string) model.GetValue(iter, 0);
-			
-			// we only want to filter out "sections" not individual wallpapers 
-			if (key == null)
-				return model.IterHasChild(iter);
-
-			return true;
+			tsEntries.Foreach(DelFunc);				  
 		}
 		
 		// This basicaly performs the rendering of each row (on a cell by cell basis)
