@@ -368,10 +368,8 @@ namespace Drapes
 				return true;
 			
 			if (model.IterParent(out parent, iter)) {
-				Console.WriteLine(model.IterNChildren(parent));
 				if (model.IterNChildren(parent) >= 2)
 					return false;
-
 			}
 
 			return true;
