@@ -389,6 +389,10 @@ namespace Drapes
 					y = 64;
 					break;
 			}
+
+			// for really small images, do our own resizing; hopefully there won't be too many
+			if (thumb.Width < x || thumb.Height < y)
+				return thumb.ScaleSimple(x, y, Gdk.InterpType.Hyper);
 			
 			// do the acctual scaling
 			thumb = Gnome.Thumbnail.ScaleDownPixbuf(thumb, x, y);
