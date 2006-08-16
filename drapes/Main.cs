@@ -83,9 +83,6 @@ namespace Drapes {
 				WpList = new WallPaperList(Config.Defaults.DrapesWallpaperList);
 			}
 			
-			// Idle load the files
-			GLib.Idle.Add(WpList.DelayedLoader);
-			
 			// Wallpaper switcher (check every 10 seconds or so)
 			GLib.Timeout.Add(20000, TimerSwitcher);
 			// Waite a couple secons before doing first random, otl et it lazy load somethings

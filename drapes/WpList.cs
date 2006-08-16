@@ -402,13 +402,15 @@ namespace Drapes
 		{
 			// add for later processing
 			processing.Enqueue(w);
+
+			GLib.Idle.Add(DelayedLoader);
 		}
 
 		public bool DelayedLoader()
 		{
 			// do we have anything to do
 			if (processing.Count == 0)
-				return true;
+				return false;
 
 			// Add it to the list of wallpapers
 			Wallpaper w = (Wallpaper) processing.Dequeue();
