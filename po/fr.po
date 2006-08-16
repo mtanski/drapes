@@ -7,10 +7,10 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: drapes\n"
-"Report-Msgid-Bugs-To: \n"
+"Report-Msgid-Bugs-To:\n"
 "POT-Creation-Date: 2006-08-14 12:17-0400\n"
-"PO-Revision-Date: 2006-07-15 13:08+0000\n"
-"Last-Translator: Pierre Slamich <pierre.slamich@gmail.com>\n"
+"PO-Revision-Date: 2006-08-15 22:59+0000\n"
+"Last-Translator: Nicolas Velin <nsv@fr.st>\n"
 "Language-Team: French <fr@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -46,7 +46,8 @@ msgstr "Général"
 
 #: ../data/drapes.glade.h:8
 msgid "Monitor this directory for new wallpapers"
-msgstr "Surveiller l'apparition de nouveaux papiers-peints dans ce répertoire"
+msgstr ""
+"Surveiller l'apparition de nouveaux papiers-peints dans ce répertoire"
 
 #: ../data/drapes.glade.h:9
 msgid "Select A File"
@@ -68,34 +69,29 @@ msgstr "Changer de papier-peint au démarrage"
 msgid "Deskop Drapes, click to switch wallpaper"
 msgstr ""
 
-#. Switch to another wallpaper
 #: ../drapes/AppletWidget.cs:137
 msgid "_Switch"
 msgstr ""
 
-#. Enabled
 #: ../drapes/AppletWidget.cs:145
 msgid "Shuffle periodicaly"
 msgstr ""
 
-#. Configuration
 #: ../drapes/AppletWidget.cs:154
 msgid "Prefrences"
-msgstr ""
+msgstr "Préférences"
 
-#. Quit
 #: ../drapes/AppletWidget.cs:162
 msgid "_Quit"
-msgstr ""
+msgstr "_Quitter"
 
-#. style selection
 #: ../drapes/ConfigMenu.cs:52
 msgid "Centered"
-msgstr ""
+msgstr "Centré"
 
 #: ../drapes/ConfigMenu.cs:53
 msgid "Fill Screen"
-msgstr ""
+msgstr "Remplir l'écran"
 
 #: ../drapes/ConfigMenu.cs:54
 msgid "Scaled"
@@ -103,11 +99,12 @@ msgstr ""
 
 #: ../drapes/ConfigMenu.cs:55
 msgid "Zoom"
-msgstr ""
+msgstr "Zoom"
 
 #: ../drapes/ConfigMenu.cs:56
+#, fuzzy
 msgid "Tiled"
-msgstr ""
+msgstr "Mosaïque"
 
 #: ../drapes/ConfigMenu.cs:65
 msgid "This is only valid when using the notification tray"
@@ -115,24 +112,23 @@ msgstr ""
 
 #: ../drapes/ConfigMenu.cs:102
 msgid "selection"
-msgstr ""
+msgstr "sélection"
 
-#. The various "sorters"
 #: ../drapes/ConfigMenu.cs:135
 msgid "Perfect fit"
 msgstr ""
 
 #: ../drapes/ConfigMenu.cs:136
 msgid "Regular 4:3"
-msgstr ""
+msgstr "4:3"
 
 #: ../drapes/ConfigMenu.cs:137
 msgid "Widescreen"
-msgstr ""
+msgstr "16:9"
 
 #: ../drapes/ConfigMenu.cs:138
 msgid "Other"
-msgstr ""
+msgstr "Autre"
 
 #: ../drapes/ConfigMenu.cs:140 ../drapes/ConfigMenu.cs:141
 #: ../drapes/ConfigMenu.cs:142 ../drapes/ConfigMenu.cs:143
@@ -146,20 +142,20 @@ msgstr ""
 
 #: ../drapes/ConfigMenu.cs:261
 msgid "Add wallpaper"
-msgstr ""
+msgstr "Ajouter un fond d'écran"
 
 #: ../drapes/ConfigMenu.cs:395
 msgid "Unknown column"
-msgstr ""
+msgstr "Colonne inconnue"
 
 #: ../drapes/ConfigMenu.cs:426
 #, csharp-format
 msgid "{0} x {1} pixels"
-msgstr ""
+msgstr "{0} x {1} pixels"
 
 #: ../drapes/ConfigMenu.cs:436
 msgid "Unknow column"
-msgstr ""
+msgstr "Colonne inconnue"
 
 #: ../drapes/Main.cs:76
 msgid "Importing Gnome's background list"
@@ -185,43 +181,43 @@ msgstr ""
 
 #: ../drapes/Settings.cs:36
 msgid "5 minutes"
-msgstr ""
+msgstr "5 minutes"
 
 #: ../drapes/Settings.cs:38
 msgid "10 minutes"
-msgstr ""
+msgstr "10 minutes"
 
 #: ../drapes/Settings.cs:40
 msgid "15 minutes"
-msgstr ""
+msgstr "15 minutes"
 
 #: ../drapes/Settings.cs:42
 msgid "20 minutes"
-msgstr ""
+msgstr "20 minutes"
 
 #: ../drapes/Settings.cs:44
 msgid "30 minutes"
-msgstr ""
+msgstr "30 minutes"
 
 #: ../drapes/Settings.cs:46
 msgid "45 minutes"
-msgstr ""
+msgstr "45 minutes"
 
 #: ../drapes/Settings.cs:48
 msgid "1 hour"
-msgstr ""
+msgstr "1 heure"
 
 #: ../drapes/Settings.cs:50
 msgid "1 hour 30 minutes"
-msgstr ""
+msgstr "1 heure 30 minutes"
 
 #: ../drapes/Settings.cs:52
 msgid "2 hours"
-msgstr ""
+msgstr "2 heures"
 
 #: ../drapes/Settings.cs:55
 msgid "Never"
-msgstr ""
+msgstr "Jamais"
 
 #: ../drapes/Settings.cs:373
 #, csharp-format
@@ -256,12 +252,12 @@ msgstr ""
 #: ../drapes/WpList.cs:90
 #, csharp-format
 msgid "File {0}, created"
-msgstr ""
+msgstr "Fichier {0}, créé"
 
 #: ../drapes/WpList.cs:97
 #, csharp-format
 msgid "File {0}, deleted"
-msgstr ""
+msgstr "Fichier {0}, supprimé"
 
 #: ../drapes/WpList.cs:101
 #, csharp-format
@@ -290,7 +286,7 @@ msgstr ""
 #: ../drapes/WpList.cs:201
 #, csharp-format
 msgid "Unknow element: {0}"
-msgstr ""
+msgstr "Elément inconnu : {0}"
 
 #: ../drapes/WpList.cs:242
 msgid "Something bad happened last time, opening as far as we can..."

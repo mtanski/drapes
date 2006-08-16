@@ -7,7 +7,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: drapes\n"
-"Report-Msgid-Bugs-To: \n"
+"Report-Msgid-Bugs-To:\n"
 "POT-Creation-Date: 2006-08-14 12:17-0400\n"
 "PO-Revision-Date: 2006-07-28 22:22+0000\n"
 "Last-Translator: Luiz Augusto <lugusto@gmail.com>\n"
@@ -68,27 +68,22 @@ msgstr "Trocar o papel de parede ao iniciar"
 msgid "Deskop Drapes, click to switch wallpaper"
 msgstr ""
 
-#. Switch to another wallpaper
 #: ../drapes/AppletWidget.cs:137
 msgid "_Switch"
 msgstr ""
 
-#. Enabled
 #: ../drapes/AppletWidget.cs:145
 msgid "Shuffle periodicaly"
 msgstr ""
 
-#. Configuration
 #: ../drapes/AppletWidget.cs:154
 msgid "Prefrences"
 msgstr ""
 
-#. Quit
 #: ../drapes/AppletWidget.cs:162
 msgid "_Quit"
 msgstr ""
 
-#. style selection
 #: ../drapes/ConfigMenu.cs:52
 msgid "Centered"
 msgstr ""
@@ -117,7 +112,6 @@ msgstr ""
 msgid "selection"
 msgstr ""
 
-#. The various "sorters"
 #: ../drapes/ConfigMenu.cs:135
 msgid "Perfect fit"
 msgstr ""

@@ -1,4 +1,4 @@
-# Spanish translation for drapes
+# Polish translation for drapes
 # Copyright (c) (c) 2006 Canonical Ltd, and Rosetta Contributors 2006
 # This file is distributed under the same license as the drapes package.
 # FIRST AUTHOR <EMAIL@ADDRESS>, 2006.
@@ -7,50 +7,50 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: drapes\n"
-"Report-Msgid-Bugs-To:\n"
+"Report-Msgid-Bugs-To: FULL NAME <EMAIL@ADDRESS>\n"
 "POT-Creation-Date: 2006-08-14 12:17-0400\n"
-"PO-Revision-Date: 2006-07-24 15:19+0000\n"
-"Last-Translator: AlejandroLeon <alejandroleonvega@gmail.com>\n"
-"Language-Team: Spanish <es@li.org>\n"
+"PO-Revision-Date: 2006-08-14 22:11+0000\n"
+"Last-Translator: Milosz Tanski <mtanski@gmail.com>\n"
+"Language-Team: Polish <pl@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 
 #: ../data/drapes.glade.h:1
 msgid "<b>Startup options</b>"
-msgstr "<b>Opciones de arranque</b>"
+msgstr "<b>Opcjie startu</b>"
 
 #: ../data/drapes.glade.h:2
 msgid "<b>Timing selection</b>"
-msgstr "<b>Selección de cronometraje</b>"
+msgstr ""
 
 #: ../data/drapes.glade.h:3
 msgid "<b>Wallpaper search directory</b>"
-msgstr "<b>Directorio de búsqueda de fondos de escritorio</b>"
+msgstr "<b>Catalog w ktorym szukac tapety</b>"
 
 #: ../data/drapes.glade.h:4
 msgid "Close"
-msgstr "Cerrar"
+msgstr "Zamknij"
 
 #: ../data/drapes.glade.h:5
 msgid "Desktop Drapes"
-msgstr ""
+msgstr "Desktop Drapes"
 
 #: ../data/drapes.glade.h:6
 msgid "Display"
-msgstr "Demostración"
+msgstr "Wyświetlanie"
 
 #: ../data/drapes.glade.h:7
 msgid "General"
-msgstr "General"
+msgstr "Ogólne"
 
 #: ../data/drapes.glade.h:8
 msgid "Monitor this directory for new wallpapers"
-msgstr "Supervise este directorio para nuevas imágenes"
+msgstr ""
 
 #: ../data/drapes.glade.h:9
 msgid "Select A File"
-msgstr "Seleccionar un archivo"
+msgstr "Wybierz Plik"
 
 #: ../data/drapes.glade.h:10
 msgid "Start Desktop Drapes on start"
@@ -58,11 +58,11 @@ msgstr ""
 
 #: ../data/drapes.glade.h:11
 msgid "Style: "
-msgstr "Estilo: "
+msgstr "Styl: "
 
 #: ../data/drapes.glade.h:12
 msgid "Switch wallpaper on start"
-msgstr "Poner el fondo de escritorio en inicio"
+msgstr ""
 
 #: ../drapes/AppletWidget.cs:44
 msgid "Deskop Drapes, click to switch wallpaper"
@@ -126,7 +126,7 @@ msgstr ""
 
 #: ../drapes/ConfigMenu.cs:138
 msgid "Other"
-msgstr ""
+msgstr "Inny"
 
 #: ../drapes/ConfigMenu.cs:140 ../drapes/ConfigMenu.cs:141
 #: ../drapes/ConfigMenu.cs:142 ../drapes/ConfigMenu.cs:143
@@ -183,39 +183,39 @@ msgstr ""
 
 #: ../drapes/Settings.cs:38
 msgid "10 minutes"
-msgstr ""
+msgstr "10 minut"
 
 #: ../drapes/Settings.cs:40
 msgid "15 minutes"
-msgstr ""
+msgstr "15 minut"
 
 #: ../drapes/Settings.cs:42
 msgid "20 minutes"
-msgstr ""
+msgstr "20 minut"
 
 #: ../drapes/Settings.cs:44
 msgid "30 minutes"
-msgstr ""
+msgstr "30 minut"
 
 #: ../drapes/Settings.cs:46
 msgid "45 minutes"
-msgstr ""
+msgstr "45 miunut"
 
 #: ../drapes/Settings.cs:48
 msgid "1 hour"
-msgstr ""
+msgstr "1 godzina"
 
 #: ../drapes/Settings.cs:50
 msgid "1 hour 30 minutes"
-msgstr ""
+msgstr "1 godzina 30 minut"
 
 #: ../drapes/Settings.cs:52
 msgid "2 hours"
-msgstr ""
+msgstr "2 godziny"
 
 #: ../drapes/Settings.cs:55
 msgid "Never"
-msgstr ""
+msgstr "Nigdy"
 
 #: ../drapes/Settings.cs:373
 #, csharp-format
@@ -274,7 +274,7 @@ msgstr ""
 #: ../drapes/WpList.cs:138
 #, csharp-format
 msgid "No such file: {0}"
-msgstr ""
+msgstr "Nie ma pliku: {0}"
 
 #: ../drapes/WpList.cs:148
 #, csharp-format
@@ -284,7 +284,7 @@ msgstr ""
 #: ../drapes/WpList.cs:201
 #, csharp-format
 msgid "Unknow element: {0}"
-msgstr ""
+msgstr "Nie znany element: {0}"
 
 #: ../drapes/WpList.cs:242
 msgid "Something bad happened last time, opening as far as we can..."
