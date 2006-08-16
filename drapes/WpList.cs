@@ -377,17 +377,15 @@ namespace Drapes
 			if (file == null)
 				return;
 			
-			Wallpaper w = (Wallpaper) enabled[file];
+			Wallpaper w = (Wallpaper) list [file];
 			w.Deleted = true;
-				
+
 			// Remove from rotation
 			enabled.Remove(file);
 		}
 
 		public void WallpaperDeleted(string file)
 		{
-			Wallpaper w;
-			
 			// needbe remove it from the window displaying the wallpaper
 			if (DrapesApp.ConfigWindow != null)
 				DrapesApp.ConfigWindow.onWallpaperFileRemoved(file);
@@ -400,10 +398,12 @@ namespace Drapes
 				
 		public void Append(Wallpaper w)
 		{
+			// Only start the loader if we really have nothing to do...
+			if (processing.Count < 1)
+				GLib.Idle.Add(DelayedLoader);
+			
 			// add for later processing
 			processing.Enqueue(w);
-
-			GLib.Idle.Add(DelayedLoader);
 		}
 
 		public bool DelayedLoader()
