@@ -357,6 +357,8 @@ namespace Drapes
 		public Pixbuf Thumbnail()
 		{
 			string		existing;
+
+			Console.WriteLine("I'm requesting this a lot: {0}", filename);
 			
 			// Totaly ignore removed wps
 			if (removed)
@@ -375,19 +377,19 @@ namespace Drapes
 			// Figure out the scale for previews
 			int x, y;
 			switch (Res.ResolutionList.AspectType(w,h)) {
-				case Res.Aspect.ASPECT_43:
-					x = 64;
-					y = 64;
-					break;
-				case Res.Aspect.ASPECT_WIDE:
-					x = 64;
-					y = 36;
-					break;
-				case Res.Aspect.ASPECT_OTHER:
-				default:
-					x = 64;
-					y = 64;
-					break;
+			case Res.Aspect.ASPECT_43:
+				x = 64;
+				y = 48;
+				break;
+			case Res.Aspect.ASPECT_WIDE:
+				x = 64;
+				y = 36;
+				break;
+			case Res.Aspect.ASPECT_OTHER:
+			default:
+				x = 64;
+				y = 64;
+				break;
 			}
 
 			// for really small images, do our own resizing; hopefully there won't be too many
