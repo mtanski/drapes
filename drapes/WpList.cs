@@ -33,11 +33,11 @@ namespace Drapes
 
 	public class WallPaperList : IEnumerable <Wallpaper>
 	{	
-		private OrderedDictionary list = new OrderedDictionary();
-		private Hashtable enabled = new Hashtable();
+		private OrderedDictionary       list       = new OrderedDictionary();
+		private Hashtable               enabled    = new Hashtable();
 		// For "later" processing
-		private Queue processing = new Queue();
-		private FileSystemWatcher FileNotify;
+		private Queue                   processing = new Queue();
+		private FileSystemWatcher       FileNotify = null;
 		
 		public WallPaperList(string file)
 		{
@@ -84,7 +84,7 @@ namespace Drapes
 				// Redo the thumbnail
 				w = this[e.FullPath];
 				if (w != null)
-					w.CheckMtime();
+					w.ForceLoadAttr();
 				break;
 			case WatcherChangeTypes.Created:
 				Console.WriteLine(Catalog.GetString("File {0}, created"), e.FullPath);
@@ -448,6 +448,15 @@ namespace Drapes
 
 			return true;
 		}
+
+        public void CleanupThumbs()
+        {
+            Console.WriteLine("Called twice");
+            
+            foreach (DictionaryEntry entry in list) {
+                (entry.Value as Wallpaper).FlushThumbnail();
+            }
+        }
 
 		// Enumeration magic
 		public IEnumerator <Wallpaper> GetEnumerator()

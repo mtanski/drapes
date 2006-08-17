@@ -113,7 +113,7 @@ namespace Drapes
 		private		string				name;
 		// low level file info
 		private		string 				mime;
-		private		System.DateTime		mtime = DateTime.MinValue;
+        private     DateTime            mtime;
 		// options
 		internal	int					w,h;
 		private		bool				removed;
@@ -122,6 +122,8 @@ namespace Drapes
 		private		bool				init;
 		//
 		private		Config.Style		style;
+        //
+        private     Pixbuf              ThumbCache = null;
 				
 		public Wallpaper()
 		{
@@ -171,26 +173,22 @@ namespace Drapes
 					// No sence doing anything else
 					return false;
 				}
-
-				IO.FileInfo fp = new IO.FileInfo(filename);
 				
 				if (mtime != DateTime.MinValue) {
 					// We got info we need, save our selves sometime
-					if (mtime == fp.LastAccessTime)
+					if (mtime == CurrentMtime)
 						return true; 
 				} else	// save mtime
-					mtime = fp.LastWriteTime;
+					mtime = CurrentMtime;
 				
 				// Get mimetype
 				mime = Vfs.MimeType.GetMimeTypeForUri(filename);
 				
 				// Not loaded
-				if (w == 0 || h == 0) { 
-					Pixbuf t = new Gdk.Pixbuf(filename);
-					w = t.Width;
-					h = t.Height;
-					t.Dispose();
-				}
+				Pixbuf t = new Gdk.Pixbuf(filename);
+				w = t.Width;
+				h = t.Height;
+				t.Dispose();
 				
 				// Try to generate a thumbnail
 				CreateThumnail();
@@ -231,7 +229,15 @@ namespace Drapes
 				return h;
 			}
 		}
-		
+
+        public System.DateTime CurrentMtime
+        {
+            get {
+                IO.FileInfo fp = new IO.FileInfo(filename);
+                return fp.LastWriteTimeUtc;
+            }
+        }
+        
 		public System.DateTime Mtime
 		{
 			get {
@@ -242,7 +248,7 @@ namespace Drapes
 			}
 		
 		}
-		
+
 		public bool	Enabled
 		{
 			get {
@@ -301,11 +307,6 @@ namespace Drapes
 				return mime;
 			}
 		}
-
-		public void CheckMtime()
-		{
-			mtime = IO.File.GetLastWriteTime(filename);
-		}
 			
 		public bool MatchScreen()
 		{
@@ -331,6 +332,15 @@ namespace Drapes
 			// didn't find one
 			return false;
 		}
+
+        public void FlushThumbnail()
+        {
+            if (ThumbCache == null)
+                return;
+
+            ThumbCache.Dispose();
+            ThumbCache = null;
+        }
 		
 		public bool CreateThumnail()
 		{
@@ -341,14 +351,14 @@ namespace Drapes
 			Vfs.Uri uri = new Vfs.Uri(filename);
 			
 			// can we attempt to create it?
-			if (!t.CanThumbnail(filename, uri.MimeType.ToString(), mtime)) {
+			if (!t.CanThumbnail(filename, uri.MimeType.ToString(), CurrentMtime)) {
 				Console.WriteLine(Catalog.GetString("Cannot create thumbnail for: {0}"), filename);
 				return false;
 			}
 			
 			// Generate and save thumbnail
 			Pixbuf tmp = t.GenerateThumbnail(filename, uri.MimeType.ToString());
-			t.SaveThumbnail(tmp, filename, mtime);
+			t.SaveThumbnail(tmp, filename, CurrentMtime);
 			
 			return true;
 		}
@@ -357,8 +367,6 @@ namespace Drapes
 		public Pixbuf Thumbnail()
 		{
 			string		existing;
-
-			Console.WriteLine("I'm requesting this a lot: {0}", filename);
 			
 			// Totaly ignore removed wps
 			if (removed)
@@ -367,13 +375,16 @@ namespace Drapes
 			// Attempt to create a new thumbnail (or at least check if there is an old valid one)
 			if (CreateThumnail() == false)
 				return null;
-			
+
+            if (ThumbCache != null)
+                return ThumbCache;
+        
 			ThumbnailFactory t = new ThumbnailFactory(ThumbnailSize.Normal);
 			
 			// Grab the thumb
-			existing = t.Lookup(filename,  mtime);
+			existing = t.Lookup(filename, mtime);
 			Pixbuf thumb = new Pixbuf(existing);
-				
+			
 			// Figure out the scale for previews
 			int x, y;
 			switch (Res.ResolutionList.AspectType(w,h)) {
@@ -393,12 +404,14 @@ namespace Drapes
 			}
 
 			// for really small images, do our own resizing; hopefully there won't be too many
-			if (thumb.Width < x || thumb.Height < y)
-				return thumb.ScaleSimple(x, y, Gdk.InterpType.Hyper);
-			
-			// do the acctual scaling
-			thumb = Gnome.Thumbnail.ScaleDownPixbuf(thumb, x, y);
-			return thumb;
+			if (thumb.Width < x || thumb.Height < y) {
+				ThumbCache = thumb.ScaleSimple(x, y, Gdk.InterpType.Hyper);
+            } else {
+                ThumbCache = Gnome.Thumbnail.ScaleDownPixbuf(thumb, x, y);
+            }
+
+            thumb.Dispose();
+			return ThumbCache;
 		}
 	}
 }

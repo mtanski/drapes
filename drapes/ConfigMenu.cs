@@ -535,12 +535,14 @@ namespace Drapes
 		
 		private void onCloseButtonClick (object sender, EventArgs args)
 		{
-			DrapesApp.ConfigWindow  = null;
+            DrapesApp.WpList.CleanupThumbs();
+            DrapesApp.ConfigWindow = null;
 			winPref.Destroy();
 		}
 		
 		void OnWindowDelete (object o, DeleteEventArgs args)
 		{
+            DrapesApp.WpList.CleanupThumbs();
 			DrapesApp.ConfigWindow  = null;
 		}
 	}
