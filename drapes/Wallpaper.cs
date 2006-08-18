@@ -278,9 +278,12 @@ namespace Drapes
 			get {
 				// if no name is set return filename
 				if (name == null) {
-					Vfs.FileInfo fi = new Vfs.FileInfo(Vfs.Uri.GetUriFromLocalPath(filename));
-				
-					return fi.Name;
+                    try {
+                       IO.FileInfo fi = new IO.FileInfo(filename);
+                       return fi.Name;
+                    } catch (Exception e) {
+                        return null;
+                    }
 				}
 				
 				return name;

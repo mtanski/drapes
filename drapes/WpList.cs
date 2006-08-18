@@ -66,13 +66,13 @@ namespace Drapes
 			FileNotify.Changed += FileNotifyEvent;
 			FileNotify.Created += FileNotifyEvent;
 			FileNotify.Deleted += FileNotifyEvent;
-			FileNotify.Renamed += FileNotifyEvent;
+			FileNotify.Renamed += FileMovedNotifyEvent;
 		}
 
 		private void FileNotifyEvent (object sender, FileSystemEventArgs e)
 		{
 			Wallpaper w;
-
+            
 			// Ignore non image files
 			string mime = Vfs.Mime.TypeFromName(e.FullPath);
 			if (mime.StartsWith("image") == false)
@@ -102,6 +102,13 @@ namespace Drapes
 				break;
 			}
 		}
+
+        private void FileMovedNotifyEvent(object sender, RenamedEventArgs args)
+        {
+            
+            
+            
+        }
 
 		public bool FileSystemMonitor
 		{
@@ -450,9 +457,7 @@ namespace Drapes
 		}
 
         public void CleanupThumbs()
-        {
-            Console.WriteLine("Called twice");
-            
+        {   
             foreach (DictionaryEntry entry in list) {
                 (entry.Value as Wallpaper).FlushThumbnail();
             }
