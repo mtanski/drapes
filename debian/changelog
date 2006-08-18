@@ -1,3 +1,9 @@
+drapes (0.4.96) UNRELEASED; urgency=low
+
+  *  Bumped to the next package version.
+
+ -- Milosz Tanski <mtanski@gmail.com>  Fri, 18 Aug 2006 12:57:41 -0400
+
 drapes (0.4.95) UNRELEASED; urgency=low
 
   * Polishing updates from upstream.
