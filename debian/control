@@ -3,10 +3,10 @@ Section: gnome
 Priority: optional
 Maintainer: Milosz Tanski <mtanski@gmail.com>
 Build-Depends: cdbs, debhelper, intltool, libmono-dev (>= 1.1.13), mono-gmcs (>= 1.1.13), libgnome2.0-cil (>= 2.8)
-Standards-Version: 0.4.92
+Standards-Version: 3.7.2.1
 
 Package: drapes
-Architecture: any
+Architecture: all
 Depends: mono-jit (>= 1.1.13), mono-classlib-2.0 (>= 1.1.13), libgnome2.0-cil (>= 2.8) libgtk2.0-dev (>= 2.8)
 Suggests: mono
 Description: a desktop wallpaper managment application for the GNOME desktop
