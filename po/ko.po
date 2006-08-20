@@ -7,8 +7,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: drapes\n"
-"Report-Msgid-Bugs-To: FULL NAME <EMAIL@ADDRESS>\n"
-"POT-Creation-Date: 2006-08-14 12:17-0400\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2006-08-20 17:40-0400\n"
 "PO-Revision-Date: 2006-08-18 22:40+0000\n"
 "Last-Translator: atie <atie.at.matrix@gmail.com>\n"
 "Language-Team: Korean <ko@li.org>\n"
@@ -68,22 +68,27 @@ msgstr "시작시 배경화면 변경"
 msgid "Deskop Drapes, click to switch wallpaper"
 msgstr "데스크탑 드레이프, 배경화면을 변경하려면 클릭하세요"
 
+#. Switch to another wallpaper
 #: ../drapes/AppletWidget.cs:137
 msgid "_Switch"
 msgstr "변경(_S)"
 
+#. Enabled
 #: ../drapes/AppletWidget.cs:145
 msgid "Shuffle periodicaly"
 msgstr "주기적으로 바꿈"
 
+#. Configuration
 #: ../drapes/AppletWidget.cs:154
-msgid "Prefrences"
+msgid "Preferences"
 msgstr "기본 설정"
 
+#. Quit
 #: ../drapes/AppletWidget.cs:162
 msgid "_Quit"
 msgstr "끝내기(_Q)"
 
+#. style selection
 #: ../drapes/ConfigMenu.cs:52
 msgid "Centered"
 msgstr "가운데"
@@ -112,6 +117,7 @@ msgstr "이것은 알림 트레이를 사용할 때만 유효합니다"
 msgid "selection"
 msgstr "선택"
 
+#. The various "sorters"
 #: ../drapes/ConfigMenu.cs:135
 msgid "Perfect fit"
 msgstr "완벽하게 맞음"
@@ -163,16 +169,16 @@ msgstr "그놈 배경화면 목록 가져오기"
 msgid "Opening wallpaper list"
 msgstr "배경화면 목록 열기"
 
-#: ../drapes/Main.cs:142
+#: ../drapes/Main.cs:139
 #, csharp-format
 msgid "Wallpaper switch to: {0}"
 msgstr "배경화면 변경: {0}"
 
-#: ../drapes/Main.cs:144
+#: ../drapes/Main.cs:141
 msgid "Wallpaper switch failed; No wallpapers?"
 msgstr "배경화면 변경 실패함; 배경화면이 없음?"
 
-#: ../drapes/Main.cs:172
+#: ../drapes/Main.cs:169
 #, csharp-format
 msgid "Sorry unknow argument: {0}"
 msgstr "알 수 없는 인자: {0}"
@@ -227,17 +233,17 @@ msgstr "자동시작을 토글할 수 없음, 이유는: {0}"
 msgid "Unknown GConf key: {0}"
 msgstr "알 수 없는 GConf 키: {0}"
 
-#: ../drapes/Wallpaper.cs:170
+#: ../drapes/Wallpaper.cs:172
 #, csharp-format
 msgid "Cannot find file: {0}"
 msgstr "파일을 찾을 수 없음: {0}"
 
-#: ../drapes/Wallpaper.cs:345
+#: ../drapes/Wallpaper.cs:359
 #, csharp-format
 msgid "Cannot create thumbnail for: {0}"
 msgstr "엄지그림을 만들 수 없음: {0}"
 
-#: ../drapes/WpList.cs:55 ../drapes/WpList.cs:124
+#: ../drapes/WpList.cs:55 ../drapes/WpList.cs:131
 #, csharp-format
 msgid "Monitor Directory: {0} dosen't exist"
 msgstr "디렉토리 감시: {0} (은)는 없습니다."
@@ -262,35 +268,35 @@ msgstr "파일 {0}, 삭제됨"
 msgid "Unknow file event {0}"
 msgstr "알 수 없는 파일 이벤트 {0}"
 
-#: ../drapes/WpList.cs:115
+#: ../drapes/WpList.cs:122
 msgid "Filesystem monitor disabled"
 msgstr "파일시스템 감시 비활성화됨"
 
-#: ../drapes/WpList.cs:129
+#: ../drapes/WpList.cs:136
 #, csharp-format
 msgid "Changing monitor directory to: {0}"
 msgstr "감시 디렉토리를 변경: {0}"
 
-#: ../drapes/WpList.cs:138
+#: ../drapes/WpList.cs:145
 #, csharp-format
 msgid "No such file: {0}"
 msgstr "파일이 없습니다: {0}"
 
-#: ../drapes/WpList.cs:148
+#: ../drapes/WpList.cs:155
 #, csharp-format
 msgid "Unable to open file {0} because:"
 msgstr "다음 이유로 파일 {0} (을)를 열 수 없습니다:"
 
-#: ../drapes/WpList.cs:201
+#: ../drapes/WpList.cs:208
 #, csharp-format
 msgid "Unknow element: {0}"
 msgstr "알 수 없는 요소: {0}"
 
-#: ../drapes/WpList.cs:242
+#: ../drapes/WpList.cs:249
 msgid "Something bad happened last time, opening as far as we can..."
 msgstr "지난 번에 오류가 있었습니다, 가능한 엽니다..."
 
-#: ../drapes/WpList.cs:302
+#: ../drapes/WpList.cs:309
 #, csharp-format
 msgid "Wallpaper list file {0} saved"
 msgstr "배경화면 목록 파일 {0} (이)가 저장됨"

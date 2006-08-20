@@ -7,8 +7,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: drapes\n"
-"Report-Msgid-Bugs-To: FULL NAME <EMAIL@ADDRESS>\n"
-"POT-Creation-Date: 2006-08-14 12:17-0400\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2006-08-20 17:40-0400\n"
 "PO-Revision-Date: 2006-08-14 22:11+0000\n"
 "Last-Translator: Milosz Tanski <mtanski@gmail.com>\n"
 "Language-Team: Polish <pl@li.org>\n"
@@ -68,22 +68,27 @@ msgstr ""
 msgid "Deskop Drapes, click to switch wallpaper"
 msgstr ""
 
+#. Switch to another wallpaper
 #: ../drapes/AppletWidget.cs:137
 msgid "_Switch"
 msgstr ""
 
+#. Enabled
 #: ../drapes/AppletWidget.cs:145
 msgid "Shuffle periodicaly"
 msgstr ""
 
+#. Configuration
 #: ../drapes/AppletWidget.cs:154
-msgid "Prefrences"
+msgid "Preferences"
 msgstr ""
 
+#. Quit
 #: ../drapes/AppletWidget.cs:162
 msgid "_Quit"
 msgstr ""
 
+#. style selection
 #: ../drapes/ConfigMenu.cs:52
 msgid "Centered"
 msgstr ""
@@ -112,6 +117,7 @@ msgstr ""
 msgid "selection"
 msgstr ""
 
+#. The various "sorters"
 #: ../drapes/ConfigMenu.cs:135
 msgid "Perfect fit"
 msgstr ""
@@ -163,16 +169,16 @@ msgstr ""
 msgid "Opening wallpaper list"
 msgstr ""
 
-#: ../drapes/Main.cs:142
+#: ../drapes/Main.cs:139
 #, csharp-format
 msgid "Wallpaper switch to: {0}"
 msgstr ""
 
-#: ../drapes/Main.cs:144
+#: ../drapes/Main.cs:141
 msgid "Wallpaper switch failed; No wallpapers?"
 msgstr ""
 
-#: ../drapes/Main.cs:172
+#: ../drapes/Main.cs:169
 #, csharp-format
 msgid "Sorry unknow argument: {0}"
 msgstr ""
@@ -227,17 +233,17 @@ msgstr ""
 msgid "Unknown GConf key: {0}"
 msgstr ""
 
-#: ../drapes/Wallpaper.cs:170
+#: ../drapes/Wallpaper.cs:172
 #, csharp-format
 msgid "Cannot find file: {0}"
 msgstr ""
 
-#: ../drapes/Wallpaper.cs:345
+#: ../drapes/Wallpaper.cs:359
 #, csharp-format
 msgid "Cannot create thumbnail for: {0}"
 msgstr ""
 
-#: ../drapes/WpList.cs:55 ../drapes/WpList.cs:124
+#: ../drapes/WpList.cs:55 ../drapes/WpList.cs:131
 #, csharp-format
 msgid "Monitor Directory: {0} dosen't exist"
 msgstr ""
@@ -262,35 +268,35 @@ msgstr ""
 msgid "Unknow file event {0}"
 msgstr ""
 
-#: ../drapes/WpList.cs:115
+#: ../drapes/WpList.cs:122
 msgid "Filesystem monitor disabled"
 msgstr ""
 
-#: ../drapes/WpList.cs:129
+#: ../drapes/WpList.cs:136
 #, csharp-format
 msgid "Changing monitor directory to: {0}"
 msgstr ""
 
-#: ../drapes/WpList.cs:138
+#: ../drapes/WpList.cs:145
 #, csharp-format
 msgid "No such file: {0}"
 msgstr "Nie ma pliku: {0}"
 
-#: ../drapes/WpList.cs:148
+#: ../drapes/WpList.cs:155
 #, csharp-format
 msgid "Unable to open file {0} because:"
 msgstr ""
 
-#: ../drapes/WpList.cs:201
+#: ../drapes/WpList.cs:208
 #, csharp-format
 msgid "Unknow element: {0}"
 msgstr "Nie znany element: {0}"
 
-#: ../drapes/WpList.cs:242
+#: ../drapes/WpList.cs:249
 msgid "Something bad happened last time, opening as far as we can..."
 msgstr ""
 
-#: ../drapes/WpList.cs:302
+#: ../drapes/WpList.cs:309
 #, csharp-format
 msgid "Wallpaper list file {0} saved"
 msgstr ""
