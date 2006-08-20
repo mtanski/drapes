@@ -177,7 +177,7 @@ namespace Drapes
 				if (mtime != DateTime.MinValue) {
 					// We got info we need, save our selves sometime
 					if (mtime == CurrentMtime)
-						return true; 
+						goto done; 
 				} else	// save mtime
 					mtime = CurrentMtime;
 				
@@ -193,7 +193,8 @@ namespace Drapes
 				// Try to generate a thumbnail
 				CreateThumnail();
 			}
-			
+
+        done:
 			// We're done
 			init = true;
 			return true;

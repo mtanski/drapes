@@ -1,3 +1,23 @@
+drapes (0.4.96-bzr2) UNRELEASED; urgency=low
+
+  * Testing version without the random debugging messages.
+
+ -- Milosz Tanski <mtanski@gmail.com>  Sun, 20 Aug 2006 16:28:16 -0400
+
+drapes (0.4.96-bzr1) UNRELEASED; urgency=low
+
+  *  Second attempt at a minor point release.
+
+ -- Milosz Tanski <mtanski@gmail.com>  Sun, 20 Aug 2006 16:04:31 -0400
+
+drapes (0.4.96-bzr0) UNRELEASED; urgency=low
+
+  * Testing some fixes.
+  * Had the wrong version number of debian policy.
+  * The package now is universal all architecture package.
+
+ -- Milosz Tanski <mtanski@gmail.com>  Sun, 20 Aug 2006 15:32:53 -0400
+
 drapes (0.4.96) UNRELEASED; urgency=low
 
   *  Bumped to the next package version.
