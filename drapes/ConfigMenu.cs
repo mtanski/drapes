@@ -35,7 +35,7 @@ namespace Drapes
 		public ConfigWindow()
 		{
 			// Glade autoconnect magic
-			Glade.XML gxml = new Glade.XML (null, "drapes.glade", "winPref", null);
+			Glade.XML gxml = new Glade.XML (null, "drapes.glade", "winPref", "drapes");
 			gxml.Autoconnect (this);
 
 			// Tooltips

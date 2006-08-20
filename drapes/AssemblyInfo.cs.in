@@ -39,7 +39,7 @@ namespace Drapes
 		private static string data_dir = "@datadir/@/drapes";
 		private static string version = "@version/@";
 		private static string gnome_ui_dir = "@datadir/@/gnome-2.0/ui";
-		private static string gnome_locale_dir = "@datadir@/locale";
+		private static string gnome_locale_dir = "@datadir/@/locale";
 		
 		public static string GnomeXmlUiDir
 		{
