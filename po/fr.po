@@ -9,8 +9,8 @@ msgstr ""
 "Project-Id-Version: drapes\n"
 "Report-Msgid-Bugs-To:\n"
 "POT-Creation-Date: 2006-08-14 12:17-0400\n"
-"PO-Revision-Date: 2006-08-15 22:59+0000\n"
-"Last-Translator: Nicolas Velin <nsv@fr.st>\n"
+"PO-Revision-Date: 2006-08-20 18:41+0000\n"
+"Last-Translator: sourdin <jack@mohegan.ws>\n"
 "Language-Team: French <fr@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -18,15 +18,15 @@ msgstr ""
 
 #: ../data/drapes.glade.h:1
 msgid "<b>Startup options</b>"
-msgstr "<b>Options de Démarrage</b>"
+msgstr "<b>Options de démarrage</b>"
 
 #: ../data/drapes.glade.h:2
 msgid "<b>Timing selection</b>"
-msgstr "<b>Temps d'affichage de chaque papier-peint</b>"
+msgstr "<b>Durée d'affichage</b>"
 
 #: ../data/drapes.glade.h:3
 msgid "<b>Wallpaper search directory</b>"
-msgstr "<b>Répertoire de stockage des Papiers-Peints</b>"
+msgstr "<b>Répertoire de recherche de fonds d'écran</b>"
 
 #: ../data/drapes.glade.h:4
 msgid "Close"
@@ -46,8 +46,7 @@ msgstr "Général"
 
 #: ../data/drapes.glade.h:8
 msgid "Monitor this directory for new wallpapers"
-msgstr ""
-"Surveiller l'apparition de nouveaux papiers-peints dans ce répertoire"
+msgstr "Surveiller l'apparition de nouveaux fonds d'écran dans ce répertoire"
 
 #: ../data/drapes.glade.h:9
 msgid "Select A File"
@@ -63,19 +62,19 @@ msgstr "Style: "
 
 #: ../data/drapes.glade.h:12
 msgid "Switch wallpaper on start"
-msgstr "Changer de papier-peint au démarrage"
+msgstr "Changer de fond d'écran au démarrage"
 
 #: ../drapes/AppletWidget.cs:44
 msgid "Deskop Drapes, click to switch wallpaper"
-msgstr ""
+msgstr "Desktop Drapes, cliquer pour changer de fond d'écran"
 
 #: ../drapes/AppletWidget.cs:137
 msgid "_Switch"
-msgstr ""
+msgstr "_Changer"
 
 #: ../drapes/AppletWidget.cs:145
 msgid "Shuffle periodicaly"
-msgstr ""
+msgstr "Changement aléatoire"
 
 #: ../drapes/AppletWidget.cs:154
 msgid "Prefrences"
@@ -95,20 +94,19 @@ msgstr "Remplir l'écran"
 
 #: ../drapes/ConfigMenu.cs:54
 msgid "Scaled"
-msgstr ""
+msgstr "Mettre à l'échelle"
 
 #: ../drapes/ConfigMenu.cs:55
 msgid "Zoom"
 msgstr "Zoom"
 
 #: ../drapes/ConfigMenu.cs:56
-#, fuzzy
 msgid "Tiled"
 msgstr "Mosaïque"
 
 #: ../drapes/ConfigMenu.cs:65
 msgid "This is only valid when using the notification tray"
-msgstr ""
+msgstr "Cela est seulement possible en utilisant la zone de notification"
 
 #: ../drapes/ConfigMenu.cs:102
 msgid "selection"
@@ -116,7 +114,7 @@ msgstr "sélection"
 
 #: ../drapes/ConfigMenu.cs:135
 msgid "Perfect fit"
-msgstr ""
+msgstr "Taille idéale"
 
 #: ../drapes/ConfigMenu.cs:136
 msgid "Regular 4:3"
@@ -133,12 +131,12 @@ msgstr "Autre"
 #: ../drapes/ConfigMenu.cs:140 ../drapes/ConfigMenu.cs:141
 #: ../drapes/ConfigMenu.cs:142 ../drapes/ConfigMenu.cs:143
 msgid "<i>No wallpapers present</i>"
-msgstr ""
+msgstr "<i>Aucun fond d'écran présent<i>"
 
 #: ../drapes/ConfigMenu.cs:248
 #, csharp-format
 msgid "Adding wallpaper file: {0}"
-msgstr ""
+msgstr "Ajout d'un fond d'écran: {0}"
 
 #: ../drapes/ConfigMenu.cs:261
 msgid "Add wallpaper"
@@ -159,25 +157,25 @@ msgstr "Colonne inconnue"
 
 #: ../drapes/Main.cs:76
 msgid "Importing Gnome's background list"
-msgstr ""
+msgstr "Importation de la liste de fonds d'écran de gnome"
 
 #: ../drapes/Main.cs:82
 msgid "Opening wallpaper list"
-msgstr ""
+msgstr "Ouverture de la liste de fonds d'écran"
 
 #: ../drapes/Main.cs:142
 #, csharp-format
 msgid "Wallpaper switch to: {0}"
-msgstr ""
+msgstr "Changement de fond d'écran: {0}"
 
 #: ../drapes/Main.cs:144
 msgid "Wallpaper switch failed; No wallpapers?"
-msgstr ""
+msgstr "Erreur de changement de fond d'écran; Aucun fond d'écran?"
 
 #: ../drapes/Main.cs:172
 #, csharp-format
 msgid "Sorry unknow argument: {0}"
-msgstr ""
+msgstr "Désolé argument inconnu: {0}"
 
 #: ../drapes/Settings.cs:36
 msgid "5 minutes"
@@ -222,32 +220,32 @@ msgstr "Jamais"
 #: ../drapes/Settings.cs:373
 #, csharp-format
 msgid "Cannot toggle autostart, reason: {0}"
-msgstr ""
+msgstr "Chargement au démarrage impossible, raison: {0}"
 
 #: ../drapes/Settings.cs:404
 #, csharp-format
 msgid "Unknown GConf key: {0}"
-msgstr ""
+msgstr "Clé GConf inconnue: {0}"
 
 #: ../drapes/Wallpaper.cs:170
 #, csharp-format
 msgid "Cannot find file: {0}"
-msgstr ""
+msgstr "Fichier introuvable: {0}"
 
 #: ../drapes/Wallpaper.cs:345
 #, csharp-format
 msgid "Cannot create thumbnail for: {0}"
-msgstr ""
+msgstr "Erreur lors de la création de la miniature de : {0}"
 
 #: ../drapes/WpList.cs:55 ../drapes/WpList.cs:124
 #, csharp-format
 msgid "Monitor Directory: {0} dosen't exist"
-msgstr ""
+msgstr "Le répertoire surveillé: {0} n'existe pas"
 
 #: ../drapes/WpList.cs:59
 #, csharp-format
 msgid "Filesystem monitor on: {0} enabled"
-msgstr ""
+msgstr "Surveillance du répertoire: {0} en fonction"
 
 #: ../drapes/WpList.cs:90
 #, csharp-format
@@ -262,37 +260,39 @@ msgstr "Fichier {0}, supprimé"
 #: ../drapes/WpList.cs:101
 #, csharp-format
 msgid "Unknow file event {0}"
-msgstr ""
+msgstr "Evènement fichier {0} inconnu"
 
 #: ../drapes/WpList.cs:115
 msgid "Filesystem monitor disabled"
-msgstr ""
+msgstr "Surveillance du répertoire désactivée"
 
 #: ../drapes/WpList.cs:129
 #, csharp-format
 msgid "Changing monitor directory to: {0}"
-msgstr ""
+msgstr "Changement du répertoire surveillé à: {0}"
 
 #: ../drapes/WpList.cs:138
 #, csharp-format
 msgid "No such file: {0}"
-msgstr ""
+msgstr "Aucun fichier: {0}"
 
 #: ../drapes/WpList.cs:148
 #, csharp-format
 msgid "Unable to open file {0} because:"
-msgstr ""
+msgstr "Ouverture du fichier {0} impossible car:"
 
 #: ../drapes/WpList.cs:201
 #, csharp-format
 msgid "Unknow element: {0}"
-msgstr "Elément inconnu : {0}"
+msgstr "Elément inconnu: {0}"
 
 #: ../drapes/WpList.cs:242
 msgid "Something bad happened last time, opening as far as we can..."
 msgstr ""
+"Un problème est survenu la dernière fois, lancement dans la mesure du "
+"possible..."
 
 #: ../drapes/WpList.cs:302
 #, csharp-format
 msgid "Wallpaper list file {0} saved"
-msgstr ""
+msgstr "Liste de fonds d'écran {0} sauvegardée"
