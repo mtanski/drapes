@@ -151,7 +151,7 @@ namespace Drapes
 					
 			
 			// Configuration
-			ImageMenuItem config = new ImageMenuItem(Catalog.GetString("Prefrences"));
+			ImageMenuItem config = new ImageMenuItem(Catalog.GetString("Preferences"));
 			config.Image = new Image(Stock.Preferences, IconSize.Menu);
 			config.Activated += delegate (object sender, EventArgs args)
 				{
