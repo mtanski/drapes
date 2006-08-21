@@ -137,7 +137,7 @@ msgstr "Autre"
 #: ../drapes/ConfigMenu.cs:140 ../drapes/ConfigMenu.cs:141
 #: ../drapes/ConfigMenu.cs:142 ../drapes/ConfigMenu.cs:143
 msgid "<i>No wallpapers present</i>"
-msgstr "<i>Aucun fond d'écran présent<i>"
+msgstr "<i>Aucun fond d'écran présent</i>"
 
 #: ../drapes/ConfigMenu.cs:248
 #, csharp-format
