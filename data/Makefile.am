@@ -24,6 +24,7 @@ install-data-local: $(schema_DATA)
 endif
 
 EXTRA_DIST = \
+	DrapesApplet.server.in	\
 	drapes.schemas		\
 	$(bonobo_in_files)	\
 	$(menuxml_DATA)		\
