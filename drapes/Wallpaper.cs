@@ -112,7 +112,6 @@ namespace Drapes
 		private		string				filename;
 		private		string				name;
 		// low level file info
-		private		string 				mime;
         private     DateTime            mtime;
 		// options
 		internal	int					w,h;
@@ -180,9 +179,6 @@ namespace Drapes
 						goto done; 
 				} else	// save mtime
 					mtime = CurrentMtime;
-				
-				// Get mimetype
-				mime = Vfs.MimeType.GetMimeTypeForUri(filename);
 				
 				// Not loaded
 				Pixbuf t = new Gdk.Pixbuf(filename);
@@ -308,9 +304,17 @@ namespace Drapes
 		{
 			get {
 				// return mime;
-				return mime;
+				return Vfs.MimeType.GetMimeTypeForUri(filename);
 			}
 		}
+
+        public string MimeDescription
+        {
+            get {
+                Vfs.MimeType mime = new Vfs.MimeType(Mime);
+                return mime.Description;
+            }
+        }
 			
 		public bool MatchScreen()
 		{
@@ -352,16 +356,15 @@ namespace Drapes
 				return true;
 			
 			ThumbnailFactory t = new ThumbnailFactory(ThumbnailSize.Normal);
-			Vfs.Uri uri = new Vfs.Uri(filename);
-			
+            
 			// can we attempt to create it?
-			if (!t.CanThumbnail(filename, uri.MimeType.ToString(), CurrentMtime)) {
+			if (!t.CanThumbnail(filename, Mime, CurrentMtime)) {
 				Console.WriteLine(Catalog.GetString("Cannot create thumbnail for: {0}"), filename);
 				return false;
 			}
 			
 			// Generate and save thumbnail
-			Pixbuf tmp = t.GenerateThumbnail(filename, uri.MimeType.ToString());
+			Pixbuf tmp = t.GenerateThumbnail(filename, Mime);
 			t.SaveThumbnail(tmp, filename, CurrentMtime);
 			
 			return true;

@@ -143,8 +143,7 @@ namespace Drapes
 			tsEntries.AppendValues(tiAspMisc, null, Catalog.GetString("<i>No wallpapers present</i>"));
 			
 			// Add wallpapers to the Config window
-			foreach (Wallpaper w in DrapesApp.WpList)
-				AddWallpaper(w.File);
+			GLib.Idle.Add(DelayedLoader);
 
 			// We need a filter to get rid of all the empty sections
 			tmfFilter = new Gtk.TreeModelFilter(tsEntries, null);
@@ -161,6 +160,21 @@ namespace Drapes
 			
 			// E: Treeview wallpaper list
 		}
+
+        int DelayCounter = 0;
+        private bool DelayedLoader()
+        {
+            for (int i = DelayCounter * 5; i < (DelayCounter * 5) + 5; i++) {
+                // are we done?
+                if (i >= DrapesApp.WpList.NumberBackgrounds)
+                    return false;
+
+                AddWallpaper(DrapesApp.WpList[i].File);
+            }
+            
+            DelayCounter++;
+            return true;
+        }
 		
 		public void AddWallpaper(string key)
 		{
@@ -422,7 +436,7 @@ namespace Drapes
 					
 					// Format the description text next to the image
 					TextDesc = String.Format("<b>{0}</b>\n", DrapesApp.WpList[key].Name );
-					TextDesc += String.Format("{0}\n", DrapesApp.WpList[key].Mime);
+					TextDesc += String.Format("{0}\n", DrapesApp.WpList[key].MimeDescription);
 					TextDesc += String.Format(Catalog.GetString("{0} x {1} pixels"), DrapesApp.WpList[key].Width, DrapesApp.WpList[key].Height);
 						
 					t.Markup = TextDesc;
@@ -537,12 +551,15 @@ namespace Drapes
 		{
             DrapesApp.WpList.CleanupThumbs();
             DrapesApp.ConfigWindow = null;
+            GLib.Idle.Remove(DelayedLoader);
 			winPref.Destroy();
 		}
 		
 		void OnWindowDelete (object o, DeleteEventArgs args)
 		{
             DrapesApp.WpList.CleanupThumbs();
+            DrapesApp.ConfigWindow = null;
+            GLib.Idle.Remove(DelayedLoader);
 			DrapesApp.ConfigWindow  = null;
 		}
 	}
