@@ -402,7 +402,6 @@ namespace Drapes
 				} else if (cell is Gtk.CellRendererPixbuf) {
 					(cell as Gtk.CellRendererPixbuf).Visible = false;
 				} else if (cell is Gtk.CellRendererText) {
-//					(cell as Gtk.CellRendererText).Text = h;
 					(cell as Gtk.CellRendererText).Sensitive = true;
 					(cell as Gtk.CellRendererText).Markup = h;
 				} else {
@@ -447,7 +446,7 @@ namespace Drapes
 					// Gray it out if the user disabled it
 					t.Sensitive = DrapesApp.WpList[key].Enabled;
 				} else {
-					Console.WriteLine(Catalog.GetString("Unknow column"));
+					Console.WriteLine(Catalog.GetString("Unknown column"));
 				}
 			}
 		}
@@ -455,8 +454,6 @@ namespace Drapes
 		// User double clicked a row in the TreeView
 		private void onRowDoubleClick (object sender, RowActivatedArgs args)
 		{
-			Console.WriteLine(sender);
-			
 			TreeView		tv = (TreeView) sender;
 			TreeModelFilter	model = (TreeModelFilter) tv.Model;
 			TreeIter		iter;
