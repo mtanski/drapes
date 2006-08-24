@@ -93,11 +93,12 @@ namespace Drapes.Config
 
 	// Styles
 	public enum Style {
-		STYLE_CENTER,
-		STYLE_FILL,
-		STYLE_SCALE,
-		STYLE_ZOOM,
-		STYLE_TILED				// wtf? welcome back 1995
+		STYLE_CENTER = 0,
+		STYLE_FILL = 1,
+		STYLE_SCALE = 2,
+		STYLE_ZOOM = 3,
+		STYLE_TILED = 4,				// wtf? welcome back 1995
+        STYLE_NONE = 6
 	}
 
 	// Settings class
@@ -250,7 +251,7 @@ namespace Drapes.Config
 				try {
 					val = (string) client.Get(Defaults.Gnome.PictureOptionsKey);
 				} catch (NoSuchKeyException e) {
-					client.Set(Defaults.Gnome.PictureOptionsKey, "centered");
+					client.Set(Defaults.Gnome.PictureOptionsKey, "none");
 				}
 				
 				switch (val) {
@@ -260,9 +261,13 @@ namespace Drapes.Config
 						return Config.Style.STYLE_SCALE;
 					case "zoom":
 						return Config.Style.STYLE_ZOOM;
-					case "centered":
+                    case "centered":
+                        return Config.Style.STYLE_CENTER;
+                    case "wallpaper":
+                        return Config.Style.STYLE_TILED;
+                    case "none":
 					default :
-						return Config.Style.STYLE_CENTER;
+						return Config.Style.STYLE_NONE;
 				}
 			
 			}
@@ -281,9 +286,12 @@ namespace Drapes.Config
 					case Config.Style.STYLE_ZOOM:
 						client.Set(Defaults.Gnome.PictureOptionsKey, "zoom");
 						break;
-					case Config.Style.STYLE_TILED:
+                    case Config.Style.STYLE_TILED:
+                        client.Set(Defaults.Gnome.PictureOptionsKey, "wallpaper");
+                        break;
+                    case Config.Style.STYLE_NONE:
 					default:
-						client.Set(Defaults.Gnome.PictureOptionsKey, "wallpaper");
+						client.Set(Defaults.Gnome.PictureOptionsKey, "none");
 						break;
 				}
 			}

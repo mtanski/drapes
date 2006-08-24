@@ -49,20 +49,29 @@ namespace Drapes
 			btnAdd.Clicked += onAddButtonClick;
 			
 			// style selection
-			cmbStyle.InsertText(0, Catalog.GetString("Centered"));
-			cmbStyle.InsertText(1, Catalog.GetString("Fill Screen"));
-			cmbStyle.InsertText(2, Catalog.GetString("Scaled"));
-			cmbStyle.InsertText(3, Catalog.GetString("Zoom"));
-			cmbStyle.InsertText(4, Catalog.GetString("Tiled"));
+            cmbStyleStore = new ListStore(typeof(string), typeof(Config.Style));
+            cmbStyleStore.AppendValues("Centered", Config.Style.STYLE_CENTER);
+            cmbStyleStore.AppendValues("Fill Screen", Config.Style.STYLE_FILL);
+            cmbStyleStore.AppendValues("Scale", Config.Style.STYLE_SCALE);
+            cmbStyleStore.AppendValues("Tiled", Config.Style.STYLE_TILED);
+            cmbStyleStore.AppendValues("Zoom", Config.Style.STYLE_ZOOM);
+            cmbStyleStore.AppendValues(null, Config.Style.STYLE_NONE);
+            cmbStyleStore.AppendValues("None", Config.Style.STYLE_NONE);
+            // breake between styles and none
+            cmbStyle.RowSeparatorFunc = StyleSeparatorFunc;
+            // What stores our data
+            cmbStyle.Model = cmbStyleStore;
 			cmbStyle.Active = (int) DrapesApp.Cfg.Style;
 			cmbStyle.Changed += onStyleChanged;
+            // gray out selection of wallpapers on wallpaper display disabled
+            tvBgList.Sensitive = (DrapesApp.Cfg.Style != Config.Style.STYLE_NONE);
 
 			// start on login button
 			cbtAutoStart.Active = DrapesApp.Cfg.AutoStart;
 			cbtAutoStart.Toggled += onAutoStartToggled;
 			if (DrapesApp.AppletStyle == AppletStyle.APPLET_PANEL) {
 				cbtAutoStart.Sensitive = false;
-				tooltips.SetTip(cbtAutoStart, Catalog.GetString("This is only valid when using the notification tray"), null);
+				tooltips.SetTip(cbtAutoStart, Catalog.GetString("This option is only valid when using the notification tray"), null);
 			}
 		
 			// Bottom butons
@@ -226,7 +235,9 @@ namespace Drapes
 		// Add/Remove Style
 		[Widget] Button				btnAdd;
 		[Widget] Button				btnRemove;
+        // Style box
 		[Widget] ComboBox			cmbStyle;
+        ListStore                   cmbStyleStore;
 		// The Treeview
 		[Widget] TreeView			tvBgList;
 		Gtk.TreeStore				tsEntries;
@@ -237,12 +248,20 @@ namespace Drapes
 		Gtk.TreeIter				tiAsp43;
 		Gtk.TreeIter				tiAspWide;
 		Gtk.TreeIter				tiAspMisc;
+        
 
 		// Update gnome wallaper style
 		private void onStyleChanged(object sender, EventArgs args)
 		{
 			DrapesApp.Cfg.Style = (Config.Style) (sender as Gtk.ComboBox).Active; 
+            // gray out selection of wallpapers on wallpaper display disabled
+            tvBgList.Sensitive = (DrapesApp.Cfg.Style != Config.Style.STYLE_NONE);
 		}
+
+        private bool StyleSeparatorFunc(TreeModel model, TreeIter iter)
+        {
+            return (model.GetValue(iter, 0) == null);
+        }
 
 		private void onAutoStartToggled(object sender, EventArgs args)
 		{
