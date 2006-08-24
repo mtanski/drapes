@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2006-08-20 17:40-0400\n"
+"POT-Creation-Date: 2006-08-23 20:43-0400\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -88,77 +88,52 @@ msgstr ""
 msgid "_Quit"
 msgstr ""
 
-#. style selection
-#: ../drapes/ConfigMenu.cs:52
-msgid "Centered"
+#: ../drapes/ConfigMenu.cs:74
+msgid "This option is only valid when using the notification tray"
 msgstr ""
 
-#: ../drapes/ConfigMenu.cs:53
-msgid "Fill Screen"
-msgstr ""
-
-#: ../drapes/ConfigMenu.cs:54
-msgid "Scaled"
-msgstr ""
-
-#: ../drapes/ConfigMenu.cs:55
-msgid "Zoom"
-msgstr ""
-
-#: ../drapes/ConfigMenu.cs:56
-msgid "Tiled"
-msgstr ""
-
-#: ../drapes/ConfigMenu.cs:65
-msgid "This is only valid when using the notification tray"
-msgstr ""
-
-#: ../drapes/ConfigMenu.cs:102
+#: ../drapes/ConfigMenu.cs:111
 msgid "selection"
 msgstr ""
 
 #. The various "sorters"
-#: ../drapes/ConfigMenu.cs:135
+#: ../drapes/ConfigMenu.cs:144
 msgid "Perfect fit"
 msgstr ""
 
-#: ../drapes/ConfigMenu.cs:136
+#: ../drapes/ConfigMenu.cs:145
 msgid "Regular 4:3"
 msgstr ""
 
-#: ../drapes/ConfigMenu.cs:137
+#: ../drapes/ConfigMenu.cs:146
 msgid "Widescreen"
 msgstr ""
 
-#: ../drapes/ConfigMenu.cs:138
+#: ../drapes/ConfigMenu.cs:147
 msgid "Other"
 msgstr ""
 
-#: ../drapes/ConfigMenu.cs:140 ../drapes/ConfigMenu.cs:141
-#: ../drapes/ConfigMenu.cs:142 ../drapes/ConfigMenu.cs:143
+#: ../drapes/ConfigMenu.cs:149 ../drapes/ConfigMenu.cs:150
+#: ../drapes/ConfigMenu.cs:151 ../drapes/ConfigMenu.cs:152
 msgid "<i>No wallpapers present</i>"
 msgstr ""
 
-#: ../drapes/ConfigMenu.cs:248
+#: ../drapes/ConfigMenu.cs:281
 #, csharp-format
 msgid "Adding wallpaper file: {0}"
 msgstr ""
 
-#: ../drapes/ConfigMenu.cs:261
+#: ../drapes/ConfigMenu.cs:294
 msgid "Add wallpaper"
 msgstr ""
 
-#: ../drapes/ConfigMenu.cs:395
+#: ../drapes/ConfigMenu.cs:427 ../drapes/ConfigMenu.cs:468
 msgid "Unknown column"
 msgstr ""
 
-#: ../drapes/ConfigMenu.cs:426
+#: ../drapes/ConfigMenu.cs:458
 #, csharp-format
 msgid "{0} x {1} pixels"
-msgstr ""
-
-#: ../drapes/ConfigMenu.cs:436
-msgid "Unknow column"
 msgstr ""
 
 #: ../drapes/Main.cs:76
@@ -223,22 +198,22 @@ msgstr ""
 msgid "Never"
 msgstr ""
 
-#: ../drapes/Settings.cs:373
+#: ../drapes/Settings.cs:381
 #, csharp-format
 msgid "Cannot toggle autostart, reason: {0}"
 msgstr ""
 
-#: ../drapes/Settings.cs:404
+#: ../drapes/Settings.cs:412
 #, csharp-format
 msgid "Unknown GConf key: {0}"
 msgstr ""
 
-#: ../drapes/Wallpaper.cs:172
+#: ../drapes/Wallpaper.cs:171
 #, csharp-format
 msgid "Cannot find file: {0}"
 msgstr ""
 
-#: ../drapes/Wallpaper.cs:359
+#: ../drapes/Wallpaper.cs:362
 #, csharp-format
 msgid "Cannot create thumbnail for: {0}"
 msgstr ""
