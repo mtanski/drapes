@@ -278,7 +278,7 @@ namespace Drapes
                     try {
                        IO.FileInfo fi = new IO.FileInfo(filename);
                        return fi.Name;
-                    } catch (Exception e) {
+                    } catch (Exception) {
                         return null;
                     }
 				}

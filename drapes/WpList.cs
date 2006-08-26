@@ -245,7 +245,7 @@ namespace Drapes
 						}
 					}
 				}
-			} catch (System.Xml.XmlException e) {
+			} catch (System.Xml.XmlException) {
 				Console.WriteLine(Catalog.GetString("Something bad happened last time, opening as far as we can..."));
 			}
 
@@ -322,7 +322,7 @@ namespace Drapes
 			get {
 				try {
 					return (Wallpaper) list[index];
-				} catch (ArgumentOutOfRangeException e) {
+				} catch (ArgumentOutOfRangeException) {
 					return null;
 				}
 			}

@@ -167,9 +167,9 @@ namespace Drapes.Config
 				
 				try {
 					val = (bool) client.Get(GCONF_KEY_SO_START);
-				} catch (NoSuchKeyException e) {		// key dosen't exist?
+				} catch (NoSuchKeyException) {		// key dosen't exist?
 					client.Set(GCONF_KEY_SO_START, Defaults.ShuffleOnStart);
-				} catch (InvalidCastException e) {		// got overwriten
+				} catch (InvalidCastException) {		// got overwriten
 					client.Set(GCONF_KEY_SO_START, Defaults.ShuffleOnStart);
 				}
 			
@@ -188,9 +188,9 @@ namespace Drapes.Config
 				
 				try {
 					val = (TimeDelay.Delay) client.Get(GCONF_KEY_TIMER);
-				} catch (NoSuchKeyException e) {
+				} catch (NoSuchKeyException) {
 					client.Set(GCONF_KEY_TIMER, (int) Defaults.SwitchDelay);
-				} catch (InvalidCastException e) {
+				} catch (InvalidCastException) {
 					client.Set(GCONF_KEY_TIMER, (int) Defaults.SwitchDelay);
 				}
 				
@@ -209,9 +209,9 @@ namespace Drapes.Config
 				
 				try {
 					val = (bool) client.Get(GCONF_KEY_MONITOR);
-				} catch (NoSuchKeyException e) {
+				} catch (NoSuchKeyException) {
 					client.Set(GCONF_KEY_MONITOR, Defaults.MonitorEnabled);
-				} catch (InvalidCastException e) {
+				} catch (InvalidCastException) {
 					client.Set(GCONF_KEY_MONITOR, Defaults.MonitorEnabled);
 				}
 
@@ -230,9 +230,9 @@ namespace Drapes.Config
 			
 				try {
 					val = (string) client.Get(GCONF_KEY_MONITOR_DIR);
-				} catch (NoSuchKeyException e) {
+				} catch (NoSuchKeyException) {
 					client.Set(GCONF_KEY_MONITOR_DIR, Defaults.MonitorDirectory);
-				} catch (InvalidCastException e) {
+				} catch (InvalidCastException) {
 					client.Set(GCONF_KEY_MONITOR_DIR, Defaults.MonitorDirectory);
 				}
 				
@@ -250,7 +250,7 @@ namespace Drapes.Config
 				
 				try {
 					val = (string) client.Get(Defaults.Gnome.PictureOptionsKey);
-				} catch (NoSuchKeyException e) {
+				} catch (NoSuchKeyException) {
 					client.Set(Defaults.Gnome.PictureOptionsKey, "none");
 				}
 				
@@ -304,9 +304,9 @@ namespace Drapes.Config
 			
 				try {
 					val = (string) client.Get(Defaults.Gnome.WallpaperKey);
-				} catch (NoSuchKeyException e) {
+				} catch (NoSuchKeyException) {
 					client.Set(Defaults.Gnome.WallpaperKey, "");
-				} catch (InvalidCastException e) {
+				} catch (InvalidCastException) {
 					client.Set(Defaults.Gnome.WallpaperKey, "");
 				}
 				
@@ -325,9 +325,9 @@ namespace Drapes.Config
 				
 				try {
 					val = (bool) client.Get(GCONF_KEY_SHUFFLE);
-				} catch (NoSuchKeyException e) {
+				} catch (NoSuchKeyException) {
 					client.Set(GCONF_KEY_SHUFFLE, Defaults.ShuffleEnabled);
-				} catch (InvalidCastException e) {
+				} catch (InvalidCastException) {
 					client.Set(GCONF_KEY_SHUFFLE, Defaults.ShuffleEnabled);
 				}
 				
