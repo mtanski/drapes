@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<popup name="button3">
+  <menuitem verb="Switch" pixtype="stock" pixname="gtk-go-forward" name="Switch" _label="_Switch"/>
+  <separator/>
+  <menuitem verb="Shuffle" type="toggle" name="Shuffle" _label="_Shuffle Periodicaly"/>
+  <menuitem verb="Preferences" pixtype="stock" pixname="gtk-preferences" name="Preferences" _label="_Preferences"/>
+</popup>

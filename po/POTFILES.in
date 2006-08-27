@@ -1,4 +1,8 @@
+data/DrapesApplet.server.in
+data/DrapesApplet.xml.in
+data/drapes.desktop.in
 data/drapes.glade
+data/drapes.schemas.in
 drapes/AppletWidget.cs
 drapes/ConfigMenu.cs
 drapes/Main.cs

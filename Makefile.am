@@ -12,7 +12,6 @@ check_SCRIPTS_in =          \
 
 EXTRA_DIST =			\
 	$(check_SCRIPTS_in)	\
-	po/drapes.pot		\
 	debian/changelog	\
 	debian/copyright	\
 	debian/control		\

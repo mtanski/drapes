@@ -1,7 +1,7 @@
 [Desktop Entry]
 Encoding=UTF-8
-Name=Desktop Drapes
-Comment=Manage your desktop wallpapers
+_Name=Desktop Drapes
+_Comment=Manage your desktop wallpapers
 Exec=drapes --tray
 Type=Application
 StartupNotify=false

@@ -10,6 +10,8 @@ configure
 data/*.glade.*
 data/*.gladep*
 data/DrapesApplet.server
+data/DrapesApplet.server.in
+data/DrapesApplet.xml
 data/drapes.desktop
 debian/compat
 debian/drapes.substvars
