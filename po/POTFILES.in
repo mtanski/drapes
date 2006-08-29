@@ -1,5 +1,5 @@
 data/DrapesApplet.server.in
-data/DrapesApplet.xml.in
+data/DrapesApplet.xml
 data/drapes.desktop.in
 data/drapes.glade
 data/drapes.schemas.in

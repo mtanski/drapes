@@ -7,9 +7,7 @@ $(server_in_files): $(srcdir)/DrapesApplet.server.in.in Makefile
 @INTLTOOL_SERVER_RULE@
 
 menuxmldir = $(datadir)/gnome-2.0/ui
-menuxml_in_files = DrapesApplet.xml.in
-menuxml_DATA=$(menuxml_in_files:.xml.in=.xml)
-@INTLTOOL_XML_RULE@
+menuxml_DATA = DrapesApplet.xml
 
 desktopdir = $(datadir)/applications
 desktop_in_files = drapes.desktop.in
@@ -30,12 +28,11 @@ endif
 EXTRA_DIST = \
 	$(schema_in_files)	\
 	$(server_in_files)	\
-	$(menuxml_in_files)	\
+	$(menuxml_DATA)		\
 	$(desktop_in_files)	\
 	drapes.glade
 
 CLEANFILES = \
-	DrapesApplet.xml		\
 	DrapesApplet.server		\
 	DrapesApplet.server.in	\
 	drapes.schemas			\
