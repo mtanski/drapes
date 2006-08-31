@@ -3,7 +3,7 @@
 
     <schema>
       <key>/schemas/apps/drapes/timedelay</key>
-      <applyto>/schemas/apps/drapes/timedelay</applyto>
+      <applyto>/apps/drapes/timedelay</applyto>
       <owner>drapes</owner>
       <type>int</type>
       <default>2</default>
@@ -15,7 +15,7 @@
 
     <schema>
       <key>/schemas/apps/drapes/monitor</key>
-      <applyto>/schemas/apps/drapes/monitor</applyto>
+      <applyto>/apps/drapes/monitor</applyto>
       <owner>drapes</owner>
       <type>bool</type>
       <default>false</default>
@@ -27,7 +27,7 @@
 
     <schema>
       <key>/schemas/apps/drapes/monitor_directory</key>
-      <applyto>/schemas/apps/drapes/monitor_directory</applyto>
+      <applyto>/apps/drapes/monitor_directory</applyto>
       <owner>drapes</owner>
       <type>string</type>
       <default></default>
@@ -39,7 +39,7 @@
 
     <schema>
       <key>/schemas/apps/drapes/on_startup</key>
-      <applyto>/schemas/apps/drapes/on_startup</applyto>
+      <applyto>/apps/drapes/on_startup</applyto>
       <owner>drapes</owner>
       <type>bool</type>
       <default>false</default>
@@ -51,7 +51,7 @@
 
     <schema>
       <key>/schemas/apps/drapes/enable_timed_shuffle</key>
-      <applyto>/schemas/apps/drapes/enable_timed_shuffle</applyto>
+      <applyto>/apps/drapes/enable_timed_shuffle</applyto>
       <owner>drapes</owner>
       <type>bool</type>
       <default>true</default>
