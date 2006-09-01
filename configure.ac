@@ -71,11 +71,15 @@ AC_DEFINE_UNQUOTED(GETTEXT_PACKAGE, "$GETTEXT_PACKAGE", [Gettext Package])
 AM_GLIB_GNU_GETTEXT
 AC_SUBST([CONFIG_STATUS_DEPENDENCIES],['$(top_srcdir)/po/LINGUAS'])
 
+dnl gnome documentation stuffs
+AC_CONFIG_MACRO_DIR([m4])
+GNOME_DOC_INIT
+
 AC_OUTPUT([
 Makefile
 drapes/Makefile
 scripts/Makefile
-docs/Makefile
+help/Makefile
 data/Makefile
 po/Makefile.in
 ])

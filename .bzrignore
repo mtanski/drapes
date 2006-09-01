@@ -1,5 +1,6 @@
 *.cdbs-orig
 *.debhelper
+*.omf
 Makefile
 Makefile.in
 aclocal.m4
@@ -28,8 +29,11 @@ drapes.vtg
 drapes/*.exe*
 drapes/AssemblyInfo.cs
 drapes/drapes.pidb
+gnome-doc-utils.make
+gtk-doc.make
 install-sh
 intltool-*
+m4/*.m4
 missing
 mkinstalldirs
 omf.make

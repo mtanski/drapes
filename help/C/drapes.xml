@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE article PUBLIC "-//OASIS//DTD DocBook XML V4.1.2//EN" "http://www.oasis-open.org/docbook/xml/4.1.2/docbookx.dtd">
+<article lang="en-US">
+	<articleinfo>
+		<title>Desktop Drapes User Guide</title>
+        <authorgroup>
+        	<author role="maintainer">
+				<firstname>Derek</firstname>
+                <surname>Vandivere</surname>
+			</author>
+        </authorgroup>
+	</articleinfo>
+	<abstract role="description">
+		<para>Desktop Drapes is a wallpaper mangment application for the Gnome desktop.</para>
+	</abstract>
+	<sect1 id="drapes-intro">
+		<title>Introduction</title>
+		<para>Desktop Drapes is a wallpaper manager application for the Gnome desktop. You can change your wallpaper by clicking the Desktop Drapes icon on the toolbar, and set it to switch wallpaper every time you boot and at a predefined interval. Also, you can tell Desktop Drapes to monitor a particular directory to add wallpapers automatically.</para>
+	</sect1>
+	<sect1 id="drapes-using">
+		<title>Using Desktop Drapes</title>
+		<para>
+			<screenshot>
+				<screeninfo>The display tab</screeninfo>
+				<mediaobject>
+					<imageobject>
+						<imagedata fileref="figures/drapes_preferences_display.png" align="center" format="PNG"/>
+					</imageobject>
+					<caption>
+						<para>The Display tab of the Preferences window</para>
+					</caption>
+				</mediaobject>
+			</screenshot>
+		</para>
+		<para>To switch wallpapers:</para>
+		<orderedlist>
+			<listitem>
+				<para>Left-click the Desktop Drapes icon in the toolbar to switch to a randomly selected wallpaper, OR...</para>
+			</listitem>
+			<listitem>
+				<para>Right-click the Desktop Drapes icon in the toolbar and double-click the thumbnail image of a wallpaper to switch to that wallpaper.</para>
+			</listitem>
+		</orderedlist>
+		<para>To add a wallpaper to Desktop Drapes collection:</para>
+		<orderedlist>
+			<listitem>
+				<para>Right-click the icon in the toolbar and select 'Preferences'.</para>
+			</listitem>
+			<listitem>
+				<para>In the 'Display' tab, click the 'Add' button and select your wallpaper file or files. Desktop Drapes will automatically categorize your wallpaper by the dimensions of the image (I guess).</para>
+			</listitem>
+		</orderedlist>
+		<para>To remove a wallpaper from the Desktop Drapes collection;</para>
+		<orderedlist>
+			<listitem>
+				<para>Right-click the icon in the toolbar and select 'Preferences'.</para>
+			</listitem>
+			<listitem>
+				<para>In the 'Display' tab, select the wallpaper you wish to remove and click the 'Remove' button.</para>
+			</listitem>
+		</orderedlist>
+	</sect1>
+	<sect1 id="drapes-customizing">
+		<title>Customizing Desktop Drapes</title>
+		<para>
+			<screenshot>
+				<screeninfo>The general tab</screeninfo>
+				<mediaobject>
+					<imageobject>
+						<imagedata fileref="figures/drapes_preferences_general.png" align="center" format="PNG"/>
+					</imageobject>
+					<caption>
+						<para>The General tab of the Preferences window</para>
+					</caption>
+				</mediaobject>
+			</screenshot>
+		</para>
+		<orderedlist>
+			<listitem>
+				<para>Start Desktop Drapes on start: Select this option to load Desktop Drapes automatically when you start up your computer.</para>
+			</listitem>
+			<listitem>
+				<para>Switch wallpaper on start: Select this option to switch to a different wallpaper every time you start Desktop Drapes. Select this and the first checkbox to switch to a different wallpaper every time you start your computer.</para>
+			</listitem>
+			<listitem>
+				<para>Timing selection: Use this slider bar to tell Desktop Drapes how often to switch to a new wallpaper, from a minimum of five minutes to a maximum of two hours. Move the slider all the way to the right to tell Desktop Drapes never to switch wallpapers while it's running.</para>
+			</listitem>
+			<listitem>
+				<para>Wallpaper search directory: Select the checkbox to have Desktop Drapes monitor a directory and automatically add files in that directory to its collection. Click the directory list box in order to select which directory Desktop Drapes should monitor. Warning: In the current version of Desktop Drapes, saving a file directly into that directory will cause Desktop Drapes to crash and lose its collection! Instead, save a file to a different directory, then copy it into your monitored directory.</para>
+			</listitem>
+		</orderedlist>
+	</sect1>
+</article>

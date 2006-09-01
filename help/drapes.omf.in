@@ -1,0 +1,9 @@
+<?xml version="1.0" standalone="no"?>
+<omf>
+  <resource>
+    <subject category="GNOME|Applications|Graphics"/>
+    <type>user's guide</type>
+    <relation seriesid="170f3f00-1031-4d5c-bd0c-ff3cfc4af91f"/>
+    <rights type="GNU FDL" license.version="1.1" holder="Derek Vandivere, derek@vandivere.net"/>
+  </resource>
+</omf>

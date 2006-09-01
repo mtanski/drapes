@@ -2,7 +2,7 @@ SUBDIRS = \
 	drapes			\
 	scripts			\
 	data			\
-	docs			\
+	help			\
 	po
 
 check_SCRIPTS_in =          \
@@ -10,15 +10,27 @@ check_SCRIPTS_in =          \
     intltool-merge.in		\
 	intltool-update.in
 
+doc_files = 				\
+	xmldocs.make			\
+	omf.make				\
+	gnome-doc-utils.make
+
+deb_files =				\
+    debian/changelog    \
+    debian/copyright    \
+    debian/control      \
+    debian/rules        
+
 EXTRA_DIST =			\
 	$(check_SCRIPTS_in)	\
-	debian/changelog	\
-	debian/copyright	\
-	debian/control		\
-	debian/rules
+	$(deb_files)		\
+	$(doc_files)
 
 DISTCLEANFILES =		\
 	intltool-extract	\
 	intltool-update		\
 	intltool-merge		\
-	*cdbs*
+	*cdbs*				\
+	gnome-doc-utils.make
+
+DISTCHECK_CONFIGURE_FLAGS = --disable-scrollkeeper
