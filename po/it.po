@@ -1,4 +1,4 @@
-# Polish translation for drapes
+# Italian translation for drapes
 # Copyright (c) (c) 2006 Canonical Ltd, and Rosetta Contributors 2006
 # This file is distributed under the same license as the drapes package.
 # FIRST AUTHOR <EMAIL@ADDRESS>, 2006.
@@ -9,9 +9,9 @@ msgstr ""
 "Project-Id-Version: drapes\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2006-09-07 14:45-0400\n"
-"PO-Revision-Date: 2006-08-14 22:11+0000\n"
-"Last-Translator: Milosz Tanski <mtanski@gmail.com>\n"
-"Language-Team: Polish <pl@li.org>\n"
+"PO-Revision-Date: 2006-09-06 20:30+0000\n"
+"Last-Translator: Metal_Militia <simonevendemia@gmail.com>\n"
+"Language-Team: Italian <it@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -23,187 +23,193 @@ msgstr "Desktop Drapes"
 
 #: ../data/DrapesApplet.server.in.h:2
 msgid "Rotate desktop wallpapers"
-msgstr ""
+msgstr "Ruota lo sfondo del desktop"
 
 #: ../data/DrapesApplet.xml.h:1
 msgid "_Preferences"
-msgstr ""
+msgstr "Preferenze"
 
 #: ../data/DrapesApplet.xml.h:2
 msgid "_Shuffle Periodicaly"
-msgstr ""
+msgstr "Cambia periodicamente lo sfondo"
 
 #. Switch to another wallpaper
 #: ../data/DrapesApplet.xml.h:3 ../drapes/AppletWidget.cs:137
 msgid "_Switch"
-msgstr ""
+msgstr "Cambia"
 
 #: ../data/drapes.desktop.in.h:2
 msgid "Manage your desktop wallpapers"
-msgstr ""
+msgstr "Gestisci i tuoi sfondi del desktop"
 
 #: ../data/drapes.glade.h:1
 msgid "<b>Startup options</b>"
-msgstr "<b>Opcjie startu</b>"
+msgstr "Opzioni di avvio"
 
 #: ../data/drapes.glade.h:2
 msgid "<b>Timing selection</b>"
-msgstr ""
+msgstr "Selezione della temporizzazione"
 
 #: ../data/drapes.glade.h:3
 msgid "<b>Wallpaper search directory</b>"
-msgstr "<b>Catalog w ktorym szukac tapety</b>"
+msgstr "Cartella di ricerca degli sfondi"
 
 #: ../data/drapes.glade.h:4
 msgid "Close"
-msgstr "Zamknij"
+msgstr "Chiudi"
 
 #: ../data/drapes.glade.h:6
 msgid "Display"
-msgstr "Wyświetlanie"
+msgstr "Mostra"
 
 #: ../data/drapes.glade.h:7
 msgid "General"
-msgstr "Ogólne"
+msgstr "Generale"
 
 #: ../data/drapes.glade.h:8
 msgid "Monitor this directory for new wallpapers"
-msgstr ""
+msgstr "Controlla periodicamente questa cartella"
 
 #: ../data/drapes.glade.h:9
 msgid "Select A File"
-msgstr "Wybierz Plik"
+msgstr "Seleziona un file"
 
 #: ../data/drapes.glade.h:10
 msgid "Start Desktop Drapes on start"
-msgstr ""
+msgstr "Avvia Desktop Draper all'avvio"
 
 #: ../data/drapes.glade.h:11
 msgid "Style: "
-msgstr "Styl: "
+msgstr "Stile: "
 
 #: ../data/drapes.glade.h:12
 msgid "Switch wallpaper on start"
-msgstr ""
+msgstr "Cambia sfondo all'avvio"
 
 #: ../data/drapes.schemas.in.h:1
 msgid "Allow drapes to periodicaly shuffle the wallpapers"
-msgstr ""
+msgstr "Permetti a Drapes di cambiare periodicamente lo sfondo"
 
 #: ../data/drapes.schemas.in.h:2
 msgid "Directory to monitor"
-msgstr ""
+msgstr "Cartella da monitorare"
 
 #: ../data/drapes.schemas.in.h:3
-#, fuzzy
 msgid "Launch Desktop Drapes on login"
-msgstr "Desktop Drapes"
+msgstr "Lancia Desktop Drapes dopo il login"
 
 #: ../data/drapes.schemas.in.h:4
 msgid "Launch Desktop Drapes on login (only applies to the tray applet)."
-msgstr ""
+msgstr "Lancia Desktop Drapes dopo il login (valido solo per il tray applet)"
 
 #: ../data/drapes.schemas.in.h:5
 msgid "Monitor directory for new wallapers"
-msgstr ""
+msgstr "Controlla le cartelle per nuovi sfondi"
 
 #: ../data/drapes.schemas.in.h:6
 msgid ""
 "Monitor the specified directory using inotify for new wallpapers and changes."
 msgstr ""
+"Controlla la cartella specificata usando inotify per nuovi sfondi e "
+"cambiamenti"
 
 #: ../data/drapes.schemas.in.h:7
 msgid ""
 "Possible values are 0: 5 min, 1: 10 min, 2: 15 min, 3: 20 min, 4: 30 min, 5: "
 "45 min, 6: 60 min, 7: 90 min, 8: 120min, 10: never."
 msgstr ""
+"Possibili valori sono 0: 5 min, 1: 10 min, 2: 15 min, 3: 20 min, 4: 30 min, "
+"5: 45 min, 6: 60 min, 7: 90 min, 8: 120min, 10: mai."
 
 #: ../data/drapes.schemas.in.h:8
 msgid "The directory that is to be monitored for changes using inotify."
-msgstr ""
+msgstr "Cartella da monitorare per i cambiamenti utilizzando inotify"
 
 #: ../data/drapes.schemas.in.h:9
 msgid "This setting is used to tempoarly disable wallpaper switching"
 msgstr ""
+"Questa opzione è utilizzata per disabilitare temporaneamente il cambio "
+"automatico di sfondo"
 
 #: ../data/drapes.schemas.in.h:10
 msgid "Time delay between wallpaper changes"
-msgstr ""
+msgstr "Tempo fra i cambi di sfondo"
 
 #: ../drapes/AppletWidget.cs:44
 msgid "Deskop Drapes, click to switch wallpaper"
-msgstr ""
+msgstr "Desktop Drapes, clicca per cambiare sfondo"
 
 #. Enabled
 #: ../drapes/AppletWidget.cs:145
 msgid "Shuffle periodicaly"
-msgstr ""
+msgstr "Cambia sfondo periodicamente"
 
 #. Configuration
 #: ../drapes/AppletWidget.cs:154
 msgid "Preferences"
-msgstr ""
+msgstr "Preferenze"
 
 #. Quit
 #: ../drapes/AppletWidget.cs:162
 msgid "_Quit"
-msgstr ""
+msgstr "Esci"
 
 #: ../drapes/ConfigMenu.cs:75
 msgid "This option is only valid when using the notification tray"
-msgstr ""
+msgstr "Questa opzione è valida solamente utilizzando l'area di notifica"
 
 #: ../drapes/ConfigMenu.cs:112
 msgid "selection"
-msgstr ""
+msgstr "selezione"
 
 #. The various "sorters"
 #: ../drapes/ConfigMenu.cs:145
 msgid "Perfect fit"
-msgstr ""
+msgstr "Adatta allo schermo"
 
 #: ../drapes/ConfigMenu.cs:146
 msgid "Regular 4:3"
-msgstr ""
+msgstr "Regolare 4:3"
 
 #: ../drapes/ConfigMenu.cs:147
 msgid "Widescreen"
-msgstr ""
+msgstr "Widescreen"
 
 #: ../drapes/ConfigMenu.cs:148
 msgid "Other"
-msgstr "Inny"
+msgstr "Altro"
 
 #: ../drapes/ConfigMenu.cs:150 ../drapes/ConfigMenu.cs:151
 #: ../drapes/ConfigMenu.cs:152 ../drapes/ConfigMenu.cs:153
 msgid "<i>No wallpapers present</i>"
-msgstr ""
+msgstr "<i>Nessuno sfondo presente</i>"
 
 #: ../drapes/ConfigMenu.cs:275
 msgid "Add wallpaper"
-msgstr ""
+msgstr "Aggiungi sfondo"
 
 #: ../drapes/ConfigMenu.cs:295
 msgid "Images"
 msgstr ""
 
 #: ../drapes/ConfigMenu.cs:296
+#, fuzzy
 msgid "Directory"
-msgstr ""
+msgstr "Cartella da monitorare"
 
 #: ../drapes/ConfigMenu.cs:456 ../drapes/ConfigMenu.cs:497
 msgid "Unknown column"
-msgstr ""
+msgstr "Colonna sconosciuta"
 
 #: ../drapes/ConfigMenu.cs:487
 #, csharp-format
 msgid "{0} x {1} pixels"
-msgstr ""
+msgstr "{0} x {1} pixels"
 
 #: ../drapes/ConfigMenu.cs:523
-#, csharp-format
+#, fuzzy, csharp-format
 msgid "Switching wallpaper to: {0})"
-msgstr ""
+msgstr "Cambia sfondo all'avvio"
 
 #: ../drapes/ConfigMenu.cs:525
 #, csharp-format
@@ -212,153 +218,153 @@ msgstr ""
 
 #: ../drapes/Main.cs:76
 msgid "Importing Gnome's background list"
-msgstr ""
+msgstr "Importando la lista di sfondi di Gnome"
 
 #: ../drapes/Main.cs:82
 msgid "Opening wallpaper list"
-msgstr ""
+msgstr "Apro la lista di sfondi"
 
 #: ../drapes/Main.cs:139
 #, csharp-format
 msgid "Wallpaper switch to: {0}"
-msgstr ""
+msgstr "Cambia sfondo a: {0}"
 
 #: ../drapes/Main.cs:141
 msgid "Wallpaper switch failed; No wallpapers?"
-msgstr ""
+msgstr "Cambio di sfondo fallito; Nessuno sfondo presente?"
 
 #: ../drapes/Main.cs:169
 #, csharp-format
 msgid "Sorry unknow argument: {0}"
-msgstr ""
+msgstr "Scusa argomento sconosciuto: {0}"
 
 #: ../drapes/Settings.cs:36
 msgid "5 minutes"
-msgstr ""
+msgstr "5 minuti"
 
 #: ../drapes/Settings.cs:38
 msgid "10 minutes"
-msgstr "10 minut"
+msgstr "10 minuti"
 
 #: ../drapes/Settings.cs:40
 msgid "15 minutes"
-msgstr "15 minut"
+msgstr "15 minuti"
 
 #: ../drapes/Settings.cs:42
 msgid "20 minutes"
-msgstr "20 minut"
+msgstr "20 minuti"
 
 #: ../drapes/Settings.cs:44
 msgid "30 minutes"
-msgstr "30 minut"
+msgstr "30 minuti"
 
 #: ../drapes/Settings.cs:46
 msgid "45 minutes"
-msgstr "45 miunut"
+msgstr "45 minuti"
 
 #: ../drapes/Settings.cs:48
 msgid "1 hour"
-msgstr "1 godzina"
+msgstr "1 ora"
 
 #: ../drapes/Settings.cs:50
 msgid "1 hour 30 minutes"
-msgstr "1 godzina 30 minut"
+msgstr "1 ora 30 minuti"
 
 #: ../drapes/Settings.cs:52
 msgid "2 hours"
-msgstr "2 godziny"
+msgstr "2 ore"
 
 #: ../drapes/Settings.cs:55
 msgid "Never"
-msgstr "Nigdy"
+msgstr "Mai"
 
 #: ../drapes/Settings.cs:381
 #, csharp-format
 msgid "Cannot toggle autostart, reason: {0}"
-msgstr ""
+msgstr "Non posso attivate autostart, motivo: {0}"
 
 #: ../drapes/Settings.cs:412
 #, csharp-format
 msgid "Unknown GConf key: {0}"
-msgstr ""
+msgstr "Chiave GConf sconosciuta: {0}"
 
 #: ../drapes/Wallpaper.cs:171
 #, csharp-format
 msgid "Cannot find file: {0}"
-msgstr ""
+msgstr "Non trovo il file: {0}"
 
 #: ../drapes/Wallpaper.cs:362
 #, csharp-format
 msgid "Cannot create thumbnail for: {0}"
-msgstr ""
+msgstr "Non posso creare l'icona di :{0}"
 
 #: ../drapes/WpList.cs:55 ../drapes/WpList.cs:131
 #, csharp-format
 msgid "Monitor Directory: {0} dosen't exist"
-msgstr ""
+msgstr "Monitoraggio della cartella :{0} non esiste"
 
 #: ../drapes/WpList.cs:59
 #, csharp-format
 msgid "Filesystem monitor on: {0} enabled"
-msgstr ""
+msgstr "Filesystem da monitorare:{0} attivato"
 
 #: ../drapes/WpList.cs:90
 #, csharp-format
 msgid "File {0}, created"
-msgstr ""
+msgstr "File {0}, creato"
 
 #: ../drapes/WpList.cs:97
 #, csharp-format
 msgid "File {0}, deleted"
-msgstr ""
+msgstr "File {0}, cancellato"
 
 #: ../drapes/WpList.cs:101
 #, csharp-format
 msgid "Unknow file event {0}"
-msgstr ""
+msgstr "File evento {0} sconosciuto"
 
 #: ../drapes/WpList.cs:122
 msgid "Filesystem monitor disabled"
-msgstr ""
+msgstr "Monitoraggio del filesystem disabilitato"
 
 #: ../drapes/WpList.cs:136
 #, csharp-format
 msgid "Changing monitor directory to: {0}"
-msgstr ""
+msgstr "Cambio cartella monitorata a:{0}"
 
 #: ../drapes/WpList.cs:145
 #, csharp-format
 msgid "No such file: {0}"
-msgstr "Nie ma pliku: {0}"
+msgstr "File:{0} non presente"
 
 #: ../drapes/WpList.cs:155
 #, csharp-format
 msgid "Unable to open file {0} because:"
-msgstr ""
+msgstr "Impossibilie aprire il file {0} perche:"
 
 #: ../drapes/WpList.cs:208
 #, csharp-format
 msgid "Unknow element: {0}"
-msgstr "Nie znany element: {0}"
+msgstr "Elemento sconosciuto: {0}"
 
 #: ../drapes/WpList.cs:249
 msgid "Something bad happened last time, opening as far as we can..."
-msgstr ""
+msgstr "La scorsa sessione è avvenuto un errore, apro ciò che posso..."
 
 #: ../drapes/WpList.cs:309
 #, csharp-format
 msgid "Wallpaper list file {0} saved"
-msgstr ""
+msgstr "File {0} di lista degli sfondi salvato"
 
 #: ../drapes/WpList.cs:415
 #, csharp-format
 msgid "Adding wallpaper file: {0}"
-msgstr ""
+msgstr "Aggiungendo sfondo: {0}"
 
 #: ../drapes/WpList.cs:443
 #, fuzzy, csharp-format
 msgid "No such directory: {0}"
-msgstr "Nie ma pliku: {0}"
+msgstr "File:{0} non presente"
 
 #: ../drapes/WpList.cs:453
 #, csharp-format

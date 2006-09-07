@@ -8,13 +8,39 @@ msgid ""
 msgstr ""
 "Project-Id-Version: drapes\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2006-08-20 17:40-0400\n"
-"PO-Revision-Date: 2006-08-20 18:41+0000\n"
-"Last-Translator: sourdin <jack@mohegan.ws>\n"
+"POT-Creation-Date: 2006-09-07 14:45-0400\n"
+"PO-Revision-Date: 2006-08-28 14:54+0000\n"
+"Last-Translator: Nicolas Velin <nsv@fr.st>\n"
 "Language-Team: French <fr@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+
+#: ../data/DrapesApplet.server.in.h:1 ../data/drapes.desktop.in.h:1
+#: ../data/drapes.glade.h:5
+msgid "Desktop Drapes"
+msgstr "Desktop Drapes"
+
+#: ../data/DrapesApplet.server.in.h:2
+msgid "Rotate desktop wallpapers"
+msgstr ""
+
+#: ../data/DrapesApplet.xml.h:1
+msgid "_Preferences"
+msgstr "_Préférences"
+
+#: ../data/DrapesApplet.xml.h:2
+msgid "_Shuffle Periodicaly"
+msgstr ""
+
+#. Switch to another wallpaper
+#: ../data/DrapesApplet.xml.h:3 ../drapes/AppletWidget.cs:137
+msgid "_Switch"
+msgstr "_Changer"
+
+#: ../data/drapes.desktop.in.h:2
+msgid "Manage your desktop wallpapers"
+msgstr ""
 
 #: ../data/drapes.glade.h:1
 msgid "<b>Startup options</b>"
@@ -31,10 +57,6 @@ msgstr "<b>Répertoire de recherche de fonds d'écran</b>"
 #: ../data/drapes.glade.h:4
 msgid "Close"
 msgstr "Fermer"
-
-#: ../data/drapes.glade.h:5
-msgid "Desktop Drapes"
-msgstr "Desktop Drapes"
 
 #: ../data/drapes.glade.h:6
 msgid "Display"
@@ -64,14 +86,52 @@ msgstr "Style: "
 msgid "Switch wallpaper on start"
 msgstr "Changer de fond d'écran au démarrage"
 
+#: ../data/drapes.schemas.in.h:1
+msgid "Allow drapes to periodicaly shuffle the wallpapers"
+msgstr ""
+
+#: ../data/drapes.schemas.in.h:2
+msgid "Directory to monitor"
+msgstr ""
+
+#: ../data/drapes.schemas.in.h:3
+msgid "Launch Desktop Drapes on login"
+msgstr ""
+
+#: ../data/drapes.schemas.in.h:4
+msgid "Launch Desktop Drapes on login (only applies to the tray applet)."
+msgstr ""
+
+#: ../data/drapes.schemas.in.h:5
+msgid "Monitor directory for new wallapers"
+msgstr ""
+
+#: ../data/drapes.schemas.in.h:6
+msgid ""
+"Monitor the specified directory using inotify for new wallpapers and changes."
+msgstr ""
+
+#: ../data/drapes.schemas.in.h:7
+msgid ""
+"Possible values are 0: 5 min, 1: 10 min, 2: 15 min, 3: 20 min, 4: 30 min, 5: "
+"45 min, 6: 60 min, 7: 90 min, 8: 120min, 10: never."
+msgstr ""
+
+#: ../data/drapes.schemas.in.h:8
+msgid "The directory that is to be monitored for changes using inotify."
+msgstr ""
+
+#: ../data/drapes.schemas.in.h:9
+msgid "This setting is used to tempoarly disable wallpaper switching"
+msgstr ""
+
+#: ../data/drapes.schemas.in.h:10
+msgid "Time delay between wallpaper changes"
+msgstr ""
+
 #: ../drapes/AppletWidget.cs:44
 msgid "Deskop Drapes, click to switch wallpaper"
 msgstr "Desktop Drapes, cliquer pour changer de fond d'écran"
-
-#. Switch to another wallpaper
-#: ../drapes/AppletWidget.cs:137
-msgid "_Switch"
-msgstr "_Changer"
 
 #. Enabled
 #: ../drapes/AppletWidget.cs:145
@@ -88,78 +148,66 @@ msgstr "Préférences"
 msgid "_Quit"
 msgstr "_Quitter"
 
-#. style selection
-#: ../drapes/ConfigMenu.cs:52
-msgid "Centered"
-msgstr "Centré"
+#: ../drapes/ConfigMenu.cs:75
+msgid "This option is only valid when using the notification tray"
+msgstr ""
 
-#: ../drapes/ConfigMenu.cs:53
-msgid "Fill Screen"
-msgstr "Remplir l'écran"
-
-#: ../drapes/ConfigMenu.cs:54
-msgid "Scaled"
-msgstr "Mettre à l'échelle"
-
-#: ../drapes/ConfigMenu.cs:55
-msgid "Zoom"
-msgstr "Zoom"
-
-#: ../drapes/ConfigMenu.cs:56
-msgid "Tiled"
-msgstr "Mosaïque"
-
-#: ../drapes/ConfigMenu.cs:65
-msgid "This is only valid when using the notification tray"
-msgstr "Cela est seulement possible en utilisant la zone de notification"
-
-#: ../drapes/ConfigMenu.cs:102
+#: ../drapes/ConfigMenu.cs:112
 msgid "selection"
 msgstr "sélection"
 
 #. The various "sorters"
-#: ../drapes/ConfigMenu.cs:135
+#: ../drapes/ConfigMenu.cs:145
 msgid "Perfect fit"
 msgstr "Taille idéale"
 
-#: ../drapes/ConfigMenu.cs:136
+#: ../drapes/ConfigMenu.cs:146
 msgid "Regular 4:3"
 msgstr "4:3"
 
-#: ../drapes/ConfigMenu.cs:137
+#: ../drapes/ConfigMenu.cs:147
 msgid "Widescreen"
 msgstr "16:9"
 
-#: ../drapes/ConfigMenu.cs:138
+#: ../drapes/ConfigMenu.cs:148
 msgid "Other"
 msgstr "Autre"
 
-#: ../drapes/ConfigMenu.cs:140 ../drapes/ConfigMenu.cs:141
-#: ../drapes/ConfigMenu.cs:142 ../drapes/ConfigMenu.cs:143
+#: ../drapes/ConfigMenu.cs:150 ../drapes/ConfigMenu.cs:151
+#: ../drapes/ConfigMenu.cs:152 ../drapes/ConfigMenu.cs:153
 msgid "<i>No wallpapers present</i>"
 msgstr "<i>Aucun fond d'écran présent</i>"
 
-#: ../drapes/ConfigMenu.cs:248
-#, csharp-format
-msgid "Adding wallpaper file: {0}"
-msgstr "Ajout d'un fond d'écran: {0}"
-
-#: ../drapes/ConfigMenu.cs:261
+#: ../drapes/ConfigMenu.cs:275
 msgid "Add wallpaper"
 msgstr "Ajouter un fond d'écran"
 
-#: ../drapes/ConfigMenu.cs:395
+#: ../drapes/ConfigMenu.cs:295
+msgid "Images"
+msgstr ""
+
+#: ../drapes/ConfigMenu.cs:296
+msgid "Directory"
+msgstr ""
+
+#: ../drapes/ConfigMenu.cs:456 ../drapes/ConfigMenu.cs:497
 msgid "Unknown column"
 msgstr "Colonne inconnue"
 
-#: ../drapes/ConfigMenu.cs:426
+#: ../drapes/ConfigMenu.cs:487
 #, csharp-format
 msgid "{0} x {1} pixels"
 msgstr "{0} x {1} pixels"
 
-#: ../drapes/ConfigMenu.cs:436
-msgid "Unknow column"
-msgstr "Colonne inconnue"
+#: ../drapes/ConfigMenu.cs:523
+#, fuzzy, csharp-format
+msgid "Switching wallpaper to: {0})"
+msgstr "Changer de fond d'écran au démarrage"
+
+#: ../drapes/ConfigMenu.cs:525
+#, csharp-format
+msgid "Not activating {0}, disabled"
+msgstr ""
 
 #: ../drapes/Main.cs:76
 msgid "Importing Gnome's background list"
@@ -223,22 +271,22 @@ msgstr "2 heures"
 msgid "Never"
 msgstr "Jamais"
 
-#: ../drapes/Settings.cs:373
+#: ../drapes/Settings.cs:381
 #, csharp-format
 msgid "Cannot toggle autostart, reason: {0}"
 msgstr "Chargement au démarrage impossible, raison: {0}"
 
-#: ../drapes/Settings.cs:404
+#: ../drapes/Settings.cs:412
 #, csharp-format
 msgid "Unknown GConf key: {0}"
 msgstr "Clé GConf inconnue: {0}"
 
-#: ../drapes/Wallpaper.cs:172
+#: ../drapes/Wallpaper.cs:171
 #, csharp-format
 msgid "Cannot find file: {0}"
 msgstr "Fichier introuvable: {0}"
 
-#: ../drapes/Wallpaper.cs:359
+#: ../drapes/Wallpaper.cs:362
 #, csharp-format
 msgid "Cannot create thumbnail for: {0}"
 msgstr "Erreur lors de la création de la miniature de : {0}"
@@ -302,3 +350,39 @@ msgstr ""
 #, csharp-format
 msgid "Wallpaper list file {0} saved"
 msgstr "Liste de fonds d'écran {0} sauvegardée"
+
+#: ../drapes/WpList.cs:415
+#, csharp-format
+msgid "Adding wallpaper file: {0}"
+msgstr "Ajout d'un fond d'écran: {0}"
+
+#: ../drapes/WpList.cs:443
+#, fuzzy, csharp-format
+msgid "No such directory: {0}"
+msgstr "Aucun fichier: {0}"
+
+#: ../drapes/WpList.cs:453
+#, csharp-format
+msgid "Parsing subdir {0}"
+msgstr ""
+
+#~ msgid "Centered"
+#~ msgstr "Centré"
+
+#~ msgid "Fill Screen"
+#~ msgstr "Remplir l'écran"
+
+#~ msgid "Scaled"
+#~ msgstr "Mettre à l'échelle"
+
+#~ msgid "Zoom"
+#~ msgstr "Zoom"
+
+#~ msgid "Tiled"
+#~ msgstr "Mosaïque"
+
+#~ msgid "This is only valid when using the notification tray"
+#~ msgstr "Cela est seulement possible en utilisant la zone de notification"
+
+#~ msgid "Unknow column"
+#~ msgstr "Colonne inconnue"
