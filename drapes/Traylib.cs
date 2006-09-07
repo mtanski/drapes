@@ -107,8 +107,6 @@ namespace Egg
 
 		protected override void OnAdded (Widget widget)
 		{
-			Console.WriteLine ("OnAdded");
-
 			widget.Realized += OnChildRealized;
 			base.OnAdded (widget);
 		}

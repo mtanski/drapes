@@ -402,7 +402,25 @@ namespace Drapes
 			// remove it from the list period
 			list.Remove(file);
 		}
-				
+
+        public void Append(string file)
+        {
+            // check if it's mime is an image
+            string mime = Vfs.Mime.TypeFromName(file);
+            if (mime.StartsWith("image") == false)
+                return;
+            
+            Wallpaper w = new Wallpaper();
+
+            Console.WriteLine(Catalog.GetString("Adding wallpaper file: {0}"), file);
+            
+            // Delay load it, it'll get picked up automaticaly anywas
+            w.LoadFileDelayed(file);
+            w.Enabled = true;
+
+            Append(w); 
+        }
+        
 		public void Append(Wallpaper w)
 		{
 			// Only start the loader if we really have nothing to do...
@@ -412,6 +430,33 @@ namespace Drapes
 			// add for later processing
 			processing.Enqueue(w);
 		}
+
+        public void AddFiles(string[] iFiles)
+        {
+            foreach (string file in iFiles)
+                Append(file);
+        }
+
+        public void AddDirectory(string dir)
+        {
+            if (Directory.Exists(dir) == false) {
+                Console.WriteLine(Catalog.GetString("No such directory: {0}"), dir);
+                return;
+            }
+            
+            DirectoryInfo parent = new DirectoryInfo(dir);
+            DirectoryInfo[] ChildDirs = parent.GetDirectories();
+            FileInfo[] ChildFiles = parent.GetFiles();
+
+            // recursion at its finest :)
+            foreach (DirectoryInfo i in ChildDirs) {
+                Console.WriteLine(Catalog.GetString("Parsing subdir {0}"), i.FullName);
+                AddDirectory(i.FullName);
+            }
+
+            foreach (FileInfo i in ChildFiles)
+                Append(i.FullName);
+        }
 
 		public bool DelayedLoader()
 		{

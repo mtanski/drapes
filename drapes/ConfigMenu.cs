@@ -25,6 +25,7 @@ using Glade;
 using Drapes;
 using Config = Drapes.Config;
 using Res = Drapes.ResolutionProperties;
+using Vfs = Gnome.Vfs;
 
 namespace Drapes
 {
@@ -267,26 +268,6 @@ namespace Drapes
 		{
 			DrapesApp.Cfg.AutoStart = (sender as Gtk.ToggleButton).Active;
 		}
-
-		private void ImportDirectory(string dir)
-		{
-			
-		}
-
-		private void ImportFiles(string[] inpfiles)
-		{
-			foreach (string file in inpfiles) {
-				Wallpaper w = new Wallpaper();
-
-				Console.WriteLine(Catalog.GetString("Adding wallpaper file: {0}"), file);
-				
-				// Delay load it, it'll get picked up automaticaly anywas
-				w.LoadFileDelayed(file);
-				w.Enabled = true;
-
-				DrapesApp.WpList.Append(w);
-			}
-		}
 		
 		// Add more wallpapers
 		private void onAddButtonClick (object sender, EventArgs args)
@@ -308,13 +289,61 @@ namespace Drapes
 				fc.SetUri(DrapesApp.Cfg.MonitorDirectory);
 			else
 				fc.SetUri(Environment.GetEnvironmentVariable("HOME") + "/Documents");
-			
+            
+            ListStore FileOptions = new ListStore(typeof(string), typeof(string));
+            
+            FileOptions.AppendValues(Catalog.GetString("Images"), Stock.File);
+            FileOptions.AppendValues(Catalog.GetString("Directory"), Stock.Directory);
+            
+            ComboBox ChooserType = new ComboBox(FileOptions);
+            ChooserType.Active = 0;
+
+            CellRendererPixbuf fTypeImage = new CellRendererPixbuf();
+            CellRendererText fTypeText = new CellRendererText();
+            ChooserType.PackStart(fTypeImage, false);
+            ChooserType.PackStart(fTypeText, true);
+
+            CellLayoutDataFunc renderer = delegate (CellLayout layout, CellRenderer cell, TreeModel model, TreeIter iter)
+            {
+                if (cell == fTypeText) {
+                    (cell as CellRendererText).Text = (string) model.GetValue(iter, 0);
+                } else if (cell == fTypeImage) {
+                    if (model.GetValue(iter, 1) != null) {
+                        (cell as CellRendererPixbuf).StockId = (string) model.GetValue(iter, 1);
+                    } else
+                        (cell as CellRendererPixbuf).StockId = null;
+                }
+            };
+
+            ChooserType.SetCellDataFunc(fTypeText, renderer);
+            ChooserType.SetCellDataFunc(fTypeImage, renderer);
+
+            ChooserType.Changed += delegate (object sender, EventArgs args)
+            {
+                ComboBox cb = (ComboBox) sender;
+                    
+                if (cb.Active == 0) {
+                    fc.SelectMultiple = true;
+                    fc.Action = FileChooserAction.Open;
+                } else {
+                    fc.SelectMultiple = false;
+                    fc.Action = FileChooserAction.SelectFolder;
+                }
+            };
+
+            fc.ExtraWidget = ChooserType;
+//            fc.ExtraWidget = new HBox(true, 4);
+//            (fc.ExtraWidget as HBox).PackStart(ChooserType);
+            
 			// Show the dialog
 			int r = fc.Run();
-		
-			// Process file
-			if ((ResponseType) r == ResponseType.Ok)
-				ImportFiles(fc.Filenames);
+
+            if ((ResponseType) r == ResponseType.Ok) {
+                if (fc.Action == FileChooserAction.SelectFolder)
+                    DrapesApp.WpList.AddDirectory(fc.Filename);
+                else
+        			DrapesApp.WpList.AddFiles(fc.Filenames);
+            }
 		
 			// Get rid of the window
 			fc.Destroy();
@@ -491,9 +520,9 @@ namespace Drapes
 				// Only switch if enabled
 				if (DrapesApp.WpList[key].Enabled == true) {
 					DrapesApp.Cfg.Wallpaper = DrapesApp.WpList[key].File;
-					Console.WriteLine("Switching wallpaper to: {0}", DrapesApp.WpList[key].File);
+					Console.WriteLine(Catalog.GetString("Switching wallpaper to: {0})"), DrapesApp.WpList[key].File);
 				} else
-					Console.WriteLine("Not activating {0}, disabled", DrapesApp.WpList[key].File);
+					Console.WriteLine(Catalog.GetString("Not activating {0}, disabled"), DrapesApp.WpList[key].File);
 			}
 		}
 		
