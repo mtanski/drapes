@@ -46,6 +46,7 @@ namespace Drapes {
 		// Panel/Tray applet
 		internal static		AppletStyle				AppletStyle;
 		private				Gnome.Program			Program;
+        private             Gnome.Client            Client;
 		
 		private DrapesApp(string[] args)
 		{
@@ -53,7 +54,9 @@ namespace Drapes {
 			Catalog.Init("drapes", CompileOptions.GnomeLocaleDir);
 			
 			// 
-			this.Program = new Gnome.Program("Drapes", CompileOptions.Version, Gnome.Modules.UI, args);
+			Program = new Gnome.Program("Drapes", CompileOptions.Version, Gnome.Modules.UI, args);
+            Client = new Gnome.Client();
+            Client.SaveYourself += Shutdown;
 			
 			// Load settings for us
 			Cfg = new Config.Settings();
@@ -157,6 +160,14 @@ namespace Drapes {
 			// Exit
 			Application.Quit();
 		}
+
+        private void Shutdown(object sender, Gnome.SaveYourselfArgs args)
+        {
+            Console.WriteLine(Catalog.GetString("Notified of shutdown"));
+            
+            if (WpList != null)
+                WpList.SaveList(Config.Defaults.DrapesWallpaperList);
+        }
 	
 		private void ProcessArgs(string[] Args)
 		{
