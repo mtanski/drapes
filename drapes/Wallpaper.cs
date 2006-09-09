@@ -179,12 +179,17 @@ namespace Drapes
 						goto done; 
 				} else	// save mtime
 					mtime = CurrentMtime;
-				
-				// Not loaded
-				Pixbuf t = new Gdk.Pixbuf(filename);
-				w = t.Width;
-				h = t.Height;
-				t.Dispose();
+
+                try {
+                    // Not loaded
+                    Pixbuf t = new Gdk.Pixbuf(filename);
+                    w = t.Width;
+                    h = t.Height;
+                    t.Dispose();
+                // try to catch that random no data exception that will happen dude to inotify stuffs
+                } catch (GLib.GException e) {
+                    DrapesApp.WpList.RemoveFromList(file);
+                }
 				
 				// Try to generate a thumbnail
 				CreateThumnail();
