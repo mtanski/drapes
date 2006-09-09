@@ -172,11 +172,9 @@ namespace Drapes
 					// No sence doing anything else
 					return false;
 				}
-				
-				if (mtime != DateTime.MinValue) {
-					// We got info we need, save our selves sometime
-					if (mtime == CurrentMtime)
-						goto done; 
+
+                if (mtime == CurrentMtime) {
+                    goto done;
 				} else	// save mtime
 					mtime = CurrentMtime;
 
@@ -187,13 +185,14 @@ namespace Drapes
                     h = t.Height;
                     t.Dispose();
                 // try to catch that random no data exception that will happen dude to inotify stuffs
-                } catch (GLib.GException e) {
-                    DrapesApp.WpList.RemoveFromList(file);
+                } catch (GLib.GException) {
+                    DrapesApp.WpList.RemoveFromList(filename);
                 }
 				
 				// Try to generate a thumbnail
 				CreateThumnail();
-			}
+			} else
+                return true;
 
         done:
 			// We're done
@@ -236,7 +235,7 @@ namespace Drapes
         {
             get {
                 IO.FileInfo fp = new IO.FileInfo(filename);
-                return fp.LastWriteTimeUtc;
+                return fp.LastWriteTime;
             }
         }
         
@@ -334,11 +333,11 @@ namespace Drapes
 			Gnome.ThumbnailFactory t = new Gnome.ThumbnailFactory(ThumbnailSize.Normal);
 			
 			// failed thumb nails count
-			if (t.HasValidFailedThumbnail(filename, mtime))
+			if (t.HasValidFailedThumbnail(filename, CurrentMtime))
 				return true;
 			
 			// one exists	
-			string existing = t.Lookup(filename,  mtime);
+			string existing = t.Lookup(filename,  CurrentMtime);
 			if (existing != null)
 				return true;
 		
@@ -354,7 +353,7 @@ namespace Drapes
             ThumbCache.Dispose();
             ThumbCache = null;
         }
-		
+        
 		public bool CreateThumnail()
 		{
 			if (HasCurrentThumbnail() == true)
@@ -417,7 +416,7 @@ namespace Drapes
 
 			// for really small images, do our own resizing; hopefully there won't be too many
 			if (thumb.Width < x || thumb.Height < y) {
-				ThumbCache = thumb.ScaleSimple(x, y, Gdk.InterpType.Hyper);
+				ThumbCache = thumb.ScaleSimple(x, y, Gdk.InterpType.Bilinear);
             } else {
                 ThumbCache = Gnome.Thumbnail.ScaleDownPixbuf(thumb, x, y);
             }

@@ -57,10 +57,14 @@ namespace Drapes
 			}
 
 			Console.WriteLine(Catalog.GetString("Filesystem monitor on: {0} enabled"), DrapesApp.Cfg.MonitorDirectory);
-			
+            
 			FileNotify = new FileSystemWatcher(DrapesApp.Cfg.MonitorDirectory);
 			FileNotify.IncludeSubdirectories = true;
 			FileNotify.EnableRaisingEvents = true;
+
+            // types of changes to look for
+            FileNotify.NotifyFilter = NotifyFilters.CreationTime | NotifyFilters.DirectoryName | NotifyFilters.FileName
+                | NotifyFilters.LastWrite | NotifyFilters.Size;
 
 			// Events
 			FileNotify.Changed += FileNotifyEvent;
@@ -80,7 +84,7 @@ namespace Drapes
 			
 			switch (e.ChangeType) {
 			case WatcherChangeTypes.Changed:
-//				Console.WriteLine("File {0}, changed", e.FullPath);	this causes a lot of spam
+//				Console.WriteLine("File {0}, changed", e.FullPath); //	this causes a lot of spam
 				// Redo the thumbnail
 				w = this[e.FullPath];
 				if (w != null)
@@ -385,10 +389,14 @@ namespace Drapes
 				return;
 			
 			Wallpaper w = (Wallpaper) list [file];
-			w.Deleted = true;
+            if (w != null) {
+                w.Deleted = true;
+            }
 
 			// Remove from rotation
-			enabled.Remove(file);
+            try {
+                enabled.Remove(file);
+            } finally {}
 		}
 
 		public void WallpaperDeleted(string file)
