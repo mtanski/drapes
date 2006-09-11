@@ -560,6 +560,10 @@ namespace Drapes
 		{
 			Gtk.FileChooserButton d = (Gtk.FileChooserButton) sender;
 
+            // Infinite crazines, stops here!
+            if (d.Filename == DrapesApp.Cfg.MonitorDirectory)
+                return;
+            
 			// Update GConf settings
 			DrapesApp.Cfg.MonitorDirectory = d.Filename;
 		}
