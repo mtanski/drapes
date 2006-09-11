@@ -318,6 +318,7 @@ namespace Drapes
             ChooserType.SetCellDataFunc(fTypeText, renderer);
             ChooserType.SetCellDataFunc(fTypeImage, renderer);
 
+            // changed event is just going to be anonymous method
             ChooserType.Changed += delegate (object sender, EventArgs args)
             {
                 ComboBox cb = (ComboBox) sender;
@@ -331,9 +332,12 @@ namespace Drapes
                 }
             };
 
-            fc.ExtraWidget = ChooserType;
-//            fc.ExtraWidget = new HBox(true, 4);
-//            (fc.ExtraWidget as HBox).PackStart(ChooserType);
+            
+            fc.ExtraWidget = new HBox(false, 10);
+            (fc.ExtraWidget as HBox).PackEnd(ChooserType, false, false, 0);
+            (fc.ExtraWidget as HBox).PackEnd(new Label(Catalog.GetString("Import type:")), false, false, 0);
+
+            fc.ExtraWidget.ShowAll();
             
 			// Show the dialog
 			int r = fc.Run();
