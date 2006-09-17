@@ -147,12 +147,8 @@ namespace Drapes {
 		
 		public static void Quit()
 		{
-			// Stop any idle handlers
-			GLib.Idle.Remove(WpList.DelayedLoader);
-					
-			// Save changes to the list
-			if (WpList != null)
-				WpList.SaveList(Config.Defaults.DrapesWallpaperList);
+            // The list knows how to handle it's own clean up
+            WpList.Quit();
 			
 			// Shutdown the vfs subsystem
 			Vfs.Vfs.Shutdown();

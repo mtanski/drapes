@@ -37,7 +37,9 @@ namespace Drapes
 		private Hashtable               enabled    = new Hashtable();
 		// For "later" processing
 		private Queue                   processing = new Queue();
+        // inotify
 		private FileSystemWatcher       FileNotify = null;
+        private Queue                   changed    = new Queue();
 		
 		public WallPaperList(string file)
 		{
@@ -70,7 +72,6 @@ namespace Drapes
 			FileNotify.Changed += FileNotifyEvent;
 			FileNotify.Created += FileNotifyEvent;
 			FileNotify.Deleted += FileNotifyEvent;
-			FileNotify.Renamed += FileMovedNotifyEvent;
 		}
 
 		private void FileNotifyEvent (object sender, FileSystemEventArgs e)
@@ -85,10 +86,7 @@ namespace Drapes
 			switch (e.ChangeType) {
 			case WatcherChangeTypes.Changed:
 //				Console.WriteLine("File {0}, changed", e.FullPath); //	this causes a lot of spam
-				// Redo the thumbnail
-				w = this[e.FullPath];
-				if (w != null)
-					w.ForceLoadAttr();
+                FileChanged(e.FullPath);
 				break;
 			case WatcherChangeTypes.Created:
 				Console.WriteLine(Catalog.GetString("File {0}, created"), e.FullPath);
@@ -106,13 +104,6 @@ namespace Drapes
 				break;
 			}
 		}
-
-        private void FileMovedNotifyEvent(object sender, RenamedEventArgs args)
-        {
-            
-            
-            
-        }
 
 		public bool FileSystemMonitor
 		{
@@ -411,7 +402,44 @@ namespace Drapes
 			list.Remove(file);
 		}
 
-        public void Append(string file)
+        // Same as append but dosen't undelete files nor enable them
+        
+        private void FileChanged(string file)
+        {
+            Wallpaper w = (Wallpaper) list[file];
+
+            // if it's not in our list we realy don't care
+            if (w == null)
+                return;
+
+            // if it was previously deleted, ignore it
+            if (w.Deleted == true)
+                return;
+
+            // save our selves a lot of effort in the case of crazy inotify updates
+            if (w.Mtime == w.CurrentMtime)
+                return;
+
+            if (changed.Count < 1)
+                GLib.Idle.Add(DelayedChange);
+
+            changed.Enqueue(file);   
+        }
+
+        private bool DelayedChange()
+        {
+            // When files change, we don't need to be as aggresive at getting thigs done
+            // so do it slow one at a time
+            if (changed.Count == 0)
+                return false;
+
+            Wallpaper w = (Wallpaper) list[(string) changed.Dequeue()];
+            w.ForceLoadAttr();
+            
+            return true;
+        }
+
+        private void Append(string file)
         {
             // check if it's mime is an image
             string mime = Vfs.Mime.TypeFromName(file);
@@ -431,7 +459,7 @@ namespace Drapes
         
 		public void Append(Wallpaper w)
 		{
-			// Only start the loader if we really have nothing to do...
+			// Only start the loader if it was stoped
 			if (processing.Count < 1)
 				GLib.Idle.Add(DelayedLoader);
 			
@@ -466,7 +494,7 @@ namespace Drapes
                 Append(i.FullName);
         }
 
-		public bool DelayedLoader()
+		private bool DelayedLoader()
         {
 
             // Do two at a time to make it faster
@@ -534,6 +562,15 @@ namespace Drapes
 		{
 			return GetEnumerator();
 		}
-		
+
+        public void Quit()
+        {
+            // Stop the idle loader(s)
+            GLib.Idle.Remove(DelayedChange);
+            GLib.Idle.Remove(DelayedLoader);
+            
+            SaveList(Config.Defaults.DrapesWallpaperList);
+        }
+        
 	}
 }

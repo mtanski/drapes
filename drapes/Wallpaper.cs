@@ -184,7 +184,8 @@ namespace Drapes
                     w = t.Width;
                     h = t.Height;
                     t.Dispose();
-                // try to catch that random no data exception that will happen dude to inotify stuffs
+                // try to catch that random no data exception that will happen dude to inotify catching
+                // wallpapers that are created but are not filled with data (yet)
                 } catch (GLib.GException) {
                     DrapesApp.WpList.RemoveFromList(filename);
                 }
@@ -345,7 +346,7 @@ namespace Drapes
 			return false;
 		}
 
-        public void FlushThumbnail()
+        internal void FlushThumbnail()
         {
             if (ThumbCache == null)
                 return;
@@ -354,7 +355,7 @@ namespace Drapes
             ThumbCache = null;
         }
         
-		public bool CreateThumnail()
+		private bool CreateThumnail()
 		{
 			if (HasCurrentThumbnail() == true)
 				return true;
@@ -383,17 +384,20 @@ namespace Drapes
 			if (removed)
 				return null;
 
+            // Cached thumb nail? Just make sure it's current
+            if (ThumbCache != null && HasCurrentThumbnail() == true)
+                return ThumbCache;
+            else
+                ThumbCache = null;
+
 			// Attempt to create a new thumbnail (or at least check if there is an old valid one)
 			if (CreateThumnail() == false)
 				return null;
-
-            if (ThumbCache != null)
-                return ThumbCache;
         
 			ThumbnailFactory t = new ThumbnailFactory(ThumbnailSize.Normal);
 			
 			// Grab the thumb
-			existing = t.Lookup(filename, mtime);
+			existing = t.Lookup(filename, CurrentMtime);
 			Pixbuf thumb = new Pixbuf(existing);
 			
 			// Figure out the scale for previews
