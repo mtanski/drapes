@@ -174,7 +174,7 @@ namespace Drapes
         int DelayCounter = 0;
         private bool DelayedLoader()
         {
-            for (int i = DelayCounter * 5; i < (DelayCounter * 5) + 5; i++) {
+            for (int i = DelayCounter * 10; i < (DelayCounter * 10) + 10; i++) {
                 // are we done?
                 if (i >= DrapesApp.WpList.NumberBackgrounds)
                     return false;
@@ -593,7 +593,7 @@ namespace Drapes
 			Config.TimeDelay.Delay d = (Config.TimeDelay.Delay) Convert.ToInt32(t.Value);
 			DrapesApp.Cfg.SwitchDelay = d;
 		}
-		
+        
 		// Raise the focus of the window
 		public void RaiseWindow()
 		{
