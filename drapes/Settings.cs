@@ -96,8 +96,9 @@ namespace Drapes.Config
 		STYLE_CENTER = 0,
 		STYLE_FILL = 1,
 		STYLE_SCALE = 2,
-		STYLE_ZOOM = 3,
-		STYLE_TILED = 4,				// wtf? welcome back 1995
+        STYLE_TILED = 3,
+        STYLE_ZOOM = 4,				// wtf? welcome back 1995
+        // 5 - spacer in the menu
         STYLE_NONE = 6
 	}
 
