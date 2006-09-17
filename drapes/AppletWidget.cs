@@ -81,9 +81,9 @@ namespace Drapes
 		{
 			set {
 				if (value == true) {
-					this.Icon.SetFromIconName("drapes", IconSize.Menu);
+					this.Icon.SetFromIconName("drapes", IconSize.Button);
 				} else {
-					this.Icon.SetFromIconName("drapes", IconSize.Menu);
+					this.Icon.SetFromIconName("drapes", IconSize.Button);
 				}
 			}
 		}
