@@ -467,44 +467,49 @@ namespace Drapes
         }
 
 		public bool DelayedLoader()
-		{
-			// do we have anything to do
-			if (processing.Count == 0)
-				return false;
+        {
 
-			// Add it to the list of wallpapers
-			Wallpaper w = (Wallpaper) processing.Dequeue();
-
-			// Load attributes if not deleted
-			if (w.Deleted == false)
-				w.ForceLoadAttr();
-
-			// Readded a file
-			if (list.Contains(w.File)) {
-				Wallpaper old = (Wallpaper) list[w.File];
-				list[w.File] = w;
-
-				// When adding a wallpaper a second time make it enabled
-				if (enabled.ContainsKey(w.File) == false)
-					enabled.Add(w.File, w);
-
-				// Add it the list of wallpapers if it was previously removed
-				if (old.Deleted == true && DrapesApp.ConfigWindow != null)
-					DrapesApp.ConfigWindow.AddWallpaper(w.File);
-				
-			} else {
-				list.Add(w.File, w);
-
-				if (w.Deleted == false) {
-					// add it to the rotation
-					if (w.Enabled == true)
-						enabled.Add(w.File, w);
-					
-					// Should we add it to the window
-					if (DrapesApp.ConfigWindow != null)
-						DrapesApp.ConfigWindow.AddWallpaper(w.File);
-				}
-			}
+            // Do two at a time to make it faster
+            for (int i=0; i < 2; i++) {
+            
+    			// do we have anything to do
+    			if (processing.Count == 0)
+    				return false;
+    
+    			// Add it to the list of wallpapers
+    			Wallpaper w = (Wallpaper) processing.Dequeue();
+    
+    			// Load attributes if not deleted
+    			if (w.Deleted == false)
+    				w.ForceLoadAttr();
+    
+    			// Readded a file
+    			if (list.Contains(w.File)) {
+    				Wallpaper old = (Wallpaper) list[w.File];
+    				list[w.File] = w;
+    
+    				// When adding a wallpaper a second time make it enabled
+    				if (enabled.ContainsKey(w.File) == false)
+    					enabled.Add(w.File, w);
+    
+    				// Add it the list of wallpapers if it was previously removed
+    				if (old.Deleted == true && DrapesApp.ConfigWindow != null)
+    					DrapesApp.ConfigWindow.AddWallpaper(w.File);
+    				
+    			} else {
+    				list.Add(w.File, w);
+    
+    				if (w.Deleted == false) {
+    					// add it to the rotation
+    					if (w.Enabled == true)
+    						enabled.Add(w.File, w);
+    					
+    					// Should we add it to the window
+    					if (DrapesApp.ConfigWindow != null)
+    						DrapesApp.ConfigWindow.AddWallpaper(w.File);
+    				}
+    			}
+            }
 
 			return true;
 		}
