@@ -44,8 +44,8 @@
       <type>bool</type>
       <default>false</default>
       <locale name="C">
-        <short>Launch Desktop Drapes on login</short>
-        <long>Launch Desktop Drapes on login (only applies to the tray applet).</long>
+        <short>Switch wallpaper on start</short>
+        <long>When Drapes launches switch the wallpaper.</long>
       </locale>
     </schema>
 
