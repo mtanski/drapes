@@ -93,7 +93,7 @@ namespace Drapes {
 			
 			// tray Icon
 			if (AppletStyle == AppletStyle.APPLET_TRAY) {
-				new AppletWidget(AppletStyle);
+				new AppletWidget(AppletStyle, null);
 				this.Program.Run();
 			} else
 				_Gnome.PanelAppletFactory.Register(typeof (DrapesApplet));

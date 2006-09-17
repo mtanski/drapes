@@ -31,7 +31,7 @@ namespace Drapes
 {
 	public class DrapesApplet : PanelApplet
 	{
-		private AppletWidget		AppletIcon;
+		private AppletWidget		AppletIcon = null;
 		private BonoboUIVerb[]		MenuVerbs;
 		
 		public DrapesApplet(IntPtr raw)
@@ -54,9 +54,9 @@ namespace Drapes
 		{
 			// Filename of the menu xml file
 			string XmlFile = IO.Path.Combine(CompileOptions.GnomeXmlUiDir, "DrapesApplet.xml");
-
+            
 			// Create the applet icon
-			AppletIcon = new AppletWidget(AppletStyle.APPLET_PANEL);
+			AppletIcon = new AppletWidget(AppletStyle.APPLET_PANEL, (int) this.Size);
 			Add(AppletIcon);
 			ShowAll();
 			
@@ -78,11 +78,6 @@ namespace Drapes
 		private void ShowPreferences()
 		{
 			AppletIcon.ShowPrefrences();
-		}
-
-		protected override void OnChangeBackground(PanelAppletBackgroundType type, Gdk.Color color, Gdk.Pixmap pixmap)
-		{
-			
 		}
 	}
 }

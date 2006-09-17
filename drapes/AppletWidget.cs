@@ -36,15 +36,29 @@ namespace Drapes
 		private AppletStyle			AppletStyle;
 		private Gtk.Image			Icon;
 		private Tooltips			Tooltips;
-		
-		public AppletWidget(AppletStyle style)
+        private Gnome.IconTheme     Theme = new Gnome.IconTheme();
+        //
+        private int                 height;
+        
+		public AppletWidget(AppletStyle style, int? size)
 		{
 			// Tooltips
 			Tooltips = new Tooltips();
 			Tooltips.SetTip(this, Catalog.GetString("Deskop Drapes, click to switch wallpaper"), null);
+
+            Theme.AllowSvg = true;
+            if (style == AppletStyle.APPLET_PANEL) {
+                height = 22;    // for now this always 22 since the gnome-panel lies to us, what an asshole
+            } else {
+                height = 22;
+            }
+
+            int i;
+            Console.WriteLine(Theme.LookupIcon("drapes", height, Gnome.IconData.Zero, out i));
             
 			// Create the icon
-			Icon = new Image();
+            int outsize;
+			Icon = new Image(new Gdk.Pixbuf(Theme.LookupIcon("drapes", height, Gnome.IconData.Zero, out outsize), height, height, true));
             Add(Icon);
 
 			// Set enabled status
@@ -69,7 +83,7 @@ namespace Drapes
 			NotificationIcon.Add(this);
 			NotificationIcon.ShowAll();
 		}
-
+        
 		public AppletStyle AppletType
 		{
 			get {
@@ -80,11 +94,11 @@ namespace Drapes
 		public bool Enabled
 		{
 			set {
-				if (value == true) {
-					this.Icon.SetFromIconName("drapes", IconSize.Button);
-				} else {
-					this.Icon.SetFromIconName("drapes", IconSize.Button);
-				}
+//				if (value == true) {
+//					this.Icon.SetFromIconName("drapes", IconSize.Button);
+//				} else {
+//					this.Icon.SetFromIconName("drapes", IconSize.Button);
+//				}
 			}
 		}
 
