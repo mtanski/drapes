@@ -1,4 +1,4 @@
-# French translation for drapes
+# Swedish translation for drapes
 # Copyright (c) (c) 2006 Canonical Ltd, and Rosetta Contributors 2006
 # This file is distributed under the same license as the drapes package.
 # FIRST AUTHOR <EMAIL@ADDRESS>, 2006.
@@ -9,9 +9,9 @@ msgstr ""
 "Project-Id-Version: drapes\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2006-09-17 12:21-0400\n"
-"PO-Revision-Date: 2006-09-08 20:34+0000\n"
-"Last-Translator: Nicolas Velin <nsv@fr.st>\n"
-"Language-Team: French <fr@li.org>\n"
+"PO-Revision-Date: 2006-09-16 08:50+0000\n"
+"Last-Translator: Daniel Nylander <po@danielnylander.se>\n"
+"Language-Team: Swedish <sv@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -19,187 +19,184 @@ msgstr ""
 #: ../data/DrapesApplet.server.in.h:1 ../data/drapes.desktop.in.h:1
 #: ../data/drapes.glade.h:5
 msgid "Desktop Drapes"
-msgstr "Desktop Drapes"
+msgstr "Skrivbordsdraperier"
 
 #: ../data/DrapesApplet.server.in.h:2
 msgid "Rotate desktop wallpapers"
-msgstr "Tourner les fonds d'écran"
+msgstr "Vänd skrivbordsbakgrund"
 
 #: ../data/DrapesApplet.xml.h:1
 msgid "_Preferences"
-msgstr "_Préférences"
+msgstr "_Inställningar"
 
 #: ../data/DrapesApplet.xml.h:2
 msgid "_Shuffle Periodicaly"
-msgstr "_Changement Aléatoire"
+msgstr "_Blanda periodiskt"
 
 #. Switch to another wallpaper
 #: ../data/DrapesApplet.xml.h:3 ../drapes/AppletWidget.cs:137
 msgid "_Switch"
-msgstr "_Changer"
+msgstr "_Växla"
 
 #: ../data/drapes.desktop.in.h:2
 msgid "Manage your desktop wallpapers"
-msgstr "Gérer vos fonds d'écran"
+msgstr "Hantera dina skrivbordsbakgrunder"
 
 #: ../data/drapes.glade.h:1
 msgid "<b>Startup options</b>"
-msgstr "<b>Options de démarrage</b>"
+msgstr "<b>Uppstartsalternativ</b>"
 
 #: ../data/drapes.glade.h:2
 msgid "<b>Timing selection</b>"
-msgstr "<b>Durée d'affichage</b>"
+msgstr "<b>Val av tider</b>"
 
 #: ../data/drapes.glade.h:3
 msgid "<b>Wallpaper search directory</b>"
-msgstr "<b>Répertoire de recherche de fonds d'écran</b>"
+msgstr "<b>Sökkatalog för bakgrundsbilder</b>"
 
 #: ../data/drapes.glade.h:4
 msgid "Close"
-msgstr "Fermer"
+msgstr "Stäng"
 
 #: ../data/drapes.glade.h:6
 msgid "Display"
-msgstr "Affichage"
+msgstr "Visa"
 
 #: ../data/drapes.glade.h:7
 msgid "General"
-msgstr "Général"
+msgstr "Allmänt"
 
 #: ../data/drapes.glade.h:8
 msgid "Monitor this directory for new wallpapers"
-msgstr "Surveiller l'apparition de nouveaux fonds d'écran dans ce répertoire"
+msgstr "Övervaka denna katalog för nya bakgrundsbilder"
 
 #: ../data/drapes.glade.h:9
 msgid "Select A File"
-msgstr "Sélectionner un fichier"
+msgstr "Välj en fil"
 
 #: ../data/drapes.glade.h:10
 msgid "Start Desktop Drapes on start"
-msgstr "Lancer Desktop Drapes au démarrage"
+msgstr "Starta Skrivbordsdraperier vid uppstart"
 
 #: ../data/drapes.glade.h:11
 msgid "Style: "
-msgstr "Style: "
+msgstr "Stil: "
 
 #: ../data/drapes.glade.h:12
 msgid "Switch wallpaper on start"
-msgstr "Changer de fond d'écran au démarrage"
+msgstr "Växla bakgrundsbild vid uppstart"
 
 #: ../data/drapes.schemas.in.h:1
 msgid "Allow drapes to periodicaly shuffle the wallpapers"
-msgstr "Autoriser drapes à changer aléatoirement les fond d'écran"
+msgstr "Tillåt draperier att periodvis blanda bakgrundsbilderna"
 
 #: ../data/drapes.schemas.in.h:2
 msgid "Directory to monitor"
-msgstr "Répertoire à surveiller"
+msgstr "Katalog att övervaka"
 
 #: ../data/drapes.schemas.in.h:3
 msgid "Launch Desktop Drapes on login"
-msgstr "Lancer Desktop Drapes à la connexion"
+msgstr "Starta Skrivbordsdraperier vid inloggning"
 
 #: ../data/drapes.schemas.in.h:4
 msgid "Launch Desktop Drapes on login (only applies to the tray applet)."
 msgstr ""
-"Lancer Desktop Drapes à la connexion (uniquement pour l'applet de la zone de "
-"notification)"
+"Starta Skrivbordsdraperier vid inloggning (gäller endast för "
+"panelprogrammet)."
 
 #: ../data/drapes.schemas.in.h:5
 msgid "Monitor directory for new wallapers"
-msgstr "Surveiller le répertoire pour les nouveaux fonds d'écran"
+msgstr "Övervaka katalog för nya bakgrundsbilder"
 
 #: ../data/drapes.schemas.in.h:6
 msgid ""
 "Monitor the specified directory using inotify for new wallpapers and changes."
 msgstr ""
-"Surveiller le dossier spécifié en indiquant les nouveaux fonds d'écran et "
-"changements par infobulle"
+"Övervaka den angivna katalogen med inotify för nya bakgrundsbilder och "
+"ändringar."
 
 #: ../data/drapes.schemas.in.h:7
 msgid ""
 "Possible values are 0: 5 min, 1: 10 min, 2: 15 min, 3: 20 min, 4: 30 min, 5: "
 "45 min, 6: 60 min, 7: 90 min, 8: 120min, 10: never."
 msgstr ""
-"Les valeurs possibles sont  0: 5 min, 1: 10 min, 2: 15 min, 3: 20 min, 4: 30 "
-"min, 5: 45 min, 6: 60 min, 7: 90 min, 8: 120min, 10: jamais."
+"Möjliga värden är 0: 5 min, 1: 10 min, 2: 15 min, 3: 20 min, 4: 30 min, 5: "
+"45 min, 6: 60 min, 7: 90 min, 8: 120min, 10: aldrig."
 
 #: ../data/drapes.schemas.in.h:8
 msgid "The directory that is to be monitored for changes using inotify."
-msgstr ""
-"Le répertoire dont les changements doivent être surveillés et indiqués par "
-"infobulles"
+msgstr "Katalogen som kommer att övervakas för ändringar med inotify."
 
 #: ../data/drapes.schemas.in.h:9
 msgid "This setting is used to tempoarly disable wallpaper switching"
 msgstr ""
-"Ce paramètre est utilisé pour désactiver temporairement le changement de "
-"fond d'écran"
+"Denna inställning används för att temporärt inaktivera växling av "
+"bakgrundsbild"
 
 #: ../data/drapes.schemas.in.h:10
 msgid "Time delay between wallpaper changes"
-msgstr "Délai de changement de fond d'écran"
+msgstr "Tidsrum mellan byte av bakgrundsbild"
 
 #: ../drapes/AppletWidget.cs:44
 msgid "Deskop Drapes, click to switch wallpaper"
-msgstr "Desktop Drapes, cliquer pour changer de fond d'écran"
+msgstr "Skrivbordsdraperier, klicka för att växla bakgrundsbild"
 
 #. Enabled
 #: ../drapes/AppletWidget.cs:145
 msgid "Shuffle periodicaly"
-msgstr "Changement aléatoire"
+msgstr "Blanda periodvis"
 
 #. Configuration
 #: ../drapes/AppletWidget.cs:154
 msgid "Preferences"
-msgstr "Préférences"
+msgstr "Inställningar"
 
 #. Quit
 #: ../drapes/AppletWidget.cs:162
 msgid "_Quit"
-msgstr "_Quitter"
+msgstr "_Avsluta"
 
 #: ../drapes/ConfigMenu.cs:75
 msgid "This option is only valid when using the notification tray"
-msgstr ""
-"Cette option est uniquement accessible en utilisant la zone de notification"
+msgstr "Detta alternativ är endast giltigt när notifieringsbrickan används"
 
 #: ../drapes/ConfigMenu.cs:112
 msgid "selection"
-msgstr "sélection"
+msgstr "val"
 
 #. The various "sorters"
 #: ../drapes/ConfigMenu.cs:145
 msgid "Perfect fit"
-msgstr "Taille idéale"
+msgstr "Perfekt passning"
 
 #: ../drapes/ConfigMenu.cs:146
 msgid "Regular 4:3"
-msgstr "4:3"
+msgstr "Vanlig 4:3"
 
 #: ../drapes/ConfigMenu.cs:147
 msgid "Widescreen"
-msgstr "16:9"
+msgstr "Bredbild"
 
 #: ../drapes/ConfigMenu.cs:148
 msgid "Other"
-msgstr "Autre"
+msgstr "Övrigt"
 
 #: ../drapes/ConfigMenu.cs:150 ../drapes/ConfigMenu.cs:151
 #: ../drapes/ConfigMenu.cs:152 ../drapes/ConfigMenu.cs:153
 msgid "<i>No wallpapers present</i>"
-msgstr "<i>Aucun fond d'écran présent</i>"
+msgstr "<i>Ingen bakgrundsbild finns</i>"
 
 #: ../drapes/ConfigMenu.cs:275
 msgid "Add wallpaper"
-msgstr "Ajouter un fond d'écran"
+msgstr "Lägg till bakgrundsbild"
 
 #: ../drapes/ConfigMenu.cs:295
 msgid "Images"
-msgstr ""
+msgstr "Bilder"
 
 #: ../drapes/ConfigMenu.cs:296
 msgid "Directory"
-msgstr ""
+msgstr "Katalog"
 
 #: ../drapes/ConfigMenu.cs:338
 msgid "Import type:"
@@ -207,39 +204,39 @@ msgstr ""
 
 #: ../drapes/ConfigMenu.cs:460 ../drapes/ConfigMenu.cs:501
 msgid "Unknown column"
-msgstr "Colonne inconnue"
+msgstr "Okänd kolumn"
 
 #: ../drapes/ConfigMenu.cs:491
 #, csharp-format
 msgid "{0} x {1} pixels"
-msgstr "{0} x {1} pixels"
+msgstr "{0} x {1} bildpunkter"
 
 #: ../drapes/ConfigMenu.cs:527
 #, csharp-format
 msgid "Switching wallpaper to: {0})"
-msgstr ""
+msgstr "Byter bakgrundsbild till: {0})"
 
 #: ../drapes/ConfigMenu.cs:529
 #, csharp-format
 msgid "Not activating {0}, disabled"
-msgstr ""
+msgstr "Aktiverar inte {0}, inaktiverad"
 
 #: ../drapes/Main.cs:79
 msgid "Importing Gnome's background list"
-msgstr "Importation de la liste de fonds d'écran de gnome"
+msgstr "Importerar bakgrundslista från Gnome"
 
 #: ../drapes/Main.cs:85
 msgid "Opening wallpaper list"
-msgstr "Ouverture de la liste de fonds d'écran"
+msgstr "Öppnar lista över bakgrundsbilder"
 
 #: ../drapes/Main.cs:142
 #, csharp-format
 msgid "Wallpaper switch to: {0}"
-msgstr "Changement de fond d'écran: {0}"
+msgstr "Byter bakgrundsbild till: {0}"
 
 #: ../drapes/Main.cs:144
 msgid "Wallpaper switch failed; No wallpapers?"
-msgstr "Erreur de changement de fond d'écran; Aucun fond d'écran?"
+msgstr "Byte av bakgrundsbild misslyckades; Inga bakgrundsbilder?"
 
 #: ../drapes/Main.cs:166
 msgid "Notified of shutdown"
@@ -248,160 +245,137 @@ msgstr ""
 #: ../drapes/Main.cs:180
 #, csharp-format
 msgid "Sorry unknow argument: {0}"
-msgstr "Désolé argument inconnu: {0}"
+msgstr "Tyvärr, okänt argument: {0}"
 
 #: ../drapes/Settings.cs:36
 msgid "5 minutes"
-msgstr "5 minutes"
+msgstr "5 minuter"
 
 #: ../drapes/Settings.cs:38
 msgid "10 minutes"
-msgstr "10 minutes"
+msgstr "10 minuter"
 
 #: ../drapes/Settings.cs:40
 msgid "15 minutes"
-msgstr "15 minutes"
+msgstr "15 minuter"
 
 #: ../drapes/Settings.cs:42
 msgid "20 minutes"
-msgstr "20 minutes"
+msgstr "20 minuter"
 
 #: ../drapes/Settings.cs:44
 msgid "30 minutes"
-msgstr "30 minutes"
+msgstr "30 minuter"
 
 #: ../drapes/Settings.cs:46
 msgid "45 minutes"
-msgstr "45 minutes"
+msgstr "45 minuter"
 
 #: ../drapes/Settings.cs:48
 msgid "1 hour"
-msgstr "1 heure"
+msgstr "1 timme"
 
 #: ../drapes/Settings.cs:50
 msgid "1 hour 30 minutes"
-msgstr "1 heure 30 minutes"
+msgstr "1 timme 30 minuter"
 
 #: ../drapes/Settings.cs:52
 msgid "2 hours"
-msgstr "2 heures"
+msgstr "2 timmar"
 
 #: ../drapes/Settings.cs:55
 msgid "Never"
-msgstr "Jamais"
+msgstr "Aldrig"
 
 #: ../drapes/Settings.cs:382
 #, csharp-format
 msgid "Cannot toggle autostart, reason: {0}"
-msgstr "Chargement au démarrage impossible, raison: {0}"
+msgstr "Kan inte växla automatisk start, anledning: {0}"
 
 #: ../drapes/Settings.cs:413
 #, csharp-format
 msgid "Unknown GConf key: {0}"
-msgstr "Clé GConf inconnue: {0}"
+msgstr "Okänd GConf-nyckel: {0}"
 
 #: ../drapes/Wallpaper.cs:171
 #, csharp-format
 msgid "Cannot find file: {0}"
-msgstr "Fichier introuvable: {0}"
+msgstr "Kan inte hitta filen: {0}"
 
 #: ../drapes/Wallpaper.cs:366
 #, csharp-format
 msgid "Cannot create thumbnail for: {0}"
-msgstr "Erreur lors de la création de la miniature de : {0}"
+msgstr "Kan inte skapa miniatyrbild för: {0}"
 
 #: ../drapes/WpList.cs:55 ../drapes/WpList.cs:135
 #, csharp-format
 msgid "Monitor Directory: {0} dosen't exist"
-msgstr "Le répertoire surveillé: {0} n'existe pas"
+msgstr "Övervakningskatalog: {0} finns inte"
 
 #: ../drapes/WpList.cs:59
 #, csharp-format
 msgid "Filesystem monitor on: {0} enabled"
-msgstr "Surveillance du répertoire: {0} en fonction"
+msgstr "Filsystemsövervakare på: {0} aktiverad"
 
 #: ../drapes/WpList.cs:94
 #, csharp-format
 msgid "File {0}, created"
-msgstr "Fichier {0}, créé"
+msgstr "Filen {0}, skapad"
 
 #: ../drapes/WpList.cs:101
 #, csharp-format
 msgid "File {0}, deleted"
-msgstr "Fichier {0}, supprimé"
+msgstr "Filen {0}, borttagen"
 
 #: ../drapes/WpList.cs:105
 #, csharp-format
 msgid "Unknow file event {0}"
-msgstr "Evènement fichier {0} inconnu"
+msgstr "Okänd filhändelse {0}"
 
 #: ../drapes/WpList.cs:126
 msgid "Filesystem monitor disabled"
-msgstr "Surveillance du répertoire désactivée"
+msgstr "Filsystemsövervakning inaktiverad"
 
 #: ../drapes/WpList.cs:140
 #, csharp-format
 msgid "Changing monitor directory to: {0}"
-msgstr "Changement du répertoire surveillé à: {0}"
+msgstr "Ändrar övervakningskatalog till: {0}"
 
 #: ../drapes/WpList.cs:149
 #, csharp-format
 msgid "No such file: {0}"
-msgstr "Aucun fichier: {0}"
+msgstr "Ingen sådan fil: {0}"
 
 #: ../drapes/WpList.cs:159
 #, csharp-format
 msgid "Unable to open file {0} because:"
-msgstr "Ouverture du fichier {0} impossible car:"
+msgstr "Kunde inte öppna filen {0} därför att:"
 
 #: ../drapes/WpList.cs:212
 #, csharp-format
 msgid "Unknow element: {0}"
-msgstr "Elément inconnu: {0}"
+msgstr "Okänt element: {0}"
 
 #: ../drapes/WpList.cs:253
 msgid "Something bad happened last time, opening as far as we can..."
-msgstr ""
-"Un problème est survenu la dernière fois, lancement dans la mesure du "
-"possible..."
+msgstr "Någonting felaktigt hände förra gången, öppnar så långt vi kan..."
 
 #: ../drapes/WpList.cs:313
 #, csharp-format
 msgid "Wallpaper list file {0} saved"
-msgstr "Liste de fonds d'écran {0} sauvegardée"
+msgstr "Listfil över bakgrundsbilder {0} sparades"
 
 #: ../drapes/WpList.cs:423
 #, csharp-format
 msgid "Adding wallpaper file: {0}"
-msgstr "Ajout d'un fond d'écran: {0}"
+msgstr "Lägger till bakgrundsbildfil: {0}"
 
 #: ../drapes/WpList.cs:451
-#, fuzzy, csharp-format
+#, csharp-format
 msgid "No such directory: {0}"
-msgstr "Aucun fichier: {0}"
+msgstr "Ingen sådan katalog: {0}"
 
 #: ../drapes/WpList.cs:461
 #, csharp-format
 msgid "Parsing subdir {0}"
-msgstr ""
-
-#~ msgid "Centered"
-#~ msgstr "Centré"
-
-#~ msgid "Fill Screen"
-#~ msgstr "Remplir l'écran"
-
-#~ msgid "Scaled"
-#~ msgstr "Mettre à l'échelle"
-
-#~ msgid "Zoom"
-#~ msgstr "Zoom"
-
-#~ msgid "Tiled"
-#~ msgstr "Mosaïque"
-
-#~ msgid "This is only valid when using the notification tray"
-#~ msgstr "Cela est seulement possible en utilisant la zone de notification"
-
-#~ msgid "Unknow column"
-#~ msgstr "Colonne inconnue"
+msgstr "Tolkar underkatalog {0}"
