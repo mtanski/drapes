@@ -1,3 +1,5 @@
+#pragma warning disable 169
+
 namespace _Gnome {
 
 	using System;

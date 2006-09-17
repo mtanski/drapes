@@ -1,3 +1,5 @@
+#pragma warning disable 169
+
 using System;
 using System.Runtime.InteropServices;
 
