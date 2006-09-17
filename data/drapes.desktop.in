@@ -4,5 +4,6 @@ _Name=Desktop Drapes
 _Comment=Manage your desktop wallpapers
 Exec=drapes --tray
 Type=Application
+Icon=drapes
 StartupNotify=false
 Categories=GNOME;Applications;Graphics

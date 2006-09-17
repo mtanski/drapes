@@ -1,3 +1,4 @@
+Code:
 Milosz Tanski - Idea, application, maintainer.
 Andrew J. Forgue - Panel applet idea, and original panel applet code.
 Alex Graveley - Custom (non-broken) panelapplet bindings.
@@ -7,6 +8,10 @@ The custom panelapplet bindings where taken from the Tomboy project, Alex Gravel
 
 Documentation:
 * Derek Vandivere - derek@vandivere.net - original doc book work
+
+Purtty icons:
+* Lapo Calamandrei - calamandrei@gmail.com - Did all the icon work to date.
+* Luca Ferretti - his icons were used as a basis for Lapo's icons
 
 Translators:
 * Alejandro Leon Vega - alejandroleonvega@gmail.com (es)

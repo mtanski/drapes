@@ -41,3 +41,6 @@ CLEANFILES = \
 DISTCLEANFILES = \
 	*.gladep*				\
 	*.glade.*
+
+SUBDIRS = \
+	images

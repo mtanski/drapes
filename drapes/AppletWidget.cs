@@ -42,10 +42,10 @@ namespace Drapes
 			// Tooltips
 			Tooltips = new Tooltips();
 			Tooltips.SetTip(this, Catalog.GetString("Deskop Drapes, click to switch wallpaper"), null);
-			
+            
 			// Create the icon
-			Icon = new Image((string) null, IconSize.Menu);
-			Add(Icon);
+			Icon = new Image();
+            Add(Icon);
 
 			// Set enabled status
 			Enabled = DrapesApp.Cfg.ShuffleEnabled;
@@ -81,9 +81,9 @@ namespace Drapes
 		{
 			set {
 				if (value == true) {
-					this.Icon.SetFromStock(Stock.ColorPicker, IconSize.Menu);
+					this.Icon.SetFromIconName("drapes", IconSize.Menu);
 				} else {
-					this.Icon.SetFromStock(Stock.Cancel, IconSize.Menu);
+					this.Icon.SetFromIconName("drapes", IconSize.Menu);
 				}
 			}
 		}
