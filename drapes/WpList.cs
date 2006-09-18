@@ -252,9 +252,7 @@ namespace Drapes
 		}
 		
 		public bool SaveList(string file)
-		{
-            Console.WriteLine(file);
-            
+		{   
 			XmlTextWriter xml = new XmlTextWriter(file, null);
 			xml.Formatting = Formatting.Indented;
 			xml.Namespaces = false;

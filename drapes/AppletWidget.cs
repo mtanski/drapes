@@ -52,9 +52,6 @@ namespace Drapes
             } else {
                 height = 22;
             }
-
-            int i;
-            Console.WriteLine(Theme.LookupIcon("drapes", height, Gnome.IconData.Zero, out i));
             
 			// Create the icon
             int outsize;
