@@ -44,7 +44,9 @@ namespace Drapes
 			
 			// the window it self
 			winPref.DeleteEvent += OnWindowDelete;
-			
+
+            // help button
+            btnHelp.Clicked += onHelpButtonClick;
 			// add/remove wallpaper buttons
 			btnRemove.Clicked += onRemoveButtonClick;	
 			btnAdd.Clicked += onAddButtonClick;
@@ -233,6 +235,8 @@ namespace Drapes
 		[Widget] CheckButton		cbtStartSwitch;
 		[Widget] CheckButton		cbtMonitor;
 		[Widget] FileChooserButton	fcbDir;
+        // help
+        [Widget] Button             btnHelp;
 		// Add/Remove Style
 		[Widget] Button				btnAdd;
 		[Widget] Button				btnRemove;
@@ -249,8 +253,16 @@ namespace Drapes
 		Gtk.TreeIter				tiAsp43;
 		Gtk.TreeIter				tiAspWide;
 		Gtk.TreeIter				tiAspMisc;
-        
 
+        
+        private void onHelpButtonClick(object sender, EventArgs args)
+        {
+            // So we execture gnome-help by hand, instead of calling the right Gnome.Help.whatever method
+            // cause of a bug in Gnome# where it wasn't compiled with the right gnome paths, and it just
+            // caused an excetion and craps out... 
+            System.Diagnostics.Process.Start("gnome-help", CompileOptions.HelpFile);
+        } 
+        
 		// Update gnome wallaper style
 		private void onStyleChanged(object sender, EventArgs args)
 		{

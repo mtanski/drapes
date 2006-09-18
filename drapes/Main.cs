@@ -55,6 +55,7 @@ namespace Drapes {
 			
 			// 
 			Program = new Gnome.Program("Drapes", CompileOptions.Version, Gnome.Modules.UI, args);
+
             Client = new Gnome.Client();
             Client.SaveYourself += Shutdown;
 			

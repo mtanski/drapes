@@ -15,6 +15,7 @@ AssemblyInfo.cs: $(srcdir)/AssemblyInfo.cs.in Makefile
 	sed -e "s,[@]ASM_VERSION/[@],$(ASM_VERSION),"		\
 	    -e "s,[@]datadir/[@],$(datadir),"				\
 		-e "s,[@]version/[@],$(VERSION),"				\
+		-e "s,[@]helpdir/[@],$(HELP_DIR),"				\
 	    < $< > $@
 
 drapes_sources_in = $(srcdir)/AssemblyInfo.cs.in

@@ -742,7 +742,7 @@
 	      <property name="spacing">0</property>
 
 	      <child>
-		<widget class="GtkButton" id="btnGelp">
+		<widget class="GtkButton" id="btnHelp">
 		  <property name="visible">True</property>
 		  <property name="can_default">True</property>
 		  <property name="can_focus">True</property>

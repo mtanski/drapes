@@ -40,7 +40,13 @@ namespace Drapes
 		private static string version = "@version/@";
 		private static string gnome_ui_dir = "@datadir/@/gnome-2.0/ui";
 		private static string gnome_locale_dir = "@datadir/@/locale";
+		private static string help_file = "@helpdir/@/drapes/C/drapes.xml";
 		
+		public static string HelpFile
+		{
+			get { return help_file; }
+		}
+
 		public static string GnomeXmlUiDir
 		{
 			get { return gnome_ui_dir; }
