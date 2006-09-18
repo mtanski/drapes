@@ -40,8 +40,8 @@ uninstall-hook:
 	rm -f $(DESTDIR)$(hicolordir)/scalable/apps/drapes.svg
 	rm -f $(DESTDIR)$(hicolordir)/16x16/apps/drapes.png
 	rm -f $(DESTDIR)$(hicolordir)/22x22/apps/drapes.png
-	rm -f $(DESTDIR)$(hicolordir)/24x22/apps/drapes.png
-	rm -f $(DESTDIR)$(hicolordir)/32x22/apps/drapes.png
+	rm -f $(DESTDIR)$(hicolordir)/24x24/apps/drapes.png
+	rm -f $(DESTDIR)$(hicolordir)/32x32/apps/drapes.png
 	rm -f $(DESTDIR)$(hicolordir)/48x48/apps/drapes.png
 
 noinst_DATA = 				\
