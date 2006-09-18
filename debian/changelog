@@ -1,3 +1,9 @@
+drapes (0.4.97) dapper; urgency=low
+
+  * Updated to upstream.
+
+ -- Milosz Tanski <mtanski@gmail.com>  Sun, 17 Sep 2006 20:17:43 -0400
+
 drapes (0.4.96-bzr2) UNRELEASED; urgency=low
 
   * Testing version without the random debugging messages.

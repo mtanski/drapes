@@ -1,3 +1,16 @@
+Version 0.4.97 - "Baby I've changed; I promise I have less bugs"
+  * We got icons thanks to lapo.
+  * And also we got documentation.
+  * Preformance on large collections should also be better.
+  * You can add directories or files, from the Add chooser.
+  * Drapes (now should) save it self when it gets a signal for shutdown/log off.
+    Meaning it should save it's preferences file. 
+  * Debian package for every platform.
+  * debs have all the dependencies now (i hope).
+  * Translations not showing up fixed.
+  * More & more complete translations.
+  * Drapes dosen't randomly eat massive ammounts of resources anymore.
+
 Version 0.4.96 - "Still no icon"
   * Fixes...
   * Finaly a release.
