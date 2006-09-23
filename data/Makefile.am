@@ -1,7 +1,7 @@
 serverdir = $(libdir)/bonobo/servers
 server_in_files = DrapesApplet.server.in
 server_DATA = $(server_in_files:.server.in=.server)
-$(server_in_files): $(srcdir)/DrapesApplet.server.in.in Makefile
+$(server_in_files): $(server_in_files:.server.in=.server.in.in) Makefile
 	sed -e 's,[@]bindir/[@],$(bindir),'       \
 	    < $< > $@
 @INTLTOOL_SERVER_RULE@
@@ -26,10 +26,10 @@ install-data-local: $(schema_DATA)
 endif
 
 EXTRA_DIST = \
-	$(schema_in_files)	\
-	$(server_in_files)	\
-	$(menuxml_DATA)		\
-	$(desktop_in_files)	\
+	DrapesApplet.server.in.in	\
+	$(schema_in_files)			\
+	$(menuxml_DATA)				\
+	$(desktop_in_files)			\
 	drapes.glade
 
 CLEANFILES = \
@@ -39,6 +39,9 @@ CLEANFILES = \
 	drapes.desktop
 
 DISTCLEANFILES = \
+	$(server_in_files)		\
+	$(schema_DATA)			\
+	$(desktop_DATA)			\
 	*.gladep*				\
 	*.glade.*
 
