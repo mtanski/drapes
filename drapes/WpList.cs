@@ -95,7 +95,10 @@ namespace Drapes
 				w.Enabled = true;
 				Append(w);
 				break;
-			case WatcherChangeTypes.Deleted:
+            case WatcherChangeTypes.Deleted:
+                // ignore image files not in our "db"
+                if (list.Contains(e.FullPath) == false)
+                    break;
 				Console.WriteLine(Catalog.GetString("File {0}, deleted"), e.FullPath);
 				WallpaperDeleted(e.FullPath);
 				break;
