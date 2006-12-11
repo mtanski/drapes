@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: drapes\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2006-09-07 14:45-0400\n"
+"POT-Creation-Date: 2006-12-11 13:59-0500\n"
 "PO-Revision-Date: 2006-07-28 22:22+0000\n"
 "Last-Translator: Luiz Augusto <lugusto@gmail.com>\n"
 "Language-Team: Portuguese (Brazil) <pt_BR@li.org>\n"
@@ -16,12 +16,12 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 
-#: ../data/DrapesApplet.server.in.h:1 ../data/drapes.desktop.in.h:1
+#: ../data/DrapesApplet.server.in.in.h:1 ../data/drapes.desktop.in.h:1
 #: ../data/drapes.glade.h:5
 msgid "Desktop Drapes"
 msgstr "Desktop Drapes"
 
-#: ../data/DrapesApplet.server.in.h:2
+#: ../data/DrapesApplet.server.in.in.h:2
 msgid "Rotate desktop wallpapers"
 msgstr ""
 
@@ -34,7 +34,7 @@ msgid "_Shuffle Periodicaly"
 msgstr ""
 
 #. Switch to another wallpaper
-#: ../data/DrapesApplet.xml.h:3 ../drapes/AppletWidget.cs:137
+#: ../data/DrapesApplet.xml.h:3 ../drapes/AppletWidget.cs:148
 msgid "_Switch"
 msgstr ""
 
@@ -82,7 +82,7 @@ msgstr "Abrir Desktop Drapes ao iniciar o sistema"
 msgid "Style: "
 msgstr "Estilo: "
 
-#: ../data/drapes.glade.h:12
+#: ../data/drapes.glade.h:12 ../data/drapes.schemas.in.h:6
 msgid "Switch wallpaper on start"
 msgstr "Trocar o papel de parede ao iniciar"
 
@@ -96,140 +96,143 @@ msgstr ""
 
 #: ../data/drapes.schemas.in.h:3
 #, fuzzy
-msgid "Launch Desktop Drapes on login"
-msgstr "Abrir Desktop Drapes ao iniciar o sistema"
-
-#: ../data/drapes.schemas.in.h:4
-msgid "Launch Desktop Drapes on login (only applies to the tray applet)."
-msgstr ""
-
-#: ../data/drapes.schemas.in.h:5
-#, fuzzy
 msgid "Monitor directory for new wallapers"
 msgstr "Monitore este diretório para novos papéis de parede"
 
-#: ../data/drapes.schemas.in.h:6
+#: ../data/drapes.schemas.in.h:4
 #, fuzzy
 msgid ""
 "Monitor the specified directory using inotify for new wallpapers and changes."
 msgstr "Monitore este diretório para novos papéis de parede"
 
-#: ../data/drapes.schemas.in.h:7
+#: ../data/drapes.schemas.in.h:5
 msgid ""
 "Possible values are 0: 5 min, 1: 10 min, 2: 15 min, 3: 20 min, 4: 30 min, 5: "
 "45 min, 6: 60 min, 7: 90 min, 8: 120min, 10: never."
 msgstr ""
 
-#: ../data/drapes.schemas.in.h:8
+#: ../data/drapes.schemas.in.h:7
 msgid "The directory that is to be monitored for changes using inotify."
 msgstr ""
 
-#: ../data/drapes.schemas.in.h:9
+#: ../data/drapes.schemas.in.h:8
 msgid "This setting is used to tempoarly disable wallpaper switching"
 msgstr ""
 
-#: ../data/drapes.schemas.in.h:10
+#: ../data/drapes.schemas.in.h:9
 msgid "Time delay between wallpaper changes"
 msgstr ""
 
-#: ../drapes/AppletWidget.cs:44
+#: ../data/drapes.schemas.in.h:10
+msgid "When Drapes launches switch the wallpaper."
+msgstr ""
+
+#: ../drapes/AppletWidget.cs:47
 msgid "Deskop Drapes, click to switch wallpaper"
 msgstr ""
 
 #. Enabled
-#: ../drapes/AppletWidget.cs:145
+#: ../drapes/AppletWidget.cs:156
 msgid "Shuffle periodicaly"
 msgstr ""
 
 #. Configuration
-#: ../drapes/AppletWidget.cs:154
+#: ../drapes/AppletWidget.cs:165
 msgid "Preferences"
 msgstr ""
 
 #. Quit
-#: ../drapes/AppletWidget.cs:162
+#: ../drapes/AppletWidget.cs:173
 msgid "_Quit"
 msgstr ""
 
-#: ../drapes/ConfigMenu.cs:75
+#: ../drapes/ConfigMenu.cs:77
 msgid "This option is only valid when using the notification tray"
 msgstr ""
 
-#: ../drapes/ConfigMenu.cs:112
+#: ../drapes/ConfigMenu.cs:114
 msgid "selection"
 msgstr ""
 
 #. The various "sorters"
-#: ../drapes/ConfigMenu.cs:145
+#: ../drapes/ConfigMenu.cs:147
 msgid "Perfect fit"
 msgstr ""
 
-#: ../drapes/ConfigMenu.cs:146
+#: ../drapes/ConfigMenu.cs:148
 msgid "Regular 4:3"
 msgstr ""
 
-#: ../drapes/ConfigMenu.cs:147
+#: ../drapes/ConfigMenu.cs:149
 msgid "Widescreen"
 msgstr ""
 
-#: ../drapes/ConfigMenu.cs:148
+#: ../drapes/ConfigMenu.cs:150
 msgid "Other"
 msgstr ""
 
-#: ../drapes/ConfigMenu.cs:150 ../drapes/ConfigMenu.cs:151
 #: ../drapes/ConfigMenu.cs:152 ../drapes/ConfigMenu.cs:153
+#: ../drapes/ConfigMenu.cs:154 ../drapes/ConfigMenu.cs:155
 msgid "<i>No wallpapers present</i>"
 msgstr ""
 
-#: ../drapes/ConfigMenu.cs:275
+#: ../drapes/ConfigMenu.cs:287
 msgid "Add wallpaper"
 msgstr ""
 
-#: ../drapes/ConfigMenu.cs:295
+#: ../drapes/ConfigMenu.cs:307
 msgid "Images"
 msgstr ""
 
-#: ../drapes/ConfigMenu.cs:296
+#: ../drapes/ConfigMenu.cs:308
 msgid "Directory"
 msgstr ""
 
-#: ../drapes/ConfigMenu.cs:456 ../drapes/ConfigMenu.cs:497
+#: ../drapes/ConfigMenu.cs:350
+msgid "Import type:"
+msgstr ""
+
+#: ../drapes/ConfigMenu.cs:472 ../drapes/ConfigMenu.cs:513
 msgid "Unknown column"
 msgstr ""
 
-#: ../drapes/ConfigMenu.cs:487
+#: ../drapes/ConfigMenu.cs:503
 #, csharp-format
 msgid "{0} x {1} pixels"
 msgstr ""
 
-#: ../drapes/ConfigMenu.cs:523
+#: ../drapes/ConfigMenu.cs:539
 #, fuzzy, csharp-format
 msgid "Switching wallpaper to: {0})"
 msgstr "Trocar o papel de parede ao iniciar"
 
-#: ../drapes/ConfigMenu.cs:525
+#: ../drapes/ConfigMenu.cs:541
 #, csharp-format
 msgid "Not activating {0}, disabled"
 msgstr ""
 
-#: ../drapes/Main.cs:76
+#: ../drapes/Main.cs:80
 msgid "Importing Gnome's background list"
 msgstr ""
 
-#: ../drapes/Main.cs:82
+#: ../drapes/Main.cs:86
 msgid "Opening wallpaper list"
 msgstr ""
 
-#: ../drapes/Main.cs:139
+#: ../drapes/Main.cs:143
 #, csharp-format
 msgid "Wallpaper switch to: {0}"
 msgstr ""
 
-#: ../drapes/Main.cs:141
+#: ../drapes/Main.cs:145
 msgid "Wallpaper switch failed; No wallpapers?"
 msgstr ""
 
-#: ../drapes/Main.cs:169
+#: ../drapes/Main.cs:163
+msgid "Notified of shutdown"
+msgstr ""
+
+#: ../drapes/Main.cs:177
 #, csharp-format
 msgid "Sorry unknow argument: {0}"
 msgstr ""
@@ -274,12 +277,12 @@ msgstr ""
 msgid "Never"
 msgstr ""
 
-#: ../drapes/Settings.cs:381
+#: ../drapes/Settings.cs:382
 #, csharp-format
 msgid "Cannot toggle autostart, reason: {0}"
 msgstr ""
 
-#: ../drapes/Settings.cs:412
+#: ../drapes/Settings.cs:413
 #, csharp-format
 msgid "Unknown GConf key: {0}"
 msgstr ""
@@ -289,80 +292,84 @@ msgstr ""
 msgid "Cannot find file: {0}"
 msgstr ""
 
-#: ../drapes/Wallpaper.cs:362
+#: ../drapes/Wallpaper.cs:367
 #, csharp-format
 msgid "Cannot create thumbnail for: {0}"
 msgstr ""
 
-#: ../drapes/WpList.cs:55 ../drapes/WpList.cs:131
+#: ../drapes/WpList.cs:57 ../drapes/WpList.cs:126
 #, csharp-format
 msgid "Monitor Directory: {0} dosen't exist"
 msgstr ""
 
-#: ../drapes/WpList.cs:59
+#: ../drapes/WpList.cs:61
 #, csharp-format
 msgid "Filesystem monitor on: {0} enabled"
 msgstr ""
 
-#: ../drapes/WpList.cs:90
+#: ../drapes/WpList.cs:92
 #, csharp-format
 msgid "File {0}, created"
 msgstr ""
 
-#: ../drapes/WpList.cs:97
+#: ../drapes/WpList.cs:99
 #, csharp-format
 msgid "File {0}, deleted"
 msgstr ""
 
-#: ../drapes/WpList.cs:101
+#: ../drapes/WpList.cs:103
 #, csharp-format
 msgid "Unknow file event {0}"
 msgstr ""
 
-#: ../drapes/WpList.cs:122
+#: ../drapes/WpList.cs:117
 msgid "Filesystem monitor disabled"
 msgstr ""
 
-#: ../drapes/WpList.cs:136
+#: ../drapes/WpList.cs:131
 #, csharp-format
 msgid "Changing monitor directory to: {0}"
 msgstr ""
 
-#: ../drapes/WpList.cs:145
+#: ../drapes/WpList.cs:140
 #, csharp-format
 msgid "No such file: {0}"
 msgstr ""
 
-#: ../drapes/WpList.cs:155
+#: ../drapes/WpList.cs:150
 #, csharp-format
 msgid "Unable to open file {0} because:"
 msgstr ""
 
-#: ../drapes/WpList.cs:208
+#: ../drapes/WpList.cs:203
 #, csharp-format
 msgid "Unknow element: {0}"
 msgstr ""
 
-#: ../drapes/WpList.cs:249
+#: ../drapes/WpList.cs:244
 msgid "Something bad happened last time, opening as far as we can..."
 msgstr ""
 
-#: ../drapes/WpList.cs:309
+#: ../drapes/WpList.cs:302
 #, csharp-format
 msgid "Wallpaper list file {0} saved"
 msgstr ""
 
-#: ../drapes/WpList.cs:415
+#: ../drapes/WpList.cs:449
 #, csharp-format
 msgid "Adding wallpaper file: {0}"
 msgstr ""
 
-#: ../drapes/WpList.cs:443
+#: ../drapes/WpList.cs:477
 #, csharp-format
 msgid "No such directory: {0}"
 msgstr ""
 
-#: ../drapes/WpList.cs:453
+#: ../drapes/WpList.cs:487
 #, csharp-format
 msgid "Parsing subdir {0}"
 msgstr ""
+
+#, fuzzy
+#~ msgid "Launch Desktop Drapes on login"
+#~ msgstr "Abrir Desktop Drapes ao iniciar o sistema"

@@ -1,12 +1,20 @@
+2006-21-11 Milosz Tanski <mtanski@gmail.com>
+
+* pt.po: added the Portuguese translation thanks to
+  Bruno Santos <bsantos@gmail.com>.
+* Updates to the Korean translation by attie.
+* Updates to the French translation by jack
+  <jack@mohegan.ws> and Dany Dube <danydube@gmail.com>.
+* Updates to the Italian translation by Luca Ferretti
+  <elle.uca@libero.it>.
+
 2006-08-01 Milosz Tanski <mtanski@gmail.com>
 
 * es.po: is no longer empty thanks to AlejandroLeon
   <alejandroleonvega@gmail.com>.
-
 * pt_BR.po: added thanks to Luiz Augusto <lugusto@gmail.com>. 
 
 2006-07-17 Milosz Tanski <mtanski@gmail.com>
 
 * fr.po: added thanks to Pierre Slamich.
-
 * updated LINGUAS to reflect that. 
