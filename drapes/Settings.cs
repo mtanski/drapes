@@ -419,7 +419,6 @@ namespace Drapes.Config
 	// The default settings
 	public static class Defaults
 	{
-		private static string monDir = "Documents";
 		internal const string GCONF_STYLE_OPTIONS = "/desktop/gnome/background/picture_options";
 	
 		// Incase we ever want to change it, I guess.
@@ -447,7 +446,16 @@ namespace Drapes.Config
 		static public string MonitorDirectory
 		{
 			get {
-				return Path.Combine(Environment.GetEnvironmentVariable("HOME"), monDir);
+                string path;
+
+                if (Directory.Exists(Path.Combine(Environment.GetEnvironmentVariable("HOME"), "Photos"))) {
+                    path = Path.Combine(Environment.GetEnvironmentVariable("HOME"), "Photos");
+                } else if (Directory.Exists(Path.Combine(Environment.GetEnvironmentVariable("HOME"), "Documents"))) {
+                    path = Path.Combine(Environment.GetEnvironmentVariable("HOME"), "Photos");
+                } else 
+                    path = Environment.GetEnvironmentVariable("HOME");
+
+				return path;
 			}
 		}
 
