@@ -1,0 +1,69 @@
+.\" Hey, EMACS: -*- nroff -*-
+.\" First parameter, NAME, should be all caps
+.\" Second parameter, SECTION, should be 1-8, maybe w/ subsection
+.\" other parameters are allowed: see man(7), man(1)
+.\" Please adjust this date whenever revising the manpage.
+.\" 
+.\" Some roff macros, for reference:
+.\" .nh        disable hyphenation
+.\" .hy        enable hyphenation
+.\" .ad l      left justify
+.\" .ad b      justify to both left and right margins
+.\" .nf        disable filling
+.\" .fi        enable filling
+.\" .br        insert line break
+.\" .sp <n>    insert n+1 empty lines
+.\" for manpage-specific macros, see man(7)
+.TH "DRAPES" "1" "settembre 21, 2006" "Francesco Namuri" ""
+.SH "NAME"
+drapes \- a desktop wallpaper management application for the GNOME desktop
+.SH "DESCRIPTION"
+This manual page documents briefly the
+.B drapes
+command.
+.PP 
+.\" TeX users may be more comfortable with the \fB<whatever>\fP and
+.\" \fI<whatever>\fP escape sequences to invode bold face and italics, 
+.\" respectively.
+\fBdrapes\fP completes (or replaces) the built\-in GNOME desktop wallpapers selection tool.
+It can be configured as a tray application or as a panel applet.
+The bigest selling point of drapes is ability to rotate wallapers on a timely basis.
+It strives to be as simple as possible and fits in the rest of the GNOME 2 desktop.
+.SH "OPTIONS"
+drapes follow the usual GNU command line syntax, with long
+options starting with two dashes (`\-').
+A summary of options is included below.
+.TP 
+.B \-h, \-\-help
+Show summary of options.
+.TP 
+.B \-v, \-\-version
+Show version of program.
+
+.SH "GCONF SETTINGS"
+drapes has several preference settings stored in GConf. Changes to Settings are applied instantly to any running Drapes instance. A summary of the GConf settings and thir purpose are described below.
+
+.TP 
+\fB/apps/drapes/enable_timed_shuffle\fR
+used to enable/disable time\-based shuffle wallpaper switching.
+.TP 
+\fB/apps/drapes/monitor\fR.br 
+used to enable/disable monitoring of the direcotry specified in /apps/drapes/monitor_directory.
+.TP 
+\fB/apps/drapes/monitor_directory\fR.br 
+the directory that is monitored for changes.
+.TP 
+\fB/apps/drapes/on_startup\fR.br 
+specifies if drapes changes the wallpaper on startup.
+.TP 
+\fB/apps/drapes/timedelay\fR.br 
+time delay between wallpaper changes.
+.SH "SEE ALSO"
+Drapes home page: http://drapes.mindtouchsoftware.com/
+
+The GNU General Public License.
+.SH "AUTHOR"
+drapes was written by Milosz Tanski <mtanski@gmail.com>.
+.PP 
+This manual page was written by Francesco Namuri <francesco@namuri.it>,
+for the Debian project (but may be used by others).

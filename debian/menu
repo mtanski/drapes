@@ -1,0 +1,3 @@
+?package(drapes):needs="X11" section="Screen/Root-window"\
+  icon="drapes.xpm"\
+  title="drapes" command="/usr/bin/drapes"

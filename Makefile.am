@@ -3,7 +3,8 @@ SUBDIRS = \
 	scripts			\
 	data			\
 	help			\
-	po
+	po				\
+	man
 
 check_SCRIPTS_in =          \
     intltool-extract.in     \

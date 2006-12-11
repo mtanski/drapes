@@ -83,6 +83,7 @@ help/Makefile
 data/Makefile
 data/images/Makefile
 po/Makefile.in
+man/Makefile
 ])
 
 echo ""

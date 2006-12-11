@@ -3,3 +3,4 @@
 include /usr/share/cdbs/1/rules/debhelper.mk
 include /usr/share/cdbs/1/class/gnome.mk
 
+export GCONF_DISABLE_MAKEFILE_SCHEMA_INSTALL=1

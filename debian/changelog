@@ -1,3 +1,22 @@
+drapes (0.4.97-3) unstable; urgency=low
+
+  * added GCONF_DISABLE_MAKEFILE_SCHEMA_INSTALL=1 to debian/rules to avoid
+    installing gconf schemasin the package build tree.
+
+ -- Francesco Namuri <francesco@namuri.it>  Mon, 25 Sep 2006 02:55:22 +0200
+
+drapes (0.4.97-2) unstable; urgency=low
+
+  * Fixed many packaging issues.
+
+ -- Francesco Namuri <francesco@namuri.it>  Sat, 23 Sep 2006 02:04:38 +0200
+
+drapes (0.4.97-1) unstable; urgency=low
+
+  * Initial release (Closes: #388620)
+
+ -- Francesco Namuri <francesco@namuri.it>  Thu, 21 Sep 2006 19:54:16 +0200
+
 drapes (0.4.97) dapper; urgency=low
 
   * Updated to upstream.
