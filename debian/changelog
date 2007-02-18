@@ -1,3 +1,15 @@
+drapes (0.5.0) edgy; urgency=low
+
+  * 0.5.0 
+
+ -- Milosz Tanski <mtanski@gmail.com>  Sun, 18 Feb 2007 12:57:14 -0500
+
+drapes (0.4.97-4) edgy; urgency=low
+
+  * Updated the control file to reflect the new CIL policies of the day.
+
+ -- Milosz Tanski <mtanski@gmail.com>  Sun, 18 Feb 2007 12:51:13 -0500
+
 drapes (0.4.97-3) unstable; urgency=low
 
   * added GCONF_DISABLE_MAKEFILE_SCHEMA_INSTALL=1 to debian/rules to avoid

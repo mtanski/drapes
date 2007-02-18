@@ -331,9 +331,9 @@ namespace Drapes
             ChooserType.SetCellDataFunc(fTypeImage, renderer);
 
             // changed event is just going to be anonymous method
-            ChooserType.Changed += delegate (object sender, EventArgs args)
+            ChooserType.Changed += delegate (object dSender, EventArgs dArgs)
             {
-                ComboBox cb = (ComboBox) sender;
+                ComboBox cb = (ComboBox) dSender;
                     
                 if (cb.Active == 0) {
                     fc.SelectMultiple = true;

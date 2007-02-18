@@ -1,5 +1,3 @@
-Hai!
-
 Thanks for using desktop drapes; hope you enjoy it.
 
 The website is located at http://drapes.mindtouchsoftware.com. You can always 
@@ -13,6 +11,11 @@ language, which I would apperciate greatly.
 If you would like to contribute, an icon, documentation, code, man page, an
 VAX port & translations feel free to write me at mtanski@gmail.com.
 
-Bai!
+KNOW ISSUES:
+* Monitoring directories works (well) when mono and corresponding libraries are
+  at least at version 1.2+.
+* Using it as a panel applet causes issues, this is due to the applet bindings
+  and bonobo being evil! The recommended way of running drapes is a tray icon.
+  Sorry!
 
 P.S: I was joking about the VAX port.
