@@ -173,6 +173,10 @@ namespace Drapes {
 				case "--panel-applet":
 					AppletStyle = AppletStyle.APPLET_PANEL;
 					break;
+                case "--debug":
+                    Console.WriteLine("Running with extra debug output");
+                    DrapesApp.Cfg.Debug = true;
+                    break;
 				default:
 					Console.WriteLine(Catalog.GetString("Sorry unknow argument: {0}"), cur);
 					break;

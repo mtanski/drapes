@@ -120,6 +120,9 @@ namespace Drapes.Config
 		ToggleButton		cbtMonitor;
 		FileChooserButton	fcbDir;
 		ComboBox			cmbStyle;
+
+        // dosen't get saved
+        bool                debug = false;
 		
 		// Constructor
 		public Settings()
@@ -163,7 +166,11 @@ namespace Drapes.Config
         public bool Debug
         {
             get {
-                return false;
+                return debug;
+            }
+
+            set {
+                debug = value;
             }
         }
 		
