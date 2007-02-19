@@ -9,10 +9,17 @@
                 <surname>Vandivere</surname>
 			</author>
         </authorgroup>
+        <revhistory>
+			<revision>
+				<revnumber>0.1</revnumber>
+				<date>Fuck if I know</date>
+				<revremarks>Fuck you docbook</revremarks>
+			</revision>
+		</revhistory>
+	    <abstract role="description">
+    	    <para>Desktop Drapes is a wallpaper mangment application for the Gnome desktop.</para>
+	    </abstract>
 	</articleinfo>
-	<abstract role="description">
-		<para>Desktop Drapes is a wallpaper mangment application for the Gnome desktop.</para>
-	</abstract>
 	<sect1 id="drapes-intro">
 		<title>Introduction</title>
 		<para>Desktop Drapes is a wallpaper manager application for the Gnome desktop. You can change your wallpaper by clicking the Desktop Drapes icon on the toolbar, and set it to switch wallpaper every time you boot and at a predefined interval. Also, you can tell Desktop Drapes to monitor a particular directory to add wallpapers automatically.</para>
