@@ -203,7 +203,8 @@ namespace Drapes
 											break;
 										default:
 											node = null;
-											Console.WriteLine(Catalog.GetString("Unknow element: {0}"), SubTree.Name);
+                                            if (DrapesApp.Cfg.Debug)
+                                                Console.WriteLine(Catalog.GetString("Unknow element: {0}"), SubTree.Name);
 											break;
 									}
 								}

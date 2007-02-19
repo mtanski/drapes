@@ -159,6 +159,13 @@ namespace Drapes.Config
 		{
 			cmbStyle = c;
 		}
+
+        public bool Debug
+        {
+            get {
+                return false;
+            }
+        }
 		
 		// Load a randomwallaper on start
 		public bool ShuffleOnStart
