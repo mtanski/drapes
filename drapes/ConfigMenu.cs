@@ -560,9 +560,15 @@ namespace Drapes
 		private void OnMonitorChanged (object sender, EventArgs args)
 		{
 			Gtk.CheckButton c = (Gtk.CheckButton) sender;
-			
+
 			// CConf settings
 			DrapesApp.Cfg.MonitorEnabled = c.Active;
+
+            // make sure there is some sensible default set at least
+            if (System.IO.File.Exists(DrapesApp.Cfg.MonitorDirectory) == false) {
+                DrapesApp.Cfg.MonitorDirectory = Config.Defaults.MonitorDirectory;
+                fcbDir.SetFilename(DrapesApp.Cfg.MonitorDirectory);
+            }
 
 			// They can only select a directory to monitor, if the monitor toggle is clicked			
 			fcbDir.Sensitive = c.Active;

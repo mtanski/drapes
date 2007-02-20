@@ -65,15 +65,6 @@ namespace Drapes {
 			// Process application arguments
 			ProcessArgs(args);
 	
-			// If Monitor is enabled, make sure the dir exists as well
-			if (Cfg.MonitorEnabled) {
-				Vfs.Uri d = new Vfs.Uri(Cfg.MonitorDirectory);
-				
-				// Don't create anything if it exists
-				if (d.Exists)
-					Vfs.Directory.Create(d, Vfs.FilePermissions.UserAll);
-			}
-	
 			// Check if we already have file with wallpapers, else assume first start
 			Vfs.Uri cfg = new Vfs.Uri(Config.Defaults.DrapesWallpaperList);
 			if (!cfg.Exists) {
@@ -85,6 +76,17 @@ namespace Drapes {
 			} else {
 				Console.WriteLine(Catalog.GetString("Opening wallpaper list"));
 				WpList = new WallPaperList(Config.Defaults.DrapesWallpaperList);
+			}
+
+			// If Monitor is enabled, make sure the dir exists as well
+			if (Cfg.MonitorEnabled) {
+				Vfs.Uri d = new Vfs.Uri(Cfg.MonitorDirectory);
+				
+				// If it dosen't exist set a senible one, and disable monitoring
+				if (d.Exists != true) {
+					Cfg.MonitorEnabled = false;
+                    Cfg.MonitorDirectory = Config.Defaults.MonitorDirectory;
+                }
 			}
 			
 			// Wallpaper switcher (check every 10 seconds or so)
