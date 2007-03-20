@@ -22,7 +22,7 @@
 	</articleinfo>
 	<sect1 id="drapes-intro">
 		<title>Introduction</title>
-		<para>Desktop Drapes is a wallpaper manager application for the Gnome desktop. You can change your wallpaper by clicking the Desktop Drapes icon on the toolbar, and set it to switch wallpaper every time you boot and at a predefined interval. Also, you can tell Desktop Drapes to monitor a particular directory to add wallpapers automatically.</para>
+		<para>Desktop Drapes is a wallpaper manager application for the Gnome desktop. It is designed to be simple to use and to stay out of your way. It features directory monitoring, as well as an icon in the notification area to let you change your wallpaper quickly or by using a time interval.</para>
 	</sect1>
 	<sect1 id="drapes-using">
 		<title>Using Desktop Drapes</title>
