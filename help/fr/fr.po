@@ -1,0 +1,209 @@
+# French translation for drapes
+# Copyright (c) 2006 Rosetta Contributors and Canonical Ltd 2006
+# This file is distributed under the same license as the drapes package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2006.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: drapes\n"
+"Report-Msgid-Bugs-To: FULL NAME <EMAIL@ADDRESS>\n"
+"POT-Creation-Date: 2006-09-11 01:12-0400\n"
+"PO-Revision-Date: 2006-09-26 19:11+0000\n"
+"Last-Translator: DanyDube <danydube@gmail.com>\n"
+"Language-Team: French <fr@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Rosetta-Export-Date: 2007-03-20 18:48+0000\n"
+
+#. When image changes, this message will be marked fuzzy or untranslated for you.
+#: C/drapes.xml:27(None)
+msgid ""
+"@@image: 'figures/drapes_preferences_display.png'; "
+"md5=0e5659533f40a2583fb910601d1d45ef"
+msgstr ""
+"@@image: 'figures/drapes_preferences_display.png'; "
+"md5=0e5659533f40a2583fb910601d1d45ef"
+
+#. When image changes, this message will be marked fuzzy or untranslated for you.
+#: C/drapes.xml:70(None)
+msgid ""
+"@@image: 'figures/drapes_preferences_general.png'; "
+"md5=1d61f439e1d13e76593fb35baa5f841e"
+msgstr ""
+"@@image: 'figures/drapes_preferences_general.png'; "
+"md5=1d61f439e1d13e76593fb35baa5f841e"
+
+#: C/drapes.xml:5(title)
+msgid "Desktop Drapes User Guide"
+msgstr "Guide d'utilisation de Desktop Drapes"
+
+#: C/drapes.xml:8(firstname)
+msgid "Derek"
+msgstr "Derek"
+
+#: C/drapes.xml:9(surname)
+msgid "Vandivere"
+msgstr "Vandivere"
+
+#: C/drapes.xml:14(para)
+msgid ""
+"Desktop Drapes is a wallpaper mangment application for the Gnome desktop."
+msgstr ""
+"Le Desktop Drapes est un gestionnaire d'images de fonds d'écran pour "
+"l'environnement graphique Gnome."
+
+#: C/drapes.xml:17(title)
+msgid "Introduction"
+msgstr "Introduction"
+
+#: C/drapes.xml:18(para)
+msgid ""
+"Desktop Drapes is a wallpaper manager application for the Gnome desktop. You "
+"can change your wallpaper by clicking the Desktop Drapes icon on the "
+"toolbar, and set it to switch wallpaper every time you boot and at a "
+"predefined interval. Also, you can tell Desktop Drapes to monitor a "
+"particular directory to add wallpapers automatically."
+msgstr ""
+"Le Desktop Drapes est un gestionnaire d'images de fonds d'écran pour "
+"l'environnement graphique Gnome. Vous pouvez changer l'image de fond d'écran "
+"en cliquant sur l'icône Desktop Drapes, et aussi changer l'image de fond "
+"d'écran à chaque redémarrage du système et à un intervalle prédéfinis. De "
+"même, vous pouvez configurer le moniteur Desktop Drapes d'ajouter un "
+"répertoire d'images spécifique pour les images de fonds d'écran de manière "
+"automatique."
+
+#: C/drapes.xml:21(title)
+msgid "Using Desktop Drapes"
+msgstr "Utilisation de Desktop Drapes"
+
+#: C/drapes.xml:24(screeninfo)
+msgid "The display tab"
+msgstr "L'affichage d'onglet"
+
+#: C/drapes.xml:30(para)
+msgid "The Display tab of the Preferences window"
+msgstr "L'affichage d'onglet dans la fenêtre Préférences"
+
+#: C/drapes.xml:35(para)
+msgid "To switch wallpapers:"
+msgstr "Pour changer le fond d'écran :"
+
+#: C/drapes.xml:38(para)
+msgid ""
+"Left-click the Desktop Drapes icon in the toolbar to switch to a randomly "
+"selected wallpaper, OR..."
+msgstr ""
+"Bouton gauche de la souris sur l'icône Desktop Drapes dans la barre d'outils "
+"pour changer aléatoirement le fond d'écran sélectionné, OU..."
+
+#: C/drapes.xml:41(para)
+msgid ""
+"Right-click the Desktop Drapes icon in the toolbar and double-click the "
+"thumbnail image of a wallpaper to switch to that wallpaper."
+msgstr ""
+"Bouton droit de la souris sur l'icône du Desktop Drapes  dans  la barre "
+"d'outils et double cliquer l'image réduit pour le mettre en fond d'écran."
+
+#: C/drapes.xml:44(para)
+msgid "To add a wallpaper to Desktop Drapes collection:"
+msgstr ""
+"Pour ajouter une image de fond d'écran à la collection Desktop Drapes :"
+
+#: C/drapes.xml:47(para) C/drapes.xml:56(para)
+msgid "Right-click the icon in the toolbar and select 'Preferences'."
+msgstr ""
+"Clic droit sur l'icône dans la barre d'outils et sélectionner 'Préférences'."
+
+#: C/drapes.xml:50(para)
+msgid ""
+"In the 'Display' tab, click the 'Add' button and select your wallpaper file "
+"or files. Desktop Drapes will automatically categorize your wallpaper by the "
+"dimensions of the image (I guess)."
+msgstr ""
+"Dans l'onglet 'Affichage', cliquer sur le bouton 'Ajouter' et sélectionner "
+"le ou les images de fond. Desktop Drapes mettra en catégorie automatiquement "
+"le ou les images par leur grandeur (je pense)."
+
+#: C/drapes.xml:53(para)
+msgid "To remove a wallpaper from the Desktop Drapes collection;"
+msgstr ""
+"Pour enlever l'image du fond d'écran dans la collection du Desktop Drapes;"
+
+#: C/drapes.xml:59(para)
+msgid ""
+"In the 'Display' tab, select the wallpaper you wish to remove and click the "
+"'Remove' button."
+msgstr ""
+"Dans l'onglet 'Affichage', sélectionner le fond d'écran que vous voulez "
+"enlever et cliquer sur le bouton 'Enlever'."
+
+#: C/drapes.xml:64(title)
+msgid "Customizing Desktop Drapes"
+msgstr "Personnaliser le Desktop Drapes"
+
+#: C/drapes.xml:67(screeninfo)
+msgid "The general tab"
+msgstr "L'onglet général"
+
+#: C/drapes.xml:73(para)
+msgid "The General tab of the Preferences window"
+msgstr "L'onglet Général dans la fenêtre Préférences"
+
+#: C/drapes.xml:80(para)
+msgid ""
+"Start Desktop Drapes on start: Select this option to load Desktop Drapes "
+"automatically when you start up your computer."
+msgstr ""
+"Démarrer Desktop Drapes au démarrage : Sélectionner cette option pour "
+"charger Desktop Drapes au démarrage de votre ordinateur."
+
+#: C/drapes.xml:83(para)
+msgid ""
+"Switch wallpaper on start: Select this option to switch to a different "
+"wallpaper every time you start Desktop Drapes. Select this and the first "
+"checkbox to switch to a different wallpaper every time you start your "
+"computer."
+msgstr ""
+"Changer le fond d'écran au démarrage: Sélectionner cette option pour changer "
+"le fond d'écran à chaque démarrage de Desktop Drapes. Sélectionnez-le ainsi "
+"que la première case à cocher pour changer un fond d'écran différent chaque "
+"fois que vous démarrer votre ordinateur."
+
+#: C/drapes.xml:86(para)
+msgid ""
+"Timing selection: Use this slider bar to tell Desktop Drapes how often to "
+"switch to a new wallpaper, from a minimum of five minutes to a maximum of "
+"two hours. Move the slider all the way to the right to tell Desktop Drapes "
+"never to switch wallpapers while it's running."
+msgstr ""
+"Durée de la sélection: Utiliser la barre de défilement de Desktop Drapes sur "
+"la manière dont celui-ci changera pour un nouveau fond d'écran, d'un minimum "
+"de cinq minutes à un maximum de deux heures. Déplacer la barre de défilement "
+"complètement à droite pour dire à Desktop Drapes de ne jamais changer de "
+"fond d'écran durant son fonctionnement."
+
+#: C/drapes.xml:89(para)
+msgid ""
+"Wallpaper search directory: Select the checkbox to have Desktop Drapes "
+"monitor a directory and automatically add files in that directory to its "
+"collection. Click the directory list box in order to select which directory "
+"Desktop Drapes should monitor. Warning: In the current version of Desktop "
+"Drapes, saving a file directly into that directory will cause Desktop Drapes "
+"to crash and lose its collection! Instead, save a file to a different "
+"directory, then copy it into your monitored directory."
+msgstr ""
+"Recherche de répertoire de fond d'écran: Selectionner la case à cocher pour "
+"avoir une surveillance Desktop Drapes sur un répertoire afin que celui-ci "
+"puisse ajouter automatiquement les fichiers dans la collection. Cliquer dans "
+"la boîte de liste du répertoire dans l'ordre de la sélection pour lequel "
+"Desktop Drapes surveillera. Attention: Dans la version courante de Desktop "
+"Drapes, sauvegarder un fichier directement dans ce répertoire peut causer un "
+"plantage de Desktop Drapes et perdre toute la collection ! Au lieu de cela, "
+"sauvegarder un ficher dans un dossier différent, puis ensuite copier ce "
+"ficher dans votre répertoire surveillé."
+
+#: C/drapes.xml:0(None)
+msgid "translator-credits"
+msgstr "traducteurs"

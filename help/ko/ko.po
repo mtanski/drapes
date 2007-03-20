@@ -1,0 +1,183 @@
+# Korean translation for drapes
+# Copyright (c) (c) 2006 Canonical Ltd, and Rosetta Contributors 2006
+# This file is distributed under the same license as the drapes package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2006.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: drapes\n"
+"Report-Msgid-Bugs-To: FULL NAME <EMAIL@ADDRESS>\n"
+"POT-Creation-Date: 2006-09-11 01:12-0400\n"
+"PO-Revision-Date: 2006-09-25 08:15+0000\n"
+"Last-Translator: atie <atie.at.matrix@gmail.com>\n"
+"Language-Team: Korean <ko@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Rosetta-Export-Date: 2007-03-20 18:48+0000\n"
+
+#. When image changes, this message will be marked fuzzy or untranslated for you.
+#: C/drapes.xml:27(None)
+msgid ""
+"@@image: 'figures/drapes_preferences_display.png'; "
+"md5=0e5659533f40a2583fb910601d1d45ef"
+msgstr ""
+"@@image: 'figures/drapes_preferences_display.png'; "
+"md5=0e5659533f40a2583fb910601d1d45ef"
+
+#. When image changes, this message will be marked fuzzy or untranslated for you.
+#: C/drapes.xml:70(None)
+msgid ""
+"@@image: 'figures/drapes_preferences_general.png'; "
+"md5=1d61f439e1d13e76593fb35baa5f841e"
+msgstr ""
+"@@image: 'figures/drapes_preferences_general.png'; "
+"md5=1d61f439e1d13e76593fb35baa5f841e"
+
+#: C/drapes.xml:5(title)
+msgid "Desktop Drapes User Guide"
+msgstr "데스크탑 드레이프 사용자 안내서"
+
+#: C/drapes.xml:8(firstname)
+msgid "Derek"
+msgstr "Derek"
+
+#: C/drapes.xml:9(surname)
+msgid "Vandivere"
+msgstr "Vandivere"
+
+#: C/drapes.xml:14(para)
+msgid ""
+"Desktop Drapes is a wallpaper mangment application for the Gnome desktop."
+msgstr "데스크탑 드레이프는 그놈 데스크탑을 위한 배경화면 관리 프로그램 입니다."
+
+#: C/drapes.xml:17(title)
+msgid "Introduction"
+msgstr "소개"
+
+#: C/drapes.xml:18(para)
+msgid ""
+"Desktop Drapes is a wallpaper manager application for the Gnome desktop. You "
+"can change your wallpaper by clicking the Desktop Drapes icon on the "
+"toolbar, and set it to switch wallpaper every time you boot and at a "
+"predefined interval. Also, you can tell Desktop Drapes to monitor a "
+"particular directory to add wallpapers automatically."
+msgstr ""
+"데스크탑 드레이프는 그놈 데스크탑을 위한 배경화면 관리 프로그램 입니다. 여러분은 도구막대 위의 데스크탑 드레이프 아이콘을 눌러 "
+"배경화면을 변경할 수 있고, 부팅할 때 그리고 미리 지정된 시간 간격에 배경화면을 바꾸도록 설정할 수 있습니다. 또한, 프로그램이 "
+"자동적으로 배경화면이 더해지는 특정 디렉토리를 지켜보도록 지정할 수 있습니다."
+
+#: C/drapes.xml:21(title)
+msgid "Using Desktop Drapes"
+msgstr "데스크탑 드레이프 사용"
+
+#: C/drapes.xml:24(screeninfo)
+msgid "The display tab"
+msgstr "보이기 탭"
+
+#: C/drapes.xml:30(para)
+msgid "The Display tab of the Preferences window"
+msgstr "기본 설정 창의 보이기 탭"
+
+#: C/drapes.xml:35(para)
+msgid "To switch wallpapers:"
+msgstr "배경화면 바꾸기:"
+
+#: C/drapes.xml:38(para)
+msgid ""
+"Left-click the Desktop Drapes icon in the toolbar to switch to a randomly "
+"selected wallpaper, OR..."
+msgstr ""
+"불규칙적으로 선택된 배경화면을 바꾸기 위하여 도구막대 내의 데스크탑 드레이프 아이콘을 왼쪽 마우스 버튼으로 누르거나, 또는..."
+
+#: C/drapes.xml:41(para)
+msgid ""
+"Right-click the Desktop Drapes icon in the toolbar and double-click the "
+"thumbnail image of a wallpaper to switch to that wallpaper."
+msgstr ""
+"도구막대 내의 데스크탑 드레이프 아이콘을 오른쪽 마우스 버튼으로 누르고 변경하고자 하는 배경화면의 엄지 그림을 두번 클릭합니다."
+
+#: C/drapes.xml:44(para)
+msgid "To add a wallpaper to Desktop Drapes collection:"
+msgstr "배경화면을 데스크탑 드레이프 수집에 더하기:"
+
+#: C/drapes.xml:47(para) C/drapes.xml:56(para)
+msgid "Right-click the icon in the toolbar and select 'Preferences'."
+msgstr "도구막대 내의 아이콘을 오른쪽 마우스 버튼으로 누르고 '기본설정'을 선택합니다."
+
+#: C/drapes.xml:50(para)
+msgid ""
+"In the 'Display' tab, click the 'Add' button and select your wallpaper file "
+"or files. Desktop Drapes will automatically categorize your wallpaper by the "
+"dimensions of the image (I guess)."
+msgstr ""
+"'보이기' 탭에서, '더하기' 버튼을 누르고 배경화면 파일 하나 또는 여러 개를 선택합니다. 데스크탑 드레이프는 그림의 크기에 따라 "
+"배경화면을 자동적으로 분류합니다."
+
+#: C/drapes.xml:53(para)
+msgid "To remove a wallpaper from the Desktop Drapes collection;"
+msgstr "테스크탑 드레이프 수집에서 배경화면을 제거하기:"
+
+#: C/drapes.xml:59(para)
+msgid ""
+"In the 'Display' tab, select the wallpaper you wish to remove and click the "
+"'Remove' button."
+msgstr "'보이기' 탭에서, 지우기를 원하는 배경화면을 선택하고 '지우기' 버튼을 누릅니다."
+
+#: C/drapes.xml:64(title)
+msgid "Customizing Desktop Drapes"
+msgstr "데스크탑 드레이프 설정하기"
+
+#: C/drapes.xml:67(screeninfo)
+msgid "The general tab"
+msgstr "일반 탭"
+
+#: C/drapes.xml:73(para)
+msgid "The General tab of the Preferences window"
+msgstr "기본 설정 창의 일반 탭"
+
+#: C/drapes.xml:80(para)
+msgid ""
+"Start Desktop Drapes on start: Select this option to load Desktop Drapes "
+"automatically when you start up your computer."
+msgstr "시작시 데스크탑 드레이프를 시작: 컴퓨터를 시작할 때 자동적으로 데스크탑 드레이프가 실행되도록 이 선택사항을 지정합니다."
+
+#: C/drapes.xml:83(para)
+msgid ""
+"Switch wallpaper on start: Select this option to switch to a different "
+"wallpaper every time you start Desktop Drapes. Select this and the first "
+"checkbox to switch to a different wallpaper every time you start your "
+"computer."
+msgstr ""
+"시작시 배경화면 바꾸기: 데스크탑 드레이프를 시작할 때마다 다른 배경화면으로 바꾸기 위하여 이 선택사항을 지정합니다. 컴퓨터를 시작할 "
+"때마다 다른 배경화면으로 바꾸기 위하여 이것과 첫 번째 체크박스를 선택합니다."
+
+#: C/drapes.xml:86(para)
+msgid ""
+"Timing selection: Use this slider bar to tell Desktop Drapes how often to "
+"switch to a new wallpaper, from a minimum of five minutes to a maximum of "
+"two hours. Move the slider all the way to the right to tell Desktop Drapes "
+"never to switch wallpapers while it's running."
+msgstr ""
+"타이밍 선택: 새 배경화면으로 얼마나 자주 바꾸어야 하는지를 슬라이더 바를 사용하여, 최소 5 분에서 최대 2 시간내로 지정합니다. "
+"슬라이더를 오른쪽 끝까지 옮겨놓으면 데스크탑 드레이프는 실행 중에 배경화면을 바꾸지 않습니다."
+
+#: C/drapes.xml:89(para)
+msgid ""
+"Wallpaper search directory: Select the checkbox to have Desktop Drapes "
+"monitor a directory and automatically add files in that directory to its "
+"collection. Click the directory list box in order to select which directory "
+"Desktop Drapes should monitor. Warning: In the current version of Desktop "
+"Drapes, saving a file directly into that directory will cause Desktop Drapes "
+"to crash and lose its collection! Instead, save a file to a different "
+"directory, then copy it into your monitored directory."
+msgstr ""
+"배경화면 검색 디렉토리: 데스크탑 드레이프가 디렉토리를 지켜보고 자동적으로 그 디렉토리에 더해지는 파일들을 수집목록에 추가하도록 "
+"체크박스를 선택합니다. 데스크탑 드레이프카 지켜볼 디렉토리를 선택하기 위하여 디렉토리 리스트 박스를 클릭합니다. 주의: 현재 버전의 "
+"데스크탑 드레이프에서는, 그 디렉토리로 파일을 직접 저장하는 것은 프로그램의 비정상적인 종료와 수집목록을 잃어버리는 문제를 일으킵니다! "
+"대신에, 다른 디렉토리로 파일을 저장하고, 그런 후에 지켜보는 그 디렉토리로 그 파일을 복사하면 됩니다."
+
+#: C/drapes.xml:0(None)
+msgid "translator-credits"
+msgstr "atie H. <atie.at.matrix@gmail.com>, 2006."
