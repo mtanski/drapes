@@ -17,7 +17,7 @@
 			</revision>
 		</revhistory>
 	    <abstract role="description">
-    	    <para>Desktop Drapes is a wallpaper mangment application for the Gnome desktop.</para>
+    	    <para>Desktop Drapes is a wallpaper management application for the Gnome desktop.</para>
 	    </abstract>
 	</articleinfo>
 	<sect1 id="drapes-intro">
@@ -93,7 +93,7 @@
 				<para>Timing selection: Use this slider bar to tell Desktop Drapes how often to switch to a new wallpaper, from a minimum of five minutes to a maximum of two hours. Move the slider all the way to the right to tell Desktop Drapes never to switch wallpapers while it's running.</para>
 			</listitem>
 			<listitem>
-				<para>Wallpaper search directory: Select the checkbox to have Desktop Drapes monitor a directory and automatically add files in that directory to its collection. Click the directory list box in order to select which directory Desktop Drapes should monitor. Warning: In the current version of Desktop Drapes, saving a file directly into that directory will cause Desktop Drapes to crash and lose its collection! Instead, save a file to a different directory, then copy it into your monitored directory.</para>
+				<para>Wallpaper search directory: Select the checkbox to have Desktop Drapes monitor a directory and automatically add files in that directory to its collection. Click the directory list box in order to select which directory Desktop Drapes should monitor.</para>
 			</listitem>
 		</orderedlist>
 	</sect1>
