@@ -23,7 +23,8 @@ drapes_sources = \
 	$(srcdir)/panelapplet/*.cs			\
 	$(srcdir)/Applet.cs					\
 	$(srcdir)/AppletWidget.cs			\
-	$(srcdir)/ConfigMenu.cs 			\
+	$(srcdir)/ConfigMenuWidgets.cs		\
+	$(srcdir)/ConfigMenu.cs				\
 	$(srcdir)/Main.cs					\
 	$(srcdir)/Settings.cs				\
 	$(srcdir)/Traylib.cs				\

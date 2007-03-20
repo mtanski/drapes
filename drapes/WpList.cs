@@ -32,7 +32,7 @@ namespace Drapes
 {
 
 	public class WallPaperList : IEnumerable <Wallpaper>
-	{	
+	{
 		private OrderedDictionary       list       = new OrderedDictionary();
 		private Hashtable               enabled    = new Hashtable();
 		// For "later" processing
@@ -47,7 +47,10 @@ namespace Drapes
 
 			// Automatic filesystem scanning
 			if (DrapesApp.Cfg.MonitorEnabled)
-				EnableNotify();
+				this.EnableNotify();
+            
+            DrapesApp.Cfg.MonitorDirectoryChanged += this.OnMonitorDirChanged;
+            DrapesApp.Cfg.MonitorEnabledChanged += this.OnMonitorStateChanged;
 		}
 
 		private void EnableNotify()
@@ -58,7 +61,8 @@ namespace Drapes
 				return;
 			}
 
-			Console.WriteLine(Catalog.GetString("Filesystem monitor on: {0} enabled"), DrapesApp.Cfg.MonitorDirectory);
+            if (DrapesApp.Cfg.Debug == true)
+			    Console.WriteLine(Catalog.GetString("Filesystem monitor on: {0} enabled"), DrapesApp.Cfg.MonitorDirectory);
             
 			FileNotify = new FileSystemWatcher(DrapesApp.Cfg.MonitorDirectory);
 			FileNotify.IncludeSubdirectories = true;
@@ -89,7 +93,9 @@ namespace Drapes
                 FileChanged(e.FullPath);
 				break;
 			case WatcherChangeTypes.Created:
-				Console.WriteLine(Catalog.GetString("File {0}, created"), e.FullPath);
+                if (DrapesApp.Cfg.Debug == true)
+				    Console.WriteLine(Catalog.GetString("File {0}, created"), e.FullPath);
+                
 				w = new Wallpaper();
 				w.LoadFileDelayed(e.FullPath);
 				w.Enabled = true;
@@ -99,41 +105,62 @@ namespace Drapes
                 // ignore image files not in our "db"
                 if (list.Contains(e.FullPath) == false)
                     break;
-				Console.WriteLine(Catalog.GetString("File {0}, deleted"), e.FullPath);
+                
+                if (DrapesApp.Cfg.Debug == true)
+				    Console.WriteLine(Catalog.GetString("File {0}, deleted"), e.FullPath);
+                
 				WallpaperDeleted(e.FullPath);
 				break;
 			default:
-				Console.WriteLine(Catalog.GetString("Unknow file event {0}"), e.ChangeType);
+                if (DrapesApp.Cfg.Debug == true)
+				    Console.WriteLine(Catalog.GetString("Unknow file event {0}"), e.ChangeType);
+                
 				break;
 			}
 		}
+        
+        private void OnMonitorStateChanged(Object sender, Config.SettingsChangeEvent<bool> args)
+        {
+            if (FileSystemMonitor != args.Value)
+                this.FileSystemMonitor = args.Value;
+        }
 
 		public bool FileSystemMonitor
 		{
 			set {
-				if (value == true && FileNotify == null)
-					EnableNotify();	
-				else if (value == false && FileNotify != null) {
+                if (value == true && FileNotify == null) {
+                    this.EnableNotify();
+                } else if (value == false && FileNotify != null) {
 					FileNotify.EnableRaisingEvents = false;
 					FileNotify = null;
 
-					Console.WriteLine(Catalog.GetString("Filesystem monitor disabled"));
+                    if (DrapesApp.Cfg.Debug == true)
+					    Console.WriteLine(Catalog.GetString("Filesystem monitor disabled"));
 				}
-			}		
+			}
+            get {
+                return (FileNotify != null) ? true : false;
+            }
 		}
-
-		public void ChangeMonitorDir()
+        
+        private void OnMonitorDirChanged(Object sender, Config.SettingsChangeEvent<string> args)
 		{
 			// Check if the directory exists
 			if (System.IO.Directory.Exists(DrapesApp.Cfg.MonitorDirectory) == false) {
 				Console.WriteLine(Catalog.GetString("Monitor Directory: {0} dosen't exist"), DrapesApp.Cfg.MonitorDirectory);
+                this.FileSystemMonitor = false;
 				return;
 			}
 
 			if (FileNotify != null) {
-				Console.WriteLine(Catalog.GetString("Changing monitor directory to: {0}"), DrapesApp.Cfg.MonitorDirectory);
+                if (DrapesApp.Cfg.Debug == true)
+				    Console.WriteLine(Catalog.GetString("Changing monitor directory to: {0}"), DrapesApp.Cfg.MonitorDirectory);
+                
 				FileNotify.Path = DrapesApp.Cfg.MonitorDirectory;
-			}
+            } else {
+                if (DrapesApp.Cfg.MonitorEnabled == true)
+                    this.EnableNotify();
+            }
 		}
 			
 		public bool LoadList(string file)
@@ -147,7 +174,7 @@ namespace Drapes
 			// We got it open it our selfs because we need to close the stream explicitly,
 			// mono dosen't close the stream on a XmlReader.Close, we Sharing Violation exception
 			FileStream fs;
-			try {	
+			try {
 				fs = new FileStream(file, FileMode.Open, FileAccess.Read);
 			} catch (Exception e) {
 				Console.WriteLine(Catalog.GetString("Unable to open file {0} because:"), file, e.Message);
@@ -160,7 +187,7 @@ namespace Drapes
 			s.IgnoreProcessingInstructions = true;
 			s.IgnoreWhitespace = true;
 			s.ProhibitDtd = false;
-			// the XmlReader object 
+			// the XmlReader object
 			XmlReader xml = XmlReader.Create(fs, s);
 		
 			try {
@@ -219,7 +246,7 @@ namespace Drapes
 											break;
 										case "y":
 											Cur.h = Convert.ToInt32(v);
-											break;	
+											break;
 										case "name":
 											Cur.Name = v;
 											break;
@@ -256,7 +283,7 @@ namespace Drapes
 		}
 		
 		public bool SaveList(string file)
-		{   
+		{
 			XmlTextWriter xml = new XmlTextWriter(file, null);
 			xml.Formatting = Formatting.Indented;
 			xml.Namespaces = false;
@@ -276,7 +303,7 @@ namespace Drapes
 				xml.WriteStartElement("wallpaper");
 
 				// main atributes
-				xml.WriteAttributeString("deleted", w.Deleted.ToString());	
+				xml.WriteAttributeString("deleted", w.Deleted.ToString());
 				xml.WriteAttributeString("enabled", w.Enabled.ToString());
 				
 				// values
@@ -425,7 +452,7 @@ namespace Drapes
             if (changed.Count < 1)
                 GLib.Idle.Add(DelayedChange);
 
-            changed.Enqueue(file);   
+            changed.Enqueue(file);
         }
 
         private bool DelayedChange()
@@ -456,7 +483,7 @@ namespace Drapes
             w.LoadFileDelayed(file);
             w.Enabled = true;
 
-            Append(w); 
+            Append(w);
         }
         
 		public void Append(Wallpaper w)
@@ -545,7 +572,7 @@ namespace Drapes
 		}
 
         public void CleanupThumbs()
-        {   
+        {
             foreach (DictionaryEntry entry in list) {
                 (entry.Value as Wallpaper).FlushThumbnail();
             }

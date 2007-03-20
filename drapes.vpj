@@ -21,7 +21,8 @@
 				MenuCaption="&amp;Build"
 				CaptureOutputWith="ProcessBuffer"
 				SaveOption="SaveWorkspaceFiles"
-				RunFromDir="%rp">
+				RunFromDir="%rp"
+				ClearProcessBuffer="1">
 				<Exec CmdLine="make"/>
 			</Target>
 			<Target
@@ -72,7 +73,6 @@
 			<F N="drapes/AppletWidget.cs"/>
 			<F N="drapes/AssemblyInfo.cs.in"/>
 			<F N="drapes/ConfigMenu.cs"/>
-			<F N="drapes/Magic.cs"/>
 			<F N="drapes/Main.cs"/>
 			<F N="drapes/Settings.cs"/>
 			<F N="drapes/Traylib.cs"/>

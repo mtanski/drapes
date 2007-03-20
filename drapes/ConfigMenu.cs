@@ -29,12 +29,25 @@ using Vfs = Gnome.Vfs;
 
 namespace Drapes
 {
-
-	public class ConfigWindow
+	public partial class ConfigWindow
 	{
+        Gtk.Tooltips                tooltips;
+        // Treeview classes
+        Gtk.TreeStore               tsEntries;
+        Gtk.TreeModelFilter         tmfFilter;
+        // Treeview sections
+        Gtk.TreeIter                tiMatch;
+        Gtk.TreeIter                tiAsp43;
+        Gtk.TreeIter                tiAspWide;
+        Gtk.TreeIter				tiAspMisc;
+        // Stylebox
+        Gtk.ListStore               cmbStyleStore;
 	
 		public ConfigWindow()
 		{
+            if (DrapesApp.Cfg.Debug == true)
+                Console.WriteLine("Opening Configuration menu");
+            
 			// Glade autoconnect magic
 			Glade.XML gxml = new Glade.XML (null, "drapes.glade", "winPref", "drapes");
 			gxml.Autoconnect (this);
@@ -46,20 +59,20 @@ namespace Drapes
 			winPref.DeleteEvent += OnWindowDelete;
 
             // help button
-            btnHelp.Clicked += onHelpButtonClick;
+            btnHelp.Clicked += OnHelpClicked;
 			// add/remove wallpaper buttons
-			btnRemove.Clicked += onRemoveButtonClick;	
-			btnAdd.Clicked += onAddButtonClick;
+			btnRemove.Clicked += OnRemoveWallpapersClicked;
+			btnAdd.Clicked += OnAddWallpapersClicked;
 			
 			// style selection
             cmbStyleStore = new ListStore(typeof(string), typeof(Config.Style));
-            cmbStyleStore.AppendValues("Centered", Config.Style.STYLE_CENTER);
-            cmbStyleStore.AppendValues("Fill Screen", Config.Style.STYLE_FILL);
-            cmbStyleStore.AppendValues("Scale", Config.Style.STYLE_SCALE);
-            cmbStyleStore.AppendValues("Tiled", Config.Style.STYLE_TILED);
-            cmbStyleStore.AppendValues("Zoom", Config.Style.STYLE_ZOOM);
-            cmbStyleStore.AppendValues(null, Config.Style.STYLE_NONE);
-            cmbStyleStore.AppendValues("None", Config.Style.STYLE_NONE);
+            cmbStyleStore.AppendValues("Centered", Config.Style.StyleEnum.STYLE_CENTER);
+            cmbStyleStore.AppendValues("Fill Screen", Config.Style.StyleEnum.STYLE_FILL);
+            cmbStyleStore.AppendValues("Scale", Config.Style.StyleEnum.STYLE_SCALE);
+            cmbStyleStore.AppendValues("Tiled", Config.Style.StyleEnum.STYLE_TILED);
+            cmbStyleStore.AppendValues("Zoom", Config.Style.StyleEnum.STYLE_ZOOM);
+            cmbStyleStore.AppendValues(null, Config.Style.StyleEnum.STYLE_NONE);
+            cmbStyleStore.AppendValues("None", Config.Style.StyleEnum.STYLE_NONE);
             // breake between styles and none
             cmbStyle.RowSeparatorFunc = StyleSeparatorFunc;
             // What stores our data
@@ -67,7 +80,7 @@ namespace Drapes
 			cmbStyle.Active = (int) DrapesApp.Cfg.Style;
 			cmbStyle.Changed += onStyleChanged;
             // gray out selection of wallpapers on wallpaper display disabled
-            tvBgList.Sensitive = (DrapesApp.Cfg.Style != Config.Style.STYLE_NONE);
+            tvBgList.Sensitive = (DrapesApp.Cfg.Style != Config.Style.StyleEnum.STYLE_NONE);
 
 			// start on login button
 			cbtAutoStart.Active = DrapesApp.Cfg.AutoStart;
@@ -85,26 +98,33 @@ namespace Drapes
 			// CheckButton: Switch wallpaper on start
 			cbtStartSwitch.Clicked += OnStartupChanged;
 			cbtStartSwitch.Active = DrapesApp.Cfg.ShuffleOnStart;
-			DrapesApp.Cfg.ShuffleOnStartWidget(cbtStartSwitch);
 			
 			// HScale: Wallaper switch timer
 			Gtk.Adjustment adjTimer= new Gtk.Adjustment(1.0, 0.0, 9.0, 1.0, 1.0, 0.0);
-			scaleTimer.Adjustment = adjTimer;		
+			scaleTimer.Adjustment = adjTimer;
 			scaleTimer.ChangeValue += OnTimerChangeValueEvent;
 			scaleTimer.FormatValue += TimerFormatValue;
 			scaleTimer.Value = (double) DrapesApp.Cfg.SwitchDelay;
-			DrapesApp.Cfg.SwitchDelayWidget(scaleTimer);
 			
 			// CheckButton: Monitor directory toggle
-			cbtMonitor.Clicked += OnMonitorChanged;
 			cbtMonitor.Active = DrapesApp.Cfg.MonitorEnabled;
-			DrapesApp.Cfg.MonitorEnabledWidget(cbtMonitor);
+            cbtMonitor.Toggled += this.OnMonitorChanged;
 			
 			// The FileChooserButton
-			fcbDir.Sensitive = DrapesApp.Cfg.MonitorEnabled;
-			fcbDir.SetCurrentFolderUri(DrapesApp.Cfg.MonitorDirectory);
-			fcbDir.CurrentFolderChanged += OnMonitorDirChanged;
-			DrapesApp.Cfg.MonitorDirectoryWidget(fcbDir);
+            fcbDir.Sensitive = DrapesApp.Cfg.MonitorEnabled;
+            fcbDir.LocalOnly = true;    // no gnome vfs hacksage
+            if (DrapesApp.Cfg.MonitorDirectory == null)
+                fcbDir.SetCurrentFolder(Config.Defaults.MonitorDirectory);
+            else
+                fcbDir.SetCurrentFolder(DrapesApp.Cfg.MonitorDirectory);
+            fcbDir.SelectionChanged += this.OnMonitorDirChanged;
+            
+            // Events from the settings classConfirmOverwrite
+            
+            DrapesApp.Cfg.MonitorDirectoryChanged += this.OnSettingMonitorDirChanged;
+            DrapesApp.Cfg.MonitorEnabledChanged += this.OnSettingMonitorEnabledChange;
+            DrapesApp.Cfg.SwitchDelayChanged += this.OnSettingTimmerChanged;
+            DrapesApp.Cfg.StyleChanged += this.OnSettingStyleChanged;
 
 			// E: General Tab
 			// B: Treeview wallpaper list
@@ -115,7 +135,7 @@ namespace Drapes
 
 			// Toggle cell renderer needs some special setup, it dosen't handle the toggle it self, it needs a call back
 			Gtk.CellRendererToggle tg = new Gtk.CellRendererToggle();
-			tg.Toggled += OnWallPaperToggle;
+			tg.Toggled += OnWallPaperToggled;
 			tg.Xpad = 4;
 			
 			// Preview Image & Description
@@ -162,9 +182,9 @@ namespace Drapes
 			tmfFilter.VisibleFunc = FilterEmptySections;
 			
 			// Double click on a row (switch wallpaper, or expand collapse category)
-			tvBgList.RowActivated += onRowDoubleClick;
+			tvBgList.RowActivated += OnWallpaperSelected;
 
-			// The filter is the "proxy" for the TreeView model 
+			// The filter is the "proxy" for the TreeView model
 			tvBgList.Model = tmfFilter;
 
 			// Show everything
@@ -173,6 +193,8 @@ namespace Drapes
 			// E: Treeview wallpaper list
 		}
 
+// BEGIN: Helper functions
+        
         int DelayCounter = 0;
         private bool DelayedLoader()
         {
@@ -222,59 +244,131 @@ namespace Drapes
 			if (tmfFilter != null)
 				tmfFilter.Refilter();
 		}
-
-		// Tooltips
-		Tooltips 					tooltips;
-		
-		// The main window
-		[Widget] Window				winPref;
-		// Things in the general tab
-		[Widget] HScale				scaleTimer;
-		[Widget] Button				btnClose;
-		[Widget] CheckButton		cbtAutoStart;
-		[Widget] CheckButton		cbtStartSwitch;
-		[Widget] CheckButton		cbtMonitor;
-		[Widget] FileChooserButton	fcbDir;
-        // help
-        [Widget] Button             btnHelp;
-		// Add/Remove Style
-		[Widget] Button				btnAdd;
-		[Widget] Button				btnRemove;
-        // Style box
-		[Widget] ComboBox			cmbStyle;
-        ListStore                   cmbStyleStore;
-		// The Treeview
-		[Widget] TreeView			tvBgList;
-		Gtk.TreeStore				tsEntries;
-		// the filter
-		Gtk.TreeModelFilter			tmfFilter;
-		// Diffrent "sections" of the treeview
-		Gtk.TreeIter				tiMatch;
-		Gtk.TreeIter				tiAsp43;
-		Gtk.TreeIter				tiAspWide;
-		Gtk.TreeIter				tiAspMisc;
-
         
-        private void onHelpButtonClick(object sender, EventArgs args)
+        // Raise the focus of the window
+        public void RaiseWindow()
         {
-            // So we execture gnome-help by hand, instead of calling the right Gnome.Help.whatever method
-            // cause of a bug in Gnome# where it wasn't compiled with the right gnome paths, and it just
-            // caused an excetion and craps out... 
-            System.Diagnostics.Process.Start("gnome-help", CompileOptions.HelpFile);
-        } 
-        
-		// Update gnome wallaper style
-		private void onStyleChanged(object sender, EventArgs args)
-		{
-			DrapesApp.Cfg.Style = (Config.Style) (sender as Gtk.ComboBox).Active; 
-            // gray out selection of wallpapers on wallpaper display disabled
-            tvBgList.Sensitive = (DrapesApp.Cfg.Style != Config.Style.STYLE_NONE);
-		}
+            winPref.Present();
+        }
 
+// END: Helper functions
+// BEGIN: Drawing
+        
         private bool StyleSeparatorFunc(TreeModel model, TreeIter iter)
         {
             return (model.GetValue(iter, 0) == null);
         }
+        
+        // Widget: tvBgList
+        // Don't show sections that are empty
+        private bool FilterEmptySections(TreeModel model, TreeIter iter)
+        {
+            TreeIter    parent;
+            string key = (string) model.GetValue(iter, 0);
+            
+            // Always draw all wallpapers
+            if (key != null)
+                return true;
+            
+            if (model.IterParent(out parent, iter)) {
+                if (model.IterNChildren(parent) >= 2)
+                    return false;
+            }
+            
+            return true;
+        }
+        
+        // Widget: tvBgList
+        // Render the row's cells
+        private void RenderList (TreeViewColumn column, CellRenderer cell, TreeModel model, TreeIter iter)
+        {
+            string  key = (string) model.GetValue(iter, 0);
+            string  h = (string) model.GetValue(iter, 1);
+            
+            // Root nodes and empty messages
+            if (key == null) {
+                if (cell is Gtk.CellRendererToggle) {
+                    (cell as Gtk.CellRendererToggle).Visible = false;
+                } else if (cell is Gtk.CellRendererPixbuf) {
+                    (cell as Gtk.CellRendererPixbuf).Visible = false;
+                } else if (cell is Gtk.CellRendererText) {
+                    (cell as Gtk.CellRendererText).Sensitive = true;
+                    (cell as Gtk.CellRendererText).Markup = h;
+                } else {
+                    Console.WriteLine(Catalog.GetString("Unknown column"));
+                }
+                
+                // Sub nodes
+            } else {
+                if (cell is CellRendererToggle) {
+                    CellRendererToggle c = (CellRendererToggle) cell;
+                    
+                    c.Activatable = true;
+                    c.Visible = true;
+                    c.Active = DrapesApp.WpList[key].Enabled;
+                } else if (cell is CellRendererPixbuf) {
+                    CellRendererPixbuf p = (CellRendererPixbuf) cell;
+                    
+                    // this is a hack, so the whole column dosen't activate on sellection
+                    p.Mode = CellRendererMode.Activatable;
+                    
+                    p.Visible = true;
+                    p.Pixbuf = DrapesApp.WpList[key].Thumbnail();
+                    
+                    // Gray it out if the user diabled it
+                    p.Sensitive = DrapesApp.WpList[key].Enabled;
+                    
+                } else if (cell is CellRendererText) {
+                    CellRendererText t = (CellRendererText) cell;
+                    
+                    string TextDesc;
+                    
+                    // Format the description text next to the image
+                    TextDesc = String.Format("<b>{0}</b>\n", DrapesApp.WpList[key].Name );
+                    TextDesc += String.Format("{0}\n", DrapesApp.WpList[key].MimeDescription);
+                    TextDesc += String.Format(Catalog.GetString("{0} x {1} pixels"), DrapesApp.WpList[key].Width, DrapesApp.WpList[key].Height);
+                    
+                    t.Markup = TextDesc;
+                    
+                    // So the text dosen't overflow
+                    t.Ellipsize = Pango.EllipsizeMode.End;
+                    
+                    // Gray it out if the user disabled it
+                    t.Sensitive = DrapesApp.WpList[key].Enabled;
+                } else {
+                    Console.WriteLine(Catalog.GetString("Unknown column"));
+                }
+            }
+        }
+        
+        // Widget: scaleTimer
+        // Format the time text for under the scale widget
+        private void TimerFormatValue (object sender, FormatValueArgs args)
+        {
+            HScale  t = (Gtk.HScale) sender;
+            args.RetVal = Config.Delay.ToText((Config.Delay.DelayEnum) Convert.ToInt32(t.Value));
+        }
+        
+// END: Drawing
+// BEGIN: Widget Events
+        
+        // Widget: btnHelp
+        private void OnHelpClicked(object sender, EventArgs args)
+        {
+            // So we execture gnome-help by hand, instead of calling the right Gnome.Help.whatever method
+            // cause of a bug in Gnome# where it wasn't compiled with the right gnome paths, and it just
+            // caused an excetion and craps out...
+            System.Diagnostics.Process.Start("gnome-help", CompileOptions.HelpFile);
+        }
+        
+        // Widget: cmbStyle
+		// Update gnome wallaper style
+		private void onStyleChanged(object sender, EventArgs args)
+		{
+            DrapesApp.Cfg.Style = (Config.Style.StyleEnum) (sender as Gtk.ComboBox).Active;
+            // gray out selection of wallpapers on wallpaper display disabled
+            tvBgList.Sensitive = (DrapesApp.Cfg.Style != Config.Style.StyleEnum.STYLE_NONE);
+		}
 
 		private void onAutoStartToggled(object sender, EventArgs args)
 		{
@@ -282,7 +376,7 @@ namespace Drapes
 		}
 		
 		// Add more wallpapers
-		private void onAddButtonClick (object sender, EventArgs args)
+		private void OnAddWallpapersClicked (object sender, EventArgs args)
 		{
 			FileChooserDialog fc = new FileChooserDialog(Catalog.GetString("Add wallpaper"), winPref, FileChooserAction.Open);
 
@@ -366,7 +460,7 @@ namespace Drapes
 		}
 		
 		// Remove backgrouds from the list
-		private void onRemoveButtonClick (object sender, EventArgs args)
+		private void OnRemoveWallpapersClicked (object sender, EventArgs args)
 		{
 			// First we need to get a TreeSelection representing selected nodes
 			TreeSelection 	sel = tvBgList.Selection;
@@ -432,91 +526,11 @@ namespace Drapes
 			tsEntries.Foreach(DelFunc);
 			
 			// refilter the list
-			tmfFilter.Refilter();				  
+			tmfFilter.Refilter();
 		}
-
-		// Don't display the the "no wallpapers" if there are wallpapers present
-		private bool FilterEmptySections(TreeModel model, TreeIter iter)
-		{
-			TreeIter	parent;
-			string key = (string) model.GetValue(iter, 0);
-
-			// Always draw all wallpapers
-			if (key != null)
-				return true;
-			
-			if (model.IterParent(out parent, iter)) {
-				if (model.IterNChildren(parent) >= 2)
-					return false;
-			}
-
-			return true;
-		}
-		
-		// This basicaly performs the rendering of each row (on a cell by cell basis)
-		private void RenderList (TreeViewColumn column, CellRenderer cell, TreeModel model, TreeIter iter)
-		{
-			string	key = (string) model.GetValue(iter, 0);
-			string	h = (string) model.GetValue(iter, 1);
-		
-			// Root nodes and empty messages
-			if (key == null) {			
-				if (cell is Gtk.CellRendererToggle) {
-					(cell as Gtk.CellRendererToggle).Visible = false;
-				} else if (cell is Gtk.CellRendererPixbuf) {
-					(cell as Gtk.CellRendererPixbuf).Visible = false;
-				} else if (cell is Gtk.CellRendererText) {
-					(cell as Gtk.CellRendererText).Sensitive = true;
-					(cell as Gtk.CellRendererText).Markup = h;
-				} else {
-					Console.WriteLine(Catalog.GetString("Unknown column"));
-				}
-				
-			// Sub nodes
-			} else {
-				if (cell is CellRendererToggle) {
-					CellRendererToggle c = (CellRendererToggle) cell;
-					
-					c.Activatable = true;
-					c.Visible = true;
-					c.Active = DrapesApp.WpList[key].Enabled;
-				} else if (cell is CellRendererPixbuf) {
-					CellRendererPixbuf p = (CellRendererPixbuf) cell; 
-					
-					// this is a hack, so the whole column dosen't activate on sellection
-					p.Mode = CellRendererMode.Activatable;
-					
-					p.Visible = true;
-					p.Pixbuf = DrapesApp.WpList[key].Thumbnail();
-					
-					// Gray it out if the user diabled it
-					p.Sensitive = DrapesApp.WpList[key].Enabled;
-					
-				} else if (cell is CellRendererText) {
-					CellRendererText t = (CellRendererText) cell;
-					
-					string TextDesc;
-					
-					// Format the description text next to the image
-					TextDesc = String.Format("<b>{0}</b>\n", DrapesApp.WpList[key].Name );
-					TextDesc += String.Format("{0}\n", DrapesApp.WpList[key].MimeDescription);
-					TextDesc += String.Format(Catalog.GetString("{0} x {1} pixels"), DrapesApp.WpList[key].Width, DrapesApp.WpList[key].Height);
-						
-					t.Markup = TextDesc;
-						
-					// So the text dosen't overflow
-					t.Ellipsize = Pango.EllipsizeMode.End;
-					
-					// Gray it out if the user disabled it
-					t.Sensitive = DrapesApp.WpList[key].Enabled;
-				} else {
-					Console.WriteLine(Catalog.GetString("Unknown column"));
-				}
-			}
-		}
-		
+	
 		// User double clicked a row in the TreeView
-		private void onRowDoubleClick (object sender, RowActivatedArgs args)
+		private void OnWallpaperSelected (object sender, RowActivatedArgs args)
 		{
 			TreeView		tv = (TreeView) sender;
 			TreeModelFilter	model = (TreeModelFilter) tv.Model;
@@ -543,7 +557,7 @@ namespace Drapes
 		}
 		
 		// User toggles a wallpaper in the list
-		private void OnWallPaperToggle (object sender, ToggledArgs args)
+		private void OnWallPaperToggled (object sender, ToggledArgs args)
 		{
 			TreeModelFilter	model = (Gtk.TreeModelFilter) tvBgList.Model;
 			TreeIter		iter;
@@ -556,82 +570,94 @@ namespace Drapes
 			DrapesApp.WpList.SetEnabled(key, !DrapesApp.WpList[key].Enabled);
 		}
 		
-		// Clicked on cbtMonitor
 		private void OnMonitorChanged (object sender, EventArgs args)
 		{
 			Gtk.CheckButton c = (Gtk.CheckButton) sender;
 
-			// CConf settings
-			DrapesApp.Cfg.MonitorEnabled = c.Active;
-
-            // make sure there is some sensible default set at least
-            if (System.IO.File.Exists(DrapesApp.Cfg.MonitorDirectory) == false) {
-                DrapesApp.Cfg.MonitorDirectory = Config.Defaults.MonitorDirectory;
-                fcbDir.SetFilename(DrapesApp.Cfg.MonitorDirectory);
-            }
-
-			// They can only select a directory to monitor, if the monitor toggle is clicked			
-			fcbDir.Sensitive = c.Active;
-		}
-		
-		private void OnMonitorDirChanged (object sender, EventArgs args)
-		{
-			Gtk.FileChooserButton d = (Gtk.FileChooserButton) sender;
-
-            // Infinite crazines, stops here!
-            if (d.Filename == DrapesApp.Cfg.MonitorDirectory)
-                return;
-            
-			// Update GConf settings
-			DrapesApp.Cfg.MonitorDirectory = d.Filename;
-		}
-		
-		// Clicked on cbtStartSwitch
-		private void OnStartupChanged (object sender, EventArgs args)
-		{
-			Gtk.CheckButton c = (Gtk.CheckButton) sender;
-		
-			// Gconf settings
-			DrapesApp.Cfg.ShuffleOnStart = c.Active;
-		}
-		
-		// Text formating for: cbtMonitor
-		private void TimerFormatValue (object sender, FormatValueArgs args)
-		{
-			HScale	t = (Gtk.HScale) sender;
-			args.RetVal = Config.TimeDelay.String((Config.TimeDelay.Delay) Convert.ToInt32(t.Value));
-		}
-		
-		// change the value of cbtMonitor
-		private void OnTimerChangeValueEvent (object sender, ChangeValueArgs args)
-		{
-			HScale	t = (HScale) sender;
-			
-			// Convert it to a TimeDelay and update GConf
-			Config.TimeDelay.Delay d = (Config.TimeDelay.Delay) Convert.ToInt32(t.Value);
-			DrapesApp.Cfg.SwitchDelay = d;
+            DrapesApp.Cfg.MonitorEnabled = c.Active;
+            fcbDir.Sensitive = c.Active;
 		}
         
-		// Raise the focus of the window
-		public void RaiseWindow()
-		{
-			winPref.Present();
-		}
-		
-		private void onCloseButtonClick (object sender, EventArgs args)
-		{
+        // Widget: fcbDir
+        // changed image monitor directory
+        private void OnMonitorDirChanged (object sender, EventArgs args)
+        {
+            Gtk.FileChooserButton d = (Gtk.FileChooserButton) sender;
+            
+            if (DrapesApp.Cfg.MonitorDirectory == d.Filename)
+                return;
+
+            DrapesApp.Cfg.MonitorDirectory = d.Filename;
+        }
+        
+        // Widget: cbtStartSwitch
+        // enable/disable startup shuffle
+        private void OnStartupChanged (object sender, EventArgs args)
+        {
+            Gtk.CheckButton c = (Gtk.CheckButton) sender;
+            
+            DrapesApp.Cfg.ShuffleOnStart = c.Active;
+        }
+        
+        // Widget: cbtMonitor
+        // enable/disable monitor
+        private void OnTimerChangeValueEvent (object sender, ChangeValueArgs args)
+        {
+            HScale  t = (HScale) sender;
+            
+            // Convert it to a TimeDelay and update GConf
+            Config.Delay.DelayEnum d = (Config.Delay.DelayEnum) Convert.ToInt32(t.Value);
+            DrapesApp.Cfg.SwitchDelay = d;
+        }
+        
+        // Widget: winPref
+        // close window
+        private void onCloseButtonClick (object sender, EventArgs args)
+        {
             DrapesApp.WpList.CleanupThumbs();
             DrapesApp.ConfigWindow = null;
             GLib.Idle.Remove(DelayedLoader);
-			winPref.Destroy();
-		}
-		
-		void OnWindowDelete (object o, DeleteEventArgs args)
-		{
+            winPref.Destroy();
+        }
+        
+        void OnWindowDelete (object o, DeleteEventArgs args)
+        {
             DrapesApp.WpList.CleanupThumbs();
             DrapesApp.ConfigWindow = null;
             GLib.Idle.Remove(DelayedLoader);
-			DrapesApp.ConfigWindow  = null;
-		}
+            DrapesApp.ConfigWindow  = null;
+        }
+        
+// B: External settings events
+        
+        // Widget: cbtMonitor
+        private void OnSettingMonitorEnabledChange (object sender, Config.SettingsChangeEvent<bool> args)
+        {
+            if (cbtMonitor.Active != args.Value)
+                cbtMonitor.Active = args.Value;
+        }
+        
+        // Widget: fcbDir
+        private void OnSettingMonitorDirChanged(object sender, Config.SettingsChangeEvent<string> args)
+        {
+            if (fcbDir.Filename != args.Value)
+                fcbDir.SetCurrentFolder(args.Value);
+        }
+        
+        // Widget: scaleTimer
+        private void OnSettingTimmerChanged(object sender, Config.SettingsChangeEvent<Config.Delay.DelayEnum> args)
+        {
+            if (scaleTimer.Value != (double) args.Value)
+                scaleTimer.Value = (double) args.Value;
+        }
+        
+        // Widget: cmbStyle
+        private void OnSettingStyleChanged(object sender, Config.SettingsChangeEvent<Config.Style.StyleEnum> args)
+        {
+            if (cmbStyle.Active != (Int32) args.Value)
+                cmbStyle.Active = (Int32) args.Value;
+        }
+        
+// END: Extral settings events
 	}
 }

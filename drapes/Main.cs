@@ -53,7 +53,7 @@ namespace Drapes {
 			// Initialize the interntionalization bits
 			Catalog.Init("drapes", CompileOptions.GnomeLocaleDir);
 			
-			// 
+			//
 			Program = new Gnome.Program("Drapes", CompileOptions.Version, Gnome.Modules.UI, args);
 
             Client = new Gnome.Client();
@@ -64,29 +64,30 @@ namespace Drapes {
 
 			// Process application arguments
 			ProcessArgs(args);
+
+			// If Monitor is enabled, make sure the dir exists as well
+			if (Cfg.MonitorEnabled == true)
+				// If it dosen't exist turn of monitoring
+				if (Cfg.MonitorDirectory == null) {
+					Cfg.MonitorEnabled = false;
+                    Cfg.MonitorDirectory = "unset";
+                }
 	
 			// Check if we already have file with wallpapers, else assume first start
 			Vfs.Uri cfg = new Vfs.Uri(Config.Defaults.DrapesWallpaperList);
 			if (!cfg.Exists) {
-				Console.WriteLine(Catalog.GetString("Importing Gnome's background list"));
+                if (Cfg.Debug == true)
+                    Console.WriteLine(Catalog.GetString("Importing Gnome's background list: {0}"), Config.Defaults.Gnome.WallpaperListFile);
+
 				WpList = new WallPaperList(Config.Defaults.Gnome.WallpaperListFile);
 				
 				// Lets save it in our own format
 				WpList.SaveList(Config.Defaults.DrapesWallpaperList);
 			} else {
-				Console.WriteLine(Catalog.GetString("Opening wallpaper list"));
-				WpList = new WallPaperList(Config.Defaults.DrapesWallpaperList);
-			}
+                if (Cfg.Debug == true)
+                    Console.WriteLine(Catalog.GetString("Opening wallpaper list: {0}"), Config.Defaults.DrapesWallpaperList);
 
-			// If Monitor is enabled, make sure the dir exists as well
-			if (Cfg.MonitorEnabled) {
-				Vfs.Uri d = new Vfs.Uri(Cfg.MonitorDirectory);
-				
-				// If it dosen't exist set a senible one, and disable monitoring
-				if (d.Exists != true) {
-					Cfg.MonitorEnabled = false;
-                    Cfg.MonitorDirectory = Config.Defaults.MonitorDirectory;
-                }
+				WpList = new WallPaperList(Config.Defaults.DrapesWallpaperList);
 			}
 			
 			// Wallpaper switcher (check every 10 seconds or so)
@@ -110,10 +111,10 @@ namespace Drapes {
 				return true;
 			
 			// Never switch the wallpaper
-			if (Cfg.SwitchDelay == Config.TimeDelay.Delay.MIN_NEVER)
+			if (Cfg.SwitchDelay == Config.Delay.DelayEnum.MIN_NEVER)
 				return true;
 			
-			DateTime next = LastSwitch.AddMinutes(Config.TimeDelay.Int32(Cfg.SwitchDelay));
+			DateTime next = LastSwitch.AddMinutes(Config.Delay.Int32(Cfg.SwitchDelay));
 			// Are we there yet?
 			if (DateTime.Now < next)
 				return true;

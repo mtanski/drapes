@@ -30,7 +30,7 @@
       <applyto>/apps/drapes/monitor_directory</applyto>
       <owner>drapes</owner>
       <type>string</type>
-      <default></default>
+      <default>unset</default>
       <locale name="C">
         <short>Directory to monitor</short>
         <long>The directory that is to be monitored for changes using inotify.</long>

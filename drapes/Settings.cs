@@ -27,80 +27,121 @@ using Config = Drapes.Config;
 
 namespace Drapes.Config
 {
-	public class TimeDelay
+	public static class Delay
 	{
-		public static string String(Delay d)
+		public static string ToText(DelayEnum d)
 		{
 			switch (d) {
-				case Delay.MIN_5:
+				case DelayEnum.MIN_5:
 					return Catalog.GetString("5 minutes");
-				case Delay.MIN_10:
+				case DelayEnum.MIN_10:
 					return Catalog.GetString("10 minutes");
-				case Delay.MIN_15:
+				case DelayEnum.MIN_15:
 					return Catalog.GetString("15 minutes");
-				case Delay.MIN_20:
+				case DelayEnum.MIN_20:
 					return Catalog.GetString("20 minutes");
-				case Delay.MIN_30:
+				case DelayEnum.MIN_30:
 					return Catalog.GetString("30 minutes");
-				case Delay.MIN_45:
+				case DelayEnum.MIN_45:
 					return Catalog.GetString("45 minutes");
-				case Delay.MIN_60:
+				case DelayEnum.MIN_60:
 					return Catalog.GetString("1 hour");
-				case Delay.MIN_90:
+				case DelayEnum.MIN_90:
 					return Catalog.GetString("1 hour 30 minutes");
-				case Delay.MIN_120:
+				case DelayEnum.MIN_120:
 					return Catalog.GetString("2 hours");
-				case Delay.MIN_NEVER:
+				case DelayEnum.MIN_NEVER:
 				default:
 					return Catalog.GetString("Never");
 			}
-		} 
+		}
 	
-		public static int Int32(Delay d)
+		public static int Int32(DelayEnum d)
 		{
 			switch (d) {
-				case Delay.MIN_5:
+				case DelayEnum.MIN_5:
 					return 5;
-				case Delay.MIN_10:
+				case DelayEnum.MIN_10:
 					return 10;
-				case Delay.MIN_15:
+				case DelayEnum.MIN_15:
 					return 15;
-				case Delay.MIN_20:
+				case DelayEnum.MIN_20:
 					return 20;
-				case Delay.MIN_30:
+				case DelayEnum.MIN_30:
 					return 30;
-				case Delay.MIN_45:
+				case DelayEnum.MIN_45:
 					return 45;
-				case Delay.MIN_60:
+				case DelayEnum.MIN_60:
 					return 60;
-				case Delay.MIN_90:
+				case DelayEnum.MIN_90:
 					return 90;
-				case Delay.MIN_120:
+				case DelayEnum.MIN_120:
 					return 120;
-				case Delay.MIN_NEVER:
+				case DelayEnum.MIN_NEVER:
 				default:
 					return 0;
 			}
 		}
 	
-		// delay	
-		public enum Delay {
+		// delay
+		public enum DelayEnum {
 			MIN_5,		MIN_10,		MIN_15,		MIN_20,
 			MIN_30,		MIN_45,		MIN_60,		MIN_90,
 			MIN_120,	MIN_NEVER
 		}
 	}
-
-	// Styles
-	public enum Style {
-		STYLE_CENTER = 0,
-		STYLE_FILL = 1,
-		STYLE_SCALE = 2,
-        STYLE_TILED = 3,
-        STYLE_ZOOM = 4,				// wtf? welcome back 1995
-        // 5 - spacer in the menu
-        STYLE_NONE = 6
-	}
+        
+    public static class Style
+    {
+        public static StyleEnum FromText(string name)
+        {
+            switch (name) {
+                case "stretched":
+                    return StyleEnum.STYLE_FILL;
+                case "scaled":
+                    return StyleEnum.STYLE_SCALE;
+                case "zoom":
+                    return StyleEnum.STYLE_ZOOM;
+                case "centered":
+                    return StyleEnum.STYLE_CENTER;
+                case "wallpaper":
+                    return StyleEnum.STYLE_TILED;
+                case "none":
+                default :
+                    return StyleEnum.STYLE_NONE;
+            }
+        }
+        
+        public static string ToText(StyleEnum src) {
+            switch (src) {
+                case StyleEnum.STYLE_CENTER:
+                    return "centered";
+                case StyleEnum.STYLE_FILL:
+                    return "stretched";
+                case StyleEnum.STYLE_SCALE:
+                    return "zoom";
+                case StyleEnum.STYLE_TILED:
+                    return "wallpaper";
+                case StyleEnum.STYLE_ZOOM:
+                    return "zoon";
+                case StyleEnum.STYLE_NONE:
+                default:
+                    return "none";
+            }
+        }
+        
+    
+        // Styles
+        public enum StyleEnum {
+            STYLE_CENTER = 0,
+            STYLE_FILL = 1,
+            STYLE_SCALE = 2,
+            STYLE_TILED = 3,
+            STYLE_ZOOM = 4,             // wtf? welcome back 1995
+            // 5 - spacer in the menu
+            STYLE_NONE = 6
+        }
+    }
 
 	// Settings class
 	public class Settings
@@ -114,12 +155,14 @@ namespace Drapes.Config
 		const string GCONF_KEY_MONITOR_DIR = GCONF_APP_PATH + "/monitor_directory";
 		const string GCONF_KEY_SO_START =  GCONF_APP_PATH + "/on_startup";
 		const string GCONF_KEY_SHUFFLE = GCONF_APP_PATH + "/enable_timed_shuffle";
-		//
-		ToggleButton		cbtStartSwitch;
-		HScale				scaleTimer;
-		ToggleButton		cbtMonitor;
-		FileChooserButton	fcbDir;
-		ComboBox			cmbStyle;
+
+        // Current internal settings
+        Delay.DelayEnum     _timeDelay;
+        bool                _monitorEnabled;
+        string              _monitorDirectory;
+        bool                _startup;
+        bool                _shuffle;
+        Style.StyleEnum     _style;
 
         // dosen't get saved
         bool                debug = false;
@@ -128,40 +171,60 @@ namespace Drapes.Config
 		public Settings()
 		{
 			client = new GConf.Client();
-			
-			// GConf key change notifiers
-			client.AddNotify(GCONF_KEY_SO_START, GConfKeyChange);
-			client.AddNotify(GCONF_KEY_TIMER, GConfKeyChange);
-			client.AddNotify(GCONF_KEY_MONITOR, GConfKeyChange);
-			client.AddNotify(GCONF_KEY_MONITOR_DIR, GConfKeyChange);
-			client.AddNotify(Defaults.Gnome.PictureOptionsKey, GConfKeyChange);
-		}
-		
-		// For setting up GConf key monitoring
-		public void ShuffleOnStartWidget(ToggleButton t)
-		{
-			cbtStartSwitch = t;
-		}
-		
-		public void MonitorEnabledWidget(ToggleButton t)
-		{
-			cbtMonitor = t;
-		}
-		
-		public void MonitorDirectoryWidget(FileChooserButton f)
-		{
-			fcbDir = f;
-		}
-		
-		public void SwitchDelayWidget(HScale s)
-		{
-			scaleTimer = s;
-		}
 
-		public void SwitchStyleWidget(ComboBox c)
-		{
-			cmbStyle = c;
+            // loads initial settings
+            try {
+                _timeDelay = (Delay.DelayEnum) client.Get(GCONF_KEY_TIMER);
+            } catch (Exception) {
+                _timeDelay = Defaults.SwitchDelay;
+            }
+
+            try {
+                _monitorEnabled = (bool) client.Get(GCONF_KEY_MONITOR);
+            } catch (Exception) {
+                _monitorEnabled = Defaults.MonitorEnabled;
+            }
+
+            try {
+                _monitorDirectory = (string) client.Get(GCONF_KEY_MONITOR_DIR);
+            } catch (Exception) {
+                _monitorDirectory = Defaults.MonitorDirectory;
+            }
+
+            try {
+                _startup = (bool) client.Get(GCONF_KEY_SO_START);
+            } catch (Exception) {
+				_startup = Defaults.ShuffleOnStart;
+            }
+			
+			try {
+				_shuffle = (bool) client.Get(GCONF_KEY_SHUFFLE);
+			} catch (Exception) {
+				_shuffle = Defaults.ShuffleEnabled;
+			}
+            
+            try {
+                _style = Config.Style.FromText((String) client.Get(Defaults.GCONF_STYLE_OPTIONS));
+            } catch (Exception) {
+                _style = 0;
+            }
+
+            // setup key change callbacks
+			client.AddNotify(GCONF_APP_PATH, this.GConfKeyChange);
+			client.AddNotify(GCONF_KEY_MONITOR, this.GConfKeyChange);
+			client.AddNotify(GCONF_KEY_MONITOR_DIR, this.GConfKeyChange);
+			client.AddNotify(GCONF_KEY_SHUFFLE, this.GConfKeyChange);
+			client.AddNotify(GCONF_KEY_TIMER, this.GConfKeyChange);
+            client.AddNotify(Defaults.GCONF_STYLE_OPTIONS, this.GConfKeyChange);
+
 		}
+        
+        public event BoolSettingChangeHandler      ShuffleOnStartChanged;
+        public event TimeSettingsChangeHandler     SwitchDelayChanged;
+        public event BoolSettingChangeHandler      MonitorEnabledChanged;
+        public event StringSettingChangeHandler    MonitorDirectoryChanged;
+        public event StyleSettingsChangeHander     StyleChanged;
+        
 
         public bool Debug
         {
@@ -178,139 +241,109 @@ namespace Drapes.Config
 		public bool ShuffleOnStart
 		{
 			get {
-				bool val = Defaults.ShuffleOnStart;
-				
-				try {
-					val = (bool) client.Get(GCONF_KEY_SO_START);
-				} catch (NoSuchKeyException) {		// key dosen't exist?
-					client.Set(GCONF_KEY_SO_START, Defaults.ShuffleOnStart);
-				} catch (InvalidCastException) {		// got overwriten
-					client.Set(GCONF_KEY_SO_START, Defaults.ShuffleOnStart);
-				}
-			
-				return val;
+                return _startup;
 			}
 			
 			set {
+                if (_startup == value)
+                    return;
+
+                _startup = value;
 				client.Set(GCONF_KEY_SO_START, value);
-			}		
+                if (this.ShuffleOnStartChanged != null)
+                    this.ShuffleOnStartChanged(this, new SettingsChangeEvent<bool> (value, !value, SettingsChangeSrc.Application));
+			}
 		}
 
-		public TimeDelay.Delay SwitchDelay
+		public Delay.DelayEnum SwitchDelay
 		{
 			get {
-				TimeDelay.Delay val = Defaults.SwitchDelay;
-				
-				try {
-					val = (TimeDelay.Delay) client.Get(GCONF_KEY_TIMER);
-				} catch (NoSuchKeyException) {
-					client.Set(GCONF_KEY_TIMER, (int) Defaults.SwitchDelay);
-				} catch (InvalidCastException) {
-					client.Set(GCONF_KEY_TIMER, (int) Defaults.SwitchDelay);
-				}
-				
-				return val;
+                return _timeDelay;
 			}
 			
 			set {
+                // stop feeding me crap input
+                if (value > Delay.DelayEnum.MIN_NEVER || value < Delay.DelayEnum.MIN_5)
+                    value = Defaults.SwitchDelay;
+                
+                if (_timeDelay == value)
+                    return;
+                
+                Delay.DelayEnum old = _timeDelay;
+                _timeDelay = value;
 				client.Set(GCONF_KEY_TIMER, (int) value);
+                if (this.SwitchDelayChanged != null)
+                    this.SwitchDelayChanged(this, new SettingsChangeEvent<Delay.DelayEnum> (_timeDelay, old, SettingsChangeSrc.Application));
 			}
 		}
 
 		public bool MonitorEnabled
 		{
 			get {
-				bool val = Defaults.MonitorEnabled;
-				
-				try {
-					val = (bool) client.Get(GCONF_KEY_MONITOR);
-				} catch (NoSuchKeyException) {
-					client.Set(GCONF_KEY_MONITOR, Defaults.MonitorEnabled);
-				} catch (InvalidCastException) {
-					client.Set(GCONF_KEY_MONITOR, Defaults.MonitorEnabled);
-				}
-
-				return val;
+                return _monitorEnabled;
 			}
 			
 			set {
-				client.Set(GCONF_KEY_MONITOR, value);
+                // ignore same values
+                if (_monitorEnabled == value)
+                    return;
+                
+                client.Set(GCONF_KEY_MONITOR, value);
+                if (this.MonitorEnabledChanged != null)
+                    this.MonitorEnabledChanged(this, new SettingsChangeEvent<bool> (value, !value, SettingsChangeSrc.Application));
 			}
 		}
 		
 		public string MonitorDirectory
 		{
 			get  {
-				string val = "";
-			
-				try {
-					val = (string) client.Get(GCONF_KEY_MONITOR_DIR);
-				} catch (NoSuchKeyException) {
-					client.Set(GCONF_KEY_MONITOR_DIR, Defaults.MonitorDirectory);
-				} catch (InvalidCastException) {
-					client.Set(GCONF_KEY_MONITOR_DIR, Defaults.MonitorDirectory);
-				}
-				
-				return val;
+                switch (_monitorDirectory) {
+                    case "":
+                    case "unset":
+                        return null;
+                }
+                
+                return _monitorDirectory;
 			}
 			
 			set {
-				client.Set(GCONF_KEY_MONITOR_DIR, value);
+                // ignore the same values
+                if (_monitorDirectory == value)
+                    return;
+                
+                if (Directory.Exists(value) == false) {
+                    if (this.Debug == true)
+                        Console.WriteLine("Monitor directory: {0} dosen't exist.", value);
+                    
+                    _monitorDirectory = null;
+                    DrapesApp.WpList.FileSystemMonitor = false;
+                } else {
+                    string oldDir = _monitorDirectory;
+                    _monitorDirectory = value;
+                    client.Set(GCONF_KEY_MONITOR_DIR, value);
+                    if (this.MonitorDirectoryChanged != null)
+                        this.MonitorDirectoryChanged(this, new SettingsChangeEvent<string> (_monitorDirectory, oldDir, SettingsChangeSrc.Application));
+                }
 			}
 		}
 		
-		public Config.Style Style {
+		public Style.StyleEnum Style {
 			get {
-				string val = "";
-				
-				try {
-					val = (string) client.Get(Defaults.Gnome.PictureOptionsKey);
-				} catch (NoSuchKeyException) {
-					client.Set(Defaults.Gnome.PictureOptionsKey, "none");
-				}
-				
-				switch (val) {
-					case "stretched":
-						return Config.Style.STYLE_FILL;
-					case "scaled":
-						return Config.Style.STYLE_SCALE;
-					case "zoom":
-						return Config.Style.STYLE_ZOOM;
-                    case "centered":
-                        return Config.Style.STYLE_CENTER;
-                    case "wallpaper":
-                        return Config.Style.STYLE_TILED;
-                    case "none":
-					default :
-						return Config.Style.STYLE_NONE;
-				}
-			
+                return _style;
 			}
 		
 			set {
-				switch (value) {
-					case Config.Style.STYLE_CENTER:
-						client.Set(Defaults.Gnome.PictureOptionsKey, "centered");
-						break;
-					case Config.Style.STYLE_FILL:
-						client.Set(Defaults.Gnome.PictureOptionsKey, "stretched");
-						break;
-					case Config.Style.STYLE_SCALE:
-						client.Set(Defaults.Gnome.PictureOptionsKey, "scaled");
-						break;
-					case Config.Style.STYLE_ZOOM:
-						client.Set(Defaults.Gnome.PictureOptionsKey, "zoom");
-						break;
-                    case Config.Style.STYLE_TILED:
-                        client.Set(Defaults.Gnome.PictureOptionsKey, "wallpaper");
-                        break;
-                    case Config.Style.STYLE_NONE:
-					default:
-						client.Set(Defaults.Gnome.PictureOptionsKey, "none");
-						break;
-				}
+                if (_style == value)
+                    return;
+                
+                Style.StyleEnum oldValue = _style;
+                _style = value;
+                client.Set(Defaults.Gnome.PictureOptionsKey, Config.Style.ToText(_style));
+                
+                if (this.StyleChanged != null)
+                    this.StyleChanged(this, new SettingsChangeEvent<Style.StyleEnum> (_style, oldValue, SettingsChangeSrc.Application));
 			}
-		}	
+		}
 		
 		public string Wallpaper
 		{
@@ -333,24 +366,20 @@ namespace Drapes.Config
 			}
 		}
 		
+		public event BoolSettingChangeHandler SuffleEnabledChanged;
 		public bool ShuffleEnabled
 		{
 			get {
-				bool val = Defaults.ShuffleEnabled;
-				
-				try {
-					val = (bool) client.Get(GCONF_KEY_SHUFFLE);
-				} catch (NoSuchKeyException) {
-					client.Set(GCONF_KEY_SHUFFLE, Defaults.ShuffleEnabled);
-				} catch (InvalidCastException) {
-					client.Set(GCONF_KEY_SHUFFLE, Defaults.ShuffleEnabled);
-				}
-				
-				return val;
+				return _shuffle;
 			}
 			
 			set {
+				if (_shuffle == value)
+					return;
+					
+				_shuffle = value;
 				client.Set(GCONF_KEY_SHUFFLE, value);
+				this.MonitorEnabledChanged(this, new SettingsChangeEvent<bool> (value, !value, SettingsChangeSrc.Application));
 			}
 		}
 
@@ -368,7 +397,7 @@ namespace Drapes.Config
 				string as_file = Path.Combine(Defaults.Gnome.AutoStartDir, "drapes.desktop");
 
 				try {
-					// only bother if needed 
+					// only bother if needed
 					if (AutoStart != value) {
 
 						if (value == true) {
@@ -398,37 +427,81 @@ namespace Drapes.Config
 			}
 		}
 		
-		public void GConfKeyChange (object sender, NotifyEventArgs args)
-		{
-			switch (args.Key) {
-				case GCONF_KEY_SO_START:
-					if (cbtStartSwitch != null)
-						cbtStartSwitch.Active = (bool) args.Value; 
-					break;
-				case GCONF_KEY_TIMER:
-					if (scaleTimer != null)
-						scaleTimer.Value = Convert.ToDouble(args.Value);
-					break;	
-				case GCONF_KEY_MONITOR:
-					if (cbtMonitor != null)
-						cbtMonitor.Active = (bool) args.Value;
-					DrapesApp.WpList.FileSystemMonitor = (bool) args.Value;
-					break;
-				case GCONF_KEY_MONITOR_DIR:
-					if (fcbDir != null)
-						fcbDir.SetCurrentFolderUri((string) args.Value);
-					DrapesApp.WpList.ChangeMonitorDir();
-					break;
-				case Defaults.GCONF_STYLE_OPTIONS:
-					if (cmbStyle != null)
-						cmbStyle.Active = Convert.ToInt32(Style);
-					break;
-				default:
-					Console.WriteLine(Catalog.GetString("Unknown GConf key: {0}"), args.Key);
-					break;
-			}
-		}
-	}
+        public void GConfKeyChange(object sender, NotifyEventArgs args)
+        {
+            switch (args.Key) {
+                case GCONF_KEY_SO_START:
+                    if (_startup == (bool) args.Value)
+                        break;
+                    
+                    _startup = (bool) args.Value;
+                    if (this.ShuffleOnStartChanged != null)
+                        this.ShuffleOnStartChanged(this, new SettingsChangeEvent<bool>(_startup, !_startup, SettingsChangeSrc.Gconf));
+                    
+                    break;
+                case GCONF_KEY_TIMER:
+                    if (_timeDelay == (Delay.DelayEnum) args.Value)
+                        break;
+                    
+                    int newTime = (int) args.Value;
+                    if (newTime > (int) Delay.DelayEnum.MIN_NEVER || newTime < (int) Delay.DelayEnum.MIN_5) {
+                        client.Set(GCONF_KEY_TIMER, (int) _timeDelay);
+                        break;
+                    }
+                    
+                    Delay.DelayEnum oldTime = _timeDelay;
+                    _timeDelay = (Delay.DelayEnum) args.Value;
+                    
+                    if (this.SwitchDelayChanged != null)
+                        this.SwitchDelayChanged(this, new SettingsChangeEvent<Delay.DelayEnum>(_timeDelay, oldTime, SettingsChangeSrc.Gconf));
+                    
+                    break;
+                case GCONF_KEY_MONITOR:
+                    // debounce, and ignore the same values
+                    if (_monitorEnabled == (bool) args.Value)
+                        break;
+                    
+                    _monitorEnabled = (bool) args.Value;
+                    if (this.MonitorEnabledChanged != null)
+                        this.MonitorEnabledChanged(this, new SettingsChangeEvent<bool>(_monitorEnabled, !_monitorEnabled, SettingsChangeSrc.Gconf));
+                    
+                    break;
+                case GCONF_KEY_MONITOR_DIR:
+                    // debounce, and ignore same values
+                    if (_monitorDirectory == (string) args.Value)
+                        break;
+                    
+                    if (Directory.Exists((string) args.Value) == false) {
+                        if (_monitorDirectory == null)
+                            return;
+                        
+                        if (DrapesApp.Cfg.Debug == true)
+                            Console.WriteLine("Directory {0} dosen't exist", (string) args.Value);
+                        _monitorDirectory = null;
+                        DrapesApp.WpList.FileSystemMonitor = false;
+                        break;
+                    }
+                    
+                    string oldDir = _monitorDirectory;
+                    _monitorDirectory = (string) args.Value;
+                    if (this.MonitorDirectoryChanged != null)
+                        this.MonitorDirectoryChanged(this, new SettingsChangeEvent<string>(_monitorDirectory, oldDir, SettingsChangeSrc.Gconf));
+                    
+                    break;
+                case Defaults.GCONF_STYLE_OPTIONS:
+                    Config.Style.StyleEnum oldStyle = _style;
+                    _style = Config.Style.FromText((String) args.Value);
+                    if (this.StyleChanged != null)
+                        this.StyleChanged(this, new SettingsChangeEvent<Config.Style.StyleEnum>(_style, oldStyle, SettingsChangeSrc.Gconf));
+                    break;
+                default:
+                    if (debug == true)
+                        Console.WriteLine(Catalog.GetString("Unknown GConf key: {0}"), args.Key);
+                    
+                    break;
+            }
+        }
+    }
 		
 	// The default settings
 	public static class Defaults
@@ -446,9 +519,9 @@ namespace Drapes.Config
 			get { return false; }
 		}
 		
-		static public TimeDelay.Delay SwitchDelay
+        static public Delay.DelayEnum SwitchDelay
 		{
-			get { return TimeDelay.Delay.MIN_15; }
+			get { return Delay.DelayEnum.MIN_15; }
 		}
 		
 		static public bool MonitorEnabled
@@ -465,15 +538,15 @@ namespace Drapes.Config
                 if (Directory.Exists(Path.Combine(Environment.GetEnvironmentVariable("HOME"), "Photos"))) {
                     path = Path.Combine(Environment.GetEnvironmentVariable("HOME"), "Photos");
                 } else if (Directory.Exists(Path.Combine(Environment.GetEnvironmentVariable("HOME"), "Documents"))) {
-                    path = Path.Combine(Environment.GetEnvironmentVariable("HOME"), "Photos");
-                } else 
+                    path = Path.Combine(Environment.GetEnvironmentVariable("HOME"), "Documents");
+                } else
                     path = Environment.GetEnvironmentVariable("HOME");
 
 				return path;
 			}
 		}
 
-		// We do we store out wallpaper list		
+		// We do we store out wallpaper list
 		static public string DrapesWallpaperList
 		{
 			get {
@@ -489,7 +562,7 @@ namespace Drapes.Config
 		// Settings that belong orginaly to Gnome, not us
 		public class Gnome
 		{
-			// Gnome wallaper list, for initial imports 
+			// Gnome wallaper list, for initial imports
 			static public string WallpaperListFile
 			{
 				get {
@@ -529,5 +602,48 @@ namespace Drapes.Config
 				}
 			}
 		}
-	}
+    }
+    
+    public enum SettingsChangeSrc {
+        Application,
+        Gconf
+    }
+    
+    public delegate void BoolSettingChangeHandler(object sender, SettingsChangeEvent<bool> args);
+    public delegate void StringSettingChangeHandler(object sender, SettingsChangeEvent<string> args);
+    public delegate void TimeSettingsChangeHandler(object sender, SettingsChangeEvent<Delay.DelayEnum> args);
+    public delegate void StyleSettingsChangeHander(object sender, SettingsChangeEvent<Style.StyleEnum> args);
+    
+    public class SettingsChangeEvent<T> : EventArgs
+    {
+        T _oldVal;
+        T _val;
+        SettingsChangeSrc _src;
+        
+        public SettingsChangeEvent(T current, T old, SettingsChangeSrc source)
+        {
+            _val = current;
+            _oldVal = old;
+            _src = source;
+        }
+        
+        
+        public T OldValue {
+            get {
+                return _oldVal;
+            }
+        }
+        
+        public T Value {
+            get {
+                return _val;
+            }
+        }
+        
+        public SettingsChangeSrc Source {
+            get {
+                return _src;
+            }
+        }
+    }
 }

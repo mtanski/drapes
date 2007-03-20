@@ -104,7 +104,7 @@ namespace Drapes.ResolutionProperties
 	}
 }
 
-namespace Drapes  
+namespace Drapes
 {
 	public class Wallpaper
 	{
@@ -120,7 +120,7 @@ namespace Drapes
 		// initlized
 		private		bool				init;
 		//
-		private		Config.Style		style;
+		private		Config.Style.StyleEnum		style;
         //
         private     Pixbuf              ThumbCache = null;
 				
@@ -152,7 +152,7 @@ namespace Drapes
 		public bool LoadFileDelayed(string file)
 		{
 			filename = file;
-			// Not fully loaded 
+			// Not fully loaded
 			init = false;
 			
 			return true;
@@ -161,7 +161,7 @@ namespace Drapes
 		public bool ForceLoadAttr()
 		{
 			// Don't waste our resources if it has been removed from the list
-			if (!removed) {	
+			if (!removed) {
 				if (!IO.File.Exists(filename)) {
 					// mark it as removed so it dosen't get listed as an option, ever
 					removed = true;
@@ -337,7 +337,7 @@ namespace Drapes
 			if (t.HasValidFailedThumbnail(filename, CurrentMtime))
 				return true;
 			
-			// one exists	
+			// one exists
 			string existing = t.Lookup(filename,  CurrentMtime);
 			if (existing != null)
 				return true;
