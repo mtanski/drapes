@@ -1,0 +1,208 @@
+# Portuguese (Brazil) translation for drapes
+# Copyright (c) 2006 Rosetta Contributors and Canonical Ltd 2006
+# This file is distributed under the same license as the drapes package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2006.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: drapes\n"
+"Report-Msgid-Bugs-To: FULL NAME <EMAIL@ADDRESS>\n"
+"POT-Creation-Date: 2006-09-11 01:12-0400\n"
+"PO-Revision-Date: 2006-10-27 22:00+0000\n"
+"Last-Translator: Giovanni Abner de Brito Júnior <giovannijunior@gmail.com>\n"
+"Language-Team: Portuguese (Brazil) <pt_BR@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Rosetta-Export-Date: 2007-03-20 18:48+0000\n"
+
+#. When image changes, this message will be marked fuzzy or untranslated for you.
+#: C/drapes.xml:27(None)
+msgid ""
+"@@image: 'figures/drapes_preferences_display.png'; "
+"md5=0e5659533f40a2583fb910601d1d45ef"
+msgstr ""
+"@@image: 'figures/drapes_preferences_display.png'; "
+"md5=0e5659533f40a2583fb910601d1d45ef"
+
+#. When image changes, this message will be marked fuzzy or untranslated for you.
+#: C/drapes.xml:70(None)
+msgid ""
+"@@image: 'figures/drapes_preferences_general.png'; "
+"md5=1d61f439e1d13e76593fb35baa5f841e"
+msgstr ""
+"@@image: 'figures/drapes_preferences_general.png'; "
+"md5=1d61f439e1d13e76593fb35baa5f841e"
+
+#: C/drapes.xml:5(title)
+msgid "Desktop Drapes User Guide"
+msgstr "Guia do Usuário do Desktop Drapes"
+
+#: C/drapes.xml:8(firstname)
+msgid "Derek"
+msgstr "Derek"
+
+#: C/drapes.xml:9(surname)
+msgid "Vandivere"
+msgstr "Vandivere"
+
+#: C/drapes.xml:14(para)
+msgid ""
+"Desktop Drapes is a wallpaper mangment application for the Gnome desktop."
+msgstr ""
+"O Desktop Drapes é um aplicativo de configuração de papel de parede para o "
+"Gnome."
+
+#: C/drapes.xml:17(title)
+msgid "Introduction"
+msgstr "Introdução"
+
+#: C/drapes.xml:18(para)
+msgid ""
+"Desktop Drapes is a wallpaper manager application for the Gnome desktop. You "
+"can change your wallpaper by clicking the Desktop Drapes icon on the "
+"toolbar, and set it to switch wallpaper every time you boot and at a "
+"predefined interval. Also, you can tell Desktop Drapes to monitor a "
+"particular directory to add wallpapers automatically."
+msgstr ""
+"O Desktop Drapes é um aplicativo gerenciador de papel de parede para o "
+"Gnome. Você pode mudar seu papel de parede clicando no ícone do Desktop "
+"Drapes, na barra de ferramentas, e configurar o aplicativo para mudar o "
+"papel de parede sempre que você ligar o computador e em intervalos "
+"predefinidos. Você também pode orientar o Desktop Drapes para monitorar um "
+"diretório específico para adicionar papéis de parede automaticamente."
+
+#: C/drapes.xml:21(title)
+msgid "Using Desktop Drapes"
+msgstr "Usando o Desktop Drapes"
+
+#: C/drapes.xml:24(screeninfo)
+msgid "The display tab"
+msgstr "A aba Exibição"
+
+#: C/drapes.xml:30(para)
+msgid "The Display tab of the Preferences window"
+msgstr "A aba Exibição da janela Preferências"
+
+#: C/drapes.xml:35(para)
+msgid "To switch wallpapers:"
+msgstr "Para mudar papéis de parede:"
+
+#: C/drapes.xml:38(para)
+msgid ""
+"Left-click the Desktop Drapes icon in the toolbar to switch to a randomly "
+"selected wallpaper, OR..."
+msgstr ""
+"Clique no ícone do Desktop Drapes na barra de ferramentas para mudar para um "
+"papel de parede selecionado aleatoriamente, OU..."
+
+#: C/drapes.xml:41(para)
+msgid ""
+"Right-click the Desktop Drapes icon in the toolbar and double-click the "
+"thumbnail image of a wallpaper to switch to that wallpaper."
+msgstr ""
+"Clique com o botão direito no ícone do Desktop Drapes na barra de "
+"ferramentas e dê um duplo-clique na imagem de um papel de parede para mudar "
+"para ele."
+
+#: C/drapes.xml:44(para)
+msgid "To add a wallpaper to Desktop Drapes collection:"
+msgstr "Para adicionar um papel de parede à coleção do Desktop Drapes:"
+
+#: C/drapes.xml:47(para) C/drapes.xml:56(para)
+msgid "Right-click the icon in the toolbar and select 'Preferences'."
+msgstr ""
+"Clique com o botão direito no ícone da barra de ferramentas e escolha "
+"Preferências."
+
+#: C/drapes.xml:50(para)
+msgid ""
+"In the 'Display' tab, click the 'Add' button and select your wallpaper file "
+"or files. Desktop Drapes will automatically categorize your wallpaper by the "
+"dimensions of the image (I guess)."
+msgstr ""
+"Na aba Exibição, clique no botão Adicionar e selecione seu arquivo (ou "
+"arquivos) de papel de parede. O Desktop Drapes vai classificar "
+"automaticamente seu papel de parede de acordo com as dimensões da imagem (eu "
+"acho)."
+
+#: C/drapes.xml:53(para)
+msgid "To remove a wallpaper from the Desktop Drapes collection;"
+msgstr "Para remover um papel de parede da coleção do Desktop Drapes:"
+
+#: C/drapes.xml:59(para)
+msgid ""
+"In the 'Display' tab, select the wallpaper you wish to remove and click the "
+"'Remove' button."
+msgstr ""
+"Na aba Exibição, selecione o papel de parede que você quer remover e clique "
+"no botão Remover."
+
+#: C/drapes.xml:64(title)
+msgid "Customizing Desktop Drapes"
+msgstr "Personalizando o Desktop Drapes"
+
+#: C/drapes.xml:67(screeninfo)
+msgid "The general tab"
+msgstr "A aba Geral"
+
+#: C/drapes.xml:73(para)
+msgid "The General tab of the Preferences window"
+msgstr "A aba Geral da janela Preferências"
+
+#: C/drapes.xml:80(para)
+msgid ""
+"Start Desktop Drapes on start: Select this option to load Desktop Drapes "
+"automatically when you start up your computer."
+msgstr ""
+"Executar o Desktop Drapes ao iniciar: Selecione esta opção para carregar o "
+"Desktop Drapes automaticamente quando você ligar seu computador."
+
+#: C/drapes.xml:83(para)
+msgid ""
+"Switch wallpaper on start: Select this option to switch to a different "
+"wallpaper every time you start Desktop Drapes. Select this and the first "
+"checkbox to switch to a different wallpaper every time you start your "
+"computer."
+msgstr ""
+"Mudar o papel de parede ao iniciar: Selecione esta opção para mudar para um "
+"papel de parede diferente cada vez que você iniciar o Desktop Drapes. "
+"Selecione esta e a primeira opção para mudar para um papel de parede "
+"diferente cada vez que você iniciar seu computador."
+
+#: C/drapes.xml:86(para)
+msgid ""
+"Timing selection: Use this slider bar to tell Desktop Drapes how often to "
+"switch to a new wallpaper, from a minimum of five minutes to a maximum of "
+"two hours. Move the slider all the way to the right to tell Desktop Drapes "
+"never to switch wallpapers while it's running."
+msgstr ""
+"Seleção do intervalo de tempo: Use este controle deslizante para dizer ao "
+"Desktop Drapes com que freqüência mudar para um novo papel de parede, de um "
+"mínimo de cinco minutos até um máximo de duas horas. Mova o controle "
+"deslizante até a extremidade direita para que o Desktop Drapes nunca mude "
+"papéis de parede enquanto estiver em execução."
+
+#: C/drapes.xml:89(para)
+msgid ""
+"Wallpaper search directory: Select the checkbox to have Desktop Drapes "
+"monitor a directory and automatically add files in that directory to its "
+"collection. Click the directory list box in order to select which directory "
+"Desktop Drapes should monitor. Warning: In the current version of Desktop "
+"Drapes, saving a file directly into that directory will cause Desktop Drapes "
+"to crash and lose its collection! Instead, save a file to a different "
+"directory, then copy it into your monitored directory."
+msgstr ""
+"Diretório de pesquisa de papéis de parede: Selecione esta opção para "
+"atribuir um diretório ao Desktop Drapes e automaticamente adicionar os "
+"arquivos desse diretório à sua coleção. Clique na caixa de listagem de "
+"diretórios para selecionar qual diretório o Desktop Drapes deve monitorar. "
+"Atenção: Na versão atual do Desktop Drapes, salvar um arquivo diretamente "
+"nesse diretório vai fazer com que o Desktop Drapes trave e perca sua "
+"coleção! Em vez disso, salve um arquivo em outro diretório, e depois copie o "
+"arquivo para o diretório monitorado."
+
+#: C/drapes.xml:0(None)
+msgid "translator-credits"
+msgstr "Créditos do tradutor"
