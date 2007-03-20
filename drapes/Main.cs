@@ -50,7 +50,7 @@ namespace Drapes {
 		
 		private DrapesApp(string[] args)
 		{
-			// Initialize the interntionalization bits
+			// Initialize the i18n bits
 			Catalog.Init("drapes", CompileOptions.GnomeLocaleDir);
 			
 			//
@@ -106,7 +106,7 @@ namespace Drapes {
 		static DateTime LastSwitch = DateTime.Now;
 		private bool TimerSwitcher()
 		{
-			// Autoswitching tempoarly disabled
+			// Autoswitching temporarily disabled
 			if (!Cfg.ShuffleEnabled)
 				return true;
 			

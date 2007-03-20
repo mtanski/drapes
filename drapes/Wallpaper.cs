@@ -145,10 +145,10 @@ namespace Drapes
 			init = true;
 		}
 		
-		// Dosen't really load a file just stores it's filename;
+		// Dosen't really load a file just store its filename;
 		// if we can grab the cached size data from the xml
 		// instead of loading every single one maybe we can save
-		// sometime.
+		// some time.
 		public bool LoadFileDelayed(string file)
 		{
 			filename = file;

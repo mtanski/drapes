@@ -237,7 +237,7 @@ namespace Drapes.Config
             }
         }
 		
-		// Load a randomwallaper on start
+		// Load a random wallaper on start
 		public bool ShuffleOnStart
 		{
 			get {
@@ -508,7 +508,7 @@ namespace Drapes.Config
 	{
 		internal const string GCONF_STYLE_OPTIONS = "/desktop/gnome/background/picture_options";
 	
-		// Incase we ever want to change it, I guess.
+		// In case we ever want to change it, I guess.
 		static public string ApplicationName
 		{
 			get { return "Desktop Drapes";	}
@@ -546,7 +546,7 @@ namespace Drapes.Config
 			}
 		}
 
-		// We do we store out wallpaper list
+		// Where do we store out wallpaper list?
 		static public string DrapesWallpaperList
 		{
 			get {
@@ -559,10 +559,10 @@ namespace Drapes.Config
 			get { return true; }
 		}
 		
-		// Settings that belong orginaly to Gnome, not us
+		// Settings that belong originally to Gnome, not us
 		public class Gnome
 		{
-			// Gnome wallaper list, for initial imports
+			// Gnome wallpaper list, for initial imports
 			static public string WallpaperListFile
 			{
 				get {
@@ -578,7 +578,7 @@ namespace Drapes.Config
 				}
 			}
 		
-			// GConf Wallaper keys
+			// GConf Wallpaper keys
 			static public string WallpaperKey
 			{
 				get {

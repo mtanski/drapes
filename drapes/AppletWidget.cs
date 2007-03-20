@@ -188,7 +188,7 @@ namespace Drapes
 			return popup;
 		}
 
-		// used the potition fuction from nm-applet as an example
+		// used the position fuction from nm-applet as an example
 		public void TrayPositionFunc (Menu menu, out int x, out int y, out bool push_in)
 		{
 			int MenuPosY;
@@ -201,7 +201,7 @@ namespace Drapes
 			this.GdkWindow.GetOrigin(out x, out MenuPosY);
 			this.GdkWindow.GetSize(out PanelW, out PanelH);
 			
-			// Do the acctual positioning
+			// Do the actual positioning
 			if (MenuPosY + ms.Height >= this.Screen.Height)
 				y =  MenuPosY - ms.Height;			// panel bottom
 			else

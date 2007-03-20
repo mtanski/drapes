@@ -357,7 +357,7 @@ namespace Drapes
         {
             // So we execture gnome-help by hand, instead of calling the right Gnome.Help.whatever method
             // cause of a bug in Gnome# where it wasn't compiled with the right gnome paths, and it just
-            // caused an excetion and craps out...
+            // caused an exception and craps out...
             System.Diagnostics.Process.Start("gnome-help", CompileOptions.HelpFile);
         }
         

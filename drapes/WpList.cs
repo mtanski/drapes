@@ -380,13 +380,13 @@ namespace Drapes
 				int i = enabled.Count - 1;
 				i = Convert.ToInt32(r.NextDouble() * i);
 				w = (Wallpaper) list[keys[i]];
-			// Make sure we always get a diffrent one
+			// Make sure we always get a different one
 			} while (enabled.Count != 1 && old == w.File);
 			
 			return w;
 		}
 		
-		// Wrapper for the enabled propery of Wallaper
+		// Wrapper for the enabled propery of Wallpaper
 		public void SetEnabled(string file, bool val)
 		{
 			Wallpaper w = (Wallpaper) list[file];
@@ -457,7 +457,7 @@ namespace Drapes
 
         private bool DelayedChange()
         {
-            // When files change, we don't need to be as aggresive at getting thigs done
+            // When files change, we don't need to be as aggressive at getting thigs done
             // so do it slow one at a time
             if (changed.Count == 0)
                 return false;
@@ -479,7 +479,7 @@ namespace Drapes
 
             Console.WriteLine(Catalog.GetString("Adding wallpaper file: {0}"), file);
             
-            // Delay load it, it'll get picked up automaticaly anywas
+            // Delay load it, it'll get picked up automatically anyway
             w.LoadFileDelayed(file);
             w.Enabled = true;
 
@@ -488,7 +488,7 @@ namespace Drapes
         
 		public void Append(Wallpaper w)
 		{
-			// Only start the loader if it was stoped
+			// Only start the loader if it was stopped
 			if (processing.Count < 1)
 				GLib.Idle.Add(DelayedLoader);
 			
