@@ -67,7 +67,7 @@ namespace Drapes
 			if (this.AppletStyle == AppletStyle.APPLET_TRAY)
 				CreateNotifyIcon();
 
-			// What shall we do 
+			// What shall we do
 			ButtonPressEvent += ButtonPress;
 			
 			// Show the tray
@@ -168,6 +168,19 @@ namespace Drapes
 				{
 					ShowPrefrences();
 				};
+            
+            // Help
+            ImageMenuItem help = new ImageMenuItem(Catalog.GetString("Help"));
+            help.Image = new Image(Stock.Help, IconSize.Menu);
+            help.Activated += delegate (object sender, EventArgs args)
+                {
+                    // Fix me to reflect the popup menu (ince that's done)
+                    DrapesApp.OpenHelp(null, this.Screen);
+                };
+            
+            // About
+            ImageMenuItem about = new ImageMenuItem(Catalog.GetString("About"));
+            about.Image = new Image(Stock.About, IconSize.Menu);
 			
 			// Quit
 			ImageMenuItem quit = new ImageMenuItem(Catalog.GetString("_Quit"));
@@ -183,6 +196,8 @@ namespace Drapes
 			popup.Add(enabled);
 			popup.Add(config);
 			popup.Add(new SeparatorMenuItem());
+            popup.Add(help);
+            popup.Add(about);
 			popup.Add(quit);
 
 			return popup;
@@ -207,7 +222,7 @@ namespace Drapes
 			else
 				y = MenuPosY + PanelH ; 			// panel top
 	
-			// We want it to say inside the current screen		
+			// We want it to say inside the current screen
 			push_in = true;
 		}
 	}

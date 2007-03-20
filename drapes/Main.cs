@@ -21,6 +21,7 @@ Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA  02110-1301  USA
 // project created on 4/26/2006 at 8:40 PM
 using System;
 using Mono.Unix;
+using Gdk;
 using Gtk;
 using Vfs = Gnome.Vfs;
 using Egg;
@@ -54,7 +55,8 @@ namespace Drapes {
 			Catalog.Init("drapes", CompileOptions.GnomeLocaleDir);
 			
 			//
-			Program = new Gnome.Program("Drapes", CompileOptions.Version, Gnome.Modules.UI, args);
+            Program = new Gnome.Program("Drapes", CompileOptions.Version, Gnome.Modules.UI, args);
+            Program.AppPrefix = CompileOptions.Prefix;
 
             Client = new Gnome.Client();
             Client.SaveYourself += Shutdown;
@@ -160,6 +162,25 @@ namespace Drapes {
 			// Exit
 			Application.Quit();
 		}
+        
+        public static void OpenHelp(string id, Gdk.Screen screen)
+        {
+            // default id
+            if (id == null)
+                id = "drapes-intro";
+            
+            if (Cfg.Debug == true)
+                Console.WriteLine("Opening help file: ghelp:drapes");
+            
+            try {
+                Gnome.Help.DisplayOnScreen("drapes", id, screen);
+            } catch (Exception) {
+                Gnome.Help.DisplayUriOnScreen("ghelp:drapes", screen);
+            } finally {
+                if (Cfg.Debug == true)
+                    Console.WriteLine("Failed to open: ghelp:drapes");
+            }
+        }
 
         private void Shutdown(object sender, Gnome.SaveYourselfArgs args)
         {
