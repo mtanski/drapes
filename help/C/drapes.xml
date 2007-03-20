@@ -54,7 +54,8 @@
 				<para>In the 'Display' tab, click the 'Add' button and select your wallpaper file or files. Desktop Drapes will automatically categorize your wallpaper by the dimensions of the image.</para>
 			</listitem>
 			<listitem>
-				<para>You can tell Drapes how to display your wallpaer by selecting the 'Style' to display. Centered will center the wallpaper to the center of your screen. Fill screen will stretch out the wallpaper to fill up your screen. Scale will strech out the wallpaper to fill your screen, but will not change the aspect ratio, so that the wallpaper will fill up your screen the best it can without modifying the picture. Tiled will tile the wallpaper to fill up the screen, this is useful for small wallpapers that would otherwise look distorted when zoomed in. And lastly, Zoom fills up the screen like a magnifying glass.</para>		
+				<para>You can tell Drapes how to display your wallpaer by selecting the 'Style' to display. Centered will center the wallpaper to the center of your screen. Fill screen will stretch out the wallpaper to fill up your screen. Scale will strech out the wallpaper to fill your screen, but will not change the aspect ratio, so that the wallpaper will fill up your screen the best it can without modifying the picture. Tiled will tile the wallpaper to fill up the screen, this is useful for small wallpapers that would otherwise look distorted when zoomed in. And lastly, Zoom fills up the screen like a magnifying glass.</para>
+			</listitem>
 		</orderedlist>
 		<para>To remove a wallpaper from the Desktop Drapes collection;</para>
 		<orderedlist>
