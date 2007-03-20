@@ -1,17 +1,17 @@
-Thanks for using desktop drapes; hope you enjoy it.
+Thanks for using Desktop Drapes; hope you enjoy it.
 
 The website is located at http://drapes.mindtouchsoftware.com. You can always 
-get the latest version from there.
+get the latest version from there. To grab the latest source code of Drapes, you can use git to pull the latest code from our git repository by issuing the following command:
+
+git clone git://ninkendo.org/drapes.git
 
 If you encounter any problems feel free to submit them to our bug tracker
-located at https://launchpad.net/products/drapes/+filebug. From the launchpad
-website for drapes you also should be able to translate the application to your
-language, which I would apperciate greatly.
+located at https://launchpad.net/products/drapes/+filebug. Launchpad also has a nice infrastructure in place for making translations very easy, so if you would like to translate Drapes into your native language then we would appreciate it!
 
 If you would like to contribute, an icon, documentation, code, man page, an
-VAX port & translations feel free to write me at mtanski@gmail.com.
+VAX port & translations feel free to contact me at mtanski@gmail.com.
 
-KNOW ISSUES:
+KNOWN ISSUES:
 * Monitoring directories works (well) when mono and corresponding libraries are
   at least at version 1.2+.
 * Using it as a panel applet causes issues, this is due to the applet bindings
