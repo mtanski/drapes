@@ -119,11 +119,11 @@ namespace Drapes.Config
                 case StyleEnum.STYLE_FILL:
                     return "stretched";
                 case StyleEnum.STYLE_SCALE:
-                    return "zoom";
+                    return "scaled";
                 case StyleEnum.STYLE_TILED:
                     return "wallpaper";
                 case StyleEnum.STYLE_ZOOM:
-                    return "zoon";
+                    return "zoom";
                 case StyleEnum.STYLE_NONE:
                 default:
                     return "none";
