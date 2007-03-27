@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE article PUBLIC "-//OASIS//DTD DocBook XML V4.1.2//EN" "http://www.oasis-open.org/docbook/xml/4.1.2/docbookx.dtd">
+<!DOCTYPE article PUBLIC "-//OASIS//DTD DocBook XML V4.2//EN" "http://www.oasis-open.org/docbook/xml/4.1.2/docbookx.dtd">
 <article lang="en-US">
 	<articleinfo>
 		<title>Desktop Drapes User Guide</title>
@@ -11,9 +11,18 @@
         </authorgroup>
         <revhistory>
 			<revision>
-				<revnumber>0.1</revnumber>
+				<revnumber>1</revnumber>
 				<date>Fuck if I know</date>
-				<revremarks>Fuck you docbook</revremarks>
+				<authorinitials>mat</authorinitials>
+				<revremark>Fuck you docbook</revremark>
+			</revision>
+			<revision>
+				<revnumber>2</revnumber>
+				<date>March 27, 2007</date>
+				<authorinitials>mat</authorinitials>
+				<revremark>
+					Docbook randomly breaks my documentation every docbook upgrade and I got to fucking keep fixing it.
+				</revremark>
 			</revision>
 		</revhistory>
 	    <abstract role="description">
