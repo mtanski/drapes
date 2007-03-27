@@ -181,6 +181,10 @@ namespace Drapes
             // About
             ImageMenuItem about = new ImageMenuItem(Catalog.GetString("About"));
             about.Image = new Image(Stock.About, IconSize.Menu);
+            about.Activated += delegate (object sneder, EventArgs args)
+                {
+                    DrapesApp.OpenAbout();
+                };
 			
 			// Quit
 			ImageMenuItem quit = new ImageMenuItem(Catalog.GetString("_Quit"));

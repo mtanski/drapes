@@ -22,6 +22,7 @@ AssemblyInfo.cs: $(srcdir)/AssemblyInfo.cs.in Makefile
 drapes_sources_in = $(srcdir)/AssemblyInfo.cs.in
 drapes_sources = \
 	$(srcdir)/panelapplet/*.cs			\
+	$(srcdir)/About.cs					\
 	$(srcdir)/Applet.cs					\
 	$(srcdir)/AppletWidget.cs			\
 	$(srcdir)/ConfigMenuWidgets.cs		\

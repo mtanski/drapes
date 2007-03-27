@@ -62,7 +62,7 @@ namespace Drapes
 			
 			MenuVerbs = new BonoboUIVerb []
 			{
-				new BonoboUIVerb("Switch", SwitchWallpaper), 
+				new BonoboUIVerb("Switch", SwitchWallpaper),
 				new BonoboUIVerb("Shuffle", null),
 				new BonoboUIVerb("Preferences", ShowPreferences)
 			};
@@ -79,5 +79,10 @@ namespace Drapes
 		{
 			AppletIcon.ShowPrefrences();
 		}
+        
+        private void ShowHelp()
+        {
+            DrapesApp.OpenHelp(null, this.Screen);
+        }
 	}
 }

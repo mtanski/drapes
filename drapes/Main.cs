@@ -181,6 +181,11 @@ namespace Drapes {
                     Console.WriteLine("Failed to open: ghelp:drapes");
             }
         }
+        
+        public static void OpenAbout()
+        {
+            new About();
+        }
 
         private void Shutdown(object sender, Gnome.SaveYourselfArgs args)
         {
