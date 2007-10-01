@@ -1,0 +1,152 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"POT-Creation-Date: 2007-09-30 23:26-0400\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#. When image changes, this message will be marked fuzzy or untranslated for you.
+#. It doesn't matter what you translate it to: it's not used at all.
+#: /home/dem/Projects/git/drapes/help/C/drapes.xml:43(None) 
+msgid "@@image: 'figures/drapes_preferences_display.png'; md5=0e5659533f40a2583fb910601d1d45ef"
+msgstr ""
+
+#. When image changes, this message will be marked fuzzy or untranslated for you.
+#. It doesn't matter what you translate it to: it's not used at all.
+#: /home/dem/Projects/git/drapes/help/C/drapes.xml:86(None) 
+msgid "@@image: 'figures/drapes_preferences_general.png'; md5=1d61f439e1d13e76593fb35baa5f841e"
+msgstr ""
+
+#: /home/dem/Projects/git/drapes/help/C/drapes.xml:5(title) 
+msgid "Desktop Drapes User Guide"
+msgstr ""
+
+#: /home/dem/Projects/git/drapes/help/C/drapes.xml:8(firstname) 
+msgid "Derek"
+msgstr ""
+
+#: /home/dem/Projects/git/drapes/help/C/drapes.xml:9(surname) 
+msgid "Vandivere"
+msgstr ""
+
+#: /home/dem/Projects/git/drapes/help/C/drapes.xml:14(revnumber) 
+msgid "1"
+msgstr ""
+
+#: /home/dem/Projects/git/drapes/help/C/drapes.xml:15(date) 
+msgid "Fuck if I know"
+msgstr ""
+
+#: /home/dem/Projects/git/drapes/help/C/drapes.xml:16(authorinitials) /home/dem/Projects/git/drapes/help/C/drapes.xml:22(authorinitials) 
+msgid "mat"
+msgstr ""
+
+#: /home/dem/Projects/git/drapes/help/C/drapes.xml:17(revremark) 
+msgid "Fuck you docbook"
+msgstr ""
+
+#: /home/dem/Projects/git/drapes/help/C/drapes.xml:20(revnumber) 
+msgid "2"
+msgstr ""
+
+#: /home/dem/Projects/git/drapes/help/C/drapes.xml:21(date) 
+msgid "March 27, 2007"
+msgstr ""
+
+#: /home/dem/Projects/git/drapes/help/C/drapes.xml:23(revremark) 
+msgid "Docbook randomly breaks my documentation every docbook upgrade and I got to fucking keep fixing it."
+msgstr ""
+
+#: /home/dem/Projects/git/drapes/help/C/drapes.xml:29(para) 
+msgid "Desktop Drapes is a wallpaper management application for the Gnome desktop."
+msgstr ""
+
+#: /home/dem/Projects/git/drapes/help/C/drapes.xml:33(title) 
+msgid "Introduction"
+msgstr ""
+
+#: /home/dem/Projects/git/drapes/help/C/drapes.xml:34(para) 
+msgid "Desktop Drapes is a wallpaper manager application for the Gnome desktop. It is designed to be simple to use and to stay out of your way. It features directory monitoring, as well as an icon in the notification area to let you change your wallpaper quickly or by using a time interval."
+msgstr ""
+
+#: /home/dem/Projects/git/drapes/help/C/drapes.xml:37(title) 
+msgid "Using Desktop Drapes"
+msgstr ""
+
+#: /home/dem/Projects/git/drapes/help/C/drapes.xml:40(screeninfo) 
+msgid "The display tab"
+msgstr ""
+
+#: /home/dem/Projects/git/drapes/help/C/drapes.xml:46(para) 
+msgid "The Display tab of the Preferences window"
+msgstr ""
+
+#: /home/dem/Projects/git/drapes/help/C/drapes.xml:51(para) 
+msgid "To switch wallpapers:"
+msgstr ""
+
+#: /home/dem/Projects/git/drapes/help/C/drapes.xml:54(para) 
+msgid "Left-click the Desktop Drapes icon in the toolbar to switch to a randomly selected wallpaper or right-click on the Drapes icon and select \"Switch\" from the context menu."
+msgstr ""
+
+#: /home/dem/Projects/git/drapes/help/C/drapes.xml:57(para) 
+msgid "To add a wallpaper to Desktop Drapes collection:"
+msgstr ""
+
+#: /home/dem/Projects/git/drapes/help/C/drapes.xml:60(para) /home/dem/Projects/git/drapes/help/C/drapes.xml:72(para) 
+msgid "Right-click the icon in the toolbar and select 'Preferences'."
+msgstr ""
+
+#: /home/dem/Projects/git/drapes/help/C/drapes.xml:63(para) 
+msgid "In the 'Display' tab, click the 'Add' button and select your wallpaper file or files. Desktop Drapes will automatically categorize your wallpaper by the dimensions of the image."
+msgstr ""
+
+#: /home/dem/Projects/git/drapes/help/C/drapes.xml:66(para) 
+msgid "You can tell Drapes how to display your wallpaer by selecting the 'Style' to display. Centered will center the wallpaper to the center of your screen. Fill screen will stretch out the wallpaper to fill up your screen. Scale will strech out the wallpaper to fill your screen, but will not change the aspect ratio, so that the wallpaper will fill up your screen the best it can without modifying the picture. Tiled will tile the wallpaper to fill up the screen, this is useful for small wallpapers that would otherwise look distorted when zoomed in. And lastly, Zoom fills up the screen like a magnifying glass."
+msgstr ""
+
+#: /home/dem/Projects/git/drapes/help/C/drapes.xml:69(para) 
+msgid "To remove a wallpaper from the Desktop Drapes collection;"
+msgstr ""
+
+#: /home/dem/Projects/git/drapes/help/C/drapes.xml:75(para) 
+msgid "In the 'Display' tab, select the wallpaper you wish to remove and click the 'Remove' button."
+msgstr ""
+
+#: /home/dem/Projects/git/drapes/help/C/drapes.xml:80(title) 
+msgid "Customizing Desktop Drapes"
+msgstr ""
+
+#: /home/dem/Projects/git/drapes/help/C/drapes.xml:83(screeninfo) 
+msgid "The general tab"
+msgstr ""
+
+#: /home/dem/Projects/git/drapes/help/C/drapes.xml:89(para) 
+msgid "The General tab of the Preferences window"
+msgstr ""
+
+#: /home/dem/Projects/git/drapes/help/C/drapes.xml:96(para) 
+msgid "Start Desktop Drapes on start: Select this option to load Desktop Drapes automatically when you start up your computer."
+msgstr ""
+
+#: /home/dem/Projects/git/drapes/help/C/drapes.xml:99(para) 
+msgid "Switch wallpaper on start: Select this option to switch to a different wallpaper every time you start Desktop Drapes. Select this and the first checkbox to switch to a different wallpaper every time you start your computer."
+msgstr ""
+
+#: /home/dem/Projects/git/drapes/help/C/drapes.xml:102(para) 
+msgid "Timing selection: Use this slider bar to tell Desktop Drapes how often to switch to a new wallpaper, from a minimum of five minutes to a maximum of two hours. Move the slider all the way to the right to tell Desktop Drapes never to switch wallpapers while it's running."
+msgstr ""
+
+#: /home/dem/Projects/git/drapes/help/C/drapes.xml:105(para) 
+msgid "Wallpaper search directory: Select the checkbox to have Desktop Drapes monitor a directory and automatically add files in that directory to its collection. Click the directory list box in order to select which directory Desktop Drapes should monitor."
+msgstr ""
+
+#. Put one translator per line, in the form of NAME <EMAIL>, YEAR1, YEAR2.
+#: /home/dem/Projects/git/drapes/help/C/drapes.xml:0(None) 
+msgid "translator-credits"
+msgstr ""
+

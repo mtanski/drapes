@@ -8,4 +8,4 @@ DOC_FIGURES = \
 	figures/drapes_preferences_display.png	\
 	figures/drapes_preferences_general.png
 
-DOC_LINGUAS = fr it ko pt pt_BR sv
+DOC_LINGUAS = ca es fa fr it ko pl pt pt_BR sv tr zh_CN zh_HK

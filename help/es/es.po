@@ -1,32 +1,21 @@
-# Italian translation for drapes
-# Copyright (c) (c) 2006 Canonical Ltd, and Rosetta Contributors 2006
+# Spanish translation for drapes
+# Copyright (c) 2007 Rosetta Contributors and Canonical Ltd 2007
 # This file is distributed under the same license as the drapes package.
-# FIRST AUTHOR <EMAIL@ADDRESS>, 2006.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2007.
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: drapes\n"
 "Report-Msgid-Bugs-To: FULL NAME <EMAIL@ADDRESS>\n"
 "POT-Creation-Date: 2007-03-28 11:27-0400\n"
-"PO-Revision-Date: 2007-05-21 19:50+0000\n"
-"Last-Translator: Simone Vendemia <simonevendemia@gmail.com>\n"
-"Language-Team: Italian <it@li.org>\n"
+"PO-Revision-Date: 2007-09-08 06:20+0000\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: Spanish <es@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "X-Launchpad-Export-Date: 2007-10-01 02:58+0000\n"
 "X-Generator: Launchpad (build Unknown)\n"
-
-#~ msgid ""
-#~ "Desktop Drapes is a wallpaper mangment application for the Gnome desktop."
-#~ msgstr "Desktop Drapes è un manager di sfondi per il desktop Gnome."
-
-#~ msgid ""
-#~ "Left-click the Desktop Drapes icon in the toolbar to switch to a randomly "
-#~ "selected wallpaper, OR..."
-#~ msgstr ""
-#~ "clicca con il tasto sinistro l'icona di Desktop Drapes nella taskbar per "
-#~ "cambiare randomicamente il wallpaper"
 
 #. When image changes, this message will be marked fuzzy or untranslated for you.
 #: C/drapes.xml:43(None)
@@ -48,7 +37,7 @@ msgstr ""
 
 #: C/drapes.xml:5(title)
 msgid "Desktop Drapes User Guide"
-msgstr "Guida Utente  Desktop Drapes"
+msgstr "Guía de Usuario de Desktop Drapes"
 
 #: C/drapes.xml:8(firstname)
 msgid "Derek"
@@ -64,15 +53,15 @@ msgstr "1"
 
 #: C/drapes.xml:15(date)
 msgid "Fuck if I know"
-msgstr ""
+msgstr "Claro que sé."
 
 #: C/drapes.xml:16(authorinitials) C/drapes.xml:22(authorinitials)
 msgid "mat"
-msgstr ""
+msgstr "mat"
 
 #: C/drapes.xml:17(revremark)
 msgid "Fuck you docbook"
-msgstr ""
+msgstr "Que te jodan docbook"
 
 #: C/drapes.xml:20(revnumber)
 msgid "2"
@@ -80,22 +69,26 @@ msgstr "2"
 
 #: C/drapes.xml:21(date)
 msgid "March 27, 2007"
-msgstr "27 Marzo 2007"
+msgstr "27 de Marzo de 2007"
 
 #: C/drapes.xml:23(revremark)
 msgid ""
 "Docbook randomly breaks my documentation every docbook upgrade and I got to "
 "fucking keep fixing it."
 msgstr ""
+"Docbook rompe aleatoriamente mi documentación cada vez que se actualiza lo "
+"que hace que tenga que corregirla permanentemente."
 
 #: C/drapes.xml:29(para)
 msgid ""
 "Desktop Drapes is a wallpaper management application for the Gnome desktop."
 msgstr ""
+"Desktop Drapes es una aplicación de gestión de fondos de pantalla para el "
+"escritorio Gnome."
 
 #: C/drapes.xml:33(title)
 msgid "Introduction"
-msgstr "Introduzione"
+msgstr "Introducción"
 
 #: C/drapes.xml:34(para)
 msgid ""
@@ -104,22 +97,26 @@ msgid ""
 "directory monitoring, as well as an icon in the notification area to let you "
 "change your wallpaper quickly or by using a time interval."
 msgstr ""
+"Desktop Drapes es una aplicación de manejo de wallpapers para el escritorio "
+"Gnome. Está diseñada para ser simple de usar y discreta. Presenta funciones "
+"de monitoreo de directorio, y un ícono en el área de notificaciones para "
+"cambiar el wallpaper rápidamente o cada un intervalo de tiempo."
 
 #: C/drapes.xml:37(title)
 msgid "Using Desktop Drapes"
-msgstr "Usare Desktop Drapes"
+msgstr "Usando Desktop Drapes"
 
 #: C/drapes.xml:40(screeninfo)
 msgid "The display tab"
-msgstr "La scheda display"
+msgstr "La pestaña Display"
 
 #: C/drapes.xml:46(para)
 msgid "The Display tab of the Preferences window"
-msgstr "La scheda Display della finestra Preferenze"
+msgstr "La pestaña Display en la ventana Preferencias"
 
 #: C/drapes.xml:51(para)
 msgid "To switch wallpapers:"
-msgstr "Per cambiare sfondo:"
+msgstr "Para cambiar wallpapers:"
 
 #: C/drapes.xml:54(para)
 msgid ""
@@ -127,15 +124,20 @@ msgid ""
 "selected wallpaper or right-click on the Drapes icon and select \"Switch\" "
 "from the context menu."
 msgstr ""
+"Haz clic izquierdo en el icono de Desktop Drapes en la barra de herramientas "
+"para cambiar a un fondo de pantalla seleccionado aleatoriamente o haz clic "
+"derecho en el icono de Drapes y selecciona la opción \"Cambiar\" del menú "
+"contextual."
 
 #: C/drapes.xml:57(para)
 msgid "To add a wallpaper to Desktop Drapes collection:"
-msgstr "Per aggiungere uno sfondo alla collezione:"
+msgstr "Para añadir un fondo de pantalla a la colección de Desktop Drapes:"
 
 #: C/drapes.xml:60(para) C/drapes.xml:72(para)
 msgid "Right-click the icon in the toolbar and select 'Preferences'."
 msgstr ""
-"Clicca con il tasto destro l'icona nella toolbar e selezione 'Preferenze'."
+"Haz clic con el botón derecho del ratón en la barra de herramientas y "
+"selecciona 'Preferencias':"
 
 #: C/drapes.xml:63(para)
 msgid ""
@@ -143,6 +145,9 @@ msgid ""
 "or files. Desktop Drapes will automatically categorize your wallpaper by the "
 "dimensions of the image."
 msgstr ""
+"En la pestaña \"Display\", haz click en el botón \"Agregar\" y selecciona el "
+"archivo/s wallpaper. Desktop Drapes automáticamente categorizará tu "
+"wallpaper por las dimensiones de imagen."
 
 #: C/drapes.xml:66(para)
 msgid ""
@@ -156,34 +161,48 @@ msgid ""
 "distorted when zoomed in. And lastly, Zoom fills up the screen like a "
 "magnifying glass."
 msgstr ""
+"Puedes decirle a Drapes como mostrar tu wallpaper seleccionando el "
+"\"Estilo\" a mostrar. Centrado centrará el wallpaper en el centro de la "
+"pantalla. Rellenar Pantalla estirará el wallpaper para que ocupe toda la "
+"pantalla. Escalado estirará el wallpaper para que ocupe la pantalla, pero "
+"sin cambiar su aspecto, así el wallpaper llenará la pantalla lo mejor que "
+"puede sin modificar su imágen. Mosaico llenará la pantalla con sucesivas "
+"imagenes del wallapaper, esto es útil para wallpapers pequeños que de otra "
+"manera se verían distorsionados al agrandarlos. Por último, Ampliado llena "
+"la pantalla ampliando el wallpaper como una lupa."
 
 #: C/drapes.xml:69(para)
 msgid "To remove a wallpaper from the Desktop Drapes collection;"
-msgstr "Per rimuovere uno sfondo dalla collezione:"
+msgstr ""
+"Para eliminar un fondo de pantalla de la colección de Desktop Drapes:"
 
 #: C/drapes.xml:75(para)
 msgid ""
 "In the 'Display' tab, select the wallpaper you wish to remove and click the "
 "'Remove' button."
 msgstr ""
+"En la pestaña \"Display\", selecciona el wallpaper que desees remover y haz "
+"click en el botón \"Remover\"."
 
 #: C/drapes.xml:80(title)
 msgid "Customizing Desktop Drapes"
-msgstr "Personalizzare desktop Drapes"
+msgstr "Personalizando Desktop Drapes"
 
 #: C/drapes.xml:83(screeninfo)
 msgid "The general tab"
-msgstr "La scheda generale"
+msgstr "La pestaña general"
 
 #: C/drapes.xml:89(para)
 msgid "The General tab of the Preferences window"
-msgstr "La scheda Generale della finestra Preferenze"
+msgstr "La pestaña General de la ventana de Preferencias"
 
 #: C/drapes.xml:96(para)
 msgid ""
 "Start Desktop Drapes on start: Select this option to load Desktop Drapes "
 "automatically when you start up your computer."
 msgstr ""
+"Ejecutar Desktop Drapes al inicio: selecciona esta opción para cargar "
+"Desktop Drapes automáticamente cuando inicias tu computadora."
 
 #: C/drapes.xml:99(para)
 msgid ""
@@ -192,6 +211,10 @@ msgid ""
 "checkbox to switch to a different wallpaper every time you start your "
 "computer."
 msgstr ""
+"Cambiar wallpapers al inicio: selecciona esta opción para cambiar a un "
+"wallpaper diferente cada vez que ejecutas Desktop Drapes. Selecciona esta y "
+"la primera checkbox para cambiar a un wallpaper diferente cada vez que "
+"inicias el equipo."
 
 #: C/drapes.xml:102(para)
 msgid ""
@@ -200,6 +223,11 @@ msgid ""
 "two hours. Move the slider all the way to the right to tell Desktop Drapes "
 "never to switch wallpapers while it's running."
 msgstr ""
+"Selección de temporización: usa esta barra deslizable para configurar en "
+"Desktop Drapes la frecuencia con que se cambia a un nuevo fondo de pantalla, "
+"desde un mínimo de cinco minutos a un máximo de dos horas. Desliza la barra "
+"hasta su extremo derecho para seleccionar que Desktop Drapes nunca cambie el "
+"fondo de pantalla mientras se esté ejecutando."
 
 #: C/drapes.xml:105(para)
 msgid ""
@@ -208,12 +236,16 @@ msgid ""
 "collection. Click the directory list box in order to select which directory "
 "Desktop Drapes should monitor."
 msgstr ""
+"Directorio de búsqueda de fondos de pantalla: selecciona la casilla de "
+"verificación para que Desktop Drapes monitoree un directorio y "
+"automaticamente agregue archivos situados en él a su colección. Pinche la "
+"casilla de lista de directorios para seleccionar el directorio que Desktop "
+"Drape deberá monitorear."
 
 #: C/drapes.xml:0(None)
 msgid "translator-credits"
 msgstr ""
-"Traduttori\n"
-"\n"
 "Launchpad Contributions:\n"
-"  Fabio Locati https://launchpad.net/~f4l3\n"
-"  Simone Vendemia https://launchpad.net/~simonevendemia"
+"  Alejandro Cirino https://launchpad.net/~cirinoalejandro\n"
+"  PabloPerezBenitez https://launchpad.net/~lkmdigital\n"
+"  Raúl González Duque https://launchpad.net/~zootropo"

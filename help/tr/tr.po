@@ -1,32 +1,21 @@
-# Italian translation for drapes
-# Copyright (c) (c) 2006 Canonical Ltd, and Rosetta Contributors 2006
+# Turkish translation for drapes
+# Copyright (c) 2007 Rosetta Contributors and Canonical Ltd 2007
 # This file is distributed under the same license as the drapes package.
-# FIRST AUTHOR <EMAIL@ADDRESS>, 2006.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2007.
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: drapes\n"
 "Report-Msgid-Bugs-To: FULL NAME <EMAIL@ADDRESS>\n"
 "POT-Creation-Date: 2007-03-28 11:27-0400\n"
-"PO-Revision-Date: 2007-05-21 19:50+0000\n"
-"Last-Translator: Simone Vendemia <simonevendemia@gmail.com>\n"
-"Language-Team: Italian <it@li.org>\n"
+"PO-Revision-Date: 2007-04-14 20:26+0000\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: Turkish <tr@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "X-Launchpad-Export-Date: 2007-10-01 02:58+0000\n"
 "X-Generator: Launchpad (build Unknown)\n"
-
-#~ msgid ""
-#~ "Desktop Drapes is a wallpaper mangment application for the Gnome desktop."
-#~ msgstr "Desktop Drapes è un manager di sfondi per il desktop Gnome."
-
-#~ msgid ""
-#~ "Left-click the Desktop Drapes icon in the toolbar to switch to a randomly "
-#~ "selected wallpaper, OR..."
-#~ msgstr ""
-#~ "clicca con il tasto sinistro l'icona di Desktop Drapes nella taskbar per "
-#~ "cambiare randomicamente il wallpaper"
 
 #. When image changes, this message will be marked fuzzy or untranslated for you.
 #: C/drapes.xml:43(None)
@@ -34,7 +23,7 @@ msgid ""
 "@@image: 'figures/drapes_preferences_display.png'; "
 "md5=0e5659533f40a2583fb910601d1d45ef"
 msgstr ""
-"@@image: 'figures/drapes_preferences_display.png'; "
+"@@image: 'figures/drapes_preferences_display.png';\n"
 "md5=0e5659533f40a2583fb910601d1d45ef"
 
 #. When image changes, this message will be marked fuzzy or untranslated for you.
@@ -43,20 +32,20 @@ msgid ""
 "@@image: 'figures/drapes_preferences_general.png'; "
 "md5=1d61f439e1d13e76593fb35baa5f841e"
 msgstr ""
-"@@image: 'figures/drapes_preferences_general.png'; "
+"@@image: 'figures/drapes_preferences_general.png';\n"
 "md5=1d61f439e1d13e76593fb35baa5f841e"
 
 #: C/drapes.xml:5(title)
 msgid "Desktop Drapes User Guide"
-msgstr "Guida Utente  Desktop Drapes"
+msgstr "Desktop Drapes Kullanıcı Kılavuzu"
 
 #: C/drapes.xml:8(firstname)
 msgid "Derek"
-msgstr "Derek"
+msgstr ""
 
 #: C/drapes.xml:9(surname)
 msgid "Vandivere"
-msgstr "Vandivere"
+msgstr ""
 
 #: C/drapes.xml:14(revnumber)
 msgid "1"
@@ -80,7 +69,7 @@ msgstr "2"
 
 #: C/drapes.xml:21(date)
 msgid "March 27, 2007"
-msgstr "27 Marzo 2007"
+msgstr ""
 
 #: C/drapes.xml:23(revremark)
 msgid ""
@@ -95,7 +84,7 @@ msgstr ""
 
 #: C/drapes.xml:33(title)
 msgid "Introduction"
-msgstr "Introduzione"
+msgstr ""
 
 #: C/drapes.xml:34(para)
 msgid ""
@@ -107,19 +96,19 @@ msgstr ""
 
 #: C/drapes.xml:37(title)
 msgid "Using Desktop Drapes"
-msgstr "Usare Desktop Drapes"
+msgstr ""
 
 #: C/drapes.xml:40(screeninfo)
 msgid "The display tab"
-msgstr "La scheda display"
+msgstr ""
 
 #: C/drapes.xml:46(para)
 msgid "The Display tab of the Preferences window"
-msgstr "La scheda Display della finestra Preferenze"
+msgstr ""
 
 #: C/drapes.xml:51(para)
 msgid "To switch wallpapers:"
-msgstr "Per cambiare sfondo:"
+msgstr ""
 
 #: C/drapes.xml:54(para)
 msgid ""
@@ -130,12 +119,11 @@ msgstr ""
 
 #: C/drapes.xml:57(para)
 msgid "To add a wallpaper to Desktop Drapes collection:"
-msgstr "Per aggiungere uno sfondo alla collezione:"
+msgstr ""
 
 #: C/drapes.xml:60(para) C/drapes.xml:72(para)
 msgid "Right-click the icon in the toolbar and select 'Preferences'."
 msgstr ""
-"Clicca con il tasto destro l'icona nella toolbar e selezione 'Preferenze'."
 
 #: C/drapes.xml:63(para)
 msgid ""
@@ -159,7 +147,7 @@ msgstr ""
 
 #: C/drapes.xml:69(para)
 msgid "To remove a wallpaper from the Desktop Drapes collection;"
-msgstr "Per rimuovere uno sfondo dalla collezione:"
+msgstr ""
 
 #: C/drapes.xml:75(para)
 msgid ""
@@ -169,15 +157,15 @@ msgstr ""
 
 #: C/drapes.xml:80(title)
 msgid "Customizing Desktop Drapes"
-msgstr "Personalizzare desktop Drapes"
+msgstr ""
 
 #: C/drapes.xml:83(screeninfo)
 msgid "The general tab"
-msgstr "La scheda generale"
+msgstr ""
 
 #: C/drapes.xml:89(para)
 msgid "The General tab of the Preferences window"
-msgstr "La scheda Generale della finestra Preferenze"
+msgstr ""
 
 #: C/drapes.xml:96(para)
 msgid ""
@@ -212,8 +200,5 @@ msgstr ""
 #: C/drapes.xml:0(None)
 msgid "translator-credits"
 msgstr ""
-"Traduttori\n"
-"\n"
 "Launchpad Contributions:\n"
-"  Fabio Locati https://launchpad.net/~f4l3\n"
-"  Simone Vendemia https://launchpad.net/~simonevendemia"
+"  Tutku Dalmaz https://launchpad.net/~tutkudalmaz"

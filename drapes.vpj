@@ -69,10 +69,12 @@
 				<F N="drapes/panelapplet/PanelAppletFactoryCallback.cs"/>
 				<F N="drapes/panelapplet/PanelAppletFlags.cs"/>
 			</Folder>
+			<F N="drapes/About.cs"/>
 			<F N="drapes/Applet.cs"/>
 			<F N="drapes/AppletWidget.cs"/>
 			<F N="drapes/AssemblyInfo.cs.in"/>
 			<F N="drapes/ConfigMenu.cs"/>
+			<F N="drapes/ConfigMenuWidgets.cs"/>
 			<F N="drapes/Main.cs"/>
 			<F N="drapes/Settings.cs"/>
 			<F N="drapes/Traylib.cs"/>
