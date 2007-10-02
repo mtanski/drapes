@@ -3,26 +3,192 @@
 # This file is distributed under the same license as the drapes package.
 # FIRST AUTHOR <EMAIL@ADDRESS>, 2006.
 #
-#, fuzzy
 msgid ""
 msgstr ""
 "Project-Id-Version: drapes\n"
-"Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2007-03-28 11:21-0400\n"
-"PO-Revision-Date: 2006-10-13 06:42+0000\n"
+"Report-Msgid-Bugs-To: FULL NAME <EMAIL@ADDRESS>\n"
+"POT-Creation-Date: 2006-09-17 13:59-0400\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: Bruno Santos <bsantos@gmail.com>\n"
 "Language-Team: Portuguese <pt@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Rosetta-Export-Date: 2006-12-11 16:18+0000\n"
+"X-Launchpad-Export-Date: 2007-10-01 03:08+0000\n"
+"X-Generator: Launchpad (build Unknown)\n"
 
-#: ../data/DrapesApplet.server.in.in.h:1 ../data/drapes.desktop.in.h:1
+#~ msgid ""
+#~ "@@image: 'figures/drapes_preferences_display.png'; "
+#~ "md5=0e5659533f40a2583fb910601d1d45ef"
+#~ msgstr ""
+#~ "@@image: 'figures/drapes_preferences_display.png'; "
+#~ "md5=0e5659533f40a2583fb910601d1d45ef"
+
+#~ msgid ""
+#~ "@@image: 'figures/drapes_preferences_general.png'; "
+#~ "md5=1d61f439e1d13e76593fb35baa5f841e"
+#~ msgstr ""
+#~ "@@image: 'figures/drapes_preferences_general.png'; "
+#~ "md5=1d61f439e1d13e76593fb35baa5f841e"
+
+#~ msgid "Desktop Drapes User Guide"
+#~ msgstr "Guia de Utilização do Desktop Drapes"
+
+#~ msgid "Derek"
+#~ msgstr "Derek"
+
+#~ msgid "Vandivere"
+#~ msgstr "Vandivere"
+
+#~ msgid ""
+#~ "Desktop Drapes is a wallpaper mangment application for the Gnome desktop."
+#~ msgstr ""
+#~ "O Desktop Drapes é uma aplicação de gestão de fundos para o ambiente de "
+#~ "trabalho para o gestor de janelas Gnome."
+
+#~ msgid "Introduction"
+#~ msgstr "Introdução"
+
+#~ msgid ""
+#~ "Desktop Drapes is a wallpaper manager application for the Gnome desktop. You "
+#~ "can change your wallpaper by clicking the Desktop Drapes icon on the "
+#~ "toolbar, and set it to switch wallpaper every time you boot and at a "
+#~ "predefined interval. Also, you can tell Desktop Drapes to monitor a "
+#~ "particular directory to add wallpapers automatically."
+#~ msgstr ""
+#~ "O Desktop Drapes é uma aplicação de gestão de fundos para o ambiente de "
+#~ "trabalho Gnome. Pode mudar o fundo do ambiente de trabalho carregando no "
+#~ "ícone do Desktop Drapes na barra de ferramentas, podendo configurá-lo para "
+#~ "mudar o fundo do ambiente de trabalho cada vez que ininica o seu computador "
+#~ "ou em intervalos de tempo regulares. Pode também configurar o Desktop Drapes "
+#~ "para controlar um determinado directório para que sejam automaticamente "
+#~ "adicionados à lista fundos colocados nesse directório."
+
+#~ msgid "Using Desktop Drapes"
+#~ msgstr "A usar o Desktop Drapes"
+
+#~ msgid "The display tab"
+#~ msgstr "A barra de exibição"
+
+#~ msgid "The Display tab of the Preferences window"
+#~ msgstr "A barra de Exibição da janela de Preferências"
+
+#~ msgid "To switch wallpapers:"
+#~ msgstr "Para mudar os fundos:"
+
+#~ msgid ""
+#~ "Left-click the Desktop Drapes icon in the toolbar to switch to a randomly "
+#~ "selected wallpaper, OR..."
+#~ msgstr ""
+#~ "Carregue com o botão esquerdo do rato no ícone na barra de ferramentas para "
+#~ "mudar aleatoriamente para outro fundo, ou..."
+
+#~ msgid ""
+#~ "Right-click the Desktop Drapes icon in the toolbar and double-click the "
+#~ "thumbnail image of a wallpaper to switch to that wallpaper."
+#~ msgstr ""
+#~ "Carregue com o botão direito do rato no ícone na barra de ferramentas e "
+#~ "carregue duas vezes no pré-visualização da imagem de um fundo para mudar "
+#~ "para esse fundo."
+
+#~ msgid "To add a wallpaper to Desktop Drapes collection:"
+#~ msgstr "Para adicionar um fundo à colecção do Desktop Drapes:"
+
+#~ msgid "Right-click the icon in the toolbar and select 'Preferences'."
+#~ msgstr ""
+#~ "Carregue com o botão direito do rato no ícone na barra de ferramentas e "
+#~ "seleccione 'Preferências'."
+
+#~ msgid ""
+#~ "In the 'Display' tab, click the 'Add' button and select your wallpaper file "
+#~ "or files. Desktop Drapes will automatically categorize your wallpaper by the "
+#~ "dimensions of the image (I guess)."
+#~ msgstr ""
+#~ "Na aba 'Apresentação', carregue no botão 'Adicionar' e seleccione o "
+#~ "ficheiro, ou ficheiros de fundo. O Desktop Drapes irá automaticamente "
+#~ "atribuir uma categoria aos seus fundos consoante as dimensões das imagens."
+
+#~ msgid "To remove a wallpaper from the Desktop Drapes collection;"
+#~ msgstr "Para remover um fundo da collecção do Desktop Drapes;"
+
+#~ msgid ""
+#~ "In the 'Display' tab, select the wallpaper you wish to remove and click the "
+#~ "'Remove' button."
+#~ msgstr ""
+#~ "Na aba 'Apresentação', escolha o fundo que pretende remover e carregue no "
+#~ "botão 'Remover'."
+
+#~ msgid "Customizing Desktop Drapes"
+#~ msgstr "Personalização do Desktop Drapes"
+
+#~ msgid "The general tab"
+#~ msgstr "A aba geral"
+
+#~ msgid "The General tab of the Preferences window"
+#~ msgstr "A aba Geral da janela de Preferências"
+
+#~ msgid ""
+#~ "Start Desktop Drapes on start: Select this option to load Desktop Drapes "
+#~ "automatically when you start up your computer."
+#~ msgstr ""
+#~ "Iniciar o Desktop Drapes no arranque: Seleccione esta opção para iniciar "
+#~ "automaticamente o Desktop Drapes quando arranca o seu computador."
+
+#~ msgid ""
+#~ "Switch wallpaper on start: Select this option to switch to a different "
+#~ "wallpaper every time you start Desktop Drapes. Select this and the first "
+#~ "checkbox to switch to a different wallpaper every time you start your "
+#~ "computer."
+#~ msgstr ""
+#~ "Mudar fundo no início: Seleccione esta opção para mudar para um fundo "
+#~ "diferente cada vez que inicia o Desktop Drapes. Seleccione a primeira caixa "
+#~ "de escolha para mudar o fundo cada vez que arranca o seu computador."
+
+#~ msgid ""
+#~ "Timing selection: Use this slider bar to tell Desktop Drapes how often to "
+#~ "switch to a new wallpaper, from a minimum of five minutes to a maximum of "
+#~ "two hours. Move the slider all the way to the right to tell Desktop Drapes "
+#~ "never to switch wallpapers while it's running."
+#~ msgstr ""
+#~ "Selecção do intervalo de tempo: Use esta barra de ajuste para informar o "
+#~ "Desktop Drapes a regularidade com que pretende que o fundo do ambiente de "
+#~ "trabalho seja mudado, desde um mínimo de cinco minutos a um máximo de duas "
+#~ "horas de intervalo. Mova a barra para a extremidade direita para informar o "
+#~ "Desktop Drapes que não pretende mudar o fundo enquanto o Desktop Drapes está "
+#~ "a funcionar."
+
+#~ msgid ""
+#~ "Wallpaper search directory: Select the checkbox to have Desktop Drapes "
+#~ "monitor a directory and automatically add files in that directory to its "
+#~ "collection. Click the directory list box in order to select which directory "
+#~ "Desktop Drapes should monitor. Warning: In the current version of Desktop "
+#~ "Drapes, saving a file directly into that directory will cause Desktop Drapes "
+#~ "to crash and lose its collection! Instead, save a file to a different "
+#~ "directory, then copy it into your monitored directory."
+#~ msgstr ""
+#~ "Directório de pesquisa de fundos: Seleccione a caixa de scolha para que o "
+#~ "Desktop Drapes controle um directório e adicione automaticamente os "
+#~ "ficheiros de fundo nesse directório à collecção. Carregue na lista de "
+#~ "escolha de directório para seleccionar qual o directório que o Desktop "
+#~ "Drapes deve controlar. Aviso: Na versão actual do Desktop Drapes, gravar "
+#~ "directamente um ficheiro para este directório provoca o encerramento forçado "
+#~ "do Desktop Drapes e a perda da sua colecção de fundos! Para evitar esta "
+#~ "ocorrência, grave o ficheiro de fundo para outro directório e copie-o "
+#~ "posteriormente para o directório sob controlo do Desktop Drapes."
+
+#~ msgid "translator-credits"
+#~ msgstr ""
+#~ "Bruno Santos <bsantos@gmail.com>, 2006\n"
+#~ "\n"
+#~ "Launchpad Contributions:\n"
+#~ "  Bruno Santos https://launchpad.net/~bsantos"
+
+#: ../data/DrapesApplet.server.in.h:1 ../data/drapes.desktop.in.h:1
 #: ../data/drapes.glade.h:5
 msgid "Desktop Drapes"
 msgstr "Desktop Drapes"
 
-#: ../data/DrapesApplet.server.in.in.h:2
+#: ../data/DrapesApplet.server.in.h:2
 msgid "Rotate desktop wallpapers"
 msgstr "Rodar os fundos da área de trabalho"
 
@@ -34,8 +200,7 @@ msgstr "_Preferências"
 msgid "_Shuffle Periodicaly"
 msgstr "_Misturar Periodicamente"
 
-#. Switch to another wallpaper
-#: ../data/DrapesApplet.xml.h:3 ../drapes/AppletWidget.cs:148
+#: ../data/DrapesApplet.xml.h:3 ../drapes/AppletWidget.cs:137
 msgid "_Switch"
 msgstr "_Mudar"
 
@@ -72,14 +237,18 @@ msgid "Monitor this directory for new wallpapers"
 msgstr "Controlar esta directoria para novos fundos"
 
 #: ../data/drapes.glade.h:9
+msgid "Select A File"
+msgstr "Seleccionar Um Ficheiro"
+
+#: ../data/drapes.glade.h:10
 msgid "Start Desktop Drapes on start"
 msgstr "Iniciar Desktop Drapes no arranque"
 
-#: ../data/drapes.glade.h:10
+#: ../data/drapes.glade.h:11
 msgid "Style: "
 msgstr "Estilo: "
 
-#: ../data/drapes.glade.h:11 ../data/drapes.schemas.in.h:6
+#: ../data/drapes.glade.h:12 ../data/drapes.schemas.in.h:6
 msgid "Switch wallpaper on start"
 msgstr "Mudar fundo no arranque"
 
@@ -98,7 +267,8 @@ msgstr "Controlar directório para novos fundos"
 #: ../data/drapes.schemas.in.h:4
 msgid ""
 "Monitor the specified directory using inotify for new wallpapers and changes."
-msgstr "Controlar o directório usando o inotify para novos fundos e alterações"
+msgstr ""
+"Controlar o directório usando o inotify para novos fundos e alterações"
 
 #: ../data/drapes.schemas.in.h:5
 msgid ""
@@ -125,124 +295,108 @@ msgstr "Intervalo de tempo entre mudanças de fundo"
 msgid "When Drapes launches switch the wallpaper."
 msgstr "Mudar o fundo quando o Drapes arranca."
 
-#: ../drapes/AppletWidget.cs:47
+#: ../drapes/AppletWidget.cs:44
 msgid "Deskop Drapes, click to switch wallpaper"
 msgstr "Desktop Drapes, pressionar para mudar o fundo"
 
-#. Enabled
-#: ../drapes/AppletWidget.cs:156
+#: ../drapes/AppletWidget.cs:145
 msgid "Shuffle periodicaly"
 msgstr "Misturar periodicamente"
 
-#. Configuration
-#: ../drapes/AppletWidget.cs:165
+#: ../drapes/AppletWidget.cs:154
 msgid "Preferences"
 msgstr "Preferências"
 
-#. Help
-#: ../drapes/AppletWidget.cs:173
-msgid "Help"
-msgstr ""
-
-#. About
-#: ../drapes/AppletWidget.cs:182
-msgid "About"
-msgstr ""
-
-#. Quit
-#: ../drapes/AppletWidget.cs:190
+#: ../drapes/AppletWidget.cs:162
 msgid "_Quit"
 msgstr "_Sair"
 
-#: ../drapes/ConfigMenu.cs:90
+#: ../drapes/ConfigMenu.cs:75
 msgid "This option is only valid when using the notification tray"
 msgstr "Esta opção só é válida quando o ícone de notificação está activado"
 
-#: ../drapes/ConfigMenu.cs:134
+#: ../drapes/ConfigMenu.cs:112
 msgid "selection"
 msgstr "escolha"
 
-#. The various "sorters"
-#: ../drapes/ConfigMenu.cs:167
+#: ../drapes/ConfigMenu.cs:145
 msgid "Perfect fit"
 msgstr "Tamanho exacto"
 
-#: ../drapes/ConfigMenu.cs:168
+#: ../drapes/ConfigMenu.cs:146
 msgid "Regular 4:3"
 msgstr "Normal 4:3"
 
-#: ../drapes/ConfigMenu.cs:169
+#: ../drapes/ConfigMenu.cs:147
 msgid "Widescreen"
 msgstr "Ecrã extenso"
 
-#: ../drapes/ConfigMenu.cs:170
+#: ../drapes/ConfigMenu.cs:148
 msgid "Other"
 msgstr "Outro"
 
-#: ../drapes/ConfigMenu.cs:172 ../drapes/ConfigMenu.cs:173
-#: ../drapes/ConfigMenu.cs:174 ../drapes/ConfigMenu.cs:175
+#: ../drapes/ConfigMenu.cs:150 ../drapes/ConfigMenu.cs:151
+#: ../drapes/ConfigMenu.cs:152 ../drapes/ConfigMenu.cs:153
 msgid "<i>No wallpapers present</i>"
 msgstr "<i>Não existem fundos</i>"
 
-#: ../drapes/ConfigMenu.cs:298 ../drapes/ConfigMenu.cs:339
+#: ../drapes/ConfigMenu.cs:275
+msgid "Add wallpaper"
+msgstr "Adicionar fundo"
+
+#: ../drapes/ConfigMenu.cs:295
+msgid "Images"
+msgstr "Imagens"
+
+#: ../drapes/ConfigMenu.cs:296
+msgid "Directory"
+msgstr "Directório"
+
+#: ../drapes/ConfigMenu.cs:338
+msgid "Import type:"
+msgstr "Tipo de importação:"
+
+#: ../drapes/ConfigMenu.cs:460 ../drapes/ConfigMenu.cs:501
 msgid "Unknown column"
 msgstr "Coluna desconhecida"
 
-#: ../drapes/ConfigMenu.cs:329
+#: ../drapes/ConfigMenu.cs:491
 #, csharp-format
 msgid "{0} x {1} pixels"
 msgstr "{0} x {1} pixels"
 
-#: ../drapes/ConfigMenu.cs:385
-msgid "Add wallpaper"
-msgstr "Adicionar fundo"
-
-#: ../drapes/ConfigMenu.cs:405
-msgid "Images"
-msgstr "Imagens"
-
-#: ../drapes/ConfigMenu.cs:406
-msgid "Directory"
-msgstr "Directório"
-
-#: ../drapes/ConfigMenu.cs:448
-msgid "Import type:"
-msgstr "Tipo de importação:"
-
-#: ../drapes/ConfigMenu.cs:557
+#: ../drapes/ConfigMenu.cs:527
 #, csharp-format
 msgid "Switching wallpaper to: {0})"
 msgstr "A mudar fundo para: {0})"
 
-#: ../drapes/ConfigMenu.cs:559
+#: ../drapes/ConfigMenu.cs:529
 #, csharp-format
 msgid "Not activating {0}, disabled"
 msgstr "Não activando {0}, desligado"
 
-#: ../drapes/Main.cs:82
-#, fuzzy, csharp-format
-msgid "Importing Gnome's background list: {0}"
+#: ../drapes/Main.cs:79
+msgid "Importing Gnome's background list"
 msgstr "A importar a lista de fundos do Gnome"
 
-#: ../drapes/Main.cs:90
-#, fuzzy, csharp-format
-msgid "Opening wallpaper list: {0}"
+#: ../drapes/Main.cs:85
+msgid "Opening wallpaper list"
 msgstr "A abrir a lista de fundos"
 
-#: ../drapes/Main.cs:148
+#: ../drapes/Main.cs:142
 #, csharp-format
 msgid "Wallpaper switch to: {0}"
 msgstr "Mudar fundo para: {0}"
 
-#: ../drapes/Main.cs:150
+#: ../drapes/Main.cs:144
 msgid "Wallpaper switch failed; No wallpapers?"
 msgstr "A mudança de fundo falho; Não existem fundos?"
 
-#: ../drapes/Main.cs:192
+#: ../drapes/Main.cs:162
 msgid "Notified of shutdown"
 msgstr "Recebida notificação de encerramento"
 
-#: ../drapes/Main.cs:210
+#: ../drapes/Main.cs:176
 #, csharp-format
 msgid "Sorry unknow argument: {0}"
 msgstr "Argumento desconhecido: {0}"
@@ -287,12 +441,12 @@ msgstr "2 horas"
 msgid "Never"
 msgstr "Nunca"
 
-#: ../drapes/Settings.cs:425
+#: ../drapes/Settings.cs:382
 #, csharp-format
 msgid "Cannot toggle autostart, reason: {0}"
 msgstr "Não foi possível activar o arranque automático, razão: {0}"
 
-#: ../drapes/Settings.cs:499
+#: ../drapes/Settings.cs:413
 #, csharp-format
 msgid "Unknown GConf key: {0}"
 msgstr "Chave GConf desconhecida: {0}"
@@ -307,80 +461,77 @@ msgstr "Ficheiro não encontrado: {0}"
 msgid "Cannot create thumbnail for: {0}"
 msgstr "Não é possível criar pré-visualização para: {0}"
 
-#: ../drapes/WpList.cs:60 ../drapes/WpList.cs:150
+#: ../drapes/WpList.cs:57 ../drapes/WpList.cs:130
 #, csharp-format
 msgid "Monitor Directory: {0} dosen't exist"
 msgstr "Directório a Controlar: {0} não existe"
 
-#: ../drapes/WpList.cs:65
+#: ../drapes/WpList.cs:61
 #, csharp-format
 msgid "Filesystem monitor on: {0} enabled"
 msgstr "Controlo do sistema de ficheiros em: {0} activado"
 
-#: ../drapes/WpList.cs:97
+#: ../drapes/WpList.cs:96
 #, csharp-format
 msgid "File {0}, created"
 msgstr "Ficheiro {0}, criado"
 
-#: ../drapes/WpList.cs:110
+#: ../drapes/WpList.cs:103
 #, csharp-format
 msgid "File {0}, deleted"
 msgstr "Ficheiros {0}, apagado"
 
-#: ../drapes/WpList.cs:116
+#: ../drapes/WpList.cs:107
 #, csharp-format
 msgid "Unknow file event {0}"
 msgstr "Evento sobre ficheiro desconhecido {0}"
 
-#: ../drapes/WpList.cs:138
+#: ../drapes/WpList.cs:121
 msgid "Filesystem monitor disabled"
 msgstr "Controlo do sistema de ficheiros desactivado"
 
-#: ../drapes/WpList.cs:157
+#: ../drapes/WpList.cs:135
 #, csharp-format
 msgid "Changing monitor directory to: {0}"
 msgstr "A mudar o directório controlada para: {0}"
 
-#: ../drapes/WpList.cs:170
+#: ../drapes/WpList.cs:144
 #, csharp-format
 msgid "No such file: {0}"
 msgstr "Ficheiro inexistente: {0}"
 
-#: ../drapes/WpList.cs:180
+#: ../drapes/WpList.cs:154
 #, csharp-format
 msgid "Unable to open file {0} because:"
 msgstr "Não é possível abrir ficheiro {0} porque:"
 
-#: ../drapes/WpList.cs:234
+#: ../drapes/WpList.cs:207
 #, csharp-format
 msgid "Unknow element: {0}"
 msgstr "Elemento desconhecido: {0}"
 
-#: ../drapes/WpList.cs:275
+#: ../drapes/WpList.cs:248
 msgid "Something bad happened last time, opening as far as we can..."
 msgstr ""
 "Algo de errado aconteceu da última vez que correu este programa, a iniciá-lo "
 "como é possível..."
 
-#: ../drapes/WpList.cs:333
+#: ../drapes/WpList.cs:308
 #, csharp-format
 msgid "Wallpaper list file {0} saved"
 msgstr "Ficheiro com a lista de fundos {0} gravado"
 
-#: ../drapes/WpList.cs:480
+#: ../drapes/WpList.cs:455
 #, csharp-format
 msgid "Adding wallpaper file: {0}"
 msgstr "A adicionar ficheiro de fundo: {0}"
 
-#: ../drapes/WpList.cs:508
+#: ../drapes/WpList.cs:483
 #, csharp-format
 msgid "No such directory: {0}"
 msgstr "Directório inexistente: {0}"
 
-#: ../drapes/WpList.cs:518
+#: ../drapes/WpList.cs:493
 #, csharp-format
 msgid "Parsing subdir {0}"
 msgstr "A analisar a sub-directório {0}"
-
-#~ msgid "Select A File"
-#~ msgstr "Seleccionar Um Ficheiro"

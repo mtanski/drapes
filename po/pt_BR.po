@@ -3,25 +3,34 @@
 # This file is distributed under the same license as the drapes package.
 # FIRST AUTHOR <EMAIL@ADDRESS>, 2006.
 #
-#, fuzzy
 msgid ""
 msgstr ""
 "Project-Id-Version: drapes\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2007-03-28 11:21-0400\n"
-"PO-Revision-Date: 2006-07-28 22:22+0000\n"
+"POT-Creation-Date: 2006-09-17 13:59-0400\n"
+"PO-Revision-Date: 2007-04-02 16:49+0000\n"
 "Last-Translator: Luiz Augusto <lugusto@gmail.com>\n"
 "Language-Team: Portuguese (Brazil) <pt_BR@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"X-Launchpad-Export-Date: 2007-10-01 03:08+0000\n"
+"X-Generator: Launchpad (build Unknown)\n"
 
-#: ../data/DrapesApplet.server.in.in.h:1 ../data/drapes.desktop.in.h:1
+#, fuzzy
+#~ msgid "Opening wallpaper list: {0}"
+#~ msgstr "Trocar o papel de parede ao iniciar"
+
+#, fuzzy
+#~ msgid "Launch Desktop Drapes on login"
+#~ msgstr "Abrir Desktop Drapes ao iniciar o sistema"
+
+#: ../data/DrapesApplet.server.in.h:1 ../data/drapes.desktop.in.h:1
 #: ../data/drapes.glade.h:5
 msgid "Desktop Drapes"
 msgstr "Desktop Drapes"
 
-#: ../data/DrapesApplet.server.in.in.h:2
+#: ../data/DrapesApplet.server.in.h:2
 msgid "Rotate desktop wallpapers"
 msgstr ""
 
@@ -33,8 +42,7 @@ msgstr ""
 msgid "_Shuffle Periodicaly"
 msgstr ""
 
-#. Switch to another wallpaper
-#: ../data/DrapesApplet.xml.h:3 ../drapes/AppletWidget.cs:148
+#: ../data/DrapesApplet.xml.h:3 ../drapes/AppletWidget.cs:137
 msgid "_Switch"
 msgstr ""
 
@@ -71,14 +79,18 @@ msgid "Monitor this directory for new wallpapers"
 msgstr "Monitore este diretório para novos papéis de parede"
 
 #: ../data/drapes.glade.h:9
+msgid "Select A File"
+msgstr "Selecione um arquivo"
+
+#: ../data/drapes.glade.h:10
 msgid "Start Desktop Drapes on start"
 msgstr "Abrir Desktop Drapes ao iniciar o sistema"
 
-#: ../data/drapes.glade.h:10
+#: ../data/drapes.glade.h:11
 msgid "Style: "
 msgstr "Estilo: "
 
-#: ../data/drapes.glade.h:11 ../data/drapes.schemas.in.h:6
+#: ../data/drapes.glade.h:12 ../data/drapes.schemas.in.h:6
 msgid "Switch wallpaper on start"
 msgstr "Trocar o papel de parede ao iniciar"
 
@@ -123,124 +135,108 @@ msgstr ""
 msgid "When Drapes launches switch the wallpaper."
 msgstr ""
 
-#: ../drapes/AppletWidget.cs:47
+#: ../drapes/AppletWidget.cs:44
 msgid "Deskop Drapes, click to switch wallpaper"
 msgstr ""
 
-#. Enabled
-#: ../drapes/AppletWidget.cs:156
+#: ../drapes/AppletWidget.cs:145
 msgid "Shuffle periodicaly"
 msgstr ""
 
-#. Configuration
-#: ../drapes/AppletWidget.cs:165
+#: ../drapes/AppletWidget.cs:154
 msgid "Preferences"
 msgstr ""
 
-#. Help
-#: ../drapes/AppletWidget.cs:173
-msgid "Help"
-msgstr ""
-
-#. About
-#: ../drapes/AppletWidget.cs:182
-msgid "About"
-msgstr ""
-
-#. Quit
-#: ../drapes/AppletWidget.cs:190
+#: ../drapes/AppletWidget.cs:162
 msgid "_Quit"
 msgstr ""
 
-#: ../drapes/ConfigMenu.cs:90
+#: ../drapes/ConfigMenu.cs:75
 msgid "This option is only valid when using the notification tray"
 msgstr ""
 
-#: ../drapes/ConfigMenu.cs:134
+#: ../drapes/ConfigMenu.cs:112
 msgid "selection"
 msgstr ""
 
-#. The various "sorters"
-#: ../drapes/ConfigMenu.cs:167
+#: ../drapes/ConfigMenu.cs:145
 msgid "Perfect fit"
 msgstr ""
 
-#: ../drapes/ConfigMenu.cs:168
+#: ../drapes/ConfigMenu.cs:146
 msgid "Regular 4:3"
 msgstr ""
 
-#: ../drapes/ConfigMenu.cs:169
+#: ../drapes/ConfigMenu.cs:147
 msgid "Widescreen"
 msgstr ""
 
-#: ../drapes/ConfigMenu.cs:170
+#: ../drapes/ConfigMenu.cs:148
 msgid "Other"
 msgstr ""
 
-#: ../drapes/ConfigMenu.cs:172 ../drapes/ConfigMenu.cs:173
-#: ../drapes/ConfigMenu.cs:174 ../drapes/ConfigMenu.cs:175
+#: ../drapes/ConfigMenu.cs:150 ../drapes/ConfigMenu.cs:151
+#: ../drapes/ConfigMenu.cs:152 ../drapes/ConfigMenu.cs:153
 msgid "<i>No wallpapers present</i>"
 msgstr ""
 
-#: ../drapes/ConfigMenu.cs:298 ../drapes/ConfigMenu.cs:339
+#: ../drapes/ConfigMenu.cs:275
+msgid "Add wallpaper"
+msgstr ""
+
+#: ../drapes/ConfigMenu.cs:295
+msgid "Images"
+msgstr ""
+
+#: ../drapes/ConfigMenu.cs:296
+msgid "Directory"
+msgstr ""
+
+#: ../drapes/ConfigMenu.cs:338
+msgid "Import type:"
+msgstr ""
+
+#: ../drapes/ConfigMenu.cs:460 ../drapes/ConfigMenu.cs:501
 msgid "Unknown column"
 msgstr ""
 
-#: ../drapes/ConfigMenu.cs:329
+#: ../drapes/ConfigMenu.cs:491
 #, csharp-format
 msgid "{0} x {1} pixels"
 msgstr ""
 
-#: ../drapes/ConfigMenu.cs:385
-msgid "Add wallpaper"
-msgstr ""
-
-#: ../drapes/ConfigMenu.cs:405
-msgid "Images"
-msgstr ""
-
-#: ../drapes/ConfigMenu.cs:406
-msgid "Directory"
-msgstr ""
-
-#: ../drapes/ConfigMenu.cs:448
-msgid "Import type:"
-msgstr ""
-
-#: ../drapes/ConfigMenu.cs:557
-#, fuzzy, csharp-format
+#: ../drapes/ConfigMenu.cs:527
+#, fuzzy
 msgid "Switching wallpaper to: {0})"
 msgstr "Trocar o papel de parede ao iniciar"
 
-#: ../drapes/ConfigMenu.cs:559
+#: ../drapes/ConfigMenu.cs:529
 #, csharp-format
 msgid "Not activating {0}, disabled"
 msgstr ""
 
-#: ../drapes/Main.cs:82
-#, csharp-format
-msgid "Importing Gnome's background list: {0}"
+#: ../drapes/Main.cs:79
+msgid "Importing Gnome's background list"
 msgstr ""
 
-#: ../drapes/Main.cs:90
-#, fuzzy, csharp-format
-msgid "Opening wallpaper list: {0}"
-msgstr "Trocar o papel de parede ao iniciar"
+#: ../drapes/Main.cs:85
+msgid "Opening wallpaper list"
+msgstr ""
 
-#: ../drapes/Main.cs:148
+#: ../drapes/Main.cs:142
 #, csharp-format
 msgid "Wallpaper switch to: {0}"
 msgstr ""
 
-#: ../drapes/Main.cs:150
+#: ../drapes/Main.cs:144
 msgid "Wallpaper switch failed; No wallpapers?"
 msgstr ""
 
-#: ../drapes/Main.cs:192
+#: ../drapes/Main.cs:162
 msgid "Notified of shutdown"
 msgstr ""
 
-#: ../drapes/Main.cs:210
+#: ../drapes/Main.cs:176
 #, csharp-format
 msgid "Sorry unknow argument: {0}"
 msgstr ""
@@ -285,12 +281,12 @@ msgstr ""
 msgid "Never"
 msgstr ""
 
-#: ../drapes/Settings.cs:425
+#: ../drapes/Settings.cs:382
 #, csharp-format
 msgid "Cannot toggle autostart, reason: {0}"
 msgstr ""
 
-#: ../drapes/Settings.cs:499
+#: ../drapes/Settings.cs:413
 #, csharp-format
 msgid "Unknown GConf key: {0}"
 msgstr ""
@@ -305,82 +301,75 @@ msgstr ""
 msgid "Cannot create thumbnail for: {0}"
 msgstr ""
 
-#: ../drapes/WpList.cs:60 ../drapes/WpList.cs:150
+#: ../drapes/WpList.cs:57 ../drapes/WpList.cs:130
 #, csharp-format
 msgid "Monitor Directory: {0} dosen't exist"
 msgstr ""
 
-#: ../drapes/WpList.cs:65
+#: ../drapes/WpList.cs:61
 #, csharp-format
 msgid "Filesystem monitor on: {0} enabled"
 msgstr ""
 
-#: ../drapes/WpList.cs:97
+#: ../drapes/WpList.cs:96
 #, csharp-format
 msgid "File {0}, created"
 msgstr ""
 
-#: ../drapes/WpList.cs:110
+#: ../drapes/WpList.cs:103
 #, csharp-format
 msgid "File {0}, deleted"
 msgstr ""
 
-#: ../drapes/WpList.cs:116
+#: ../drapes/WpList.cs:107
 #, csharp-format
 msgid "Unknow file event {0}"
 msgstr ""
 
-#: ../drapes/WpList.cs:138
+#: ../drapes/WpList.cs:121
 msgid "Filesystem monitor disabled"
 msgstr ""
 
-#: ../drapes/WpList.cs:157
+#: ../drapes/WpList.cs:135
 #, csharp-format
 msgid "Changing monitor directory to: {0}"
 msgstr ""
 
-#: ../drapes/WpList.cs:170
+#: ../drapes/WpList.cs:144
 #, csharp-format
 msgid "No such file: {0}"
 msgstr ""
 
-#: ../drapes/WpList.cs:180
+#: ../drapes/WpList.cs:154
 #, csharp-format
 msgid "Unable to open file {0} because:"
 msgstr ""
 
-#: ../drapes/WpList.cs:234
+#: ../drapes/WpList.cs:207
 #, csharp-format
 msgid "Unknow element: {0}"
 msgstr ""
 
-#: ../drapes/WpList.cs:275
+#: ../drapes/WpList.cs:248
 msgid "Something bad happened last time, opening as far as we can..."
 msgstr ""
 
-#: ../drapes/WpList.cs:333
+#: ../drapes/WpList.cs:308
 #, csharp-format
 msgid "Wallpaper list file {0} saved"
 msgstr ""
 
-#: ../drapes/WpList.cs:480
+#: ../drapes/WpList.cs:455
 #, csharp-format
 msgid "Adding wallpaper file: {0}"
 msgstr ""
 
-#: ../drapes/WpList.cs:508
+#: ../drapes/WpList.cs:483
 #, csharp-format
 msgid "No such directory: {0}"
 msgstr ""
 
-#: ../drapes/WpList.cs:518
+#: ../drapes/WpList.cs:493
 #, csharp-format
 msgid "Parsing subdir {0}"
 msgstr ""
-
-#~ msgid "Select A File"
-#~ msgstr "Selecione um arquivo"
-
-#, fuzzy
-#~ msgid "Launch Desktop Drapes on login"
-#~ msgstr "Abrir Desktop Drapes ao iniciar o sistema"

@@ -1,397 +1,365 @@
-# Korean translation for drapes
-# Copyright (c) (c) 2006 Canonical Ltd, and Rosetta Contributors 2006
+# Persian translation for drapes
+# Copyright (c) 2007 Rosetta Contributors and Canonical Ltd 2007
 # This file is distributed under the same license as the drapes package.
-# FIRST AUTHOR <EMAIL@ADDRESS>, 2006.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2007.
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: drapes\n"
-"Report-Msgid-Bugs-To: \n"
+"Report-Msgid-Bugs-To: FULL NAME <EMAIL@ADDRESS>\n"
 "POT-Creation-Date: 2006-09-17 13:59-0400\n"
-"PO-Revision-Date: 2007-04-02 16:48+0000\n"
-"Last-Translator: atie <atie.at.matrix@gmail.com>\n"
-"Language-Team: Korean <ko@li.org>\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: Persian <fa@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "X-Launchpad-Export-Date: 2007-10-01 03:08+0000\n"
 "X-Generator: Launchpad (build Unknown)\n"
 
-#, fuzzy
-#~ msgid "Importing Gnome's background list: {0}"
-#~ msgstr "그놈 배경화면 목록 가져오기"
-
-#, fuzzy
-#~ msgid "Opening wallpaper list: {0}"
-#~ msgstr "배경화면 목록 열기"
-
-#, fuzzy
-#~ msgid "Launch Desktop Drapes on login"
-#~ msgstr "시작시 데스크탑 드레이프를 시작"
-
-#~ msgid "Centered"
-#~ msgstr "가운데"
-
-#~ msgid "Fill Screen"
-#~ msgstr "화면 채움"
-
-#~ msgid "Scaled"
-#~ msgstr "크기 조정"
-
-#~ msgid "Zoom"
-#~ msgstr "확대"
-
-#~ msgid "Tiled"
-#~ msgstr "타일"
-
-#~ msgid "Unknow column"
-#~ msgstr "알 수 없는 열"
-
 #: ../data/DrapesApplet.server.in.h:1 ../data/drapes.desktop.in.h:1
 #: ../data/drapes.glade.h:5
 msgid "Desktop Drapes"
-msgstr "데스크탑 드레이프"
+msgstr ""
 
 #: ../data/DrapesApplet.server.in.h:2
 msgid "Rotate desktop wallpapers"
-msgstr "데스크탑 배경화면 회전"
+msgstr ""
 
 #: ../data/DrapesApplet.xml.h:1
 msgid "_Preferences"
-msgstr "기본 설정(_P)"
+msgstr ""
 
 #: ../data/DrapesApplet.xml.h:2
 msgid "_Shuffle Periodicaly"
-msgstr "주기적으로 바꿈(_S)"
+msgstr ""
 
 #: ../data/DrapesApplet.xml.h:3 ../drapes/AppletWidget.cs:137
 msgid "_Switch"
-msgstr "변경(_S)"
+msgstr ""
 
 #: ../data/drapes.desktop.in.h:2
 msgid "Manage your desktop wallpapers"
-msgstr "데스크탑 배경화면 관리"
+msgstr ""
 
 #: ../data/drapes.glade.h:1
 msgid "<b>Startup options</b>"
-msgstr "<b>시작 선택사항</b>"
+msgstr ""
 
 #: ../data/drapes.glade.h:2
 msgid "<b>Timing selection</b>"
-msgstr "<b>시간조절 선택</b>"
+msgstr ""
 
 #: ../data/drapes.glade.h:3
 msgid "<b>Wallpaper search directory</b>"
-msgstr "<b>배경화면 검색 디렉토리</b>"
+msgstr ""
 
 #: ../data/drapes.glade.h:4
 msgid "Close"
-msgstr "닫기"
+msgstr ""
 
 #: ../data/drapes.glade.h:6
 msgid "Display"
-msgstr "보이기"
+msgstr ""
 
 #: ../data/drapes.glade.h:7
 msgid "General"
-msgstr "일반 설정"
+msgstr ""
 
 #: ../data/drapes.glade.h:8
 msgid "Monitor this directory for new wallpapers"
-msgstr "새로운 배경화면을 위하여 이 디렉토리를 감시"
+msgstr ""
 
 #: ../data/drapes.glade.h:9
 msgid "Select A File"
-msgstr "파일 선택"
+msgstr ""
 
 #: ../data/drapes.glade.h:10
 msgid "Start Desktop Drapes on start"
-msgstr "시작시 데스크탑 드레이프를 시작"
+msgstr ""
 
 #: ../data/drapes.glade.h:11
 msgid "Style: "
-msgstr "모양새: "
+msgstr ""
 
 #: ../data/drapes.glade.h:12 ../data/drapes.schemas.in.h:6
 msgid "Switch wallpaper on start"
-msgstr "시작시 배경화면 변경"
+msgstr ""
 
 #: ../data/drapes.schemas.in.h:1
 msgid "Allow drapes to periodicaly shuffle the wallpapers"
-msgstr "프로그램이 주기적으로 배경화면을 바꿀 수 있도록 허용합니다"
+msgstr ""
 
 #: ../data/drapes.schemas.in.h:2
 msgid "Directory to monitor"
-msgstr "지켜볼 디렉토리"
+msgstr ""
 
 #: ../data/drapes.schemas.in.h:3
 msgid "Monitor directory for new wallapers"
-msgstr "새로운 배경화면을 위하여 이 디렉토리를 지켜봄"
+msgstr ""
 
 #: ../data/drapes.schemas.in.h:4
 msgid ""
 "Monitor the specified directory using inotify for new wallpapers and changes."
-msgstr "새로운 배경화면과 변경이 있는지를 inotify를 사용하여 이 디렉토리를 지켜봄"
+msgstr ""
 
 #: ../data/drapes.schemas.in.h:5
 msgid ""
 "Possible values are 0: 5 min, 1: 10 min, 2: 15 min, 3: 20 min, 4: 30 min, 5: "
 "45 min, 6: 60 min, 7: 90 min, 8: 120min, 10: never."
 msgstr ""
-"가능한 값은 0: 5 분, 1: 10 분, 2: 15 분, 3: 20 분, 4: 30 분, 5: 45 분, 6: 60 분, 7: 90 "
-"분, 8: 120 분, 10: 없음 입니다."
 
 #: ../data/drapes.schemas.in.h:7
 msgid "The directory that is to be monitored for changes using inotify."
-msgstr "inotify를 사용하여 이 디렉토리의 변경이 있는지를 지켜봅니다."
+msgstr ""
 
 #: ../data/drapes.schemas.in.h:8
 msgid "This setting is used to tempoarly disable wallpaper switching"
-msgstr "이 설정은 배경화면을 바꾸는 것을 사용하지 않도록 임시적으로 사용됩니다."
+msgstr ""
 
 #: ../data/drapes.schemas.in.h:9
 msgid "Time delay between wallpaper changes"
-msgstr "배경화면 바꿈 간의 시간 지연"
+msgstr ""
 
 #: ../data/drapes.schemas.in.h:10
 msgid "When Drapes launches switch the wallpaper."
-msgstr "데스크탑 드레이프가 실행될 때 배경화면을 변경합니다."
+msgstr ""
 
 #: ../drapes/AppletWidget.cs:44
 msgid "Deskop Drapes, click to switch wallpaper"
-msgstr "데스크탑 드레이프, 배경화면을 변경하려면 클릭하세요"
+msgstr ""
 
 #: ../drapes/AppletWidget.cs:145
 msgid "Shuffle periodicaly"
-msgstr "주기적으로 바꿈"
+msgstr ""
 
 #: ../drapes/AppletWidget.cs:154
 msgid "Preferences"
-msgstr "기본 설정"
+msgstr ""
 
 #: ../drapes/AppletWidget.cs:162
 msgid "_Quit"
-msgstr "끝내기(_Q)"
+msgstr ""
 
 #: ../drapes/ConfigMenu.cs:75
 msgid "This option is only valid when using the notification tray"
-msgstr "이것은 알림 트레이를 사용할 때만 유효합니다"
+msgstr ""
 
 #: ../drapes/ConfigMenu.cs:112
 msgid "selection"
-msgstr "선택"
+msgstr ""
 
 #: ../drapes/ConfigMenu.cs:145
 msgid "Perfect fit"
-msgstr "완벽하게 맞음"
+msgstr ""
 
 #: ../drapes/ConfigMenu.cs:146
 msgid "Regular 4:3"
-msgstr "보통 4:3"
+msgstr ""
 
 #: ../drapes/ConfigMenu.cs:147
 msgid "Widescreen"
-msgstr "와이드스크린"
+msgstr ""
 
 #: ../drapes/ConfigMenu.cs:148
 msgid "Other"
-msgstr "기타"
+msgstr ""
 
 #: ../drapes/ConfigMenu.cs:150 ../drapes/ConfigMenu.cs:151
 #: ../drapes/ConfigMenu.cs:152 ../drapes/ConfigMenu.cs:153
 msgid "<i>No wallpapers present</i>"
-msgstr "<i>배경화면이 없음</i>"
+msgstr ""
 
 #: ../drapes/ConfigMenu.cs:275
 msgid "Add wallpaper"
-msgstr "배경화면 더하기"
+msgstr ""
 
 #: ../drapes/ConfigMenu.cs:295
 msgid "Images"
-msgstr "이미지"
+msgstr ""
 
 #: ../drapes/ConfigMenu.cs:296
 msgid "Directory"
-msgstr "디렉토리"
+msgstr ""
 
 #: ../drapes/ConfigMenu.cs:338
 msgid "Import type:"
-msgstr "가져오기 종류:"
+msgstr ""
 
 #: ../drapes/ConfigMenu.cs:460 ../drapes/ConfigMenu.cs:501
 msgid "Unknown column"
-msgstr "알 수 없는 열"
+msgstr ""
 
 #: ../drapes/ConfigMenu.cs:491
 #, csharp-format
 msgid "{0} x {1} pixels"
-msgstr "{0} x {1} 픽셀"
+msgstr ""
 
 #: ../drapes/ConfigMenu.cs:527
 #, csharp-format
 msgid "Switching wallpaper to: {0})"
-msgstr "배경화면 변경: {0}"
+msgstr ""
 
 #: ../drapes/ConfigMenu.cs:529
 #, csharp-format
 msgid "Not activating {0}, disabled"
-msgstr "{0} 활성화 안됨, 사용하지 않음"
+msgstr ""
 
 #: ../drapes/Main.cs:79
 msgid "Importing Gnome's background list"
-msgstr "그놈 배경화면 목록 가져오기"
+msgstr ""
 
 #: ../drapes/Main.cs:85
 msgid "Opening wallpaper list"
-msgstr "배경화면 목록 열기"
+msgstr ""
 
 #: ../drapes/Main.cs:142
 #, csharp-format
 msgid "Wallpaper switch to: {0}"
-msgstr "배경화면 변경: {0}"
+msgstr ""
 
 #: ../drapes/Main.cs:144
 msgid "Wallpaper switch failed; No wallpapers?"
-msgstr "배경화면 변경 실패함; 배경화면이 없음?"
+msgstr ""
 
 #: ../drapes/Main.cs:162
 msgid "Notified of shutdown"
-msgstr "종료의 통보"
+msgstr ""
 
 #: ../drapes/Main.cs:176
 #, csharp-format
 msgid "Sorry unknow argument: {0}"
-msgstr "알 수 없는 인자: {0}"
+msgstr ""
 
 #: ../drapes/Settings.cs:36
 msgid "5 minutes"
-msgstr "5 분"
+msgstr ""
 
 #: ../drapes/Settings.cs:38
 msgid "10 minutes"
-msgstr "10 분"
+msgstr ""
 
 #: ../drapes/Settings.cs:40
 msgid "15 minutes"
-msgstr "15 분"
+msgstr ""
 
 #: ../drapes/Settings.cs:42
 msgid "20 minutes"
-msgstr "20 분"
+msgstr ""
 
 #: ../drapes/Settings.cs:44
 msgid "30 minutes"
-msgstr "30 분"
+msgstr ""
 
 #: ../drapes/Settings.cs:46
 msgid "45 minutes"
-msgstr "45 분"
+msgstr ""
 
 #: ../drapes/Settings.cs:48
 msgid "1 hour"
-msgstr "1 시간"
+msgstr ""
 
 #: ../drapes/Settings.cs:50
 msgid "1 hour 30 minutes"
-msgstr "1 시간 30 분"
+msgstr ""
 
 #: ../drapes/Settings.cs:52
 msgid "2 hours"
-msgstr "2 시간"
+msgstr ""
 
 #: ../drapes/Settings.cs:55
 msgid "Never"
-msgstr "변경 안함"
+msgstr ""
 
 #: ../drapes/Settings.cs:382
 #, csharp-format
 msgid "Cannot toggle autostart, reason: {0}"
-msgstr "자동시작을 토글할 수 없음, 이유는: {0}"
+msgstr ""
 
 #: ../drapes/Settings.cs:413
 #, csharp-format
 msgid "Unknown GConf key: {0}"
-msgstr "알 수 없는 GConf 키: {0}"
+msgstr ""
 
 #: ../drapes/Wallpaper.cs:171
 #, csharp-format
 msgid "Cannot find file: {0}"
-msgstr "파일을 찾을 수 없음: {0}"
+msgstr ""
 
 #: ../drapes/Wallpaper.cs:367
 #, csharp-format
 msgid "Cannot create thumbnail for: {0}"
-msgstr "엄지그림을 만들 수 없음: {0}"
+msgstr ""
 
 #: ../drapes/WpList.cs:57 ../drapes/WpList.cs:130
 #, csharp-format
 msgid "Monitor Directory: {0} dosen't exist"
-msgstr "디렉토리 감시: {0} (은)는 없습니다."
+msgstr ""
 
 #: ../drapes/WpList.cs:61
 #, csharp-format
 msgid "Filesystem monitor on: {0} enabled"
-msgstr "파일시스템 감시: {0} 활성화됨"
+msgstr ""
 
 #: ../drapes/WpList.cs:96
 #, csharp-format
 msgid "File {0}, created"
-msgstr "파일 {0}, 만들어짐"
+msgstr ""
 
 #: ../drapes/WpList.cs:103
 #, csharp-format
 msgid "File {0}, deleted"
-msgstr "파일 {0}, 삭제됨"
+msgstr ""
 
 #: ../drapes/WpList.cs:107
 #, csharp-format
 msgid "Unknow file event {0}"
-msgstr "알 수 없는 파일 이벤트 {0}"
+msgstr ""
 
 #: ../drapes/WpList.cs:121
 msgid "Filesystem monitor disabled"
-msgstr "파일시스템 감시 비활성화됨"
+msgstr ""
 
 #: ../drapes/WpList.cs:135
 #, csharp-format
 msgid "Changing monitor directory to: {0}"
-msgstr "감시 디렉토리를 변경: {0}"
+msgstr ""
 
 #: ../drapes/WpList.cs:144
 #, csharp-format
 msgid "No such file: {0}"
-msgstr "파일이 없습니다: {0}"
+msgstr ""
 
 #: ../drapes/WpList.cs:154
 #, csharp-format
 msgid "Unable to open file {0} because:"
-msgstr "다음 이유로 파일 {0} (을)를 열 수 없습니다:"
+msgstr ""
 
 #: ../drapes/WpList.cs:207
 #, csharp-format
 msgid "Unknow element: {0}"
-msgstr "알 수 없는 요소: {0}"
+msgstr ""
 
 #: ../drapes/WpList.cs:248
 msgid "Something bad happened last time, opening as far as we can..."
-msgstr "지난 번에 오류가 있었습니다, 가능한 엽니다..."
+msgstr ""
 
 #: ../drapes/WpList.cs:308
 #, csharp-format
 msgid "Wallpaper list file {0} saved"
-msgstr "배경화면 목록 파일 {0} (이)가 저장됨"
+msgstr ""
 
 #: ../drapes/WpList.cs:455
 #, csharp-format
 msgid "Adding wallpaper file: {0}"
-msgstr "배경화면 파일 더하기: {0}"
+msgstr ""
 
 #: ../drapes/WpList.cs:483
 #, csharp-format
 msgid "No such directory: {0}"
-msgstr "디렉토리가 없습니다: {0}"
+msgstr ""
 
 #: ../drapes/WpList.cs:493
 #, csharp-format
 msgid "Parsing subdir {0}"
-msgstr "서브디렉토리 {0} 분석 중"
+msgstr ""
