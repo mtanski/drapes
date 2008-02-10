@@ -151,9 +151,9 @@ namespace Drapes
 			tvc.PackStart(tx, true);
 				
 			// Our custom column rendering function
-			tvc.SetCellDataFunc(tg, RenderList);
-			tvc.SetCellDataFunc(px, RenderList);
-			tvc.SetCellDataFunc(tx, RenderList);
+			tvc.SetCellDataFunc(tg, (Gtk.TreeCellDataFunc)RenderList);
+			tvc.SetCellDataFunc(px, (Gtk.TreeCellDataFunc)RenderList);
+			tvc.SetCellDataFunc(tx, (Gtk.TreeCellDataFunc)RenderList);
 			
 			// Just one column that everything is shoved into
 			tvBgList.AppendColumn(tvc);
