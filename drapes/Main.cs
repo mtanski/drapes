@@ -46,21 +46,14 @@ namespace Drapes {
 		internal static		Drapes.ConfigWindow		ConfigWindow;
 		// Panel/Tray applet
 		internal static		AppletStyle				AppletStyle;
-		private				Gnome.Program			Program;
-        private             Gnome.Client            Client;
 		
 		private DrapesApp(string[] args)
 		{
 			// Initialize the i18n bits
 			Catalog.Init("drapes", CompileOptions.GnomeLocaleDir);
 			
-			//
-            Program = new Gnome.Program("Drapes", CompileOptions.Version, Gnome.Modules.UI, args);
-            Program.AppPrefix = CompileOptions.Prefix;
+			Gtk.Application.Init("Drapes", ref args);
 
-            Client = new Gnome.Client();
-            Client.SaveYourself += Shutdown;
-			
 			// Load settings for us
 			Cfg = new Config.Settings();
 
@@ -100,7 +93,7 @@ namespace Drapes {
 			// tray Icon
 			if (AppletStyle == AppletStyle.APPLET_TRAY) {
 				new AppletWidget(AppletStyle, null);
-				this.Program.Run();
+				Gtk.Application.Run();
 			} else
 				_Gnome.PanelAppletFactory.Register(typeof (DrapesApplet));
 		}
@@ -187,14 +180,6 @@ namespace Drapes {
             new About();
         }
 
-        private void Shutdown(object sender, Gnome.SaveYourselfArgs args)
-        {
-            Console.WriteLine(Catalog.GetString("Notified of shutdown"));
-            
-            if (WpList != null)
-                WpList.SaveList(Config.Defaults.DrapesWallpaperList);
-        }
-	
 		private void ProcessArgs(string[] Args)
 		{
 			foreach (string cur in Args) {
