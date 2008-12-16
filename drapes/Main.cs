@@ -95,7 +95,7 @@ namespace Drapes {
 				new AppletWidget(AppletStyle, null);
 				Gtk.Application.Run();
 			} else
-				DrapesApplet.Run();
+				DrapesApplet.Run(ref args);
 		}
 		
 		static DateTime LastSwitch = DateTime.Now;

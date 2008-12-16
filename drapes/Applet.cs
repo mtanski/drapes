@@ -78,8 +78,11 @@ namespace Drapes
             DrapesApp.OpenHelp(null, this.Screen);
         }
 
-		public static void Run()
+		public static void Run(ref string[] args)
 		{
+			Gnome.Program p = new Gnome.Program("drapes",
+				CompileOptions.Version, Gnome.Modules.UI, args);
+			
 			Gnome.PanelAppletFactory.Register(typeof(DrapesApplet));
 		}
 	}
