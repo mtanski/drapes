@@ -50,13 +50,15 @@ AC_SUBST(CSC)
 
 dnl Gtk#
 
-GTKSHARP_REQUIRED=2.8
+GTKSHARP_REQUIRED=2.12
+GTKSHAR_PANEL_APPLET_REQUIRED=2.24
 PKG_CHECK_MODULES(GTKSHARP,
-	gtk-sharp-2.0 >= $GTKSHARP_REQUIRED \
-	gnome-sharp-2.0 >= $GTKSHARP_REQUIRED \
-	gnome-vfs-sharp-2.0 >= $GTKSHARP_REQUIRED \
-	glade-sharp-2.0 >= $GTKSHARP_REQUIRED \
-	gconf-sharp-2.0 >= $GTKSHARP_REQUIRED)
+	gtk-sharp-2.0           >= $GTKSHARP_REQUIRED \
+	gnome-sharp-2.0         >= $GTKSHARP_REQUIRED \
+	gnome-vfs-sharp-2.0     >= $GTKSHARP_REQUIRED \
+    gnome-panel-sharp-2.24  >= $GTKSHAR_PANEL_APPLET_REQUIRED \
+	glade-sharp-2.0         >= $GTKSHARP_REQUIRED \
+	gconf-sharp-2.0         >= $GTKSHARP_REQUIRED)
 AC_SUBST(GTKSHARP_LIBS)
 
 dnl Gconf

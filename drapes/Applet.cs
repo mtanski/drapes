@@ -19,20 +19,13 @@ Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA  02110-1301  USA
 */
 using System;
 using IO = System.IO;
-using System.Runtime.InteropServices;
-using Gtk;
-using Drapes;
-
-// thanks to Alex (of Tomboy fame) for creating the panelapplet custom bindings
-// that work right, it's much apreciated Alex :)
-using _Gnome;
 
 namespace Drapes
 {
-	public class DrapesApplet : PanelApplet
+	public class DrapesApplet : Gnome.PanelApplet
 	{
-		private AppletWidget		AppletIcon = null;
-		private BonoboUIVerb[]		MenuVerbs;
+		private AppletWidget			AppletIcon = null;
+		private Gnome.BonoboUIVerb[]	MenuVerbs = null;
 		
 		public DrapesApplet(IntPtr raw)
 			: base(raw)
@@ -60,14 +53,14 @@ namespace Drapes
 			Add(AppletIcon);
 			ShowAll();
 			
-			MenuVerbs = new BonoboUIVerb []
+			MenuVerbs = new []
 			{
-				new BonoboUIVerb("Switch", SwitchWallpaper),
-				new BonoboUIVerb("Shuffle", null),
-				new BonoboUIVerb("Preferences", ShowPreferences)
+				new Gnome.BonoboUIVerb("Switch", SwitchWallpaper),
+				new Gnome.BonoboUIVerb("Shuffle", null),
+				new Gnome.BonoboUIVerb("Preferences", ShowPreferences),
 			};
 
-			SetupMenuFromFile (XmlFile, MenuVerbs);
+			this.SetupMenu (XmlFile, MenuVerbs);
 		}
 
 		private void SwitchWallpaper()
@@ -84,5 +77,10 @@ namespace Drapes
         {
             DrapesApp.OpenHelp(null, this.Screen);
         }
+
+		public static void Run()
+		{
+			Gnome.PanelAppletFactory.Register(typeof(DrapesApplet));
+		}
 	}
 }

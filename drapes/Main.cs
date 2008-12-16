@@ -94,7 +94,7 @@ namespace Drapes {
 				new AppletWidget(AppletStyle, null);
 				Gtk.Application.Run();
 			} else
-				_Gnome.PanelAppletFactory.Register(typeof (DrapesApplet));
+				DrapesApplet.Run();
 		}
 		
 		static DateTime LastSwitch = DateTime.Now;
@@ -163,7 +163,6 @@ namespace Drapes {
             
             if (Cfg.Debug == true)
                 Console.WriteLine("Opening help file: ghelp:drapes");
-            
             try {
                 Gnome.Help.DisplayOnScreen("drapes", id, screen);
             } catch (Exception) {
@@ -199,3 +198,4 @@ namespace Drapes {
 		}
 	}
 }
+

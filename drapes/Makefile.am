@@ -2,10 +2,13 @@ TARGET = drapes.exe
 
 MCS_FLAGS = -debug 
 ASSEMBLIES = \
-	-r:System.Xml				\
-	-r:Mono.Posix				\
-	-pkg:gconf-sharp-2.0		\
-	-pkg:glade-sharp-2.0		\
+	-r:System.Xml					\
+	-r:Mono.Posix					\
+	-pkg:gconf-sharp-2.0			\
+	-pkg:glade-sharp-2.0			\
+	-pkg:gnome-sharp-2.0			\
+	-pkg:gnome-desktop-sharp-2.0	\
+	-pkg:gnome-panel-sharp-2.24		\
 	-pkg:gnome-vfs-sharp-2.0
 
 RESOURCES = \
@@ -21,7 +24,6 @@ AssemblyInfo.cs: $(srcdir)/AssemblyInfo.cs.in Makefile
 
 drapes_sources_in = $(srcdir)/AssemblyInfo.cs.in
 drapes_sources = \
-	$(srcdir)/panelapplet/*.cs			\
 	$(srcdir)/About.cs					\
 	$(srcdir)/Applet.cs					\
 	$(srcdir)/AppletWidget.cs			\
@@ -39,7 +41,7 @@ drapeslib_DATA = drapes.exe
 
 $(TARGET): $(drapes_build_sources) $(top_srcdir)/data/drapes.glade
 	$(CSC) $(MCS_FLAGS) $(ASSEMBLIES) $(RESOURCES)  \
-	-unsafe+ -target:exe -out:"$@" \
+	-target:exe -out:"$@" \
 	$(drapes_build_sources)
 
 EXTRA_DIST = $(drapes_build_sources) $(srcdir)/AssemblyInfo.cs.in
