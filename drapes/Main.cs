@@ -52,6 +52,7 @@ namespace Drapes {
 			Catalog.Init("drapes", CompileOptions.GnomeLocaleDir);
 			
 			Gtk.Application.Init("Drapes", ref args);
+			Vfs.Vfs.Initialize();
 
 			// Load settings for us
 			Cfg = new Config.Settings();
