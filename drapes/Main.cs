@@ -24,7 +24,6 @@ using Mono.Unix;
 using Gdk;
 using Gtk;
 using Vfs = Gnome.Vfs;
-using Egg;
 using Drapes;
 using Config = Drapes.Config;
 

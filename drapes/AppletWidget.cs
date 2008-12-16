@@ -20,7 +20,6 @@ Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA  02110-1301  USA
 using System;
 using Mono.Unix;
 using Gtk;
-using Egg;
 
 namespace Drapes
 {
@@ -32,13 +31,15 @@ namespace Drapes
 
 	public class AppletWidget : Gtk.EventBox
 	{
-		private Egg.TrayIcon		NotificationIcon;
+		private Gtk.StatusIcon		StatusIcon = null;
 		private AppletStyle			AppletStyle;
 		private Gtk.Image			Icon;
 		private Tooltips			Tooltips;
-        private Gnome.IconTheme     Theme = new Gnome.IconTheme();
+        private Gtk.IconTheme       Theme = new Gtk.IconTheme();
         //
         private int                 height;
+
+		private string				Tooltip = Catalog.GetString("Desktop Drapes, click to switch wallpaper");
         
 		public AppletWidget(AppletStyle style, int? size)
 		{
@@ -46,7 +47,6 @@ namespace Drapes
 			Tooltips = new Tooltips();
 			Tooltips.SetTip(this, Catalog.GetString("Deskop Drapes, click to switch wallpaper"), null);
 
-            Theme.AllowSvg = true;
             if (style == AppletStyle.APPLET_PANEL) {
                 height = 22;    // for now this always 22 since the gnome-panel lies to us, what an asshole
             } else {
@@ -54,8 +54,7 @@ namespace Drapes
             }
             
 			// Create the icon
-            int outsize;
-			Icon = new Image(new Gdk.Pixbuf(Theme.LookupIcon("drapes", height, Gnome.IconData.Zero, out outsize), height, height, true));
+			Icon = new Image(Theme.LoadIcon("drapes", height, Gtk.IconLookupFlags.UseBuiltin));
             Add(Icon);
 
 			// Set enabled status
@@ -76,9 +75,21 @@ namespace Drapes
 
 		private void CreateNotifyIcon()
 		{
-			NotificationIcon = new Egg.TrayIcon(Config.Defaults.ApplicationName);
-			NotificationIcon.Add(this);
-			NotificationIcon.ShowAll();
+			this.StatusIcon = new StatusIcon(Theme.LoadIcon("drapes", height, Gtk.IconLookupFlags.UseBuiltin));
+			this.StatusIcon.Tooltip = this.TooltipText;
+			
+			this.StatusIcon.PopupMenu += (object o, Gtk.PopupMenuArgs args) => {
+				Menu m = this.ShowPopupMenu();
+				m.ShowAll();
+				m.Popup();
+			};
+
+			this.StatusIcon.Activate += (object o, EventArgs args) => {
+				this.ToggleSwitch();
+			};
+			
+			this.StatusIcon.Visible = true;
+
 		}
         
 		public AppletStyle AppletType

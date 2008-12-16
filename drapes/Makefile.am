@@ -29,7 +29,6 @@ drapes_sources = \
 	$(srcdir)/ConfigMenu.cs				\
 	$(srcdir)/Main.cs					\
 	$(srcdir)/Settings.cs				\
-	$(srcdir)/Traylib.cs				\
 	$(srcdir)/Wallpaper.cs				\
 	$(srcdir)/WpList.cs
 
