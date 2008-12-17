@@ -30,5 +30,13 @@ namespace Drapes
             
             this.ShowAll();
         }
+
+		protected override void OnResponse(ResponseType response_id)
+		{
+			base.OnResponse (response_id);
+
+			if (response_id == ResponseType.Cancel)
+				this.Destroy();
+		}		
 	}
 }
